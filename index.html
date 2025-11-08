@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>China New Year 2026 Trip Planner</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+            padding: 40px 20px;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .subtitle {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .card h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        .card-content {
+            color: #333;
+            line-height: 1.8;
+        }
+
+        .placeholder {
+            background: #f5f5f5;
+            padding: 20px;
+            border-left: 4px solid #667eea;
+            border-radius: 4px;
+            color: #666;
+            font-style: italic;
+            margin: 15px 0;
+        }
+
+        .emoji {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+        }
+
+        .info-item {
+            margin: 15px 0;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .info-item:last-child {
+            border-bottom: none;
+        }
+
+        .label {
+            font-weight: bold;
+            color: #667eea;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .value {
+            color: #333;
+            margin-left: 10px;
+        }
+
+        footer {
+            text-align: center;
+            color: white;
+            padding: 30px 20px;
+            opacity: 0.8;
+        }
+
+        .status-badge {
+            display: inline-block;
+            background: #4CAF50;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            margin-left: 10px;
+        }
+
+        .status-badge.pending {
+            background: #ff9800;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            .card {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎉 China New Year 2026 Trip</h1>
+            <p class="subtitle">Complete Trip Planning & Itinerary</p>
+        </header>
+
+        <div class="grid">
+            <!-- Flights Card -->
+            <div class="card">
+                <h2><span class="emoji">✈️</span>Flights</h2>
+                <div class="card-content">
+                    <div class="info-item">
+                        <span class="label">Status:</span>
+                        <span class="value">Booked <span class="status-badge">Complete</span></span>
+                    </div>
+                    <div class="placeholder">
+                        Flight details have been added. Check the Flight folder for booking confirmations.
+                    </div>
+                    <div class="info-item">
+                        <span class="label">Documentation:</span>
+                        <div class="value" style="margin-top: 10px;">
+                            📁 <strong>Flight Booking Screenshots</strong>
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li>Screenshot_20251108_192906_Tripcom.jpg</li>
+                                <li>Screenshot_20251108_192913_Tripcom.jpg</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Accommodation Card -->
+            <div class="card">
+                <h2><span class="emoji">🏨</span>Accommodation</h2>
+                <div class="card-content">
+                    <div class="placeholder">
+                        Add details about your hotels, hostels, or accommodations here. Include:
+                        <ul style="margin-left: 20px; margin-top: 10px;">
+                            <li>Hotel names and addresses</li>
+                            <li>Check-in/check-out dates</li>
+                            <li>Booking confirmations</li>
+                            <li>Contact information</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Itinerary Card -->
+            <div class="card">
+                <h2><span class="emoji">📅</span>Itinerary</h2>
+                <div class="card-content">
+                    <div class="placeholder">
+                        Plan your daily activities and sightseeing. Include:
+                        <ul style="margin-left: 20px; margin-top: 10px;">
+                            <li>Day-by-day schedule</li>
+                            <li>Attractions to visit</li>
+                            <li>Travel times between locations</li>
+                            <li>Special events and celebrations</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dining Card -->
+            <div class="card">
+                <h2><span class="emoji">🍜</span>Dining</h2>
+                <div class="card-content">
+                    <div class="placeholder">
+                        Document restaurants and food experiences:
+                        <ul style="margin-left: 20px; margin-top: 10px;">
+                            <li>Restaurant recommendations</li>
+                            <li>Local specialties to try</li>
+                            <li>Reservation details</li>
+                            <li>Estimated costs</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Budget Card -->
+            <div class="card">
+                <h2><span class="emoji">💰</span>Budget</h2>
+                <div class="card-content">
+                    <div class="placeholder">
+                        Track your trip expenses:
+                        <ul style="margin-left: 20px; margin-top: 10px;">
+                            <li>Flight costs</li>
+                            <li>Accommodation expenses</li>
+                            <li>Activities and tours</li>
+                            <li>Food and dining</li>
+                            <li>Miscellaneous</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Practical Info Card -->
+            <div class="card">
+                <h2><span class="emoji">ℹ️</span>Practical Info</h2>
+                <div class="card-content">
+                    <div class="placeholder">
+                        Important travel information:
+                        <ul style="margin-left: 20px; margin-top: 10px;">
+                            <li>Visa requirements</li>
+                            <li>Travel insurance details</li>
+                            <li>Currency exchange rates</li>
+                            <li>Weather forecast</li>
+                            <li>Emergency contacts</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Transportation Card -->
+            <div class="card">
+                <h2><span class="emoji">🚆</span>Transportation</h2>
+                <div class="card-content">
+                    <div class="placeholder">
+                        Plan your getting around:
+                        <ul style="margin-left: 20px; margin-top: 10px;">
+                            <li>Airport transfers</li>
+                            <li>Train/bus tickets</li>
+                            <li>Local transport options</li>
+                            <li>Car rental information</li>
+                            <li>Taxi/ride-share apps</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Packing List Card -->
+            <div class="card">
+                <h2><span class="emoji">🧳</span>Packing List</h2>
+                <div class="card-content">
+                    <div class="placeholder">
+                        Remember to pack:
+                        <ul style="margin-left: 20px; margin-top: 10px;">
+                            <li>Documents (passport, visa, insurance)</li>
+                            <li>Clothing appropriate for weather</li>
+                            <li>Electronics and chargers</li>
+                            <li>Medications and toiletries</li>
+                            <li>Travel essentials</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Notes Card -->
+            <div class="card">
+                <h2><span class="emoji">📝</span>Notes</h2>
+                <div class="card-content">
+                    <div class="placeholder">
+                        Add any additional notes, reminders, or important information about your trip.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>📍 China New Year 2026 Adventure • Happy travels!</p>
+            <p style="font-size: 0.9em; margin-top: 10px;">Last updated: November 8, 2025</p>
+        </footer>
+    </div>
+</body>
+</html>
