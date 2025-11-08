@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Confirmations - China New Year 2026 Trip</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+            padding: 40px 20px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .breadcrumb {
+            font-size: 0.95em;
+            opacity: 0.9;
+        }
+
+        .breadcrumb a {
+            color: white;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .breadcrumb a:hover {
+            border-bottom: 1px solid white;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .booking-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .booking-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .booking-image-container {
+            position: relative;
+            overflow: hidden;
+            background: #f5f5f5;
+            height: 400px;
+            cursor: pointer;
+        }
+
+        .booking-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            padding: 10px;
+        }
+
+        .booking-card h2 {
+            color: #667eea;
+            padding: 20px 20px 10px;
+            font-size: 1.3em;
+            border-bottom: 2px solid #667eea;
+        }
+
+        .booking-card p {
+            color: #666;
+            padding: 15px 20px;
+            font-size: 0.95em;
+            line-height: 1.6;
+        }
+
+        .booking-footer {
+            padding: 15px 20px;
+            background: #f9f9f9;
+            border-top: 1px solid #eee;
+            display: flex;
+            gap: 10px;
+        }
+
+        .booking-footer a {
+            flex: 1;
+            padding: 10px;
+            text-align: center;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 0.9em;
+            transition: 0.3s;
+        }
+
+        .booking-footer a:hover {
+            background: #764ba2;
+        }
+
+        /* Modal for full image view */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            overflow: auto;
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background-color: #222;
+            padding: 20px;
+            border-radius: 8px;
+            max-width: 90%;
+            max-height: 90vh;
+            overflow: auto;
+            position: relative;
+        }
+
+        .modal-content img {
+            width: 100%;
+            height: auto;
+            max-height: 80vh;
+            object-fit: contain;
+        }
+
+        .modal-close {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            font-size: 2em;
+            font-weight: bold;
+            color: white;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .modal-close:hover {
+            color: #667eea;
+        }
+
+        .section-header {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .section-header h2 {
+            color: #667eea;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+
+        .section-header p {
+            color: #333;
+            line-height: 1.8;
+        }
+
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+            gap: 10px;
+        }
+
+        .nav-btn {
+            flex: 1;
+            padding: 12px 20px;
+            background: white;
+            color: #667eea;
+            border: 2px solid #667eea;
+            border-radius: 4px;
+            text-decoration: none;
+            text-align: center;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .nav-btn:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        .nav-btn.home {
+            background: #667eea;
+            color: white;
+        }
+
+        footer {
+            text-align: center;
+            color: white;
+            padding: 30px 20px;
+            opacity: 0.8;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8em;
+            }
+
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-buttons {
+                flex-direction: column;
+            }
+
+            .booking-image-container {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📸 Booking Confirmations</h1>
+            <p class="breadcrumb"><a href="index.html">Home</a> > <a href="flights.html">Flights</a> > Bookings</p>
+        </header>
+
+        <div class="section-header">
+            <h2>Flight Booking Images</h2>
+            <p>Below are the original booking confirmations from Trip.com. Click on any image to view it in full size.</p>
+        </div>
+
+        <div class="gallery">
+            <!-- Outbound Flight Booking -->
+            <div class="booking-card">
+                <h2>✈️ Outbound Flight</h2>
+                <p><strong>Date:</strong> December 25, 2025<br/>
+                   <strong>Route:</strong> Bangkok → Guangzhou → Hangzhou<br/>
+                   <strong>Duration:</strong> 8h 10m<br/>
+                   <strong>Status:</strong> ✅ Booked</p>
+                <div class="booking-image-container" onclick="openModal('Flight/Screenshot_20251108_192906_Tripcom.jpg')">
+                    <img src="Flight/Screenshot_20251108_192906_Tripcom.jpg" alt="Outbound Flight Booking">
+                </div>
+                <div class="booking-footer">
+                    <a href="flights.html">Flight Details</a>
+                    <a href="Flight/Flight_1_Outbound.md">Full Info (MD)</a>
+                </div>
+            </div>
+
+            <!-- Return Flight Booking -->
+            <div class="booking-card">
+                <h2>✈️ Return Flight</h2>
+                <p><strong>Date:</strong> January 2-4, 2026<br/>
+                   <strong>Route:</strong> Shanghai → Guangzhou → Bangkok<br/>
+                   <strong>Duration:</strong> 29h 15m<br/>
+                   <strong>Status:</strong> ✅ Booked</p>
+                <div class="booking-image-container" onclick="openModal('Flight/Screenshot_20251108_192913_Tripcom.jpg')">
+                    <img src="Flight/Screenshot_20251108_192913_Tripcom.jpg" alt="Return Flight Booking">
+                </div>
+                <div class="booking-footer">
+                    <a href="flights.html">Flight Details</a>
+                    <a href="Flight/Flight_2_Return.md">Full Info (MD)</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal for full image view -->
+        <div id="imageModal" class="modal">
+            <div class="modal-content">
+                <span class="modal-close" onclick="closeModal()">&times;</span>
+                <img id="modalImage" src="" alt="Full view">
+            </div>
+        </div>
+
+        <div class="nav-buttons">
+            <a href="flights.html" class="nav-btn">← Flights</a>
+            <a href="index.html" class="nav-btn home">Home</a>
+        </div>
+
+        <footer>
+            <p>📍 China New Year 2026 Adventure • Happy travels!</p>
+        </footer>
+    </div>
+
+    <script>
+        function openModal(imagePath) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            modal.classList.add('active');
+            modalImg.src = imagePath;
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('imageModal');
+            modal.classList.remove('active');
+        }
+
+        // Close modal when clicking outside the image
+        window.onclick = function(event) {
+            const modal = document.getElementById('imageModal');
+            if (event.target == modal) {
+                modal.classList.remove('active');
+            }
+        }
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>

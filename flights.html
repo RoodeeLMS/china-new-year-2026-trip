@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flights - China New Year 2026 Trip</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+            padding: 40px 20px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .breadcrumb {
+            font-size: 0.95em;
+            opacity: 0.9;
+        }
+
+        .breadcrumb a {
+            color: white;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .breadcrumb a:hover {
+            border-bottom: 1px solid white;
+        }
+
+        .card {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            margin-bottom: 25px;
+        }
+
+        .card h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        .card h3 {
+            color: #764ba2;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .flight-leg {
+            background: #f9f9f9;
+            padding: 15px;
+            border-left: 4px solid #667eea;
+            border-radius: 4px;
+            margin: 15px 0;
+        }
+
+        .flight-leg strong {
+            color: #667eea;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .leg-detail {
+            margin: 8px 0;
+            color: #333;
+            font-size: 0.95em;
+        }
+
+        .leg-detail span {
+            color: #666;
+            font-style: italic;
+        }
+
+        .warning {
+            background: #fff3cd;
+            border-left: 4px solid #ff9800;
+            padding: 15px;
+            border-radius: 4px;
+            margin: 15px 0;
+            color: #d32f2f;
+        }
+
+        .warning strong {
+            color: #d32f2f;
+        }
+
+        .status-badge {
+            display: inline-block;
+            background: #4CAF50;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            margin-left: 10px;
+        }
+
+        .links {
+            background: #e3f2fd;
+            padding: 15px;
+            border-radius: 4px;
+            margin: 15px 0;
+        }
+
+        .links a {
+            display: inline-block;
+            color: #667eea;
+            text-decoration: none;
+            margin-right: 15px;
+            padding: 8px 12px;
+            border: 1px solid #667eea;
+            border-radius: 4px;
+            transition: 0.3s;
+        }
+
+        .links a:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+            gap: 10px;
+        }
+
+        .nav-btn {
+            flex: 1;
+            padding: 12px 20px;
+            background: white;
+            color: #667eea;
+            border: 2px solid #667eea;
+            border-radius: 4px;
+            text-decoration: none;
+            text-align: center;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .nav-btn:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        .nav-btn.home {
+            background: #667eea;
+            color: white;
+        }
+
+        footer {
+            text-align: center;
+            color: white;
+            padding: 30px 20px;
+            opacity: 0.8;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8em;
+            }
+
+            .card {
+                padding: 20px;
+            }
+
+            .nav-buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>✈️ Flights</h1>
+            <p class="breadcrumb"><a href="index.html">Home</a> > Flights</p>
+        </header>
+
+        <div class="card">
+            <h2>Flight Status <span class="status-badge">Complete</span></h2>
+            <p style="color: #333; margin-bottom: 15px;">All flights are booked and confirmed. Below are the complete flight details for your China New Year 2026 trip.</p>
+        </div>
+
+        <div class="card">
+            <h2>🔴 Outbound Flight</h2>
+            <h3>December 25, 2025</h3>
+            <p style="color: #666; margin-bottom: 15px;"><strong>Route:</strong> Bangkok (BKK) → Hangzhou (HGH)</p>
+            <p style="color: #666; margin-bottom: 15px;"><strong>Total Duration:</strong> 8h 10m</p>
+
+            <h3 style="margin-top: 20px; color: #667eea; font-size: 1.1em;">Leg 1: Bangkok to Guangzhou</h3>
+            <div class="flight-leg">
+                <strong>02:10 BKK → 06:05 CAN</strong>
+                <div class="leg-detail">Duration: <span>2h 55m</span></div>
+                <div class="leg-detail">Airline: <span>China Southern Airlines CZ3036</span></div>
+                <div class="leg-detail">Class: <span>Economy</span></div>
+                <div class="leg-detail">Service: <span>Snacks</span></div>
+            </div>
+
+            <h3 style="margin-top: 20px; color: #667eea; font-size: 1.1em;">Transfer in Guangzhou</h3>
+            <div class="flight-leg">
+                <strong>Guangzhou Baiyun International Airport (CAN)</strong>
+                <div class="leg-detail">Transfer Time: <span>3h 5m</span></div>
+                <div class="leg-detail">Terminal: <span>T2</span></div>
+                <div class="leg-detail">✓ <span>No need to collect & re-check baggage</span></div>
+            </div>
+
+            <h3 style="margin-top: 20px; color: #667eea; font-size: 1.1em;">Leg 2: Guangzhou to Hangzhou</h3>
+            <div class="flight-leg">
+                <strong>09:10 CAN → 11:20 HGH</strong>
+                <div class="leg-detail">Duration: <span>2h 10m</span></div>
+                <div class="leg-detail">Airline: <span>China Southern Airlines CZ3803</span></div>
+                <div class="leg-detail">Class: <span>Economy</span></div>
+                <div class="leg-detail">Service: <span>Meal</span></div>
+            </div>
+
+            <div class="links" style="margin-top: 20px;">
+                <strong>📄 Documentation:</strong><br/>
+                <a href="Flight/Flight_1_Outbound.md">Full Flight Details (MD)</a>
+                <a href="bookings.html">View Booking Screenshots</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>🔴 Return Flight</h2>
+            <h3>January 2-4, 2026</h3>
+            <p style="color: #666; margin-bottom: 15px;"><strong>Route:</strong> Hangzhou (HGH) → Bangkok (BKK)</p>
+            <p style="color: #666; margin-bottom: 15px;"><strong>Total Duration:</strong> 29h 15m</p>
+
+            <div class="warning">
+                <strong>⚠️ Important:</strong> This return journey includes an overnight transfer of 23+ hours in Guangzhou. Plan accordingly and consider booking airport accommodation or a hotel near the terminal.
+            </div>
+
+            <h3 style="margin-top: 20px; color: #667eea; font-size: 1.1em;">Leg 1: Shanghai to Guangzhou</h3>
+            <div class="flight-leg">
+                <strong>January 2, 20:50 SHA → 23:30 CAN</strong>
+                <div class="leg-detail">Duration: <span>2h 40m</span></div>
+                <div class="leg-detail">Airline: <span>China Southern Airlines CZ3546</span></div>
+                <div class="leg-detail">Class: <span>Economy</span></div>
+                <div class="leg-detail">Service: <span>Snacks</span></div>
+            </div>
+
+            <h3 style="margin-top: 20px; color: #667eea; font-size: 1.1em;">Overnight Transfer in Guangzhou</h3>
+            <div class="flight-leg" style="border-left-color: #ff9800;">
+                <strong style="color: #ff9800;">⚠️ Guangzhou Baiyun International Airport (CAN)</strong>
+                <div class="leg-detail">Transfer Time: <span>23h 30m (OVERNIGHT)</span></div>
+                <div class="leg-detail">Arrival: <span>Jan 2 @ 23:30</span></div>
+                <div class="leg-detail">Departure: <span>Jan 3 @ 23:00</span></div>
+                <div class="leg-detail">Terminal: <span>T2</span></div>
+                <div class="leg-detail">✓ <span>No need to collect & re-check baggage</span></div>
+                <div class="leg-detail" style="margin-top: 10px; color: #d32f2f;"><strong>Recommendation:</strong> <span>Book a hotel near the airport or use airport lounge services</span></div>
+            </div>
+
+            <h3 style="margin-top: 20px; color: #667eea; font-size: 1.1em;">Leg 2: Guangzhou to Bangkok</h3>
+            <div class="flight-leg">
+                <strong>January 3, 23:00 CAN → January 4, 01:05 BKK</strong>
+                <div class="leg-detail">Duration: <span>3h 5m</span></div>
+                <div class="leg-detail">Airline: <span>China Southern Airlines CZ3035</span></div>
+                <div class="leg-detail">Class: <span>Economy</span></div>
+                <div class="leg-detail">Service: <span>Snacks</span></div>
+            </div>
+
+            <div class="links" style="margin-top: 20px;">
+                <strong>📄 Documentation:</strong><br/>
+                <a href="Flight/Flight_2_Return.md">Full Flight Details (MD)</a>
+                <a href="bookings.html">View Booking Screenshots</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>🎫 Booking References</h2>
+            <p style="color: #333; margin-bottom: 15px;">All booking confirmations and detailed flight information are available in the following files:</p>
+            <ul style="margin-left: 20px; color: #333; line-height: 2;">
+                <li><strong>Flight_1_Outbound.md</strong> - Detailed information for December 25 flights</li>
+                <li><strong>Flight_2_Return.md</strong> - Detailed information for January 2-4 flights</li>
+                <li><strong>Trip.com Booking Screenshots</strong> - Original booking confirmations</li>
+            </ul>
+            <div class="links" style="margin-top: 20px;">
+                <a href="Flight/Flight_1_Outbound.md">Outbound Details</a>
+                <a href="Flight/Flight_2_Return.md">Return Details</a>
+                <a href="bookings.html">View Booking Images</a>
+            </div>
+        </div>
+
+        <div class="nav-buttons">
+            <a href="index.html" class="nav-btn home">← Home</a>
+            <a href="accommodation.html" class="nav-btn">Accommodation →</a>
+        </div>
+
+        <footer>
+            <p>📍 China New Year 2026 Adventure • Happy travels!</p>
+        </footer>
+    </div>
+</body>
+</html>
