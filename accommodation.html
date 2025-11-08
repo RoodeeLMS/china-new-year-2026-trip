@@ -74,39 +74,119 @@
 
         .card h2 {
             color: #667eea;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
             font-size: 1.8em;
             border-bottom: 3px solid #667eea;
             padding-bottom: 10px;
         }
 
-        .placeholder-content {
-            background: #f5f5f5;
-            padding: 30px;
-            border-left: 4px solid #667eea;
-            border-radius: 4px;
+        .location-section {
+            margin-bottom: 35px;
+            border-radius: 10px;
+            overflow: hidden;
+            background: white;
+        }
+
+        .location-header {
+            padding: 20px;
+            color: white;
+            font-size: 1.3em;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .location-section.hangzhou .location-header { background: linear-gradient(135deg, #FF6B6B 0%, #FF8E8E 100%); }
+        .location-section.suzhou .location-header { background: linear-gradient(135deg, #4ECDC4 0%, #45B8AC 100%); }
+        .location-section.shanghai .location-header { background: linear-gradient(135deg, #FFE66D 0%, #FFD43B 100%); color: #333; }
+        .location-section.guangzhou .location-header { background: linear-gradient(135deg, #95E1D3 0%, #7AD4C1 100%); color: #333; }
+        .location-section.mountain .location-header { background: linear-gradient(135deg, #9B87FF 0%, #7B68EE 100%); }
+
+        .hotel-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+            padding: 20px;
+        }
+
+        .hotel-card {
+            background: white;
+            border-radius: 8px;
+            padding: 18px;
+            border: 1px solid #e0e0e0;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .hotel-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+            border-color: #667eea;
+        }
+
+        .hotel-card h4 {
+            color: #333;
+            margin-bottom: 8px;
+            font-size: 1.05em;
+        }
+
+        .hotel-card p {
             color: #666;
-            line-height: 1.8;
+            font-size: 0.9em;
+            line-height: 1.6;
+            margin: 8px 0;
         }
 
-        .placeholder-content h3 {
+        .hotel-card .stars {
+            color: #FFB800;
+            font-size: 0.95em;
+        }
+
+        .hotel-card .price {
             color: #667eea;
-            margin-top: 20px;
-            margin-bottom: 10px;
-            font-size: 1.1em;
-        }
-
-        .placeholder-content h3:first-child {
-            margin-top: 0;
-        }
-
-        .placeholder-content ul {
-            margin-left: 20px;
+            font-weight: bold;
+            font-size: 0.95em;
             margin-top: 10px;
         }
 
-        .placeholder-content li {
-            margin: 8px 0;
+        .urgent-box {
+            background: linear-gradient(135deg, #FFE5E5 0%, #FFD4D4 100%);
+            border-left: 5px solid #FF6B6B;
+            padding: 18px;
+            margin: 20px;
+            border-radius: 6px;
+            color: #333;
+        }
+
+        .urgent-box h3 {
+            color: #FF6B6B;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .tips-box {
+            background: linear-gradient(135deg, #E8F5E9 0%, #D4EDDA 100%);
+            border-left: 5px solid #4CAF50;
+            padding: 18px;
+            margin: 20px;
+            border-radius: 6px;
+            color: #333;
+        }
+
+        .tips-box h3 {
+            color: #2E7D32;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .tips-box ul {
+            margin-left: 20px;
+        }
+
+        .tips-box li {
+            margin: 6px 0;
+            color: #333;
         }
 
         .nav-buttons {
@@ -178,6 +258,7 @@
                 <a href="transportation.html" class="navbar-item">Transport</a>
                 <a href="packing.html" class="navbar-item">Packing</a>
                 <a href="bookings.html" class="navbar-item">Bookings</a>
+                <a href="ai-reviews.html" class="navbar-item">AI Reviews</a>
             </div>
         </div>
     </nav>
@@ -189,81 +270,183 @@
         </header>
 
         <div class="card">
-            <h2>Hotel & Lodging Details</h2>
-            <div class="placeholder-content">
-                <p>Add details about your hotels, hostels, or accommodations here.</p>
+            <h2>🏨 Hotel & Lodging Details</h2>
 
-                <h3>Information to Include:</h3>
-                <ul>
-                    <li>Hotel names and full addresses</li>
-                    <li>Check-in and check-out dates</li>
-                    <li>Room types and amenities</li>
-                    <li>Booking confirmations and reference numbers</li>
-                    <li>Contact information and phone numbers</li>
-                    <li>Cost per night and total accommodation budget</li>
-                    <li>Distance from attractions and transport</li>
-                    <li>Check-in/check-out procedures</li>
-                </ul>
+            <!-- Hangzhou Section -->
+            <div class="location-section hangzhou">
+                <div class="location-header">🏨 Hangzhou (Dec 25 - Jan 2) - West Lake Area</div>
+                <div class="hotel-grid">
+                    <div class="hotel-card">
+                        <h4>Four Seasons Hotel Hangzhou at West Lake</h4>
+                        <span class="stars">★★★★★ Luxury</span>
+                        <p>Stunning lake views with spa and fine dining (Jin Sha Restaurant). Direct lake access - perfect base for exploring West Lake attractions.</p>
+                        <div class="price">$150-250/night</div>
+                    </div>
+                    <div class="hotel-card">
+                        <h4>Grand Hyatt Hangzhou</h4>
+                        <span class="stars">★★★★★ Upscale</span>
+                        <p>Contemporary waterfront design with multiple restaurants including 28 HuBin. Panoramic lake views, near Lingyin Temple and attractions.</p>
+                        <div class="price">$120-200/night</div>
+                    </div>
+                    <div class="hotel-card">
+                        <h4>West Lake State Guesthouse</h4>
+                        <span class="stars">★★★★ Historic</span>
+                        <p>Prestigious lakeside property with traditional Chinese aesthetics. Elegant rooms and excellent service in a historic setting.</p>
+                        <div class="price">$100-150/night</div>
+                    </div>
+                    <div class="hotel-card">
+                        <h4>Sofitel Hangzhou Qiantang</h4>
+                        <span class="stars">★★★★ Luxury</span>
+                        <p>French-managed hotel with high-quality amenities and service standards. Good value for luxury experience.</p>
+                        <div class="price">$110-180/night</div>
+                    </div>
+                    <div class="hotel-card">
+                        <h4>Budget-Friendly Options</h4>
+                        <span class="stars">★★★ Value</span>
+                        <p>Holiday Inn, Novotel, ibis - reliable international chains with good value near West Lake area.</p>
+                        <div class="price">$60-100/night</div>
+                    </div>
+                </div>
+            </div>
 
-                <h3>Accommodation Timeline:</h3>
-                <ul>
-                    <li><strong>December 25:</strong> Arrival in Hangzhou (11:20 AM)</li>
-                    <li><strong>December 25 - January 2:</strong> Main stay in Hangzhou (7-8 nights)</li>
-                    <li><strong>January 2-3:</strong> Transit night (overnight in Guangzhou between flights)</li>
-                    <li><strong>January 3:</strong> Return journey (23:00 departure from Guangzhou)</li>
-                </ul>
+            <!-- Mountain Section -->
+            <div class="location-section mountain">
+                <div class="location-header">⛰️ Huangling & Wangxiangu (Dec 27-29) - Mountain Villages</div>
+                <div class="hotel-grid">
+                    <div class="hotel-card">
+                        <h4>Local Mountain Guesthouses</h4>
+                        <span class="stars">★★ Authentic</span>
+                        <p>Family guesthouses (家庭旅馆) and small inns offer authentic mountain experience. Basic amenities but immersive local living.</p>
+                        <div class="price">$30-50/night</div>
+                    </div>
+                    <div class="hotel-card">
+                        <h4>Hui Style Inns</h4>
+                        <span class="stars">★★★ Cultural</span>
+                        <p>Traditional Huizhou architecture guesthouses. Experience cultural heritage and local cuisine in historic settings.</p>
+                        <div class="price">$50-80/night</div>
+                    </div>
+                </div>
+                <div class="urgent-box">
+                    <h3>⚠️ Important Note</h3>
+                    <p>Limited luxury options in mountain villages. Book well in advance. Research specific villages (Huangling, Wangxiangu) for current availability before committing.</p>
+                </div>
+            </div>
 
-                <h3>🏨 Recommended Hotels by Location:</h3>
+            <!-- Suzhou Section -->
+            <div class="location-section suzhou">
+                <div class="location-header">🏯 Suzhou (Dec 29-30) - Historic District</div>
+                <div class="hotel-grid">
+                    <div class="hotel-card">
+                        <h4>Sheraton Suzhou</h4>
+                        <span class="stars">★★★★ Luxury</span>
+                        <p>Excellent service and amenities. Central location near classical gardens and historic old town.</p>
+                        <div class="price">$100-150/night</div>
+                    </div>
+                    <div class="hotel-card">
+                        <h4>Hilton Suzhou</h4>
+                        <span class="stars">★★★★ Quality</span>
+                        <p>High-quality international chain. Strong reputation for comfort and reliability at good value.</p>
+                        <div class="price">$90-140/night</div>
+                    </div>
+                    <div class="hotel-card">
+                        <h4>Garden View Hotel</h4>
+                        <span class="stars">★★★★ Boutique</span>
+                        <p>Unique experience near UNESCO classical gardens. Traditional garden aesthetics and atmosphere.</p>
+                        <div class="price">$80-130/night</div>
+                    </div>
+                    <div class="hotel-card">
+                        <h4>Pingjiang Road Guesthouses</h4>
+                        <span class="stars">★★★ Authentic</span>
+                        <p>Small inns and boutiques in historic Pingjiang Road. Authentic old-town experience with local flavor and character.</p>
+                        <div class="price">$70-110/night</div>
+                    </div>
+                </div>
+            </div>
 
-                <h4>Hangzhou (Dec 25 - Jan 2) - West Lake Area:</h4>
-                <ul>
-                    <li><strong>Four Seasons Hotel Hangzhou at West Lake:</strong> Luxury 5-star property with stunning lake views. Features spa, fine dining (Jin Sha Restaurant), and direct lake access. Perfect base for exploring West Lake attractions.</li>
-                    <li><strong>Grand Hyatt Hangzhou:</strong> Upscale waterfront hotel with contemporary design. Multiple restaurants including 28 HuBin with panoramic lake views. Excellent location near Lingyin Temple and West Lake.</li>
-                    <li><strong>West Lake State Guesthouse (西湖国宾馆):</strong> Historic and prestigious property with elegant rooms and excellent service. Lakeside location with traditional Chinese aesthetics.</li>
-                    <li><strong>Sofitel Hangzhou Qiantang:</strong> Luxury French-managed hotel with high-quality amenities and strong service standards. Good value for luxury experience.</li>
-                    <li><strong>Budget-Friendly Options:</strong> Holiday Inn, Novotel, ibis - reliable chains with good value near West Lake area</li>
-                </ul>
+            <!-- Shanghai Section -->
+            <div class="location-section shanghai">
+                <div class="location-header">🌆 Shanghai (Dec 30 - Jan 2) - City Center</div>
+                <div class="hotel-grid">
+                    <div class="hotel-card">
+                        <h4>The Bund Luxury Hotels</h4>
+                        <span class="stars">★★★★★ Premium</span>
+                        <p>Peninsula, Waldorf Astoria, Fairmont Peace Hotel - waterfront River Huangpu views. Perfect for NYE celebration with premium experience.</p>
+                        <div class="price">$200-400/night</div>
+                    </div>
+                    <div class="hotel-card">
+                        <h4>Jing'an District Hotels</h4>
+                        <span class="stars">★★★★ Upscale</span>
+                        <p>Shangri-La, Marriott, and luxury hotels in trendy shopping and dining district. Excellent for exploring modern Shanghai.</p>
+                        <div class="price">$120-200/night</div>
+                    </div>
+                    <div class="hotel-card">
+                        <h4>Puxi Hotels</h4>
+                        <span class="stars">★★★ Convenient</span>
+                        <p>Convenient access to People's Square, shopping districts, and traditional neighborhoods. Good value and central location.</p>
+                        <div class="price">$80-150/night</div>
+                    </div>
+                    <div class="hotel-card">
+                        <h4>Budget-Friendly Options</h4>
+                        <span class="stars">★★★ Value</span>
+                        <p>Reliable 3-4 star hotels available at reasonable rates in Huangpu and Jing'an districts for savvy travelers.</p>
+                        <div class="price">$70-120/night</div>
+                    </div>
+                </div>
+            </div>
 
-                <h4>Huangling & Wangxiangu (Dec 27-29) - Mountain Area:</h4>
-                <ul>
-                    <li><strong>Local Mountain Guesthouses:</strong> For authentic experience, consider local 家庭旅馆 (family guesthouses) or small inns in mountain towns. More basic amenities but immersive experience.</li>
-                    <li><strong>Hui Style Inns:</strong> Traditional Huizhou architecture guesthouses offering cultural experience and local cuisine.</li>
-                    <li><strong>⚠️ Important Note:</strong> Limited luxury options in mountain villages. Book well in advance. Research specific villages (Huangling, Wangxiangu) for current availability.</li>
-                </ul>
+            <!-- Guangzhou Section - CRITICAL -->
+            <div class="location-section guangzhou">
+                <div class="location-header">🚨 Guangzhou (Jan 2-3) - CRITICAL OVERNIGHT TRANSFER</div>
+                <div class="urgent-box">
+                    <h3>⚠️ URGENT: YOU MUST BOOK ACCOMMODATION</h3>
+                    <p>Return flight arrives 23:30 on Jan 2, departs 23:00 on Jan 3. You have approximately 23.5 hours in Guangzhou. Flight overlap requires hotel stay between arrivals!</p>
+                </div>
+                <div class="hotel-grid">
+                    <div class="hotel-card">
+                        <h4>White Swan Hotel</h4>
+                        <span class="stars">★★★★ Premium</span>
+                        <p>Pearl River views with excellent location. Good for overnight stay. Central position allows day exploration if desired.</p>
+                        <div class="price">$80-130/night</div>
+                    </div>
+                    <div class="hotel-card">
+                        <h4>Dong Fang Hotel</h4>
+                        <span class="stars">★★★ Central</span>
+                        <p>Central location near restaurants and attractions. Good Cantonese dining options and city access.</p>
+                        <div class="price">$60-100/night</div>
+                    </div>
+                    <div class="hotel-card">
+                        <h4>Liuhua Hotel</h4>
+                        <span class="stars">★★★ Metro Access</span>
+                        <p>Near metro for convenient city exploration. Reliable service and reasonable rates for business travelers.</p>
+                        <div class="price">$50-80/night</div>
+                    </div>
+                    <div class="hotel-card">
+                        <h4>Airport Hotels</h4>
+                        <span class="stars">★★★ Convenient</span>
+                        <p>Hotels near Guangzhou Baiyun International Airport. Convenient if you prefer rest over exploration (20-30 min from city).</p>
+                        <div class="price">$60-100/night</div>
+                    </div>
+                </div>
+                <div class="tips-box">
+                    <h3>⭐ Pro Tips for Guangzhou Stay</h3>
+                    <ul>
+                        <li>Book a hotel near metro for easy access and cost savings</li>
+                        <li>Consider spending day exploring Guangzhou before evening flight</li>
+                        <li>Don't miss Tao Tao Ju dim sum for breakfast (local specialty)</li>
+                        <li>Use WeChat/Alipay for all payments in the city</li>
+                        <li>Leave luggage at hotel if exploring; most accept day storage</li>
+                    </ul>
+                </div>
+            </div>
 
-                <h4>Suzhou (Dec 29-30) - Historic District:</h4>
-                <ul>
-                    <li><strong>Sheraton Suzhou:</strong> Luxury business hotel with excellent service and amenities. Central location near gardens and old town.</li>
-                    <li><strong>Hilton Suzhou:</strong> High-quality international chain with strong reputation. Good value for comfort and reliability.</li>
-                    <li><strong>Garden View Hotel:</strong> Boutique hotel near classical gardens (UNESCO sites). Unique experience with traditional garden aesthetics.</li>
-                    <li><strong>Pingjiang Road Guesthouses:</strong> Small inns and boutique hotels in historic Pingjiang Road district - authentic old-town experience with local flavor.</li>
-                </ul>
-
-                <h4>Shanghai (Dec 30 - Jan 2) - City Center:</h4>
-                <ul>
-                    <li><strong>The Bund Hotels (Luxury):</strong> Peninsula Shanghai, Waldorf Astoria Shanghai, Fairmont Peace Hotel - premium waterfront location with River Huangpu views, ideal for NYE celebration.</li>
-                    <li><strong>Jing'an District Hotels:</strong> Shangri-La, Marriott, luxury hotels in trendy shopping and dining district.</li>
-                    <li><strong>Puxi Hotels:</strong> Convenient for accessing People's Square, shopping districts, traditional neighborhoods.</li>
-                    <li><strong>Budget-Friendly Options:</strong> Many reliable 3-4 star hotels available at reasonable rates in Huangpu and Jing'an districts.</li>
-                </ul>
-
-                <h4>Guangzhou (Jan 2-3) - CRITICAL OVERNIGHT TRANSFER:</h4>
-                <ul>
-                    <li><strong>⚠️ URGENT:</strong> Your return flight arrives 23:30 on Jan 2, departs 23:00 on Jan 3. You have approximately 23.5 hours in Guangzhou and MUST book accommodation!</li>
-                    <li><strong>White Swan Hotel:</strong> Pearl River views, excellent location, good for overnight stay. Central position allows day exploration if desired.</li>
-                    <li><strong>Dong Fang Hotel:</strong> Central location near restaurants and attractions. Good Cantonese dining options.</li>
-                    <li><strong>Liuhua Hotel:</strong> Near metro, convenient for city exploration. Reliable service and reasonable rates.</li>
-                    <li><strong>Airport Hotels:</strong> If you prefer to rest, hotels near Guangzhou Baiyun International Airport are convenient (20-30 min from city).</li>
-                    <li><strong>⭐ Tip:</strong> Book a hotel near metro for easy access. Consider spending day exploring Guangzhou before evening flight. Don't miss Tao Tao Ju dim sum for breakfast!</li>
-                </ul>
-
-                <h3>Special Considerations:</h3>
+            <!-- Special Considerations -->
+            <div class="tips-box" style="margin: 30px 20px;">
+                <h3>✅ Special Considerations Before Booking</h3>
                 <ul>
                     <li><strong>Chinese New Year:</strong> Hotel availability may be limited - book early!</li>
                     <li><strong>Winter Weather:</strong> Hangzhou in December/January is cold (5-10°C) - ensure heating available</li>
-                    <li><strong>⚠️ Overnight Transfer:</strong> MUST book Guangzhou accommodation for Jan 2-3 night. Flight overlap requires hotel stay between arrivals.</li>
-                    <li><strong>Attractions Nearby:</strong> Check hotel location relative to West Lake, temples, and local transport</li>
                     <li><strong>New Year's Eve (Dec 31):</strong> If in Shanghai, book restaurant reservations and hotel rooms early - high demand period</li>
+                    <li><strong>Attractions Nearby:</strong> Check hotel location relative to West Lake, temples, and local transport hubs</li>
                 </ul>
             </div>
         </div>

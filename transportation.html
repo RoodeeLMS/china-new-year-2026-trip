@@ -25,11 +25,26 @@
         .breadcrumb a:hover { border-bottom: 1px solid white; }
         .card { background: white; border-radius: 10px; padding: 30px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); margin-bottom: 25px; }
         .card h2 { color: #667eea; margin-bottom: 20px; font-size: 1.8em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
-        .placeholder-content { background: #f5f5f5; padding: 30px; border-left: 4px solid #667eea; border-radius: 4px; color: #666; line-height: 1.8; }
-        .placeholder-content h3 { color: #667eea; margin-top: 20px; margin-bottom: 10px; font-size: 1.1em; }
-        .placeholder-content h3:first-child { margin-top: 0; }
-        .placeholder-content ul { margin-left: 20px; margin-top: 10px; }
-        .placeholder-content li { margin: 8px 0; }
+        .transport-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; margin: 30px 0; }
+        .transport-card { background: white; border-radius: 10px; padding: 25px; border: 2px solid #e0e0e0; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+        .transport-card:hover { transform: translateY(-6px); border-color: #667eea; box-shadow: 0 10px 25px rgba(102,126,234,0.15); }
+        .transport-card h3 { color: #333; margin-bottom: 15px; font-size: 1.15em; display: flex; align-items: center; gap: 8px; }
+        .transport-card p { color: #666; font-size: 0.95em; line-height: 1.7; margin: 8px 0; }
+        .transport-card .highlight { color: #667eea; font-weight: bold; }
+        .transport-card .price { background: linear-gradient(135deg, #E8EAFF 0%, #F3F1FF 100%); color: #667eea; padding: 10px; border-radius: 6px; margin-top: 12px; font-weight: bold; text-align: center; }
+
+        .info-box { background: linear-gradient(135deg, #F5F7FF 0%, #EEF0FF 100%); border-left: 5px solid #667eea; padding: 20px; margin: 25px 0; border-radius: 6px; color: #333; }
+        .info-box h3 { color: #667eea; margin-bottom: 12px; }
+        .info-box ul { margin-left: 20px; }
+        .info-box li { margin: 8px 0; color: #555; }
+
+        .warning-box { background: linear-gradient(135deg, #FFF3E0 0%, #FFE0B2 100%); border-left: 5px solid #FF9800; padding: 20px; margin: 25px 0; border-radius: 6px; color: #333; }
+        .warning-box h3 { color: #E65100; margin-bottom: 12px; }
+
+        .tips-box { background: linear-gradient(135deg, #E8F5E9 0%, #D4EDDA 100%); border-left: 5px solid #4CAF50; padding: 20px; margin: 25px 0; border-radius: 6px; color: #333; }
+        .tips-box h3 { color: #2E7D32; margin-bottom: 12px; }
+        .tips-box ul { margin-left: 20px; }
+        .tips-box li { margin: 8px 0; color: #333; }
         .nav-buttons { display: flex; justify-content: space-between; margin-top: 30px; gap: 10px; }
         .nav-btn { flex: 1; padding: 12px 20px; background: white; color: #667eea; border: 2px solid #667eea; border-radius: 4px; text-decoration: none; text-align: center; font-weight: bold; transition: 0.3s; }
         .nav-btn:hover { background: #667eea; color: white; }
@@ -38,7 +53,7 @@
     </style>
 </head>
 <body>
-    <nav class="navbar"><div class="navbar-container"><a href="index.html" class="navbar-brand">🌍 China 2026</a><button class="menu-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu">☰</button><div class="navbar-menu" id="navMenu"><a href="index.html" class="navbar-item">Home</a><a href="flights.html" class="navbar-item">Flights</a><a href="accommodation.html" class="navbar-item">Hotels</a><a href="itinerary.html" class="navbar-item">Itinerary</a><a href="dining.html" class="navbar-item">Food</a><a href="budget.html" class="navbar-item">Budget</a><a href="practical.html" class="navbar-item">Practical</a><a href="transportation.html" class="navbar-item active">Transport</a><a href="packing.html" class="navbar-item">Packing</a><a href="bookings.html" class="navbar-item">Bookings</a></div></div></nav>
+    <nav class="navbar"><div class="navbar-container"><a href="index.html" class="navbar-brand">🌍 China 2026</a><button class="menu-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu">☰</button><div class="navbar-menu" id="navMenu"><a href="index.html" class="navbar-item">Home</a><a href="flights.html" class="navbar-item">Flights</a><a href="accommodation.html" class="navbar-item">Hotels</a><a href="itinerary.html" class="navbar-item">Itinerary</a><a href="dining.html" class="navbar-item">Food</a><a href="budget.html" class="navbar-item">Budget</a><a href="practical.html" class="navbar-item">Practical</a><a href="transportation.html" class="navbar-item active">Transport</a><a href="packing.html" class="navbar-item">Packing</a><a href="bookings.html" class="navbar-item">Bookings</a><a href="ai-reviews.html" class="navbar-item">AI Reviews</a></div></div></nav>
     <div class="container">
         <header>
             <h1>🚆 Transportation</h1>
@@ -46,130 +61,197 @@
         </header>
 
         <div class="card">
-            <h2>Getting Around in China</h2>
-            <div class="placeholder-content">
-                <p>Plan your transportation for flights, local travel, and inter-city connections.</p>
-                <h3>Airport Transportation:</h3>
+            <h2>🚆 Getting Around in China</h2>
+
+            <!-- Airport Transportation Section -->
+            <div class="info-box">
+                <h3>✈️ Airport Transportation</h3>
                 <ul>
-                    <li><strong>Bangkok (Suvarnabhumi) - Departure:</strong> Hotel to airport transfer</li>
-                    <li><strong>Hangzhou Xiaoshan Airport - Arrival:</strong> Airport to hotel transfer</li>
-                    <li><strong>Return Flight:</strong> Hotel to Hangzhou airport</li>
+                    <li><strong>Bangkok (Suvarnabhumi):</strong> Hotel to airport transfer before departure</li>
+                    <li><strong>Hangzhou Xiaoshan Airport (到达):</strong> Airport to hotel transfer upon arrival</li>
+                    <li><strong>Return Flight:</strong> Hotel to Hangzhou airport transfer</li>
                     <li>Options: Shuttle bus, taxi, ride-sharing (Didi), private driver</li>
                 </ul>
+            </div>
 
-                <h3>Hangzhou Local Transport:</h3>
+            <!-- Hangzhou Local Transport Grid -->
+            <h3 style="color: #667eea; margin-top: 30px; margin-bottom: 20px;">🚖 Hangzhou Local Transportation</h3>
+            <div class="transport-grid">
+                <div class="transport-card">
+                    <h3>🚇 Metro (杭州地铁)</h3>
+                    <p><span class="highlight">Line 1:</span> West-East connection (Airport)</p>
+                    <p><span class="highlight">Line 2:</span> City circles including West Lake</p>
+                    <p>Modern, clean, efficient system</p>
+                    <div class="price">2-6 CNY per trip</div>
+                    <p style="font-size: 0.85em; margin-top: 8px;">Metro Card: 100 CNY (80 CNY usable)</p>
+                </div>
+                <div class="transport-card">
+                    <h3>🚕 Didi Chuxing (滴滴)</h3>
+                    <p>China's ride-sharing app, very reliable</p>
+                    <p>Download before arrival with English interface</p>
+                    <p>Safer and recorded for safety</p>
+                    <div class="price">~10 CNY starting fare</div>
+                    <p style="font-size: 0.85em; margin-top: 8px;">Better than taxis for safety</p>
+                </div>
+                <div class="transport-card">
+                    <h3>🚴 Bike Share</h3>
+                    <p>Hellobike, Mobike, Ofo available</p>
+                    <p>Perfect for West Lake scenic area</p>
+                    <p>Easy to park throughout city</p>
+                    <div class="price">1-2 CNY per 30 min</div>
+                    <p style="font-size: 0.85em; margin-top: 8px;">Great for short 10-20 min rides</p>
+                </div>
+                <div class="transport-card">
+                    <h3>🚕 Taxis (出租车)</h3>
+                    <p>Abundant and affordable</p>
+                    <p>Use meter or negotiate upfront</p>
+                    <p>Available 24/7 throughout city</p>
+                    <div class="price">12 CNY base + ~2 CNY/km</div>
+                    <p style="font-size: 0.85em; margin-top: 8px;">20% night surcharge after 11 PM</p>
+                </div>
+                <div class="transport-card">
+                    <h3>🚌 Bus System</h3>
+                    <p>Extensive network covering entire city</p>
+                    <p>Very cheap and reliable</p>
+                    <p>Good for longer distances</p>
+                    <div class="price">1-3 CNY per trip</div>
+                    <p style="font-size: 0.85em; margin-top: 8px;">Less convenient without Chinese</p>
+                </div>
+                <div class="transport-card">
+                    <h3>🚶 Walking</h3>
+                    <p>West Lake area is very walkable</p>
+                    <p>Downtown easily explored on foot</p>
+                    <p>Great for sightseeing and exploration</p>
+                    <div class="price">FREE</div>
+                    <p style="font-size: 0.85em; margin-top: 8px;">Wear comfortable walking shoes</p>
+                </div>
+            </div>
+
+            <!-- Inter-City Rail Section -->
+            <h3 style="color: #667eea; margin-top: 35px; margin-bottom: 20px;">🚄 Inter-City High-Speed Rail Routes</h3>
+            <div class="transport-grid">
+                <div class="transport-card">
+                    <h3>Hangzhou → Suzhou</h3>
+                    <p>G-train high-speed rail</p>
+                    <p><span class="highlight">Duration:</span> ~2 hours</p>
+                    <p><span class="highlight">Comfort:</span> Very comfortable with snacks/beverages</p>
+                    <div class="price">180-210 CNY</div>
+                    <p style="font-size: 0.85em;">Book at 12306.cn or Ctrip</p>
+                </div>
+                <div class="transport-card">
+                    <h3>Suzhou → Shanghai</h3>
+                    <p>G-train high-speed rail</p>
+                    <p><span class="highlight">Duration:</span> ~30 minutes</p>
+                    <p><span class="highlight">Convenience:</span> Quick, efficient connection</p>
+                    <div class="price">60-80 CNY</div>
+                    <p style="font-size: 0.85em;">Frequent departures throughout day</p>
+                </div>
+                <div class="transport-card">
+                    <h3>Shanghai → Guangzhou</h3>
+                    <p>G-train high-speed rail (长途)</p>
+                    <p><span class="highlight">Duration:</span> ~8 hours</p>
+                    <p><span class="highlight">Options:</span> Day or overnight service</p>
+                    <div class="price">560-650 CNY</div>
+                    <p style="font-size: 0.85em;">Book 10-14 days in advance</p>
+                </div>
+            </div>
+
+            <div class="warning-box">
+                <h3>📍 High-Speed Railway Station Locations</h3>
+                <p><strong>Hangzhou:</strong> Hangzhou High-Speed Railway Station (杭州高铁站) - 15 km from city center</p>
+                <p><strong>Suzhou:</strong> Suzhou High-Speed Railway Station - Near city center with metro access</p>
+                <p><strong>Shanghai:</strong> Shanghai Hongqiao Station (虹桥) or Jing'an Station - City center locations</p>
+                <p><strong>Guangzhou:</strong> Guangzhou South Station (广州南站) - Metro line access</p>
+            </div>
+
+            <!-- Journey Options -->
+            <h3 style="color: #667eea; margin-top: 35px; margin-bottom: 20px;">🗺️ Journey Options: Hangzhou to Guangzhou</h3>
+            <div class="transport-grid">
+                <div class="transport-card">
+                    <h3>Option 1: Rail (Recommended)</h3>
+                    <p>Hangzhou → Shanghai (2.5 hrs)</p>
+                    <p>Shanghai → Guangzhou (8 hrs)</p>
+                    <p>Experience China's amazing rail system</p>
+                    <div class="price">640-730 CNY total</div>
+                    <p style="font-size: 0.85em;">Most comfortable and scenic</p>
+                </div>
+                <div class="transport-card">
+                    <h3>Option 2: Domestic Flight</h3>
+                    <p>Hangzhou (HGH) → Guangzhou (CAN)</p>
+                    <p>Flight time: ~2.5 hours</p>
+                    <p>Plus 3+ hours for airports</p>
+                    <div class="price">~200-400 CNY</div>
+                    <p style="font-size: 0.85em;">Fast but less convenient</p>
+                </div>
+                <div class="transport-card">
+                    <h3>Option 3: Scenic Route</h3>
+                    <p>Take local trains/buses with stops</p>
+                    <p>Experience smaller cities</p>
+                    <p>More immersive journey</p>
+                    <div class="price">300-500 CNY</div>
+                    <p style="font-size: 0.85em;">Most adventurous option</p>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <h3>⭐ Suggested Plan: Hangzhou to Guangzhou</h3>
                 <ul>
-                    <li><strong>Metro/Subway:</strong> Modern, clean, efficient (metro card available)</li>
-                    <li><strong>Bus:</strong> Extensive network, very cheap</li>
-                    <li><strong>Taxi:</strong> Available and affordable, use meter or apps</li>
-                    <li><strong>Didi Chuxing:</strong> China's ride-sharing app (similar to Uber)</li>
-                    <li><strong>Bike Share:</strong> Mobike or Ofo for short distances</li>
-                    <li><strong>Walking:</strong> West Lake area is very walkable</li>
+                    <li>Spend 1-2 nights in Shanghai (Dec 30 - Jan 1) for New Year's Eve celebration</li>
+                    <li>Experience Shanghai's festive atmosphere and dining scene</li>
+                    <li>G-train to Guangzhou evening Jan 1 or morning Jan 2</li>
+                    <li>Allows time to explore multiple cities without rushing</li>
                 </ul>
+            </div>
 
-                <h3>Transportation Cards & Apps:</h3>
-                <ul>
-                    <li><strong>Metro Card:</strong> Buy at airport or stations (rechargeable)</li>
-                    <li><strong>Didi App:</strong> Download before arrival for ride-sharing</li>
-                    <li><strong>Maps Apps:</strong> Baidu Maps or Amap (better than Google Maps in China)</li>
-                    <li><strong>Payment Apps:</strong> WeChat Pay or Alipay for fares</li>
-                </ul>
+            <!-- Cost Breakdown -->
+            <h3 style="color: #667eea; margin-top: 35px; margin-bottom: 20px;">💰 Transportation Cost Breakdown</h3>
+            <div class="transport-grid">
+                <div class="transport-card">
+                    <h3>Airport Transfers</h3>
+                    <p><strong>Hangzhou to City:</strong></p>
+                    <ul style="margin: 8px 0; margin-left: 15px; font-size: 0.9em;">
+                        <li>Didi: 50-80 CNY</li>
+                        <li>Bus: 20 CNY</li>
+                        <li>Shuttle: 30-40 CNY</li>
+                    </ul>
+                    <p style="margin-top: 12px;"><strong>Guangzhou to City:</strong></p>
+                    <ul style="margin: 8px 0; margin-left: 15px; font-size: 0.9em;">
+                        <li>Didi: 60-100 CNY</li>
+                        <li>Metro: 25 CNY</li>
+                        <li>Shuttle: 30 CNY</li>
+                    </ul>
+                </div>
+                <div class="transport-card">
+                    <h3>Local Transport per Trip</h3>
+                    <p><span class="highlight">Metro:</span> 2-6 CNY</p>
+                    <p><span class="highlight">Bus:</span> 1-3 CNY</p>
+                    <p><span class="highlight">Didi/Taxi:</span> 10-30 CNY average city ride</p>
+                    <p><span class="highlight">Bike Share:</span> 1-2 CNY per 30 mins</p>
+                    <div class="price" style="margin-top: 15px;">20-50 CNY/day</div>
+                    <p style="font-size: 0.85em;">Estimated daily budget</p>
+                </div>
+                <div class="transport-card">
+                    <h3>Estimated Total Trip</h3>
+                    <p><strong>High-Speed Rail Tickets:</strong></p>
+                    <p style="color: #667eea; font-weight: bold; font-size: 1.1em;">~800-900 CNY</p>
+                    <p style="font-size: 0.85em;">For all inter-city journeys</p>
+                    <p style="margin-top: 15px;"><strong>Daily Local Transport:</strong></p>
+                    <p style="color: #667eea; font-weight: bold; font-size: 1.1em;">200-500 CNY total</p>
+                    <p style="font-size: 0.85em;">For 10-day trip</p>
+                </div>
+            </div>
 
-                <h3>Inter-City Travel (if exploring beyond Hangzhou):</h3>
+            <div class="tips-box">
+                <h3>✅ Pro Tips for Getting Around</h3>
                 <ul>
-                    <li><strong>High-Speed Rail:</strong> Fast, clean, comfortable (G-trains or D-trains)</li>
-                    <li><strong>Regular Trains:</strong> Longer, cheaper option</li>
-                    <li><strong>Flights:</strong> For longer distances (Shanghai, Beijing)</li>
-                    <li><strong>Long-distance Buses:</strong> Available but less comfortable</li>
-                </ul>
-
-                <h3>Guangzhou Transfer (Overnight Jan 2-3):</h3>
-                <ul>
-                    <li>Airport hotel or lounge for overnight stay</li>
-                    <li>Airport metro line connects airport to city</li>
-                    <li>Plan meal and rest options during transfer</li>
-                    <li>Luggage storage services available if needed</li>
-                </ul>
-
-                <h3>🚄 Inter-City High-Speed Rail Routes:</h3>
-                <ul>
-                    <li><strong>Hangzhou to Suzhou:</strong> G-train ~2 hours, ~180-210 CNY, very comfortable with snacks/beverages</li>
-                    <li><strong>Suzhou to Shanghai:</strong> G-train ~30 minutes, ~60-80 CNY, quick efficient connection</li>
-                    <li><strong>Shanghai to Guangzhou:</strong> G-train ~8 hours, ~560-650 CNY, overnight option or day service available</li>
-                    <li><strong>Where to Book:</strong> China Railways 12306 website, Ctrip, or Didi Travel - book 10-14 days in advance</li>
-                    <li><strong>Station Locations:</strong>
-                        - Hangzhou: Hangzhou High-Speed Railway Station (杭州高铁站) - 15 km from city center
-                        - Suzhou: Suzhou High-Speed Railway Station - Near city center with metro access
-                        - Shanghai: Shanghai Hongqiao Station (虹桥) or Jing'an Station - City center locations
-                        - Guangzhou: Guangzhou South Station (广州南站) - Metro line access
-                    </li>
-                </ul>
-
-                <h3>🚖 Hangzhou Local Transportation Details:</h3>
-                <ul>
-                    <li><strong>Hangzhou Metro (杭州地铁):</strong>
-                        - Line 1: Connects west to east (Airport connections)
-                        - Line 2: Circles city including West Lake area
-                        - Fare: 2-6 CNY depending on distance
-                        - Metro Card: 100 CNY with 80 CNY usable credit (can refund remaining)
-                    </li>
-                    <li><strong>Didi Chuxing (滴滴打车):</strong>
-                        - Download app before arrival
-                        - Starting fare: ~10 CNY, reasonable rates
-                        - Better than taxis for safety and record-keeping
-                        - English interface available
-                    </li>
-                    <li><strong>Bike Share:</strong>
-                        - Hellobike, Mobike, Ofo available
-                        - ~10-20 min rides cost 1-2 CNY
-                        - Perfect for West Lake scenic area
-                    </li>
-                    <li><strong>Taxis:</strong>
-                        - Abundant, use meter or negotiate upfront
-                        - Starting flag: ~12 CNY
-                        - Night surcharge: 20% extra after 11 PM
-                    </li>
-                </ul>
-
-                <h3>🚄 Journey from Hangzhou to Guangzhou (Dec 30 - Jan 2):</h3>
-                <ul>
-                    <li><strong>Option 1 (Recommended):</strong> G-train from Hangzhou Station to Shanghai Hongqiao (2.5 hrs), then G-train Shanghai to Guangzhou (8 hrs). Total journey: ~12 hrs + transfers</li>
-                    <li><strong>Option 2 (Fast):</strong> Domestic flight Hangzhou (HGH) to Guangzhou (CAN), ~2.5 hours flight + 3+ hours airports</li>
-                    <li><strong>Option 3 (Scenic):</strong> Take local trains/buses with stops, experience smaller cities</li>
-                    <li><strong>⭐ Suggested:</strong> Spend 1-2 nights in Shanghai (Dec 30 - Jan 1) for New Year's Eve celebration, then G-train to Guangzhou evening Jan 1 or morning Jan 2</li>
-                </ul>
-
-                <h3>💰 Detailed Transportation Costs (RMB):</h3>
-                <ul>
-                    <li><strong>Airport Transfers:</strong>
-                        - Hangzhou to city: Didi 50-80 CNY, bus 20 CNY, shuttle 30-40 CNY
-                        - Guangzhou to city: Didi 60-100 CNY, metro 25 CNY, airport shuttle 30 CNY
-                    </li>
-                    <li><strong>Local Transport (per trip):</strong>
-                        - Metro: 2-6 CNY
-                        - Bus: 1-3 CNY
-                        - Didi/Taxi: 10-30 CNY average city ride
-                        - Bike share: 1-2 CNY per 30 mins
-                    </li>
-                    <li><strong>High-Speed Rail (per person):</strong>
-                        - Hangzhou to Suzhou: 180-210 CNY
-                        - Suzhou to Shanghai: 60-80 CNY
-                        - Shanghai to Guangzhou: 560-650 CNY
-                    </li>
-                    <li><strong>Estimated Daily Budget:</strong>
-                        - Local transport: 20-50 CNY per day
-                        - Airport transfers: 80 CNY one way
-                        - Inter-city travel: depends on routes chosen
-                    </li>
-                </ul>
-
-                <h3>Tips:</h3>
-                <ul>
-                    <li>Have phone charged for navigation apps</li>
-                    <li>Keep small bills/coins for buses</li>
-                    <li>Download offline maps before arrival</li>
-                    <li>Peak hours: 7-9 AM, 5-7 PM on weekdays</li>
-                    <li>Book high-speed rail tickets in advance (especially around Chinese New Year)</li>
+                    <li><strong>Apps to Download:</strong> Baidu Maps or Amap (better than Google in China)</li>
+                    <li><strong>Payment:</strong> Use WeChat Pay or Alipay for all fares</li>
+                    <li><strong>Phone Charge:</strong> Keep phone charged for navigation - essential!</li>
+                    <li><strong>Small Bills:</strong> Keep small bills for buses and tips</li>
+                    <li><strong>Offline Maps:</strong> Download offline maps before arrival</li>
+                    <li><strong>Peak Hours:</strong> Avoid 7-9 AM and 5-7 PM on weekdays (very crowded)</li>
+                    <li><strong>Advance Booking:</strong> Book high-speed rail 10-14 days in advance (especially around Chinese New Year)</li>
+                    <li><strong>Metro Card Refund:</strong> Unused balance can be refunded at metro stations</li>
                 </ul>
             </div>
         </div>
