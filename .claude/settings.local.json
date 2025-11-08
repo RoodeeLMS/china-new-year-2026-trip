@@ -11,7 +11,9 @@
       "Bash(git remote set-url:*)",
       "Bash(for file in index.html flights.html accommodation.html itinerary.html dining.html budget.html practical.html transportation.html packing.html bookings.html)",
       "Bash(do echo '=== Checking $file ===' grep -c navbar $file)",
-      "Bash(echo 'WARNING: No navbar found' grep 'navbar-item active' $file)"
+      "Bash(echo 'WARNING: No navbar found' grep 'navbar-item active' $file)",
+      "Bash(git pull:*)",
+      "Bash(git checkout:*)"
     ],
     "deny": [],
     "ask": []
