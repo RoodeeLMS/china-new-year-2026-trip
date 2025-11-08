@@ -25,11 +25,21 @@
         .breadcrumb a:hover { border-bottom: 1px solid white; }
         .card { background: white; border-radius: 10px; padding: 30px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); margin-bottom: 25px; }
         .card h2 { color: #667eea; margin-bottom: 20px; font-size: 1.8em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
-        .placeholder-content { background: #f5f5f5; padding: 30px; border-left: 4px solid #667eea; border-radius: 4px; color: #666; line-height: 1.8; }
-        .placeholder-content h3 { color: #667eea; margin-top: 20px; margin-bottom: 10px; font-size: 1.1em; }
-        .placeholder-content h3:first-child { margin-top: 0; }
-        .placeholder-content ul { margin-left: 20px; margin-top: 10px; }
-        .placeholder-content li { margin: 8px 0; }
+        .budget-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; margin: 25px 0; }
+        .budget-card { background: white; border-radius: 10px; padding: 25px; border-left: 5px solid #667eea; box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: all 0.3s ease; }
+        .budget-card:hover { transform: translateY(-4px); box-shadow: 0 8px 20px rgba(0,0,0,0.12); }
+        .budget-card h3 { color: #667eea; margin-bottom: 15px; font-size: 1.15em; display: flex; align-items: center; gap: 8px; }
+        .budget-card p { color: #666; font-size: 0.95em; line-height: 1.7; margin: 8px 0; }
+        .budget-card ul { margin-left: 20px; margin-top: 10px; }
+        .budget-card li { margin: 8px 0; color: #555; }
+        .estimate-card { background: linear-gradient(135deg, #E8EAFF 0%, #F3F1FF 100%); border-left-color: #667eea; }
+        .budget-tier { background: linear-gradient(135deg, #F0F9FF 0%, #E0F2FE 100%); border-left-color: #0284c7; }
+        .budget-tier.mid { background: linear-gradient(135deg, #F0FDF4 0%, #DCFCE7 100%); border-left-color: #22c55e; }
+        .budget-tier.premium { background: linear-gradient(135deg, #FEF3C7 0%, #FDE68a 100%); border-left-color: #eab308; }
+        .budget-card.budget-tier h3 { color: #0284c7; }
+        .budget-card.budget-tier.mid h3 { color: #22c55e; }
+        .budget-card.budget-tier.premium h3 { color: #b45309; }
+        .price-highlight { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 15px; border-radius: 8px; text-align: center; font-weight: bold; font-size: 1.1em; margin: 15px 0; }
         .nav-buttons { display: flex; justify-content: space-between; margin-top: 30px; gap: 10px; }
         .nav-btn { flex: 1; padding: 12px 20px; background: white; color: #667eea; border: 2px solid #667eea; border-radius: 4px; text-decoration: none; text-align: center; font-weight: bold; transition: 0.3s; }
         .nav-btn:hover { background: #667eea; color: white; }
@@ -47,172 +57,208 @@
 
         <div class="card">
             <h2>Trip Expenses & Cost Tracking</h2>
-            <div class="placeholder-content">
-                <p>Track and manage your trip budget by expense category.</p>
-                <h3>Budget Categories:</h3>
-                <ul>
-                    <li><strong>Flights:</strong> International and domestic flights (already booked)</li>
-                    <li><strong>Accommodation:</strong> Hotels and lodging for main stay + transit nights</li>
-                    <li><strong>Activities & Tours:</strong> Paid attractions, guided tours, experiences</li>
-                    <li><strong>Food & Dining:</strong> Restaurants, street food, meals</li>
-                    <li><strong>Transportation:</strong> Taxis, metro, buses, airport transfers</li>
-                    <li><strong>Shopping & Souvenirs:</strong> Gifts, souvenirs, local products</li>
-                    <li><strong>Travel Insurance:</strong> Medical and trip coverage</li>
-                    <li><strong>Miscellaneous:</strong> Tips, visa, fees, emergencies</li>
-                </ul>
+            <p style="color: #666; margin-bottom: 20px;">Track and manage your trip budget by expense category. Choose your travel style and budget accordingly.</p>
 
-                <h3>💵 Daily Budget Breakdown by Travel Style:</h3>
-                <ul>
-                    <li><strong>🥘 Budget Option:</strong> $50-80 USD per day (approx 350-560 CNY)
-                        - Food: 50-80 CNY (local eateries, street food)
-                        - Accommodation: 150-250 CNY (budget hotels/hostels)
-                        - Activities: 30-80 CNY (free walks, cheap attractions)
-                        - Transport: 20-40 CNY (metro, bikes)
-                    </li>
-                    <li><strong>🌟 Mid-Range:</strong> $80-150 USD per day (approx 560-1,050 CNY)
-                        - Food: 100-150 CNY (mix of restaurants & local food)
-                        - Accommodation: 250-500 CNY (3-4 star hotels)
-                        - Activities: 100-200 CNY (paid attractions, tours)
-                        - Transport: 30-50 CNY (taxis, metro, Didi)
-                    </li>
-                    <li><strong>✨ Premium:</strong> $150+ USD per day (1,050+ CNY)
-                        - Food: 200-400 CNY (fine dining restaurants)
-                        - Accommodation: 500+ CNY (luxury hotels, 4-5 stars)
-                        - Activities: 200+ CNY (premium tours, private guides)
-                        - Transport: 50+ CNY (frequent taxis, Didi)
-                    </li>
-                </ul>
+            <h3 style="color: #667eea; margin: 30px 0 20px 0; font-size: 1.3em;">📊 Daily Budget by Travel Style</h3>
+            <div class="budget-grid">
+                <div class="budget-card budget-tier">
+                    <h3>🥘 Budget Travel</h3>
+                    <p><strong>$50-80 USD per day</strong></p>
+                    <p style="font-size: 0.9em; color: #999;">≈ 350-560 CNY</p>
+                    <ul>
+                        <li>Food: 50-80 CNY (local eateries, street food)</li>
+                        <li>Hotels: 150-250 CNY (budget/hostels)</li>
+                        <li>Activities: 30-80 CNY (free walks)</li>
+                        <li>Transport: 20-40 CNY (metro, bikes)</li>
+                    </ul>
+                </div>
 
-                <h3>📋 Detailed Budget Breakdown (10-Day Trip - Mid-Range Estimate):</h3>
-                <ul>
-                    <li><strong>Flights (International):</strong> $400-800 USD
-                        - Already booked: BKK → CAN → HGH → ... → CAN → BKK
-                        - Note: Return has overnight Guangzhou transfer - factor into planning
-                    </li>
-                    <li><strong>Accommodation (9 nights):</strong> $800-1,400 USD
-                        - Hangzhou main stay (7 nights): $80-120/night = $560-840
-                        - Mountain guesthouses (1 night): $30-50
-                        - Suzhou (1 night): $60-100
-                        - Shanghai (optional): $80-150/night
-                        - Guangzhou transfer (1 night): $50-80
-                        - Subtotal: 900-1,200 CNY = $130-170 USD
-                    </li>
-                    <li><strong>Food & Dining (10 days):</strong> $400-700 USD
-                        - Budget: 50 CNY × 10 days = 500 CNY = $70
-                        - Mid-range: 100 CNY × 10 days = 1,000 CNY = $140
-                        - Premium meals (3-4 nights): 200-400 CNY each = $100-230
-                        - Estimated: 1,200-1,600 CNY = $170-230 USD
-                    </li>
-                    <li><strong>Activities & Attractions:</strong> $100-300 USD
-                        - West Lake admission: FREE (public scenic area)
-                        - Lingyin Temple: 30-40 CNY ($4-6)
-                        - Suzhou Gardens (UNESCO): 70-90 CNY each ($10-13)
-                        - Shanghai attractions (Bund, Nanpu Bridge): 20-100 CNY ($3-15)
-                        - Optional tours/guides: 200-500 CNY ($30-70)
-                        - Estimated: 500-800 CNY = $70-115 USD
-                    </li>
-                    <li><strong>Transportation:</strong> $150-250 USD
-                        - Airport transfers (4 total): 50-100 CNY each = $30-60
-                        - High-speed rail (Hangzhou→Suzhou→Shanghai→Guangzhou):
-                          - HZ to Suzhou: 210 CNY ($30)
-                          - Suzhou to Shanghai: 80 CNY ($11)
-                          - Shanghai to Guangzhou: 650 CNY ($93)
-                          - Subtotal: 940 CNY ($134)
-                        - Local transport (metro/taxi/Didi): 30 CNY × 10 days = $43
-                        - Estimated: 1,000-1,400 CNY = $143-200 USD
-                    </li>
-                    <li><strong>Shopping & Souvenirs:</strong> $100-300 USD
-                        - Local tea (Longjing): 30-200 CNY per package
-                        - Souvenirs & gifts: 200-500 CNY
-                        - Personal items/extras: 100-300 CNY
-                        - Estimated: 500-1,000 CNY = $70-140 USD
-                    </li>
-                    <li><strong>Travel Insurance:</strong> $80-150 USD
-                        - Comprehensive 10-day policy: $80-150 depending on coverage
-                        - Recommended for medical emergencies & evacuation
-                    </li>
-                    <li><strong>Miscellaneous:</strong> $100-200 USD
-                        - Tips (not customary but appreciated): 50 CNY
-                        - SIM card/data: 50-100 CNY
-                        - Visa fees (if applicable): variable
-                        - Emergency buffer (10% of total): 200-300 CNY
-                    </li>
-                </ul>
+                <div class="budget-card budget-tier mid">
+                    <h3>🌟 Mid-Range (Recommended)</h3>
+                    <p><strong>$80-150 USD per day</strong></p>
+                    <p style="font-size: 0.9em; color: #999;">≈ 560-1,050 CNY</p>
+                    <ul>
+                        <li>Food: 100-150 CNY (mix of restaurants)</li>
+                        <li>Hotels: 250-500 CNY (3-4 star)</li>
+                        <li>Activities: 100-200 CNY (paid tours)</li>
+                        <li>Transport: 30-50 CNY (taxis, metro)</li>
+                    </ul>
+                </div>
 
-                <h3>💰 TOTAL TRIP COST ESTIMATE (Mid-Range):</h3>
-                <ul>
-                    <li><strong>Budget Trip (Economy):</strong> $2,200-3,000 USD total
-                        - Lower accommodation, local food, free/cheap attractions
-                    </li>
-                    <li><strong>Mid-Range (Recommended):</strong> $3,000-4,500 USD total
-                        - 3-4 star hotels, mix of restaurants, paid tours
-                        - Flights ~$800 + Accommodation ~$1,200 + Other ~$1,200-1,500
-                    </li>
-                    <li><strong>Premium (Luxury):</strong> $4,500-7,000+ USD total
-                        - 4-5 star hotels, fine dining, private tours/guides
-                        - Flights ~$800 + Accommodation ~$2,000+ + Activities ~$1,500+
-                    </li>
-                </ul>
+                <div class="budget-card budget-tier premium">
+                    <h3>✨ Premium/Luxury</h3>
+                    <p><strong>$150+ USD per day</strong></p>
+                    <p style="font-size: 0.9em; color: #999;">≈ 1,050+ CNY</p>
+                    <ul>
+                        <li>Food: 200-400 CNY (fine dining)</li>
+                        <li>Hotels: 500+ CNY (luxury 4-5 star)</li>
+                        <li>Activities: 200+ CNY (private guides)</li>
+                        <li>Transport: 50+ CNY (frequent taxis)</li>
+                    </ul>
+                </div>
+            </div>
 
-                <h3>💳 Payment Methods & Currency Tips:</h3>
-                <ul>
-                    <li><strong>Currency:</strong> Chinese Yuan Renminbi (CNY, ¥)
-                        - Conversion: 1 USD ≈ 7 CNY, 1 THB ≈ 0.23 CNY
-                        - Check real-time rates before departure
-                    </li>
-                    <li><strong>Exchange Strategy (IMPORTANT):</strong>
-                        - DO NOT exchange at Bangkok airport (poor rates)
-                        - Exchange 500-1,000 CNY before flight for immediate needs
-                        - Use ATMs at Hangzhou airport for best rates
-                        - Link WeChat/Alipay to foreign bank account BEFORE trip
-                    </li>
-                    <li><strong>Payment Methods (Priority Order):</strong>
-                        1. WeChat Pay & Alipay (accepted 99% of places) - digital only
-                        2. ATM withdrawals from UnionPay ATMs (best rates)
-                        3. Cash (500-1,000 CNY backup) for emergency
-                        4. Credit cards (rarely accepted in mainland China)
-                    </li>
-                    <li><strong>Important Note:</strong> China is increasingly cashless. You MUST set up WeChat/Alipay before arrival or at airport. Most shops, restaurants, and services do not accept physical cash.</li>
-                </ul>
+            <h3 style="color: #667eea; margin: 30px 0 20px 0; font-size: 1.3em;">📋 Detailed Expense Categories</h3>
+            <div class="budget-grid">
+                <div class="budget-card estimate-card">
+                    <h3>✈️ Flights</h3>
+                    <p><strong>Already Booked</strong></p>
+                    <ul>
+                        <li>BKK → CAN → HGH (Dec 25)</li>
+                        <li>SHA → CAN → BKK (Jan 2-4)</li>
+                        <li>⚠️ Note: 23h+ overnight transfer in Guangzhou on return</li>
+                    </ul>
+                </div>
 
-                <h3>🎯 Budget Optimization Tips:</h3>
-                <ul>
-                    <li><strong>Accommodation:</strong>
-                        - Book 2+ weeks in advance for better rates
-                        - December 25 is before Chinese New Year - prices not yet inflated
-                        - Mountain guesthouses are cheapest (50-100 CNY/night)
-                        - Hotel chains (Sofitel, Grand Hyatt) offer discounts for longer stays
-                    </li>
-                    <li><strong>Food & Dining:</strong>
-                        - Free: West Lake park, walking trails, public areas
-                        - Budget: Local noodle shops (15-30 CNY), street food (5-10 CNY)
-                        - Mid-range: Restaurant meals (50-100 CNY), dim sum (80-150 CNY)
-                        - Splurge: Fine dining (200-500+ CNY), Longjing tea (50+ CNY)
-                        - Tip: Eat where locals eat (small eateries, food courts)
-                    </li>
-                    <li><strong>Activities:</strong>
-                        - Many attractions in China are free or very cheap
-                        - West Lake: FREE public scenic area with temples
-                        - Suzhou Gardens: 70-90 CNY each (UNESCO sites)
-                        - Opt for free walking tours and local guides over paid tours
-                    </li>
-                    <li><strong>Transportation:</strong>
-                        - Buy metro card (rechargeable) for local transport
-                        - High-speed rail is comfortable and efficient - worth the cost
-                        - Didi (ride-sharing) cheaper than taxis for longer distances
-                        - Book rail tickets 10-14 days in advance via 12306 website
-                    </li>
-                    <li><strong>Shopping:</strong>
-                        - Longjing tea: Prices vary wildly by quality; 30 CNY budget to 200+ for premium
-                        - Souvenirs: Don't buy at tourist shops (marked up 3-5x)
-                        - Night markets: Often have better deals than day shops
-                    </li>
-                    <li><strong>Emergency Fund:</strong>
-                        - Reserve 10-15% of total budget as contingency
-                        - Factor in possible medical needs, flight changes, etc.
-                        - Travel insurance covers emergencies - save receipts
-                    </li>
-                </ul>
+                <div class="budget-card">
+                    <h3>🏨 Accommodation (9 nights)</h3>
+                    <p><strong>$800-1,400 USD</strong></p>
+                    <ul>
+                        <li>Hangzhou (7 nights): $560-840</li>
+                        <li>Mountain (1 night): $30-50</li>
+                        <li>Suzhou (1 night): $60-100</li>
+                        <li>Guangzhou transfer: $50-80</li>
+                    </ul>
+                </div>
+
+                <div class="budget-card">
+                    <h3>🍜 Food & Dining (10 days)</h3>
+                    <p><strong>$170-230 USD</strong></p>
+                    <ul>
+                        <li>Budget: 50 CNY/day = $70 total</li>
+                        <li>Mid-range: 100 CNY/day = $140 total</li>
+                        <li>Premium meals (3-4 nights): $100-230</li>
+                        <li>💡 Tip: Eat where locals eat</li>
+                    </ul>
+                </div>
+
+                <div class="budget-card">
+                    <h3>🎫 Activities & Attractions</h3>
+                    <p><strong>$70-115 USD</strong></p>
+                    <ul>
+                        <li>West Lake: FREE (public scenic area)</li>
+                        <li>Lingyin Temple: 30-40 CNY</li>
+                        <li>Suzhou Gardens: 70-90 CNY each (UNESCO)</li>
+                        <li>Optional tours/guides: 200-500 CNY</li>
+                    </ul>
+                </div>
+
+                <div class="budget-card">
+                    <h3>🚆 Transportation</h3>
+                    <p><strong>$143-200 USD</strong></p>
+                    <ul>
+                        <li>Airport transfers: $30-60</li>
+                        <li>High-speed rail: $134 (HZ→Suzhou→SHA→GZ)</li>
+                        <li>Local transport: $43 (metro/taxis)</li>
+                        <li>💡 Book rail 10-14 days ahead</li>
+                    </ul>
+                </div>
+
+                <div class="budget-card">
+                    <h3>🎁 Shopping & Souvenirs</h3>
+                    <p><strong>$70-140 USD</strong></p>
+                    <ul>
+                        <li>Longjing tea: 30-200 CNY</li>
+                        <li>Souvenirs & gifts: 200-500 CNY</li>
+                        <li>Personal items: 100-300 CNY</li>
+                        <li>💡 Avoid tourist shops (3-5x markup)</li>
+                    </ul>
+                </div>
+
+                <div class="budget-card estimate-card">
+                    <h3>🛡️ Travel Insurance</h3>
+                    <p><strong>$80-150 USD</strong></p>
+                    <p>Comprehensive 10-day policy including:</p>
+                    <ul>
+                        <li>Medical emergencies</li>
+                        <li>Trip cancellation</li>
+                        <li>Emergency evacuation</li>
+                        <li>Highly recommended!</li>
+                    </ul>
+                </div>
+
+                <div class="budget-card">
+                    <h3>💰 Miscellaneous</h3>
+                    <p><strong>$100-200 USD</strong></p>
+                    <ul>
+                        <li>Tips: 50 CNY (not customary but appreciated)</li>
+                        <li>SIM card/data: 50-100 CNY</li>
+                        <li>Emergency buffer: 10% of total budget</li>
+                        <li>Visa fees (if applicable)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3 style="color: #667eea; margin: 30px 0 20px 0; font-size: 1.3em;">💰 Total Trip Cost Estimates</h3>
+            <div class="budget-grid">
+                <div class="budget-card budget-tier">
+                    <h3>Economy Package</h3>
+                    <div class="price-highlight">$2,200-3,000 USD</div>
+                    <ul>
+                        <li>Lower accommodation rates</li>
+                        <li>Local food & cheap attractions</li>
+                        <li>Limited activities</li>
+                    </ul>
+                </div>
+
+                <div class="budget-card budget-tier mid">
+                    <h3>Mid-Range Package ⭐</h3>
+                    <div class="price-highlight">$3,000-4,500 USD</div>
+                    <ul>
+                        <li>3-4 star hotels</li>
+                        <li>Mix of restaurants & tours</li>
+                        <li>Most popular choice</li>
+                    </ul>
+                </div>
+
+                <div class="budget-card budget-tier premium">
+                    <h3>Premium/Luxury</h3>
+                    <div class="price-highlight">$4,500-7,000+ USD</div>
+                    <ul>
+                        <li>4-5 star luxury hotels</li>
+                        <li>Fine dining & private guides</li>
+                        <li>Maximum comfort</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3 style="color: #667eea; margin: 30px 0 20px 0; font-size: 1.3em;">💳 Payment & Currency</h3>
+            <div class="budget-grid">
+                <div class="budget-card">
+                    <h3>📱 Payment Methods</h3>
+                    <p><strong>Priority Order (Most to Least):</strong></p>
+                    <ol style="margin-left: 20px;">
+                        <li><strong>WeChat Pay & Alipay</strong> - Accepted 99% of places</li>
+                        <li><strong>ATM Withdrawals</strong> - UnionPay compatible ATMs (best rates)</li>
+                        <li><strong>Cash</strong> - 500-1,000 CNY as backup</li>
+                        <li><strong>Credit Cards</strong> - Rarely accepted in mainland China</li>
+                    </ol>
+                    <p style="margin-top: 15px; background: #FFE5E5; padding: 10px; border-radius: 5px; color: #d32f2f;">⚠️ China is increasingly cashless - MUST setup WeChat/Alipay before arrival!</p>
+                </div>
+
+                <div class="budget-card">
+                    <h3>💵 Currency Exchange</h3>
+                    <p><strong>Currency:</strong> Chinese Yuan Renminbi (CNY, ¥)</p>
+                    <p><strong>Exchange Rates:</strong></p>
+                    <ul>
+                        <li>1 USD ≈ 7 CNY</li>
+                        <li>1 THB ≈ 0.23 CNY</li>
+                    </ul>
+                    <p><strong>🚫 DO NOT:</strong> Exchange at Bangkok airport (poor rates)</p>
+                    <p><strong>✅ DO:</strong> Use ATMs at Hangzhou airport (best rates)</p>
+                </div>
+
+                <div class="budget-card">
+                    <h3>🎯 Budget Optimization Tips</h3>
+                    <ul>
+                        <li><strong>Book early:</strong> Hotels 2+ weeks in advance</li>
+                        <li><strong>Price not inflated:</strong> Dec 25 is before Chinese New Year</li>
+                        <li><strong>Mountain guesthouses:</strong> Cheapest at 50-100 CNY/night</li>
+                        <li><strong>Free activities:</strong> West Lake park, walking trails</li>
+                        <li><strong>Night markets:</strong> Better deals than day shops</li>
+                        <li><strong>Emergency fund:</strong> Reserve 10-15% of budget</li>
+                    </ul>
+                </div>
             </div>
         </div>
 

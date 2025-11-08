@@ -25,11 +25,17 @@
         .breadcrumb a:hover { border-bottom: 1px solid white; }
         .card { background: white; border-radius: 10px; padding: 30px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); margin-bottom: 25px; }
         .card h2 { color: #667eea; margin-bottom: 20px; font-size: 1.8em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
-        .placeholder-content { background: #f5f5f5; padding: 30px; border-left: 4px solid #667eea; border-radius: 4px; color: #666; line-height: 1.8; }
-        .placeholder-content h3 { color: #667eea; margin-top: 20px; margin-bottom: 10px; font-size: 1.1em; }
-        .placeholder-content h3:first-child { margin-top: 0; }
-        .placeholder-content ul { margin-left: 20px; margin-top: 10px; }
-        .placeholder-content li { margin: 8px 0; }
+        .checklist-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin: 25px 0; }
+        .checklist-card { background: white; border-radius: 10px; padding: 25px; border-left: 5px solid #667eea; box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: all 0.3s ease; }
+        .checklist-card:hover { transform: translateY(-4px); box-shadow: 0 8px 20px rgba(0,0,0,0.12); }
+        .checklist-card h3 { color: #667eea; margin-bottom: 20px; font-size: 1.15em; display: flex; align-items: center; gap: 8px; }
+        .checklist-card ul { margin: 0; padding: 0; list-style: none; }
+        .checklist-card li { margin: 12px 0; color: #555; font-size: 0.95em; display: flex; align-items: center; gap: 8px; }
+        .checklist-card li:before { content: "☐"; color: #667eea; font-weight: bold; font-size: 1.1em; min-width: 20px; }
+        .category-tips { background: linear-gradient(135deg, #E8F5E9 0%, #D4EDDA 100%); border-left-color: #4CAF50; color: #2E7D32; }
+        .category-tips h3 { color: #2E7D32; }
+        .category-warning { background: linear-gradient(135deg, #FFE5E5 0%, #FFD4D4 100%); border-left-color: #FF6B6B; color: #d32f2f; }
+        .category-warning h3 { color: #FF6B6B; }
         .nav-buttons { display: flex; justify-content: space-between; margin-top: 30px; gap: 10px; }
         .nav-btn { flex: 1; padding: 12px 20px; background: white; color: #667eea; border: 2px solid #667eea; border-radius: 4px; text-decoration: none; text-align: center; font-weight: bold; transition: 0.3s; }
         .nav-btn:hover { background: #667eea; color: white; }
@@ -47,125 +53,153 @@
 
         <div class="card">
             <h2>Pre-Trip Packing Checklist</h2>
-            <div class="placeholder-content">
-                <p>Comprehensive packing list for your China New Year 2026 trip. Check items off as you pack!</p>
-                <h3>📄 Documents & Essentials:</h3>
-                <ul>
-                    <li>☐ Passport (6+ months validity)</li>
-                    <li>☐ Travel visa (if required)</li>
-                    <li>☐ Flight tickets/confirmation (digital or printed)</li>
-                    <li>☐ Hotel reservation confirmations</li>
-                    <li>☐ Travel insurance documents</li>
-                    <li>☐ Visa/Mastercard and local currency (CNY)</li>
-                    <li>☐ Driver's license (optional)</li>
-                    <li>☐ Vaccination certificates (if needed)</li>
-                </ul>
+            <p style="color: #666; margin-bottom: 20px;">Comprehensive packing list for your China New Year 2026 trip. Check items off as you pack!</p>
 
-                <h3>👔 Clothing (Winter in Hangzhou):</h3>
-                <ul>
-                    <li>☐ Warm jacket or heavy coat</li>
-                    <li>☐ Thermal underwear or thermals</li>
-                    <li>☐ Long pants (2-3 pairs)</li>
-                    <li>☐ Warm sweaters/jumpers (2-3)</li>
-                    <li>☐ T-shirts/long sleeves (3-4)</li>
-                    <li>☐ Warm socks (3-4 pairs)</li>
-                    <li>☐ Comfortable walking shoes</li>
-                    <li>☐ Warm hat/beanie</li>
-                    <li>☐ Scarf or neck warmer</li>
-                    <li>☐ Gloves</li>
-                    <li>☐ Umbrella or rain jacket</li>
-                    <li>☐ Underwear and socks (5-7 days worth)</li>
-                    <li>☐ Sleepwear</li>
-                </ul>
+            <div class="checklist-grid">
+                <div class="checklist-card">
+                    <h3>📄 Documents & Essentials</h3>
+                    <ul>
+                        <li>Passport (6+ months validity)</li>
+                        <li>Travel visa (if required)</li>
+                        <li>Flight tickets/confirmation</li>
+                        <li>Hotel reservation confirmations</li>
+                        <li>Travel insurance documents</li>
+                        <li>Credit/debit cards</li>
+                        <li>Driver's license (optional)</li>
+                        <li>Vaccination certificates (if needed)</li>
+                        <li>Travel adapters & converters</li>
+                    </ul>
+                </div>
 
-                <h3>📱 Electronics & Chargers:</h3>
-                <ul>
-                    <li>☐ Mobile phone</li>
-                    <li>☐ Phone charger (compatible with Chinese plugs)</li>
-                    <li>☐ Power bank (portable battery)</li>
-                    <li>☐ Universal power adapter (220V, Type A/C plugs)</li>
-                    <li>☐ Camera (optional)</li>
-                    <li>☐ Headphones/earbuds</li>
-                    <li>☐ Laptop/tablet (if needed)</li>
-                </ul>
+                <div class="checklist-card">
+                    <h3>🧥 Winter Clothing (Essential!)</h3>
+                    <ul>
+                        <li>Heavy warm jacket/coat</li>
+                        <li>Thermal underwear or base layers</li>
+                        <li>Long pants (2-3 pairs)</li>
+                        <li>Warm sweaters/jumpers (2-3)</li>
+                        <li>Long sleeve shirts (3-4)</li>
+                        <li>Warm hat/beanie</li>
+                        <li>Scarf or neck warmer</li>
+                        <li>Gloves (waterproof recommended)</li>
+                        <li>Warm socks (5-7 pairs)</li>
+                    </ul>
+                </div>
 
-                <h3>💊 Health & Medications:</h3>
-                <ul>
-                    <li>☐ Prescription medications (extra supply)</li>
-                    <li>☐ Pain relievers (ibuprofen, paracetamol)</li>
-                    <li>☐ Decongestants/cold medicine</li>
-                    <li>☐ Antidiarrheal medication</li>
-                    <li>☐ Antihistamine/allergy medicine</li>
-                    <li>☐ Antacid</li>
-                    <li>☐ Vitamins/supplements</li>
-                    <li>☐ First aid basics (bandages, antiseptic)</li>
-                    <li>☐ Sunscreen</li>
-                    <li>☐ Moisturizer (winter weather can be dry)</li>
-                    <li>☐ Lip balm</li>
-                </ul>
+                <div class="checklist-card">
+                    <h3>👟 Footwear & Walking</h3>
+                    <ul>
+                        <li>Comfortable walking shoes (break in first!)</li>
+                        <li>Waterproof/hiking boots (mountains)</li>
+                        <li>Warm indoor slippers</li>
+                        <li>Umbrella or rain jacket</li>
+                        <li>Underwear & socks (7 days worth)</li>
+                        <li>Sleepwear/pajamas</li>
+                        <li>Lightweight layers for indoors</li>
+                    </ul>
+                </div>
 
-                <h3>🧴 Toiletries & Personal Care:</h3>
-                <ul>
-                    <li>☐ Toothbrush and toothpaste</li>
-                    <li>☐ Deodorant</li>
-                    <li>☐ Shampoo and conditioner</li>
-                    <li>☐ Body wash/soap</li>
-                    <li>☐ Face wash</li>
-                    <li>☐ Razor and shaving cream</li>
-                    <li>☐ Nail clippers</li>
-                    <li>☐ Hairbrush/comb</li>
-                    <li>☐ Hair styling products (if needed)</li>
-                    <li>☐ Contact lenses/solution or glasses (with extras)</li>
-                    <li>☐ Feminine hygiene products (if needed)</li>
-                    <li>☐ Skincare routine items</li>
-                </ul>
+                <div class="checklist-card">
+                    <h3>📱 Electronics & Chargers</h3>
+                    <ul>
+                        <li>Mobile phone</li>
+                        <li>Phone charger (compatible plugs)</li>
+                        <li>Power bank/portable battery</li>
+                        <li>Universal power adapter (220V)</li>
+                        <li>Camera or action camera</li>
+                        <li>Headphones/earbuds</li>
+                        <li>Laptop/tablet (if needed)</li>
+                        <li>Charging cables (backup)</li>
+                    </ul>
+                </div>
 
-                <h3>🎒 Travel Accessories:</h3>
-                <ul>
-                    <li>☐ Luggage/suitcase</li>
-                    <li>☐ Day backpack or small bag</li>
-                    <li>☐ Travel pillow</li>
-                    <li>☐ Eye mask</li>
-                    <li>☐ Earplugs</li>
-                    <li>☐ Compression bags</li>
-                    <li>☐ Luggage locks</li>
-                    <li>☐ Packing cubes/organizers</li>
-                    <li>☐ Ziploc bags (for organization)</li>
-                </ul>
+                <div class="checklist-card">
+                    <h3>💊 Health & Medications</h3>
+                    <ul>
+                        <li>Prescription medications (extra supply)</li>
+                        <li>Pain relievers (ibuprofen)</li>
+                        <li>Cold/decongestant medicine</li>
+                        <li>Antidiarrheal medication</li>
+                        <li>Antihistamine/allergy medicine</li>
+                        <li>Antacid</li>
+                        <li>Vitamins/supplements</li>
+                        <li>First aid basics (bandages)</li>
+                        <li>Thermometer</li>
+                    </ul>
+                </div>
 
-                <h3>📚 Optional/Nice-to-Have:</h3>
-                <ul>
-                    <li>☐ Guidebook for Hangzhou</li>
-                    <li>☐ Journal/notebook</li>
-                    <li>☐ Books or e-reader</li>
-                    <li>☐ Binoculars (bird watching)</li>
-                    <li>☐ Portable washing line (for hand wash items)</li>
-                    <li>☐ Sewing kit</li>
-                    <li>☐ Small gifts/souvenirs from home</li>
-                </ul>
+                <div class="checklist-card">
+                    <h3>🧴 Toiletries & Personal Care</h3>
+                    <ul>
+                        <li>Toothbrush & toothpaste</li>
+                        <li>Shampoo & conditioner</li>
+                        <li>Body wash/soap</li>
+                        <li>Face wash & moisturizer</li>
+                        <li>Deodorant</li>
+                        <li>Sunscreen & lip balm</li>
+                        <li>Razor & shaving cream</li>
+                        <li>Hairbrush/comb</li>
+                        <li>Nail clippers</li>
+                        <li>Contact solution (if needed)</li>
+                    </ul>
+                </div>
 
-                <h3>⚠️ Pre-Departure Checklist:</h3>
-                <ul>
-                    <li>☐ Check weather forecast for Hangzhou</li>
-                    <li>☐ Notify bank of travel dates</li>
-                    <li>☐ Check flight times and gate information</li>
-                    <li>☐ Arrange airport transportation</li>
-                    <li>☐ Set reminders for passport/documents</li>
-                    <li>☐ Download offline maps</li>
-                    <li>☐ Inform hotel of arrival time</li>
-                    <li>☐ Take photos of important documents</li>
-                    <li>☐ Lock windows and doors at home</li>
-                </ul>
+                <div class="checklist-card">
+                    <h3>🎒 Travel Accessories</h3>
+                    <ul>
+                        <li>Luggage/suitcase</li>
+                        <li>Day backpack or small bag</li>
+                        <li>Travel pillow (neck support)</li>
+                        <li>Eye mask & earplugs</li>
+                        <li>Compression bags (space saving)</li>
+                        <li>Luggage locks</li>
+                        <li>Packing cubes/organizers</li>
+                        <li>Ziploc bags (various sizes)</li>
+                        <li>Microfiber cloth (cleaning)</li>
+                    </ul>
+                </div>
 
-                <h3>🚀 Packing Tips:</h3>
-                <ul>
-                    <li>Pack heavy items at bottom of suitcase</li>
-                    <li>Roll clothes to save space</li>
-                    <li>Wear heaviest items during flights</li>
-                    <li>Check airline baggage allowance</li>
-                    <li>Keep valuables in carry-on</li>
-                    <li>Take photos of packed luggage</li>
-                </ul>
+                <div class="checklist-card category-tips">
+                    <h3>⚡ Pro Packing Tips</h3>
+                    <ul>
+                        <li>Roll clothes instead of folding</li>
+                        <li>Pack heavy items at suitcase bottom</li>
+                        <li>Wear heaviest items on flight</li>
+                        <li>Use compression bags to save space</li>
+                        <li>Keep valuables in carry-on</li>
+                        <li>Take photos of packed luggage</li>
+                        <li>Check airline baggage allowance</li>
+                        <li>Leave room for souvenirs!</li>
+                    </ul>
+                </div>
+
+                <div class="checklist-card category-warning">
+                    <h3>⚠️ Pre-Departure CRITICAL</h3>
+                    <ul>
+                        <li>Notify bank of travel dates</li>
+                        <li>Confirm flight times & gates</li>
+                        <li>Arrange airport transportation</li>
+                        <li>Download offline maps</li>
+                        <li>Inform hotel of arrival time</li>
+                        <li>Photo copy of documents</li>
+                        <li>Check weather forecast</li>
+                        <li>Lock home windows & doors</li>
+                    </ul>
+                </div>
+
+                <div class="checklist-card">
+                    <h3>📚 Optional Nice-to-Have</h3>
+                    <ul>
+                        <li>Guidebook/travel guide</li>
+                        <li>Journal/notebook & pen</li>
+                        <li>Books or e-reader</li>
+                        <li>Binoculars (bird watching)</li>
+                        <li>Portable washing line</li>
+                        <li>Sewing kit (emergency)</li>
+                        <li>Small gifts from home</li>
+                        <li>Instant coffee/tea packets</li>
+                    </ul>
+                </div>
             </div>
         </div>
 

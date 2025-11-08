@@ -180,13 +180,40 @@
             font-size: 1.3em;
         }
 
-        .flight-leg {
-            background: #f9f9f9;
-            padding: 15px;
-            border-left: 4px solid #667eea;
-            border-radius: 4px;
-            margin: 15px 0;
+        .flight-section-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0 15px 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.15em;
+            font-weight: bold;
         }
+
+        .flight-cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin: 20px 0; }
+
+        .flight-leg {
+            background: white;
+            padding: 20px;
+            border-left: 5px solid #667eea;
+            border-radius: 10px;
+            margin: 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            border: 1px solid #e0e0e0;
+        }
+
+        .flight-leg:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+            border-color: #667eea;
+        }
+
+        .flight-leg.outbound { border-left-color: #2196F3; }
+        .flight-leg.return { border-left-color: #FF6B6B; }
 
         .flight-leg strong {
             color: #667eea;
@@ -321,6 +348,7 @@
                 <a href="transportation.html" class="navbar-item">Transport</a>
                 <a href="packing.html" class="navbar-item">Packing</a>
                 <a href="bookings.html" class="navbar-item">Bookings</a>
+                <a href="ai-reviews.html" class="navbar-item">AI Reviews</a>
             </div>
         </div>
     </nav>
@@ -337,87 +365,83 @@
         </div>
 
         <div class="card">
-            <h2>🔴 Outbound Flight</h2>
-            <h3>December 25, 2025</h3>
-            <p style="color: #666; margin-bottom: 15px;"><strong>Route:</strong> Bangkok (BKK) → Hangzhou (HGH)</p>
-            <p style="color: #666; margin-bottom: 15px;"><strong>Total Duration:</strong> 8h 10m</p>
+            <div class="flight-section-header">🔵 Outbound Flight - December 25, 2025</div>
+            <p style="color: #666; margin: 15px 0;"><strong>Route:</strong> Bangkok (BKK) → Hangzhou (HGH) | <strong>Total Duration:</strong> 8h 10m</p>
 
-            <h3 style="margin-top: 20px; color: #667eea; font-size: 1.1em;">Leg 1: Bangkok to Guangzhou</h3>
-            <div class="flight-leg">
-                <strong>02:10 BKK → 06:05 CAN</strong>
-                <div class="leg-detail">Duration: <span>2h 55m</span></div>
-                <div class="leg-detail">Airline: <span>China Southern Airlines CZ3036</span></div>
-                <div class="leg-detail">Class: <span>Economy</span></div>
-                <div class="leg-detail">Service: <span>Snacks</span></div>
-            </div>
+            <div class="flight-cards-grid">
+                <div class="flight-leg outbound">
+                    <strong style="color: #2196F3;">✈️ Leg 1: BKK → CAN</strong>
+                    <div class="leg-detail" style="margin-top: 12px;"><strong>Time:</strong> <span>02:10 → 06:05 (2h 55m)</span></div>
+                    <div class="leg-detail"><strong>Airline:</strong> <span>China Southern CZ3036</span></div>
+                    <div class="leg-detail"><strong>Class:</strong> <span>Economy</span></div>
+                    <div class="leg-detail"><strong>Service:</strong> <span>Snacks & beverages</span></div>
+                </div>
 
-            <h3 style="margin-top: 20px; color: #667eea; font-size: 1.1em;">Transfer in Guangzhou</h3>
-            <div class="flight-leg">
-                <strong>Guangzhou Baiyun International Airport (CAN)</strong>
-                <div class="leg-detail">Transfer Time: <span>3h 5m</span></div>
-                <div class="leg-detail">Terminal: <span>T2</span></div>
-                <div class="leg-detail">✓ <span>No need to collect & re-check baggage</span></div>
-            </div>
+                <div class="flight-leg outbound">
+                    <strong style="color: #2196F3;">🛫 Transfer at CAN</strong>
+                    <div class="leg-detail" style="margin-top: 12px;"><strong>Airport:</strong> <span>Guangzhou Baiyun (T2)</span></div>
+                    <div class="leg-detail"><strong>Time:</strong> <span>3h 5m connection</span></div>
+                    <div class="leg-detail"><strong>Baggage:</strong> <span>✓ Through-checked</span></div>
+                    <div class="leg-detail" style="margin-top: 10px; color: #4CAF50;"><strong>✓ No re-check needed</strong></div>
+                </div>
 
-            <h3 style="margin-top: 20px; color: #667eea; font-size: 1.1em;">Leg 2: Guangzhou to Hangzhou</h3>
-            <div class="flight-leg">
-                <strong>09:10 CAN → 11:20 HGH</strong>
-                <div class="leg-detail">Duration: <span>2h 10m</span></div>
-                <div class="leg-detail">Airline: <span>China Southern Airlines CZ3803</span></div>
-                <div class="leg-detail">Class: <span>Economy</span></div>
-                <div class="leg-detail">Service: <span>Meal</span></div>
+                <div class="flight-leg outbound">
+                    <strong style="color: #2196F3;">✈️ Leg 2: CAN → HGH</strong>
+                    <div class="leg-detail" style="margin-top: 12px;"><strong>Time:</strong> <span>09:10 → 11:20 (2h 10m)</span></div>
+                    <div class="leg-detail"><strong>Airline:</strong> <span>China Southern CZ3803</span></div>
+                    <div class="leg-detail"><strong>Class:</strong> <span>Economy</span></div>
+                    <div class="leg-detail"><strong>Service:</strong> <span>Meal service</span></div>
+                </div>
             </div>
 
             <div class="links" style="margin-top: 20px;">
-                <strong>📄 Documentation:</strong><br/>
-                <a href="Flight/Flight_1_Outbound.md">Full Flight Details (MD)</a>
-                <a href="bookings.html">View Booking Screenshots</a>
+                <strong>📄 Full Documentation:</strong><br/>
+                <a href="Flight/Flight_1_Outbound.md">Detailed Outbound Info</a>
+                <a href="bookings.html">Booking Confirmations</a>
             </div>
         </div>
 
         <div class="card">
-            <h2>🔴 Return Flight</h2>
-            <h3>January 2-4, 2026</h3>
-            <p style="color: #666; margin-bottom: 15px;"><strong>Route:</strong> Hangzhou (HGH) → Bangkok (BKK)</p>
-            <p style="color: #666; margin-bottom: 15px;"><strong>Total Duration:</strong> 29h 15m</p>
+            <div class="flight-section-header">🔴 Return Flight - January 2-4, 2026</div>
+            <p style="color: #666; margin: 15px 0;"><strong>Route:</strong> Hangzhou (HGH) → Bangkok (BKK) | <strong>Total Duration:</strong> 29h 15m</p>
 
-            <div class="warning">
-                <strong>⚠️ Important:</strong> This return journey includes an overnight transfer of 23+ hours in Guangzhou. Plan accordingly and consider booking airport accommodation or a hotel near the terminal.
+            <div class="warning" style="margin: 20px 0; background: linear-gradient(135deg, #FFE5E5 0%, #FFD4D4 100%); border-left: 5px solid #FF6B6B;">
+                <strong style="color: #FF6B6B; font-size: 1.05em;">🚨 IMPORTANT: Overnight Transfer in Guangzhou</strong>
+                <p style="margin-top: 10px; color: #333;">This return journey includes a 23+ hour overnight transfer at Guangzhou airport. <strong>You MUST book accommodation</strong> - either near the airport or in the city. See accommodation page for hotel recommendations.</p>
             </div>
 
-            <h3 style="margin-top: 20px; color: #667eea; font-size: 1.1em;">Leg 1: Shanghai to Guangzhou</h3>
-            <div class="flight-leg">
-                <strong>January 2, 20:50 SHA → 23:30 CAN</strong>
-                <div class="leg-detail">Duration: <span>2h 40m</span></div>
-                <div class="leg-detail">Airline: <span>China Southern Airlines CZ3546</span></div>
-                <div class="leg-detail">Class: <span>Economy</span></div>
-                <div class="leg-detail">Service: <span>Snacks</span></div>
-            </div>
+            <div class="flight-cards-grid">
+                <div class="flight-leg return">
+                    <strong style="color: #FF6B6B;">✈️ Leg 1: SHA → CAN</strong>
+                    <div class="leg-detail" style="margin-top: 12px;"><strong>Time:</strong> <span>Jan 2 @ 20:50 → 23:30 (2h 40m)</span></div>
+                    <div class="leg-detail"><strong>Airline:</strong> <span>China Southern CZ3546</span></div>
+                    <div class="leg-detail"><strong>Class:</strong> <span>Economy</span></div>
+                    <div class="leg-detail"><strong>Service:</strong> <span>Snacks & beverages</span></div>
+                </div>
 
-            <h3 style="margin-top: 20px; color: #667eea; font-size: 1.1em;">Overnight Transfer in Guangzhou</h3>
-            <div class="flight-leg" style="border-left-color: #ff9800;">
-                <strong style="color: #ff9800;">⚠️ Guangzhou Baiyun International Airport (CAN)</strong>
-                <div class="leg-detail">Transfer Time: <span>23h 30m (OVERNIGHT)</span></div>
-                <div class="leg-detail">Arrival: <span>Jan 2 @ 23:30</span></div>
-                <div class="leg-detail">Departure: <span>Jan 3 @ 23:00</span></div>
-                <div class="leg-detail">Terminal: <span>T2</span></div>
-                <div class="leg-detail">✓ <span>No need to collect & re-check baggage</span></div>
-                <div class="leg-detail" style="margin-top: 10px; color: #d32f2f;"><strong>Recommendation:</strong> <span>Book a hotel near the airport or use airport lounge services</span></div>
-            </div>
+                <div class="flight-leg return">
+                    <strong style="color: #FF6B6B;">🌙 OVERNIGHT Transfer at CAN</strong>
+                    <div class="leg-detail" style="margin-top: 12px;"><strong>Duration:</strong> <span style="font-size: 1.1em; font-weight: bold;">23h 30m (OVERNIGHT!)</span></div>
+                    <div class="leg-detail"><strong>Arrival:</strong> <span>Jan 2 @ 23:30</span></div>
+                    <div class="leg-detail"><strong>Departure:</strong> <span>Jan 3 @ 23:00</span></div>
+                    <div class="leg-detail"><strong>Terminal:</strong> <span>T2</span></div>
+                    <div class="leg-detail" style="margin-top: 10px; background: #fff3cd; padding: 10px; border-radius: 6px; color: #d32f2f;"><strong>⚠️ Action Required:</strong> Book hotel or use airport services!</div>
+                </div>
 
-            <h3 style="margin-top: 20px; color: #667eea; font-size: 1.1em;">Leg 2: Guangzhou to Bangkok</h3>
-            <div class="flight-leg">
-                <strong>January 3, 23:00 CAN → January 4, 01:05 BKK</strong>
-                <div class="leg-detail">Duration: <span>3h 5m</span></div>
-                <div class="leg-detail">Airline: <span>China Southern Airlines CZ3035</span></div>
-                <div class="leg-detail">Class: <span>Economy</span></div>
-                <div class="leg-detail">Service: <span>Snacks</span></div>
+                <div class="flight-leg return">
+                    <strong style="color: #FF6B6B;">✈️ Leg 2: CAN → BKK</strong>
+                    <div class="leg-detail" style="margin-top: 12px;"><strong>Time:</strong> <span>Jan 3 @ 23:00 → Jan 4 @ 01:05 (3h 5m)</span></div>
+                    <div class="leg-detail"><strong>Airline:</strong> <span>China Southern CZ3035</span></div>
+                    <div class="leg-detail"><strong>Class:</strong> <span>Economy</span></div>
+                    <div class="leg-detail"><strong>Service:</strong> <span>Snacks & beverages</span></div>
+                </div>
             </div>
 
             <div class="links" style="margin-top: 20px;">
-                <strong>📄 Documentation:</strong><br/>
-                <a href="Flight/Flight_2_Return.md">Full Flight Details (MD)</a>
-                <a href="bookings.html">View Booking Screenshots</a>
+                <strong>📄 Full Documentation:</strong><br/>
+                <a href="Flight/Flight_2_Return.md">Detailed Return Info</a>
+                <a href="accommodation.html">Book Guangzhou Hotel</a>
+                <a href="bookings.html">Booking Confirmations</a>
             </div>
         </div>
 
