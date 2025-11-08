@@ -6,29 +6,85 @@
     <title>Itinerary - China New Year 2026 Trip</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; padding: 20px; }
-        .container { max-width: 1000px; margin: 0 auto; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; padding: 0; }
+
+        /* Navigation Bar */
+        .navbar { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 15px 20px; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); }
+        .navbar-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; position: relative; }
+        .navbar-brand { color: white; font-size: 1.2em; font-weight: bold; text-decoration: none; display: flex; align-items: center; gap: 8px; }
+        .navbar-menu { display: flex; gap: 3px; flex-wrap: wrap; justify-content: flex-end; }
+        .navbar-item { color: white; text-decoration: none; padding: 8px 12px; border-radius: 4px; transition: 0.3s; font-size: 0.85em; white-space: nowrap; }
+        .navbar-item:hover { background: rgba(255, 255, 255, 0.2); }
+        .navbar-item.active { background: rgba(255, 255, 255, 0.3); font-weight: bold; }
+        .menu-toggle { display: none; background: none; border: none; color: white; font-size: 1.5em; cursor: pointer; padding: 5px; }
+        @media (max-width: 900px) { .navbar-item { font-size: 0.8em; padding: 6px 10px; } }
+        @media (max-width: 768px) { .navbar-menu { display: none; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; gap: 0; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 10px 0; border-top: 2px solid rgba(255, 255, 255, 0.2); max-height: calc(100vh - 60px); overflow-y: auto; } .navbar-menu.mobile-open { display: flex; } .navbar-item { padding: 12px 20px; border-radius: 0; border-bottom: 1px solid rgba(255, 255, 255, 0.1); font-size: 0.95em; } .menu-toggle { display: block; } }
+
+        .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
         header { text-align: center; color: white; margin-bottom: 40px; padding: 40px 20px; }
         h1 { font-size: 2.5em; margin-bottom: 10px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); }
         .breadcrumb { font-size: 0.95em; opacity: 0.9; }
         .breadcrumb a { color: white; text-decoration: none; border-bottom: 1px solid rgba(255, 255, 255, 0.5); }
         .breadcrumb a:hover { border-bottom: 1px solid white; }
+
         .card { background: white; border-radius: 10px; padding: 30px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); margin-bottom: 25px; }
         .card h2 { color: #667eea; margin-bottom: 20px; font-size: 1.8em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
-        .placeholder-content { background: #f5f5f5; padding: 30px; border-left: 4px solid #667eea; border-radius: 4px; color: #666; line-height: 1.8; }
-        .placeholder-content h3 { color: #667eea; margin-top: 20px; margin-bottom: 10px; font-size: 1.1em; }
-        .placeholder-content h3:first-child { margin-top: 0; }
-        .placeholder-content ul { margin-left: 20px; margin-top: 10px; }
-        .placeholder-content li { margin: 8px 0; }
+
+        /* Timeline Styles */
+        .timeline { position: relative; padding: 20px 0; }
+        .timeline-item { margin-bottom: 40px; padding-left: 40px; position: relative; }
+        .timeline-item::before { content: ''; position: absolute; left: 0; top: 0; width: 20px; height: 20px; background: #667eea; border-radius: 50%; border: 3px solid white; box-shadow: 0 0 0 3px #667eea; }
+        .timeline-item:not(:last-child)::after { content: ''; position: absolute; left: 8px; top: 25px; width: 4px; height: calc(100% + 15px); background: #667eea; }
+
+        .day-header { font-size: 1.3em; font-weight: bold; color: #667eea; margin-bottom: 10px; }
+        .date { color: #666; font-size: 0.95em; margin-bottom: 8px; }
+        .city { display: inline-block; background: #f0f4ff; color: #667eea; padding: 5px 12px; border-radius: 20px; font-weight: bold; margin-bottom: 10px; font-size: 0.9em; }
+
+        .activities { background: #f9f9f9; padding: 15px; border-radius: 6px; border-left: 3px solid #667eea; margin-top: 10px; }
+        .activity { margin: 10px 0; padding: 8px 0; }
+        .activity-time { color: #667eea; font-weight: bold; }
+        .activity-desc { color: #333; margin-left: 10px; }
+
+        .summary-box { background: #e3f2fd; border-left: 4px solid #667eea; padding: 15px; border-radius: 4px; margin: 15px 0; }
+        .summary-box strong { color: #667eea; }
+
         .nav-buttons { display: flex; justify-content: space-between; margin-top: 30px; gap: 10px; }
         .nav-btn { flex: 1; padding: 12px 20px; background: white; color: #667eea; border: 2px solid #667eea; border-radius: 4px; text-decoration: none; text-align: center; font-weight: bold; transition: 0.3s; }
         .nav-btn:hover { background: #667eea; color: white; }
         .nav-btn.home { background: #667eea; color: white; }
+
         footer { text-align: center; color: white; padding: 30px 20px; opacity: 0.8; margin-top: 40px; }
-        @media (max-width: 768px) { h1 { font-size: 1.8em; } .card { padding: 20px; } .nav-buttons { flex-direction: column; } }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 1.8em; }
+            .card { padding: 20px; }
+            .nav-buttons { flex-direction: column; }
+            .timeline-item { padding-left: 35px; }
+            .day-header { font-size: 1.1em; }
+        }
     </style>
 </head>
 <body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="index.html" class="navbar-brand">🌍 China 2026</a>
+            <button class="menu-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu">☰</button>
+            <div class="navbar-menu" id="navMenu">
+                <a href="index.html" class="navbar-item">Home</a>
+                <a href="flights.html" class="navbar-item">Flights</a>
+                <a href="accommodation.html" class="navbar-item">Hotels</a>
+                <a href="itinerary.html" class="navbar-item active">Activities</a>
+                <a href="dining.html" class="navbar-item">Food</a>
+                <a href="budget.html" class="navbar-item">Budget</a>
+                <a href="practical.html" class="navbar-item">Practical</a>
+                <a href="transportation.html" class="navbar-item">Transport</a>
+                <a href="packing.html" class="navbar-item">Packing</a>
+                <a href="bookings.html" class="navbar-item">Bookings</a>
+            </div>
+        </div>
+    </nav>
+
     <div class="container">
         <header>
             <h1>📅 Itinerary</h1>
@@ -36,57 +92,279 @@
         </header>
 
         <div class="card">
-            <h2>Daily Activity Schedule</h2>
-            <div class="placeholder-content">
-                <p>Plan your day-by-day activities and sightseeing for your Hangzhou adventure.</p>
-                <h3>Information to Include:</h3>
-                <ul>
-                    <li>Day-by-day schedule for each date</li>
-                    <li>Attractions and landmarks to visit</li>
-                    <li>Travel times between locations</li>
-                    <li>Meal times and dining plans</li>
-                    <li>Special events and celebrations</li>
-                    <li>Rest and relaxation time</li>
-                    <li>Shopping and market visits</li>
-                    <li>Temple visits and cultural experiences</li>
-                </ul>
+            <h2>10-Day China Adventure</h2>
+            <div class="summary-box">
+                <strong>Trip Duration:</strong> December 25, 2025 - January 4, 2026 (10 days)<br/>
+                <strong>Cities:</strong> Hangzhou → Huangling → Wangxiangu → Suzhou → Shanghai → Guangzhou → Bangkok<br/>
+                <strong>Total Cities:</strong> 5 cities in China + return to Bangkok
+            </div>
 
-                <h3>Key Hangzhou Attractions:</h3>
-                <ul>
-                    <li><strong>West Lake (西湖):</strong> UNESCO site, scenic walks, boat tours</li>
-                    <li><strong>Lingyin Temple:</strong> Historic Buddhist temple with stunning carvings</li>
-                    <li><strong>Dragon Well Tea Plantations:</strong> Traditional tea culture experience</li>
-                    <li><strong>Hefang Street:</strong> Historic shopping street, local crafts and souvenirs</li>
-                    <li><strong>Qiandao Lake:</strong> Day trip option, scenic water scenery</li>
-                </ul>
+            <div class="timeline">
+                <!-- Day 1 -->
+                <div class="timeline-item">
+                    <div class="day-header">Day 1: Arrival in Hangzhou</div>
+                    <div class="date">Thursday, December 25, 2025</div>
+                    <span class="city">🏙️ Hangzhou</span>
+                    <div class="activities">
+                        <div class="activity">
+                            <span class="activity-time">11:20 AM</span>
+                            <span class="activity-desc">✈️ Arrive at Hangzhou Xiaoshan Airport (HGH)</span>
+                        </div>
+                        <div class="activity">
+                            <span class="activity-time">12:00 PM - 5:00 PM</span>
+                            <span class="activity-desc">🚕 Airport transfer to hotel, check-in, rest & refresh</span>
+                        </div>
+                        <div class="activity">
+                            <span class="activity-time">5:00 PM onwards</span>
+                            <span class="activity-desc">🍽️ Dinner, explore nearby area, early sleep (jet lag recovery)</span>
+                        </div>
+                    </div>
+                </div>
 
-                <h3>Chinese New Year Activities (Late Jan):</h3>
-                <ul>
-                    <li>Temple fairs and celebrations</li>
-                    <li>Lantern festivals (if timing aligns)</li>
-                    <li>Family-oriented activities</li>
-                    <li>Special holiday menus and foods</li>
-                </ul>
+                <!-- Day 2 -->
+                <div class="timeline-item">
+                    <div class="day-header">Day 2: Hangzhou Full Day</div>
+                    <div class="date">Friday, December 26, 2025</div>
+                    <span class="city">🏙️ Hangzhou</span>
+                    <div class="activities">
+                        <div class="activity">
+                            <span class="activity-time">Morning</span>
+                            <span class="activity-desc">🏞️ West Lake (西湖) - Scenic walks, boat tour, temple visits</span>
+                        </div>
+                        <div class="activity">
+                            <span class="activity-time">Afternoon</span>
+                            <span class="activity-desc">🏯 Lingyin Temple - Ancient Buddhist temple with stone carvings</span>
+                        </div>
+                        <div class="activity">
+                            <span class="activity-time">Evening</span>
+                            <span class="activity-desc">🏪 Hefang Street (河坊街) - Historic shopping street, local crafts, street food</span>
+                        </div>
+                    </div>
+                </div>
 
-                <h3>Sample Timeline:</h3>
-                <ul>
-                    <li><strong>Dec 25:</strong> Arrive 11:20 AM → Hotel check-in → Rest</li>
-                    <li><strong>Dec 26-Jan 1:</strong> Main exploration period (6-7 days)</li>
-                    <li><strong>Jan 2:</strong> Last-minute shopping/activities → Evening flight</li>
-                    <li><strong>Jan 3-4:</strong> Transit and return</li>
+                <!-- Day 3 -->
+                <div class="timeline-item">
+                    <div class="day-header">Day 3: Travel to Huangling</div>
+                    <div class="date">Saturday, December 27, 2025</div>
+                    <span class="city">🏔️ Huangling</span>
+                    <div class="activities">
+                        <div class="activity">
+                            <span class="activity-time">Morning/Midday</span>
+                            <span class="activity-desc">🚂 Travel from Hangzhou to Huangling (scenic area in Yellow Mountains region)</span>
+                        </div>
+                        <div class="activity">
+                            <span class="activity-time">Afternoon</span>
+                            <span class="activity-desc">🏔️ Arrive & settle in, explore Huangling mountain scenery</span>
+                        </div>
+                        <div class="activity">
+                            <span class="activity-time">Evening</span>
+                            <span class="activity-desc">🍽️ Dinner, rest</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Day 4 -->
+                <div class="timeline-item">
+                    <div class="day-header">Day 4: Wangxiangu Valley</div>
+                    <div class="date">Sunday, December 28, 2025</div>
+                    <span class="city">🏔️ Wangxiangu Valley</span>
+                    <div class="activities">
+                        <div class="activity">
+                            <span class="activity-time">Morning/Midday</span>
+                            <span class="activity-desc">🚌 Travel to Wangxiangu Valley (scenic mountain valley)</span>
+                        </div>
+                        <div class="activity">
+                            <span class="activity-time">Afternoon/Evening</span>
+                            <span class="activity-desc">🥾 Hiking & exploration of valley scenery, waterfall viewing</span>
+                        </div>
+                        <div class="activity">
+                            <span class="activity-time">Evening</span>
+                            <span class="activity-desc">🍽️ Dinner, overnight in valley</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Day 5 -->
+                <div class="timeline-item">
+                    <div class="day-header">Day 5: Travel to Suzhou</div>
+                    <div class="date">Monday, December 29, 2025</div>
+                    <span class="city">🏙️ Suzhou</span>
+                    <div class="activities">
+                        <div class="activity">
+                            <span class="activity-time">Morning/Midday</span>
+                            <span class="activity-desc">🚆 Travel from Wangxiangu Valley to Suzhou (historic water city)</span>
+                        </div>
+                        <div class="activity">
+                            <span class="activity-time">Afternoon</span>
+                            <span class="activity-desc">🏠 Check-in, explore Suzhou gardens (UNESCO World Heritage Sites)</span>
+                        </div>
+                        <div class="activity">
+                            <span class="activity-time">Evening</span>
+                            <span class="activity-desc">🚤 Boat tour on Grand Canal, dinner</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Day 6 -->
+                <div class="timeline-item">
+                    <div class="day-header">Day 6: Suzhou & Travel to Shanghai</div>
+                    <div class="date">Tuesday, December 30, 2025</div>
+                    <span class="city">🏙️ Suzhou → Shanghai</span>
+                    <div class="activities">
+                        <div class="activity">
+                            <span class="activity-time">Morning</span>
+                            <span class="activity-desc">🏯 Explore remaining Suzhou attractions - temples, classical gardens</span>
+                        </div>
+                        <div class="activity">
+                            <span class="activity-time">Afternoon</span>
+                            <span class="activity-desc">🚆 Travel from Suzhou to Shanghai (30-60 min by train)</span>
+                        </div>
+                        <div class="activity">
+                            <span class="activity-time">Evening</span>
+                            <span class="activity-desc">🏨 Check-in in Shanghai, explore Puxi/Pudong, dinner</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Day 7 -->
+                <div class="timeline-item">
+                    <div class="day-header">Day 7: Shanghai - New Year's Eve</div>
+                    <div class="date">Wednesday, December 31, 2025</div>
+                    <span class="city">🏙️ Shanghai</span>
+                    <div class="activities">
+                        <div class="activity">
+                            <span class="activity-time">Morning/Afternoon</span>
+                            <span class="activity-desc">🏙️ Explore Shanghai - Bund, Oriental Pearl Tower, Yu Garden, Old Town</span>
+                        </div>
+                        <div class="activity">
+                            <span class="activity-time">Evening</span>
+                            <span class="activity-desc">🎆 New Year's Eve celebrations on the Bund or in the city</span>
+                        </div>
+                        <div class="activity">
+                            <span class="activity-time">Night</span>
+                            <span class="activity-desc">🎉 Celebrate New Year 2026! Special dinners, celebrations</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Day 8 -->
+                <div class="timeline-item">
+                    <div class="day-header">Day 8: Shanghai - New Year's Day</div>
+                    <div class="date">Thursday, January 1, 2026</div>
+                    <span class="city">🏙️ Shanghai</span>
+                    <div class="activities">
+                        <div class="activity">
+                            <span class="activity-time">Morning/Afternoon</span>
+                            <span class="activity-desc">🏙️ Continue exploring Shanghai - temples, shopping, parks</span>
+                        </div>
+                        <div class="activity">
+                            <span class="activity-time">Evening</span>
+                            <span class="activity-desc">🍽️ Special New Year's dinner, relax</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Day 9 -->
+                <div class="timeline-item">
+                    <div class="day-header">Day 9: Shanghai - Last Day</div>
+                    <div class="date">Friday, January 2, 2026</div>
+                    <span class="city">🏙️ Shanghai → Guangzhou</span>
+                    <div class="activities">
+                        <div class="activity">
+                            <span class="activity-time">Morning/Afternoon</span>
+                            <span class="activity-desc">🛍️ Last-minute shopping, final sightseeing in Shanghai</span>
+                        </div>
+                        <div class="activity">
+                            <span class="activity-time">4:00 PM</span>
+                            <span class="activity-desc">🚕 Transfer to Shanghai Hongqiao Airport (SHA)</span>
+                        </div>
+                        <div class="activity">
+                            <span class="activity-time">8:50 PM</span>
+                            <span class="activity-desc">✈️ Depart SHA on China Southern CZ3546</span>
+                        </div>
+                        <div class="activity">
+                            <span class="activity-time">11:30 PM</span>
+                            <span class="activity-desc">🏨 Arrive Guangzhou (CAN) - Transfer to airport hotel/lounge for overnight</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Day 10 -->
+                <div class="timeline-item">
+                    <div class="day-header">Day 10: Guangzhou & Return to Bangkok</div>
+                    <div class="date">Friday-Saturday, January 3-4, 2026</div>
+                    <span class="city">🏙️ Guangzhou → Bangkok</span>
+                    <div class="activities">
+                        <div class="activity">
+                            <span class="activity-time">Jan 3: Morning/Afternoon</span>
+                            <span class="activity-desc">🏨 Rest/sleep at airport hotel or lounge (23-hour overnight transfer)</span>
+                        </div>
+                        <div class="activity">
+                            <span class="activity-time">Jan 3: 11:00 PM</span>
+                            <span class="activity-desc">✈️ Depart Guangzhou (CAN) on China Southern CZ3035</span>
+                        </div>
+                        <div class="activity">
+                            <span class="activity-time">Jan 4: 1:05 AM</span>
+                            <span class="activity-desc">✈️ Arrive Bangkok Suvarnabhumi (BKK) - Trip Complete!</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>💡 Trip Highlights</h2>
+            <div style="color: #333; line-height: 1.8;">
+                <ul style="margin-left: 20px; margin-top: 15px;">
+                    <li><strong>Nature & Mountains:</strong> Huangling & Wangxiangu Valley hiking</li>
+                    <li><strong>Historic Water Cities:</strong> Suzhou's classical gardens & canal tours</li>
+                    <li><strong>Modern Metropolis:</strong> Shanghai Bund, Oriental Pearl Tower, Yu Garden</li>
+                    <li><strong>New Year Celebration:</strong> Ring in 2026 in Shanghai with Chinese New Year vibes</li>
+                    <li><strong>Cultural Experience:</strong> Traditional temples, markets, and local cuisine</li>
+                    <li><strong>Total Distance:</strong> ~500km across 5 Chinese cities</li>
                 </ul>
             </div>
         </div>
 
         <div class="nav-buttons">
-            <a href="accommodation.html" class="nav-btn">← Accommodation</a>
+            <a href="accommodation.html" class="nav-btn">← Hotels</a>
             <a href="index.html" class="nav-btn home">Home</a>
-            <a href="dining.html" class="nav-btn">Dining →</a>
+            <a href="dining.html" class="nav-btn">Food →</a>
         </div>
 
         <footer>
             <p>📍 China New Year 2026 Adventure • Happy travels!</p>
         </footer>
     </div>
+
+    <script>
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('navMenu');
+            menu.classList.toggle('mobile-open');
+        }
+
+        // Close mobile menu when a link is clicked
+        document.addEventListener('DOMContentLoaded', function() {
+            const navItems = document.querySelectorAll('.navbar-item');
+            navItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const menu = document.getElementById('navMenu');
+                    menu.classList.remove('mobile-open');
+                });
+            });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const navbar = document.querySelector('.navbar');
+            const menu = document.getElementById('navMenu');
+            const toggle = document.querySelector('.menu-toggle');
+
+            if (!navbar.contains(event.target) && menu.classList.contains('mobile-open')) {
+                menu.classList.remove('mobile-open');
+            }
+        });
+    </script>
 </body>
 </html>
