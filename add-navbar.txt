@@ -1,0 +1,14 @@
+Pages to update: dining.html, budget.html, practical.html, transportation.html, packing.html
+
+For each file:
+1. Change body padding: 20px → 0
+2. Add navbar styles after body style
+3. Add navbar HTML after <body> opening tag
+4. Add mobile menu toggle script before </body>
+
+Active navbar items:
+- dining.html: Food
+- budget.html: Budget  
+- practical.html: Practical
+- transportation.html: Transport
+- packing.html: Packing

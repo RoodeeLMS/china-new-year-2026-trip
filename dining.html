@@ -6,8 +6,18 @@
     <title>Dining - China New Year 2026 Trip</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; padding: 20px; }
-        .container { max-width: 1000px; margin: 0 auto; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; padding: 0; }
+        .navbar { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 15px 20px; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); }
+        .navbar-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; position: relative; }
+        .navbar-brand { color: white; font-size: 1.2em; font-weight: bold; text-decoration: none; display: flex; align-items: center; gap: 8px; }
+        .navbar-menu { display: flex; gap: 3px; flex-wrap: wrap; justify-content: flex-end; }
+        .navbar-item { color: white; text-decoration: none; padding: 8px 12px; border-radius: 4px; transition: 0.3s; font-size: 0.85em; white-space: nowrap; }
+        .navbar-item:hover { background: rgba(255, 255, 255, 0.2); }
+        .navbar-item.active { background: rgba(255, 255, 255, 0.3); font-weight: bold; }
+        .menu-toggle { display: none; background: none; border: none; color: white; font-size: 1.5em; cursor: pointer; padding: 5px; }
+        @media (max-width: 900px) { .navbar-item { font-size: 0.8em; padding: 6px 10px; } }
+        @media (max-width: 768px) { .navbar-menu { display: none; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; gap: 0; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 10px 0; border-top: 2px solid rgba(255, 255, 255, 0.2); max-height: calc(100vh - 60px); overflow-y: auto; } .navbar-menu.mobile-open { display: flex; } .navbar-item { padding: 12px 20px; border-radius: 0; border-bottom: 1px solid rgba(255, 255, 255, 0.1); font-size: 0.95em; } .menu-toggle { display: block; } }
+        .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
         header { text-align: center; color: white; margin-bottom: 40px; padding: 40px 20px; }
         h1 { font-size: 2.5em; margin-bottom: 10px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); }
         .breadcrumb { font-size: 0.95em; opacity: 0.9; }
@@ -28,6 +38,7 @@
     </style>
 </head>
 <body>
+    <nav class="navbar"><div class="navbar-container"><a href="index.html" class="navbar-brand">🌍 China 2026</a><button class="menu-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu">☰</button><div class="navbar-menu" id="navMenu"><a href="index.html" class="navbar-item">Home</a><a href="flights.html" class="navbar-item">Flights</a><a href="accommodation.html" class="navbar-item">Hotels</a><a href="itinerary.html" class="navbar-item">Activities</a><a href="dining.html" class="navbar-item active">Food</a><a href="budget.html" class="navbar-item">Budget</a><a href="practical.html" class="navbar-item">Practical</a><a href="transportation.html" class="navbar-item">Transport</a><a href="packing.html" class="navbar-item">Packing</a><a href="bookings.html" class="navbar-item">Bookings</a></div></div></nav>
     <div class="container">
         <header>
             <h1>🍜 Dining</h1>
@@ -89,5 +100,6 @@
             <p>📍 China New Year 2026 Adventure • Happy travels!</p>
         </footer>
     </div>
+    <script>function toggleMobileMenu(){document.getElementById('navMenu').classList.toggle('mobile-open');}document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('.navbar-item').forEach(item=>{item.addEventListener('click',function(){document.getElementById('navMenu').classList.remove('mobile-open');});});});document.addEventListener('click',function(event){const navbar=document.querySelector('.navbar');const menu=document.getElementById('navMenu');if(!navbar.contains(event.target)&&menu.classList.contains('mobile-open')){menu.classList.remove('mobile-open');}});</script>
 </body>
 </html>
