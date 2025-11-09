@@ -13,7 +13,15 @@
       "Bash(do echo '=== Checking $file ===' grep -c navbar $file)",
       "Bash(echo 'WARNING: No navbar found' grep 'navbar-item active' $file)",
       "Bash(git pull:*)",
-      "Bash(git checkout:*)"
+      "Bash(git checkout:*)",
+      "Bash(nul)",
+      "Bash(dir:*)",
+      "Bash(move \"02_Guangzhou_Agoda_UOB Rewards_1932695602.pdf\" \"Hotel_Guangzhou_Baiyun_Coco_booking.pdf\")",
+      "Bash(move:*)",
+      "Bash(move \"29_Suzhou_Novotel Suzhou SIP_NEW (Free cancel 29-Dec).pdf\" \"Hotel_Suzhou_Novotel_booking.pdf\")",
+      "Bash(move \"30_Shanghai_Tianhua Hotel_Trip_AMEX.pdf\" \"Hotel_Shanghai_Tianhua_booking.pdf\")",
+      "Bash(ren:*)",
+      "Bash(ren \"27_Huangling_Guling Sky Street_UOB Rewards.pdf\" \"Hotel_Huangling_Guling_Sky_Street_booking.pdf\")"
     ],
     "deny": [],
     "ask": []
