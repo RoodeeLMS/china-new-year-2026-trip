@@ -1,4 +1,4 @@
-# Flight 2: Return - HGH to BKK
+# Flight 2: Return - SHA to BKK
 
 ## Flight Details
 
@@ -6,9 +6,9 @@
 |--------|-------------|
 | **Date** | January 2-4, 2026 |
 | **Total Duration** | 29h 15m |
-| **Route** | Hangzhou → Guangzhou → Shanghai → Bangkok |
+| **Route** | Shanghai → Guangzhou → Bangkok |
 
-## Leg 1: Hangzhou to Guangzhou
+## Leg 1: Shanghai to Guangzhou
 
 | Detail | Information |
 |--------|-------------|
