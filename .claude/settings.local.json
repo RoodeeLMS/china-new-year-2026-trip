@@ -21,7 +21,8 @@
       "Bash(move \"29_Suzhou_Novotel Suzhou SIP_NEW (Free cancel 29-Dec).pdf\" \"Hotel_Suzhou_Novotel_booking.pdf\")",
       "Bash(move \"30_Shanghai_Tianhua Hotel_Trip_AMEX.pdf\" \"Hotel_Shanghai_Tianhua_booking.pdf\")",
       "Bash(ren:*)",
-      "Bash(ren \"27_Huangling_Guling Sky Street_UOB Rewards.pdf\" \"Hotel_Huangling_Guling_Sky_Street_booking.pdf\")"
+      "Bash(ren \"27_Huangling_Guling Sky Street_UOB Rewards.pdf\" \"Hotel_Huangling_Guling_Sky_Street_booking.pdf\")",
+      "Bash(cd:*)"
     ],
     "deny": [],
     "ask": []
