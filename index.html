@@ -5,7 +5,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>China New Year 2026 Trip Planner</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary-red: #C41E3A;
+            --accent-gold: #D4AF37;
+            --deep-navy: #1a1a2e;
+            --warm-cream: #FFF8F0;
+            --hangzhou-red: #FF6B6B;
+            --suzhou-teal: #4ECDC4;
+            --shanghai-gold: #FFE66D;
+            --guangzhou-green: #95E1D3;
+            --mountain-purple: #9B87FF;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -13,20 +26,21 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Noto Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, var(--deep-navy) 0%, #16213e 50%, var(--primary-red) 100%);
             min-height: 100vh;
             padding: 0;
         }
 
         /* Navigation Bar */
         .navbar {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, var(--deep-navy) 0%, #16213e 100%);
             padding: 15px 20px;
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            border-bottom: 2px solid var(--accent-gold);
         }
 
         .navbar-container {
@@ -40,13 +54,15 @@
         }
 
         .navbar-brand {
-            color: white;
-            font-size: 1.2em;
-            font-weight: bold;
+            color: var(--accent-gold);
+            font-family: 'Noto Serif SC', serif;
+            font-size: 1.3em;
+            font-weight: 700;
             text-decoration: none;
             display: flex;
             align-items: center;
             gap: 8px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
         }
 
         .navbar-menu {
@@ -67,11 +83,13 @@
         }
 
         .navbar-item:hover {
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(212, 175, 55, 0.2);
+            color: var(--accent-gold);
         }
 
         .navbar-item.active {
-            background: rgba(255, 255, 255, 0.3);
+            background: rgba(212, 175, 55, 0.3);
+            color: var(--accent-gold);
             font-weight: bold;
         }
 
@@ -101,9 +119,9 @@
                 right: 0;
                 flex-direction: column;
                 gap: 0;
-                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                background: linear-gradient(135deg, var(--deep-navy) 0%, #16213e 100%);
                 padding: 10px 0;
-                border-top: 2px solid rgba(255, 255, 255, 0.2);
+                border-top: 2px solid var(--accent-gold);
                 max-height: calc(100vh - 60px);
                 overflow-y: auto;
             }
@@ -169,10 +187,11 @@
         }
 
         .card h2 {
-            color: #667eea;
+            color: var(--primary-red);
+            font-family: 'Noto Serif SC', serif;
             margin-bottom: 20px;
             font-size: 1.8em;
-            border-bottom: 3px solid #667eea;
+            border-bottom: 3px solid var(--accent-gold);
             padding-bottom: 10px;
         }
 
@@ -182,9 +201,9 @@
         }
 
         .placeholder {
-            background: #f5f5f5;
+            background: var(--warm-cream);
             padding: 20px;
-            border-left: 4px solid #667eea;
+            border-left: 4px solid var(--accent-gold);
             border-radius: 4px;
             color: #666;
             font-style: italic;
@@ -208,7 +227,7 @@
 
         .label {
             font-weight: bold;
-            color: #667eea;
+            color: var(--primary-red);
             display: block;
             margin-bottom: 5px;
         }
@@ -247,23 +266,26 @@
         }
 
         .quick-link {
-            background: #f0f4ff;
+            background: var(--warm-cream);
             padding: 20px;
             border-radius: 8px;
             text-decoration: none;
-            color: #667eea;
-            border-left: 4px solid #667eea;
+            color: var(--primary-red);
+            border-left: 4px solid var(--accent-gold);
             transition: 0.3s;
             display: block;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
 
         .quick-link:hover {
-            background: #e3f2fd;
+            background: white;
             transform: translateX(5px);
+            border-left-color: var(--primary-red);
         }
 
         .quick-link h3 {
-            color: #667eea;
+            color: var(--primary-red);
+            font-family: 'Noto Serif SC', serif;
             margin-bottom: 5px;
         }
 
@@ -299,8 +321,8 @@
             content: '';
             position: absolute;
             width: 6px;
-            background-color: #e0e7ff;
-            /* Light purple-blue */
+            background-color: var(--accent-gold);
+            /* Gold accent line */
             top: 0;
             bottom: 0;
             left: 50%;
@@ -325,11 +347,11 @@
             height: 25px;
             right: -12.5px;
             background-color: white;
-            border: 4px solid #667eea;
+            border: 4px solid var(--primary-red);
             top: 25px;
             border-radius: 50%;
             z-index: 1;
-            box-shadow: 0 0 0 4px #e0e7ff;
+            box-shadow: 0 0 0 4px var(--accent-gold);
         }
 
         /* Place the container to the left */
@@ -391,7 +413,7 @@
         }
 
         .timeline-date {
-            color: #667eea;
+            color: var(--primary-red);
             font-weight: bold;
             font-size: 0.9em;
             text-transform: uppercase;
@@ -455,7 +477,7 @@
 <body>
     <!-- Navigation Bar -->
         <nav class="navbar">
-            <div class="navbar-container"><a href="index.html" class="navbar-brand">🌍 China 2026</a><button
+            <div class="navbar-container"><a href="index.html" class="navbar-brand">🏮 春节 2026</a><button
                     class="menu-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu">☰</button>
                 <div class="navbar-menu" id="navMenu"><a href="index.html" class="navbar-item active">Home</a><a
                         href="flights.html" class="navbar-item">Flights</a><a href="accommodation.html"
@@ -484,7 +506,7 @@
                                 <div
                                     style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 15px; margin-bottom: 25px;">
                                     <div
-                                        style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 20px; border-radius: 8px; text-align: center;">
+                                        style="background: linear-gradient(135deg, var(--primary-red) 0%, #8B0000 100%); color: white; padding: 20px; border-radius: 8px; text-align: center;">
                                         <div style="font-size: 2em; font-weight: bold; margin-bottom: 5px;">8/8</div>
                                         <div style="font-size: 0.95em; opacity: 0.9;">Hotels Booked</div>
                                         <div style="font-size: 0.8em; opacity: 0.8; margin-top: 5px;">All confirmed ✓
@@ -514,7 +536,7 @@
                                 <!-- Accommodation Summary -->
                                     <div
                                         style="background: #f5f5f5; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
-                                        <h3 style="color: #667eea; margin-bottom: 15px; font-size: 1.1em;">🏨 Hotel
+                                        <h3 style="color: var(--primary-red); margin-bottom: 15px; font-size: 1.1em; font-family: 'Noto Serif SC', serif;">🏨 Hotel
                                             Reservations Summary</h3>
                                         <div
                                             style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px;">
@@ -599,13 +621,13 @@
                                     </div>
                                     <!-- City Route Timeline -->
                                         <div style="margin-bottom: 20px;">
-                                            <h3 style="color: #667eea; margin-bottom: 12px; font-size: 1.1em;">📍
+                                            <h3 style="color: var(--primary-red); margin-bottom: 12px; font-size: 1.1em; font-family: 'Noto Serif SC', serif;">📍
                                                 Journey Route</h3>
                                             <div
                                                 style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px;">
                                                 <div
-                                                    style="background: #e3f2fd; padding: 12px; border-radius: 6px; text-align: center; border: 2px solid #667eea;">
-                                                    <div style="font-weight: bold; color: #667eea; font-size: 1.1em;">
+                                                    style="background: var(--warm-cream); padding: 12px; border-radius: 6px; text-align: center; border: 2px solid var(--primary-red);">
+                                                    <div style="font-weight: bold; color: var(--primary-red); font-size: 1.1em;">
                                                         Bangkok</div>
                                                     <div style="color: #666; font-size: 0.85em;">Dec 25-26</div>
                                                     <div style="color: #999; font-size: 0.8em; margin-top: 3px;">Transit
@@ -682,8 +704,8 @@
                                                     style="color: #999; display: flex; align-items: center; justify-content: center;">
                                                     →</div>
                                                 <div
-                                                    style="background: #e3f2fd; padding: 12px; border-radius: 6px; text-align: center; border: 2px solid #667eea;">
-                                                    <div style="font-weight: bold; color: #667eea; font-size: 1.1em;">
+                                                    style="background: var(--warm-cream); padding: 12px; border-radius: 6px; text-align: center; border: 2px solid var(--primary-red);">
+                                                    <div style="font-weight: bold; color: var(--primary-red); font-size: 1.1em;">
                                                         Bangkok</div>
                                                     <div style="color: #666; font-size: 0.85em;">Jan 4</div>
                                                     <div style="color: #999; font-size: 0.8em; margin-top: 3px;">Return
@@ -715,11 +737,11 @@
                                             </div>
                                             <div style="display: flex; gap: 10px; flex-wrap: wrap;"><a
                                                     href="bookings.html"
-                                                    style="flex: 1; min-width: 150px; background: #667eea; color: white; padding: 12px; border-radius: 6px; text-align: center; text-decoration: none; font-weight: 500; transition: 0.3s;">📸
+                                                    style="flex: 1; min-width: 150px; background: var(--primary-red); color: white; padding: 12px; border-radius: 6px; text-align: center; text-decoration: none; font-weight: 500; transition: 0.3s;">📸
                                                     View All Bookings </a><a href="itinerary.html"
-                                                    style="flex: 1; min-width: 150px; background: #ff9800; color: white; padding: 12px; border-radius: 6px; text-align: center; text-decoration: none; font-weight: 500; transition: 0.3s;">📅
+                                                    style="flex: 1; min-width: 150px; background: var(--accent-gold); color: var(--deep-navy); padding: 12px; border-radius: 6px; text-align: center; text-decoration: none; font-weight: 500; transition: 0.3s;">📅
                                                     Day-by-Day Timeline </a><a href="accommodation.html"
-                                                    style="flex: 1; min-width: 150px; background: #4CAF50; color: white; padding: 12px; border-radius: 6px; text-align: center; text-decoration: none; font-weight: 500; transition: 0.3s;">🏨
+                                                    style="flex: 1; min-width: 150px; background: var(--deep-navy); color: white; padding: 12px; border-radius: 6px; text-align: center; text-decoration: none; font-weight: 500; transition: 0.3s;">🏨
                                                     Hotel Details </a></div>
                         </div>
                     </div>
@@ -743,7 +765,7 @@
                                 </div>
                                 <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #eee;"><a
                                         href="flights.html"
-                                        style="color: #667eea; text-decoration: none; font-weight: 500;">📄 View Full
+                                        style="color: var(--primary-red); text-decoration: none; font-weight: 500;">📄 View Full
                                         Flight Details →</a></div>
                             </div>
                         </div>

@@ -5,7 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Itinerary - China New Year 2026 Trip</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary-red: #C41E3A;
+            --accent-gold: #D4AF37;
+            --deep-navy: #1a1a2e;
+            --warm-cream: #FFF8F0;
+            --itinerary-orange: #F97316;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -13,20 +22,21 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Noto Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, var(--deep-navy) 0%, #16213e 50%, var(--itinerary-orange) 100%);
             min-height: 100vh;
             padding: 0;
         }
 
         /* Navigation Bar */
         .navbar {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, var(--deep-navy) 0%, #16213e 100%);
             padding: 15px 20px;
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            border-bottom: 2px solid var(--accent-gold);
         }
 
         .navbar-container {
@@ -40,13 +50,15 @@
         }
 
         .navbar-brand {
-            color: white;
-            font-size: 1.2em;
-            font-weight: bold;
+            color: var(--accent-gold);
+            font-family: 'Noto Serif SC', serif;
+            font-size: 1.3em;
+            font-weight: 700;
             text-decoration: none;
             display: flex;
             align-items: center;
             gap: 8px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
         }
 
         .navbar-menu {
@@ -67,11 +79,13 @@
         }
 
         .navbar-item:hover {
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(212, 175, 55, 0.2);
+            color: var(--accent-gold);
         }
 
         .navbar-item.active {
-            background: rgba(255, 255, 255, 0.3);
+            background: rgba(212, 175, 55, 0.3);
+            color: var(--accent-gold);
             font-weight: bold;
         }
 
@@ -101,9 +115,9 @@
                 right: 0;
                 flex-direction: column;
                 gap: 0;
-                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                background: linear-gradient(135deg, var(--deep-navy) 0%, #16213e 100%);
                 padding: 10px 0;
-                border-top: 2px solid rgba(255, 255, 255, 0.2);
+                border-top: 2px solid var(--accent-gold);
                 max-height: calc(100vh - 60px);
                 overflow-y: auto;
             }
@@ -167,10 +181,11 @@
         }
 
         .card h2 {
-            color: #667eea;
+            color: var(--itinerary-orange);
+            font-family: 'Noto Serif SC', serif;
             margin-bottom: 20px;
             font-size: 1.8em;
-            border-bottom: 3px solid #667eea;
+            border-bottom: 3px solid var(--accent-gold);
             padding-bottom: 10px;
         }
 
@@ -193,10 +208,10 @@
             top: 0;
             width: 20px;
             height: 20px;
-            background: #667eea;
+            background: var(--itinerary-orange);
             border-radius: 50%;
             border: 3px solid white;
-            box-shadow: 0 0 0 3px #667eea;
+            box-shadow: 0 0 0 3px var(--accent-gold);
         }
 
         .timeline-item:not(:last-child)::after {
@@ -206,13 +221,14 @@
             top: 25px;
             width: 4px;
             height: calc(100% + 15px);
-            background: #667eea;
+            background: var(--accent-gold);
         }
 
         .day-header {
+            font-family: 'Noto Serif SC', serif;
             font-size: 1.3em;
             font-weight: bold;
-            color: #667eea;
+            color: var(--itinerary-orange);
             margin-bottom: 10px;
         }
 
@@ -224,8 +240,8 @@
 
         .city {
             display: inline-block;
-            background: #f0f4ff;
-            color: #667eea;
+            background: var(--warm-cream);
+            color: var(--itinerary-orange);
             padding: 5px 12px;
             border-radius: 20px;
             font-weight: bold;
@@ -237,7 +253,7 @@
             background: #f9f9f9;
             padding: 15px;
             border-radius: 6px;
-            border-left: 3px solid #667eea;
+            border-left: 3px solid var(--accent-gold);
             margin-top: 10px;
         }
 
@@ -247,7 +263,7 @@
         }
 
         .activity-time {
-            color: #667eea;
+            color: var(--itinerary-orange);
             font-weight: bold;
         }
 
@@ -257,15 +273,15 @@
         }
 
         .summary-box {
-            background: #e3f2fd;
-            border-left: 4px solid #667eea;
+            background: var(--warm-cream);
+            border-left: 4px solid var(--accent-gold);
             padding: 15px;
             border-radius: 4px;
             margin: 15px 0;
         }
 
         .summary-box strong {
-            color: #667eea;
+            color: var(--itinerary-orange);
         }
 
         .nav-buttons {
@@ -279,8 +295,8 @@
             flex: 1;
             padding: 12px 20px;
             background: white;
-            color: #667eea;
-            border: 2px solid #667eea;
+            color: var(--itinerary-orange);
+            border: 2px solid var(--itinerary-orange);
             border-radius: 4px;
             text-decoration: none;
             text-align: center;
@@ -289,13 +305,14 @@
         }
 
         .nav-btn:hover {
-            background: #667eea;
+            background: var(--itinerary-orange);
             color: white;
         }
 
         .nav-btn.home {
-            background: #667eea;
-            color: white;
+            background: var(--deep-navy);
+            border-color: var(--accent-gold);
+            color: var(--accent-gold);
         }
 
         footer {
@@ -334,7 +351,7 @@
     <!-- Navigation Bar -->
     <nav class="navbar">
         <div class="navbar-container">
-            <a href="index.html" class="navbar-brand">🌍 China 2026</a>
+            <a href="index.html" class="navbar-brand">🏮 春节 2026</a>
             <button class="menu-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu">☰</button>
             <div class="navbar-menu" id="navMenu">
                 <a href="index.html" class="navbar-item">Home</a>
@@ -852,8 +869,8 @@
                         </div>
                     </div>
                     <div
-                        style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 20px; border-radius: 6px; margin-top: 15px; color: white;">
-                        <strong style="color: #fff;">🎆 NYE Celebration Guide:</strong>
+                        style="background: linear-gradient(135deg, var(--deep-navy) 0%, var(--primary-red) 100%); padding: 20px; border-radius: 6px; margin-top: 15px; color: white;">
+                        <strong style="color: var(--accent-gold);">🎆 NYE Celebration Guide:</strong>
                         <ul style="margin: 10px 0 0 20px; line-height: 1.8;">
                             <li><strong>The Bund Countdown:</strong> FREE but very crowded. Arrive by 10 PM for good
                                 spot near Huangpu River.</li>
