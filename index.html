@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -284,491 +285,757 @@
                 padding: 20px;
             }
         }
-    </style>
-</head>
-<body>
-    <!-- Navigation Bar -->
-    <nav class="navbar">
-        <div class="navbar-container">
-            <a href="index.html" class="navbar-brand">🌍 China 2026</a>
-            <button class="menu-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu">☰</button>
-            <div class="navbar-menu" id="navMenu">
-                <a href="index.html" class="navbar-item active">Home</a>
-                <a href="flights.html" class="navbar-item">Flights</a>
-                <a href="accommodation.html" class="navbar-item">Hotels</a>
-                <a href="itinerary.html" class="navbar-item">Itinerary</a>
-                <a href="dining.html" class="navbar-item">Food</a>
-                <a href="budget.html" class="navbar-item">Budget</a>
-                <a href="practical.html" class="navbar-item">Practical</a>
-                <a href="transportation.html" class="navbar-item">Transport</a>
-                <a href="packing.html" class="navbar-item">Packing</a>
-                <a href="bookings.html" class="navbar-item">Bookings</a>
-                <a href="ai-reviews.html" class="navbar-item">AI Reviews</a>
-            </div>
-        </div>
-    </nav>
 
-    <div class="container">
-        <header>
-            <h1>🎉 China New Year 2026</h1>
-            <p class="subtitle">Complete Trip Planning Hub • December 25, 2025 - January 4, 2026</p>
-        </header>
-
-        <!-- Trip Overview Card -->
-        <div class="grid">
-            <div class="card" style="grid-column: 1/-1;">
-                <h2>✨ Trip Overview & Bookings</h2>
-                <div class="card-content">
-                    <!-- Quick Stats Row -->
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 15px; margin-bottom: 25px;">
-                        <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 20px; border-radius: 8px; text-align: center;">
-                            <div style="font-size: 2em; font-weight: bold; margin-bottom: 5px;">8/8</div>
-                            <div style="font-size: 0.95em; opacity: 0.9;">Hotels Booked</div>
-                            <div style="font-size: 0.8em; opacity: 0.8; margin-top: 5px;">All confirmed ✓</div>
-                        </div>
-                        <div style="background: linear-gradient(135deg, #f57c00 0%, #ff9800 100%); color: white; padding: 20px; border-radius: 8px; text-align: center;">
-                            <div style="font-size: 2em; font-weight: bold; margin-bottom: 5px;">2/2</div>
-                            <div style="font-size: 0.95em; opacity: 0.9;">Flights Booked</div>
-                            <div style="font-size: 0.8em; opacity: 0.8; margin-top: 5px;">Ready to travel</div>
-                        </div>
-                        <div style="background: linear-gradient(135deg, #00897b 0%, #26a69a 100%); color: white; padding: 20px; border-radius: 8px; text-align: center;">
-                            <div style="font-size: 2em; font-weight: bold; margin-bottom: 5px;">4/5</div>
-                            <div style="font-size: 0.95em; opacity: 0.9;">Trains Booked</div>
-                            <div style="font-size: 0.8em; opacity: 0.8; margin-top: 5px;">+1 on day</div>
-                        </div>
-                        <div style="background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%); color: white; padding: 20px; border-radius: 8px; text-align: center;">
-                            <div style="font-size: 2em; font-weight: bold; margin-bottom: 5px;">10</div>
-                            <div style="font-size: 0.95em; opacity: 0.9;">Days Total</div>
-                            <div style="font-size: 0.8em; opacity: 0.8; margin-top: 5px;">Dec 25 - Jan 4</div>
-                        </div>
-                    </div>
-
-                    <!-- Accommodation Summary -->
-                    <div style="background: #f5f5f5; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
-                        <h3 style="color: #667eea; margin-bottom: 15px; font-size: 1.1em;">🏨 Hotel Reservations Summary</h3>
-                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px;">
-                            <!-- Hangzhou Hotels -->
-                            <div style="background: white; padding: 12px; border-radius: 6px; border-left: 4px solid #ff9800;">
-                                <div style="font-weight: bold; color: #333; font-size: 0.9em;">Dec 25-27 • Hangzhou</div>
-                                <div style="color: #666; font-size: 0.85em; margin-top: 5px; line-height: 1.5;">
-                                    ✓ Sofitel (Complimentary)<br/>
-                                    ✓ Sofitel (Arpaporn)<br/>
-                                    ✓ Sofitel (Thanakorn)<br/>
-                                    <span style="color: #ff9800; font-size: 0.8em;">3 hotels, full coverage</span>
-                                </div>
-                            </div>
-                            <!-- Huangling Hotel -->
-                            <div style="background: white; padding: 12px; border-radius: 6px; border-left: 4px solid #f57c00;">
-                                <div style="font-weight: bold; color: #333; font-size: 0.9em;">Dec 27-28 • Huangling</div>
-                                <div style="color: #666; font-size: 0.85em; margin-top: 5px; line-height: 1.5;">
-                                    ✓ Guling Sky Street Hotel<br/>
-                                    📍 UNESCO mountain terrace<br/>
-                                    <span style="color: #f57c00; font-size: 0.8em;">Photography package</span>
-                                </div>
-                            </div>
-                            <!-- Wangxiangu Hotel -->
-                            <div style="background: white; padding: 12px; border-radius: 6px; border-left: 4px solid #7b1fa2;">
-                                <div style="font-weight: bold; color: #333; font-size: 0.9em;">Dec 28-29 • Wangxiangu</div>
-                                <div style="color: #666; font-size: 0.85em; margin-top: 5px; line-height: 1.5;">
-                                    ✓ Xiansu Hotel<br/>
-                                    📸 Photography package incl.<br/>
-                                    <span style="color: #7b1fa2; font-size: 0.8em;">Valley hiking base</span>
-                                </div>
-                            </div>
-                            <!-- Suzhou Hotel -->
-                            <div style="background: white; padding: 12px; border-radius: 6px; border-left: 4px solid #00897b;">
-                                <div style="font-weight: bold; color: #333; font-size: 0.9em;">Dec 29-31 • Suzhou</div>
-                                <div style="color: #666; font-size: 0.85em; margin-top: 5px; line-height: 1.5;">
-                                    ✓ Novotel Suzhou<br/>
-                                    🏊 Pool & gardens<br/>
-                                    <span style="color: #00897b; font-size: 0.8em;">Free cancellation policy</span>
-                                </div>
-                            </div>
-                            <!-- Shanghai Hotel -->
-                            <div style="background: white; padding: 12px; border-radius: 6px; border-left: 4px solid #d32f2f;">
-                                <div style="font-weight: bold; color: #333; font-size: 0.9em;">Dec 31 - Jan 2 • Shanghai</div>
-                                <div style="color: #666; font-size: 0.85em; margin-top: 5px; line-height: 1.5;">
-                                    ✓ Tianhua Hotel<br/>
-                                    🎉 New Year's Eve location<br/>
-                                    <span style="color: #d32f2f; font-size: 0.8em;">Premium celebration base</span>
-                                </div>
-                            </div>
-                            <!-- Guangzhou Hotel -->
-                            <div style="background: white; padding: 12px; border-radius: 6px; border-left: 4px solid #1976d2;">
-                                <div style="font-weight: bold; color: #333; font-size: 0.9em;">Jan 2-3 • Guangzhou</div>
-                                <div style="color: #666; font-size: 0.85em; margin-top: 5px; line-height: 1.5;">
-                                    ✓ Baiyun Coco Hotel<br/>
-                                    ✈️ Airport overnight layover<br/>
-                                    <span style="color: #1976d2; font-size: 0.8em;">23.5h transfer stay</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- City Route Timeline -->
-                    <div style="margin-bottom: 20px;">
-                        <h3 style="color: #667eea; margin-bottom: 12px; font-size: 1.1em;">📍 Journey Route</h3>
-                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px;">
-                            <div style="background: #e3f2fd; padding: 12px; border-radius: 6px; text-align: center; border: 2px solid #667eea;">
-                                <div style="font-weight: bold; color: #667eea; font-size: 1.1em;">Bangkok</div>
-                                <div style="color: #666; font-size: 0.85em;">Dec 25-26</div>
-                                <div style="color: #999; font-size: 0.8em; margin-top: 3px;">Transit hub</div>
-                            </div>
-                            <div style="color: #999; display: flex; align-items: center; justify-content: center;">→</div>
-                            <div style="background: #fff3e0; padding: 12px; border-radius: 6px; text-align: center; border: 2px solid #f57c00;">
-                                <div style="font-weight: bold; color: #f57c00; font-size: 1.1em;">Hangzhou</div>
-                                <div style="color: #666; font-size: 0.85em;">Dec 25-27</div>
-                                <div style="color: #999; font-size: 0.8em; margin-top: 3px;">West Lake</div>
-                            </div>
-                            <div style="color: #999; display: flex; align-items: center; justify-content: center;">→</div>
-                            <div style="background: #fff3e0; padding: 12px; border-radius: 6px; text-align: center; border: 2px solid #f57c00;">
-                                <div style="font-weight: bold; color: #f57c00; font-size: 1.1em;">Huangling</div>
-                                <div style="color: #666; font-size: 0.85em;">Dec 27-28</div>
-                                <div style="color: #999; font-size: 0.8em; margin-top: 3px;">Mountains</div>
-                            </div>
-                            <div style="color: #999; display: flex; align-items: center; justify-content: center;">→</div>
-                            <div style="background: #f3e5f5; padding: 12px; border-radius: 6px; text-align: center; border: 2px solid #7b1fa2;">
-                                <div style="font-weight: bold; color: #7b1fa2; font-size: 1.1em;">Wangxiangu</div>
-                                <div style="color: #666; font-size: 0.85em;">Dec 28-29</div>
-                                <div style="color: #999; font-size: 0.8em; margin-top: 3px;">Valley</div>
-                            </div>
-                        </div>
-                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; margin-top: 10px;">
-                            <div style="background: #e0f2f1; padding: 12px; border-radius: 6px; text-align: center; border: 2px solid #00897b;">
-                                <div style="font-weight: bold; color: #00897b; font-size: 1.1em;">Suzhou</div>
-                                <div style="color: #666; font-size: 0.85em;">Dec 29-31</div>
-                                <div style="color: #999; font-size: 0.8em; margin-top: 3px;">Gardens</div>
-                            </div>
-                            <div style="color: #999; display: flex; align-items: center; justify-content: center;">→</div>
-                            <div style="background: #c8e6c9; padding: 12px; border-radius: 6px; text-align: center; border: 2px solid #388e3c;">
-                                <div style="font-weight: bold; color: #388e3c; font-size: 1.1em;">Shanghai</div>
-                                <div style="color: #666; font-size: 0.85em;">Dec 31-Jan 2</div>
-                                <div style="color: #999; font-size: 0.8em; margin-top: 3px;">NYE &amp; City</div>
-                            </div>
-                            <div style="color: #999; display: flex; align-items: center; justify-content: center;">→</div>
-                            <div style="background: #e1f5fe; padding: 12px; border-radius: 6px; text-align: center; border: 2px solid #1976d2;">
-                                <div style="font-weight: bold; color: #1976d2; font-size: 1.1em;">Guangzhou</div>
-                                <div style="color: #666; font-size: 0.85em;">Jan 2-3</div>
-                                <div style="color: #999; font-size: 0.8em; margin-top: 3px;">Layover</div>
-                            </div>
-                            <div style="color: #999; display: flex; align-items: center; justify-content: center;">→</div>
-                            <div style="background: #e3f2fd; padding: 12px; border-radius: 6px; text-align: center; border: 2px solid #667eea;">
-                                <div style="font-weight: bold; color: #667eea; font-size: 1.1em;">Bangkok</div>
-                                <div style="color: #666; font-size: 0.85em;">Jan 4</div>
-                                <div style="color: #999; font-size: 0.8em; margin-top: 3px;">Return</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Critical Alerts -->
-                    <div style="background: #fff9c4; padding: 15px; border-radius: 6px; border-left: 4px solid #fbc02d; margin-bottom: 15px;">
-                        <strong style="color: #f57f17;">⚠️ Critical: Guangzhou 23.5-Hour Layover</strong>
-                        <p style="margin: 8px 0 0 0; color: #666; font-size: 0.9em; line-height: 1.6;">
-                            Return flight arrives Guangzhou (CAN) Jan 2 at 11:30 PM, departs Jan 3 at 11:00 PM.
-                            <strong>Stay booked at Baiyun Coco Hotel</strong> - conveniently located at airport with late checkout available.
-                        </p>
-                    </div>
-
-                    <div style="background: #e8f5e9; padding: 15px; border-radius: 6px; border-left: 4px solid #4CAF50; margin-bottom: 15px;">
-                        <strong style="color: #2e7d32;">✓ Special Highlights</strong>
-                        <p style="margin: 8px 0 0 0; color: #666; font-size: 0.9em; line-height: 1.6;">
-                            🎉 <strong>New Year's Eve in Shanghai</strong> (Dec 31 - Jan 2) •
-                            📸 <strong>Photography packages</strong> at Huangling &amp; Wangxiangu •
-                            🏔️ <strong>Mountain hiking</strong> with optional weather-flexible timing
-                        </p>
-                    </div>
-
-                    <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-                        <a href="bookings.html" style="flex: 1; min-width: 150px; background: #667eea; color: white; padding: 12px; border-radius: 6px; text-align: center; text-decoration: none; font-weight: 500; transition: 0.3s;">
-                            📸 View All Bookings
-                        </a>
-                        <a href="itinerary.html" style="flex: 1; min-width: 150px; background: #ff9800; color: white; padding: 12px; border-radius: 6px; text-align: center; text-decoration: none; font-weight: 500; transition: 0.3s;">
-                            📅 Day-by-Day Timeline
-                        </a>
-                        <a href="accommodation.html" style="flex: 1; min-width: 150px; background: #4CAF50; color: white; padding: 12px; border-radius: 6px; text-align: center; text-decoration: none; font-weight: 500; transition: 0.3s;">
-                            🏨 Hotel Details
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Flights Summary -->
-        <div class="grid">
-            <div class="card">
-                <h2>✈️ Flights <span class="status-badge">Complete</span></h2>
-                <div class="card-content">
-                    <div class="info-item">
-                        <span class="label">Outbound • December 25, 2025</span>
-                        <div class="value" style="margin-top: 10px; font-size: 0.9em;">
-                            BKK 02:10 → HGH 11:20 (8h 10m total)<br/>
-                            <span style="color: #666; font-size: 0.85em;">2 legs • China Southern • Economy</span>
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <span class="label">Return • January 2-4, 2026</span>
-                        <div class="value" style="margin-top: 10px; font-size: 0.9em;">
-                            SHA 20:50 → BKK 01:05 (29h 15m total)<br/>
-                            <span style="color: #d32f2f; font-weight: 500;">⚠️ 23.5h Guangzhou overnight</span>
-                        </div>
-                    </div>
-                    <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #eee;">
-                        <a href="flights.html" style="color: #667eea; text-decoration: none; font-weight: 500;">📄 View Full Flight Details →</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card">
-                <h2>🏔️ Highlights</h2>
-                <div class="card-content">
-                    <ul style="margin-left: 20px; color: #333; line-height: 1.8;">
-                        <li><strong>Nature:</strong> Huangling & Wangxiangu mountain hiking</li>
-                        <li><strong>Culture:</strong> Suzhou classical gardens & Grand Canal</li>
-                        <li><strong>Modern:</strong> Shanghai Bund & Pudong skyline</li>
-                        <li><strong>Celebration:</strong> Ring in 2026 in Shanghai</li>
-                        <li><strong>HSR:</strong> ~635 km via high-speed trains</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <!-- Daily Summary Cards Section -->
-        <div style="margin-top: 50px;">
-            <h2 style="color: white; font-size: 2em; margin-bottom: 30px; text-align: center;">📅 Daily Overview</h2>
-            <div class="grid-section">
-                <!-- Day 1-2: Bangkok & Hangzhou Arrival -->
-                <div style="background: white; border-radius: 10px; padding: 20px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); transition: transform 0.3s ease;">
-                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;">
-                        <span style="font-size: 2em;">✈️</span>
-                        <h3 style="color: #667eea; margin: 0; font-size: 1.2em;">Days 1-2: Travel & Arrival</h3>
-                    </div>
-                    <p style="color: #999; font-size: 0.9em; margin-bottom: 10px;">Dec 25-26</p>
-                    <div style="color: #333; line-height: 1.7; font-size: 0.95em;">
-                        <p>🛫 <strong>Flight:</strong> BKK 02:10 → HGH 11:20 (8h 10m)<br/>
-                        🏨 <strong>Hotel:</strong> Sofitel (2 options booked)<br/>
-                        🌊 <strong>Activity:</strong> Rest & West Lake exploration<br/>
-                        🍽️ <strong>Meals:</strong> Hotel breakfast & local dining</p>
-                    </div>
-                </div>
-
-                <!-- Day 3: Hangzhou to Huangling -->
-                <div style="background: white; border-radius: 10px; padding: 20px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); transition: transform 0.3s ease;">
-                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;">
-                        <span style="font-size: 2em;">🏔️</span>
-                        <h3 style="color: #667eea; margin: 0; font-size: 1.2em;">Day 3: Mountain Journey</h3>
-                    </div>
-                    <p style="color: #999; font-size: 0.9em; margin-bottom: 10px;">Dec 27</p>
-                    <div style="color: #333; line-height: 1.7; font-size: 0.95em;">
-                        <p>🚆 <strong>Train:</strong> G1509 @ 09:33 (Hangzhou→Wuyuan)<br/>
-                        🚕 <strong>Transfer:</strong> Wuyuan→Huangling (50min bus)<br/>
-                        🏨 <strong>Hotel:</strong> Guling Sky Street (UNESCO terrace)<br/>
-                        📸 <strong>Activity:</strong> Mountain exploration & sunset</p>
-                    </div>
-                </div>
-
-                <!-- Day 4: Huangling Exploration -->
-                <div style="background: white; border-radius: 10px; padding: 20px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); transition: transform 0.3s ease;">
-                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;">
-                        <span style="font-size: 2em;">🥾</span>
-                        <h3 style="color: #667eea; margin: 0; font-size: 1.2em;">Day 4: Mountain Hiking</h3>
-                    </div>
-                    <p style="color: #999; font-size: 0.9em; margin-bottom: 10px;">Dec 28</p>
-                    <div style="color: #333; line-height: 1.7; font-size: 0.95em;">
-                        <p>🚆 <strong>Train:</strong> G1669 @ 10:54 (Wuyuan→Shangrao)<br/>
-                        🚕 <strong>Transfer:</strong> Shangrao→Wangxiangu (1h)<br/>
-                        🏨 <strong>Hotel:</strong> Xiansu Hotel (valley base)<br/>
-                        🥾 <strong>Activity:</strong> Valley hiking & photography</p>
-                    </div>
-                </div>
-
-                <!-- Day 5: Wangxiangu Valley -->
-                <div style="background: white; border-radius: 10px; padding: 20px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); transition: transform 0.3s ease;">
-                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;">
-                        <span style="font-size: 2em;">📸</span>
-                        <h3 style="color: #667eea; margin: 0; font-size: 1.2em;">Day 5: Valley Adventure</h3>
-                    </div>
-                    <p style="color: #999; font-size: 0.9em; margin-bottom: 10px;">Dec 29</p>
-                    <div style="color: #333; line-height: 1.7; font-size: 0.95em;">
-                        <p>🏔️ <strong>Full Day:</strong> Wangxiangu exploration (12:30PM-6PM)<br/>
-                        📸 <strong>Included:</strong> Professional photography session<br/>
-                        🥾 <strong>Activity:</strong> Hiking, waterfalls, nature walks<br/>
-                        🚕 <strong>Evening:</strong> Prepare for transfer to Suzhou</p>
-                    </div>
-                </div>
-
-                <!-- Day 6: Suzhou Gardens -->
-                <div style="background: white; border-radius: 10px; padding: 20px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); transition: transform 0.3s ease;">
-                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;">
-                        <span style="font-size: 2em;">🌸</span>
-                        <h3 style="color: #667eea; margin: 0; font-size: 1.2em;">Day 6: Classical Gardens</h3>
-                    </div>
-                    <p style="color: #999; font-size: 0.9em; margin-bottom: 10px;">Dec 30</p>
-                    <div style="color: #333; line-height: 1.7; font-size: 0.95em;">
-                        <p>🚆 <strong>Trains:</strong> G412 @ 11:02 + D3006 @ 13:53<br/>
-                        🔄 <strong>Route:</strong> Shangrao→Shanghai→Suzhou<br/>
-                        🏨 <strong>Hotel:</strong> Novotel Suzhou (near gardens)<br/>
-                        🌺 <strong>Activity:</strong> Gardens & Grand Canal boat tour</p>
-                    </div>
-                </div>
-
-                <!-- Day 7: Suzhou to Shanghai (NYE) -->
-                <div style="background: white; border-radius: 10px; padding: 20px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); transition: transform 0.3s ease;">
-                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;">
-                        <span style="font-size: 2em;">🎉</span>
-                        <h3 style="color: #667eea; margin: 0; font-size: 1.2em;">Day 7: New Year's Eve</h3>
-                    </div>
-                    <p style="color: #999; font-size: 0.9em; margin-bottom: 10px;">Dec 31</p>
-                    <div style="color: #333; line-height: 1.7; font-size: 0.95em;">
-                        <p>🚆 <strong>Train:</strong> Suzhou→Shanghai (book on day)<br/>
-                        🏨 <strong>Hotel:</strong> Tianhua Hotel (perfect location)<br/>
-                        🌃 <strong>Activity:</strong> Explore The Bund & Pudong<br/>
-                        🎊 <strong>Evening:</strong> NYE celebration on The Bund!</p>
-                    </div>
-                </div>
-
-                <!-- Day 8-9: Shanghai Exploration -->
-                <div style="background: white; border-radius: 10px; padding: 20px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); transition: transform 0.3s ease;">
-                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;">
-                        <span style="font-size: 2em;">🏙️</span>
-                        <h3 style="color: #667eea; margin: 0; font-size: 1.2em;">Days 8-9: Shanghai City</h3>
-                    </div>
-                    <p style="color: #999; font-size: 0.9em; margin-bottom: 10px;">Jan 1-2</p>
-                    <div style="color: #333; line-height: 1.7; font-size: 0.95em;">
-                        <p>🏨 <strong>Hotel:</strong> Tianhua Hotel (continued)<br/>
-                        🏞️ <strong>Activities:</strong> Bund walking tour, Yu Garden, shopping<br/>
-                        🍜 <strong>Meals:</strong> Local Shanghai cuisine & dim sum<br/>
-                        ✈️ <strong>Evening (Jan 2):</strong> Transfer to Shanghai airport</p>
-                    </div>
-                </div>
-
-                <!-- Day 10: Return Journey -->
-                <div style="background: white; border-radius: 10px; padding: 20px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); transition: transform 0.3s ease;">
-                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;">
-                        <span style="font-size: 2em;">🛬</span>
-                        <h3 style="color: #667eea; margin: 0; font-size: 1.2em;">Days 10: Return Home</h3>
-                    </div>
-                    <p style="color: #999; font-size: 0.9em; margin-bottom: 10px;">Jan 3-4</p>
-                    <div style="color: #333; line-height: 1.7; font-size: 0.95em;">
-                        <p>✈️ <strong>Flight:</strong> SHA 20:50 → CAN 23:30 (2h 40m)<br/>
-                        🏨 <strong>Hotel:</strong> Baiyun Coco (23.5h layover)<br/>
-                        ✈️ <strong>Flight:</strong> CAN 23:00 → BKK 01:05 (3h 5m)<br/>
-                        🏠 <strong>Arrival:</strong> Bangkok Jan 4 early morning</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Quick Links Section -->
-        <div style="margin-top: 40px;">
-            <h2 style="color: white; font-size: 2em; margin-bottom: 30px; text-align: center;">📚 Planning Sections</h2>
-            <div class="grid-section">
-                <a href="itinerary.html" class="quick-link">
-                    <h3>📅 Day-by-Day Itinerary</h3>
-                    <p>Complete timeline with activities, transportation, timings, and HSR schedules</p>
-                </a>
-                <a href="accommodation.html" class="quick-link">
-                    <h3>🏨 Accommodation</h3>
-                    <p>Hotels, check-in dates, booking confirmations, and contact info</p>
-                </a>
-                <a href="transportation.html" class="quick-link">
-                    <h3>🚆 Transportation</h3>
-                    <p>Flights, HSR routes, local transport, airport transfers</p>
-                </a>
-                <a href="dining.html" class="quick-link">
-                    <h3>🍜 Food & Dining</h3>
-                    <p>Restaurants, local specialties, dim sum, budget breakdown</p>
-                </a>
-                <a href="budget.html" class="quick-link">
-                    <h3>💰 Budget & Costs</h3>
-                    <p>Expense tracking, accommodation, activities, daily rates</p>
-                </a>
-                <a href="practical.html" class="quick-link">
-                    <h3>ℹ️ Practical Info</h3>
-                    <p>Visa, insurance, weather, currency, emergency contacts</p>
-                </a>
-                <a href="packing.html" class="quick-link">
-                    <h3>🧳 Packing Checklist</h3>
-                    <p>Documents, clothing, electronics, health items, essentials</p>
-                </a>
-                <a href="bookings.html" class="quick-link">
-                    <h3>📸 Booking Confirmations</h3>
-                    <p>Flight booking images and confirmation details</p>
-                </a>
-                <a href="ai-reviews.html" class="quick-link">
-                    <h3>🤖 AI Expert Reviews</h3>
-                    <p>Perspectives from Gemini, GPT-5, Grok, and Sonnet on your trip</p>
-                </a>
-            </div>
-        </div>
-
-        <!-- Statistics Section -->
-        <div style="background: rgba(255,255,255,0.1); padding: 30px; border-radius: 10px; margin: 40px 0; color: white; text-align: center;">
-            <h2 style="color: white; margin-bottom: 25px;">Trip Statistics</h2>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 20px;">
-                <div>
-                    <div style="font-size: 2.5em; font-weight: bold; margin-bottom: 5px;">10</div>
-                    <div style="opacity: 0.9;">Days Total</div>
-                </div>
-                <div>
-                    <div style="font-size: 2.5em; font-weight: bold; margin-bottom: 5px;">5</div>
-                    <div style="opacity: 0.9;">Cities Visited</div>
-                </div>
-                <div>
-                    <div style="font-size: 2.5em; font-weight: bold; margin-bottom: 5px;">~635</div>
-                    <div style="opacity: 0.9;">km via HSR</div>
-                </div>
-                <div>
-                    <div style="font-size: 2.5em; font-weight: bold; margin-bottom: 5px;">~10</div>
-                    <div style="opacity: 0.9;">Hours of Trains</div>
-                </div>
-            </div>
-        </div>
-
-        <footer>
-            <p>📍 China New Year 2026 Adventure • Happy travels!</p>
-            <p style="font-size: 0.9em; margin-top: 10px;">Last updated: December 19, 2025</p>
-        </footer>
-    </div>
-
-    <script>
-        // Mobile menu toggle
-        function toggleMobileMenu() {
-            const menu = document.getElementById('navMenu');
-            menu.classList.toggle('mobile-open');
+        /* --- Infographic Timeline Styles --- */
+        .timeline-container {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 0;
         }
 
-        // Close mobile menu when a link is clicked
-        document.addEventListener('DOMContentLoaded', function() {
-            const navItems = document.querySelectorAll('.navbar-item');
-            navItems.forEach(item => {
-                item.addEventListener('click', function() {
-                    const menu = document.getElementById('navMenu');
-                    menu.classList.remove('mobile-open');
-                });
-            });
+        /* The central vertical line */
+        .timeline-container::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: #e0e7ff;
+            /* Light purple-blue */
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+            border-radius: 3px;
+        }
 
-            // Set active menu item based on current page
-            const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-            navItems.forEach(item => {
-                const href = item.getAttribute('href');
-                if (href === currentPage || (currentPage === '' && href === 'index.html')) {
-                    item.classList.add('active');
-                } else {
-                    item.classList.remove('active');
-                }
-            });
-        });
+        /* Container around content */
+        .timeline-row {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+            box-sizing: border-box;
+        }
 
-        // Close menu when clicking outside
-        document.addEventListener('click', function(event) {
-            const navbar = document.querySelector('.navbar');
-            const menu = document.getElementById('navMenu');
-            const toggle = document.querySelector('.menu-toggle');
+        /* The circles on the timeline */
+        .timeline-row::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            right: -12.5px;
+            background-color: white;
+            border: 4px solid #667eea;
+            top: 25px;
+            border-radius: 50%;
+            z-index: 1;
+            box-shadow: 0 0 0 4px #e0e7ff;
+        }
 
-            if (!navbar.contains(event.target) && menu.classList.contains('mobile-open')) {
-                menu.classList.remove('mobile-open');
+        /* Place the container to the left */
+        .timeline-left {
+            left: 0;
+        }
+
+        /* Place the container to the right */
+        .timeline-right {
+            left: 50%;
+        }
+
+        /* Adding arrows to the left container (pointing right) */
+        .timeline-left::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 28px;
+            width: 0;
+            z-index: 1;
+            right: 30px;
+            border: medium solid white;
+            border-width: 10px 0 10px 10px;
+            border-color: transparent transparent transparent white;
+        }
+
+        /* Adding arrows to the right container (pointing left) */
+        .timeline-right::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 28px;
+            width: 0;
+            z-index: 1;
+            left: 30px;
+            border: medium solid white;
+            border-width: 10px 10px 10px 0;
+            border-color: transparent white transparent transparent;
+        }
+
+        /* Fix the circle for containers on the right side */
+        .timeline-right::after {
+            left: -12.5px;
+        }
+
+        /* The content card */
+        .timeline-content {
+            padding: 20px 30px;
+            background-color: white;
+            position: relative;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease;
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+        }
+
+        .timeline-date {
+            color: #667eea;
+            font-weight: bold;
+            font-size: 0.9em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .timeline-title {
+            margin: 0 0 10px 0;
+            color: #333;
+            font-size: 1.4em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .timeline-body {
+            color: #555;
+            font-size: 0.95em;
+            line-height: 1.6;
+        }
+
+        /* Media queries - Responsive timeline on smaller screens */
+        @media screen and (max-width: 800px) {
+
+            /* Full-width containers */
+            .timeline-row {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
             }
-        });
-    </script>
+
+            /* Make sure all circles are at the same spot */
+            .timeline-left::after,
+            .timeline-right::after {
+                left: 15px;
+            }
+
+            /* Make all right containers behave like the left ones */
+            .timeline-right {
+                left: 0%;
+            }
+
+            /* Move the center line to the left */
+            .timeline-container::after {
+                left: 27px;
+            }
+
+            /* Correct arrows for all containers */
+            .timeline-left::before,
+            .timeline-right::before {
+                left: 60px;
+                border: medium solid white;
+                border-color: transparent white transparent transparent;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+        <nav class="navbar">
+            <div class="navbar-container"><a href="index.html" class="navbar-brand">🌍 China 2026</a><button
+                    class="menu-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu">☰</button>
+                <div class="navbar-menu" id="navMenu"><a href="index.html" class="navbar-item active">Home</a><a
+                        href="flights.html" class="navbar-item">Flights</a><a href="accommodation.html"
+                        class="navbar-item">Hotels</a><a href="itinerary.html" class="navbar-item">Itinerary</a><a
+                        href="dining.html" class="navbar-item">Food</a><a href="budget.html"
+                        class="navbar-item">Budget</a><a href="practical.html" class="navbar-item">Practical</a><a
+                        href="transportation.html" class="navbar-item">Transport</a><a href="packing.html"
+                        class="navbar-item">Packing</a><a href="bookings.html" class="navbar-item">Bookings</a><a
+                        href="ai-reviews.html" class="navbar-item">AI Reviews</a></div>
+            </div>
+        </nav>
+        <div class="container">
+            <header>
+                <h1>🎉 China New Year 2026</h1>
+                <p class="subtitle">Complete Trip Planning Hub • December 25,
+                    2025 - January 4,
+                    2026</p>
+            </header>
+            <!-- Trip Overview Card -->
+                <div class="grid">
+                    <div class="card" style="grid-column: 1/-1;">
+                        <h2>✨ Trip Overview & Bookings</h2>
+                        <div class="card-content">
+                            <!-- Quick Stats Row -->
+                                <div
+                                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 15px; margin-bottom: 25px;">
+                                    <div
+                                        style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 20px; border-radius: 8px; text-align: center;">
+                                        <div style="font-size: 2em; font-weight: bold; margin-bottom: 5px;">8/8</div>
+                                        <div style="font-size: 0.95em; opacity: 0.9;">Hotels Booked</div>
+                                        <div style="font-size: 0.8em; opacity: 0.8; margin-top: 5px;">All confirmed ✓
+                                        </div>
+                                    </div>
+                                    <div
+                                        style="background: linear-gradient(135deg, #f57c00 0%, #ff9800 100%); color: white; padding: 20px; border-radius: 8px; text-align: center;">
+                                        <div style="font-size: 2em; font-weight: bold; margin-bottom: 5px;">2/2</div>
+                                        <div style="font-size: 0.95em; opacity: 0.9;">Flights Booked</div>
+                                        <div style="font-size: 0.8em; opacity: 0.8; margin-top: 5px;">Ready to travel
+                                        </div>
+                                    </div>
+                                    <div
+                                        style="background: linear-gradient(135deg, #00897b 0%, #26a69a 100%); color: white; padding: 20px; border-radius: 8px; text-align: center;">
+                                        <div style="font-size: 2em; font-weight: bold; margin-bottom: 5px;">4/5</div>
+                                        <div style="font-size: 0.95em; opacity: 0.9;">Trains Booked</div>
+                                        <div style="font-size: 0.8em; opacity: 0.8; margin-top: 5px;">+1 on day</div>
+                                    </div>
+                                    <div
+                                        style="background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%); color: white; padding: 20px; border-radius: 8px; text-align: center;">
+                                        <div style="font-size: 2em; font-weight: bold; margin-bottom: 5px;">10</div>
+                                        <div style="font-size: 0.95em; opacity: 0.9;">Days Total</div>
+                                        <div style="font-size: 0.8em; opacity: 0.8; margin-top: 5px;">Dec 25 - Jan 4
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Accommodation Summary -->
+                                    <div
+                                        style="background: #f5f5f5; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+                                        <h3 style="color: #667eea; margin-bottom: 15px; font-size: 1.1em;">🏨 Hotel
+                                            Reservations Summary</h3>
+                                        <div
+                                            style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px;">
+                                            <!-- Hangzhou Hotels -->
+                                                <div
+                                                    style="background: white; padding: 12px; border-radius: 6px; border-left: 4px solid #ff9800;">
+                                                    <div style="font-weight: bold; color: #333; font-size: 0.9em;">Dec
+                                                        25-27 • Hangzhou</div>
+                                                    <div
+                                                        style="color: #666; font-size: 0.85em; margin-top: 5px; line-height: 1.5;">
+                                                        ✓ Sofitel (Complimentary)<br />✓ Sofitel (Arpaporn)<br />✓
+                                                        Sofitel (Thanakorn)<br /><span
+                                                            style="color: #ff9800; font-size: 0.8em;">3 hotels,
+                                                            full coverage</span></div>
+                                                </div>
+                                                <!-- Huangling Hotel -->
+                                                    <div
+                                                        style="background: white; padding: 12px; border-radius: 6px; border-left: 4px solid #f57c00;">
+                                                        <div style="font-weight: bold; color: #333; font-size: 0.9em;">
+                                                            Dec 27-28 • Huangling</div>
+                                                        <div
+                                                            style="color: #666; font-size: 0.85em; margin-top: 5px; line-height: 1.5;">
+                                                            ✓ Guling Sky Street Hotel<br />📍 UNESCO mountain
+                                                            terrace<br /><span
+                                                                style="color: #f57c00; font-size: 0.8em;">Photography
+                                                                package</span></div>
+                                                    </div>
+                                                    <!-- Wangxiangu Hotel -->
+                                                        <div
+                                                            style="background: white; padding: 12px; border-radius: 6px; border-left: 4px solid #7b1fa2;">
+                                                            <div
+                                                                style="font-weight: bold; color: #333; font-size: 0.9em;">
+                                                                Dec 28-29 • Wangxiangu</div>
+                                                            <div
+                                                                style="color: #666; font-size: 0.85em; margin-top: 5px; line-height: 1.5;">
+                                                                ✓ Xiansu Hotel<br />📸 Photography package
+                                                                incl.<br /><span
+                                                                    style="color: #7b1fa2; font-size: 0.8em;">Valley
+                                                                    hiking base</span></div>
+                                                        </div>
+                                                        <!-- Suzhou Hotel -->
+                                                            <div
+                                                                style="background: white; padding: 12px; border-radius: 6px; border-left: 4px solid #00897b;">
+                                                                <div
+                                                                    style="font-weight: bold; color: #333; font-size: 0.9em;">
+                                                                    Dec 29-31 • Suzhou</div>
+                                                                <div
+                                                                    style="color: #666; font-size: 0.85em; margin-top: 5px; line-height: 1.5;">
+                                                                    ✓ Novotel Suzhou<br />🏊 Pool & gardens<br /><span
+                                                                        style="color: #00897b; font-size: 0.8em;">Free
+                                                                        cancellation policy</span></div>
+                                                            </div>
+                                                            <!-- Shanghai Hotel -->
+                                                                <div
+                                                                    style="background: white; padding: 12px; border-radius: 6px; border-left: 4px solid #d32f2f;">
+                                                                    <div
+                                                                        style="font-weight: bold; color: #333; font-size: 0.9em;">
+                                                                        Dec 31 - Jan 2 • Shanghai</div>
+                                                                    <div
+                                                                        style="color: #666; font-size: 0.85em; margin-top: 5px; line-height: 1.5;">
+                                                                        ✓ Tianhua Hotel<br />🎉 New Year's Eve
+                                                                        location<br />
+                                                                        <span
+                                                                            style="color: #d32f2f; font-size: 0.8em;">Premium
+                                                                            celebration base</span>
+                                                                    </div>
+                                                                </div>
+                                                                <!-- Guangzhou Hotel -->
+                                                                    <div
+                                                                        style="background: white; padding: 12px; border-radius: 6px; border-left: 4px solid #1976d2;">
+                                                                        <div
+                                                                            style="font-weight: bold; color: #333; font-size: 0.9em;">
+                                                                            Jan 2-3 • Guangzhou</div>
+                                                                        <div
+                                                                            style="color: #666; font-size: 0.85em; margin-top: 5px; line-height: 1.5;">
+                                                                            ✓ Baiyun Coco Hotel<br />✈️ Airport
+                                                                            overnight layover<br /><span
+                                                                                style="color: #1976d2; font-size: 0.8em;">23.5h
+                                                                                transfer stay</span></div>
+                                                                    </div>
+                                        </div>
+                                    </div>
+                                    <!-- City Route Timeline -->
+                                        <div style="margin-bottom: 20px;">
+                                            <h3 style="color: #667eea; margin-bottom: 12px; font-size: 1.1em;">📍
+                                                Journey Route</h3>
+                                            <div
+                                                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px;">
+                                                <div
+                                                    style="background: #e3f2fd; padding: 12px; border-radius: 6px; text-align: center; border: 2px solid #667eea;">
+                                                    <div style="font-weight: bold; color: #667eea; font-size: 1.1em;">
+                                                        Bangkok</div>
+                                                    <div style="color: #666; font-size: 0.85em;">Dec 25-26</div>
+                                                    <div style="color: #999; font-size: 0.8em; margin-top: 3px;">Transit
+                                                        hub</div>
+                                                </div>
+                                                <div
+                                                    style="color: #999; display: flex; align-items: center; justify-content: center;">
+                                                    →</div>
+                                                <div
+                                                    style="background: #fff3e0; padding: 12px; border-radius: 6px; text-align: center; border: 2px solid #f57c00;">
+                                                    <div style="font-weight: bold; color: #f57c00; font-size: 1.1em;">
+                                                        Hangzhou</div>
+                                                    <div style="color: #666; font-size: 0.85em;">Dec 25-27</div>
+                                                    <div style="color: #999; font-size: 0.8em; margin-top: 3px;">West
+                                                        Lake</div>
+                                                </div>
+                                                <div
+                                                    style="color: #999; display: flex; align-items: center; justify-content: center;">
+                                                    →</div>
+                                                <div
+                                                    style="background: #fff3e0; padding: 12px; border-radius: 6px; text-align: center; border: 2px solid #f57c00;">
+                                                    <div style="font-weight: bold; color: #f57c00; font-size: 1.1em;">
+                                                        Huangling</div>
+                                                    <div style="color: #666; font-size: 0.85em;">Dec 27-28</div>
+                                                    <div style="color: #999; font-size: 0.8em; margin-top: 3px;">
+                                                        Mountains</div>
+                                                </div>
+                                                <div
+                                                    style="color: #999; display: flex; align-items: center; justify-content: center;">
+                                                    →</div>
+                                                <div
+                                                    style="background: #f3e5f5; padding: 12px; border-radius: 6px; text-align: center; border: 2px solid #7b1fa2;">
+                                                    <div style="font-weight: bold; color: #7b1fa2; font-size: 1.1em;">
+                                                        Wangxiangu</div>
+                                                    <div style="color: #666; font-size: 0.85em;">Dec 28-29</div>
+                                                    <div style="color: #999; font-size: 0.8em; margin-top: 3px;">Valley
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div
+                                                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; margin-top: 10px;">
+                                                <div
+                                                    style="background: #e0f2f1; padding: 12px; border-radius: 6px; text-align: center; border: 2px solid #00897b;">
+                                                    <div style="font-weight: bold; color: #00897b; font-size: 1.1em;">
+                                                        Suzhou</div>
+                                                    <div style="color: #666; font-size: 0.85em;">Dec 29-31</div>
+                                                    <div style="color: #999; font-size: 0.8em; margin-top: 3px;">Gardens
+                                                    </div>
+                                                </div>
+                                                <div
+                                                    style="color: #999; display: flex; align-items: center; justify-content: center;">
+                                                    →</div>
+                                                <div
+                                                    style="background: #c8e6c9; padding: 12px; border-radius: 6px; text-align: center; border: 2px solid #388e3c;">
+                                                    <div style="font-weight: bold; color: #388e3c; font-size: 1.1em;">
+                                                        Shanghai</div>
+                                                    <div style="color: #666; font-size: 0.85em;">Dec 31-Jan 2</div>
+                                                    <div style="color: #999; font-size: 0.8em; margin-top: 3px;">NYE
+                                                        &amp;
+                                                        City</div>
+                                                </div>
+                                                <div
+                                                    style="color: #999; display: flex; align-items: center; justify-content: center;">
+                                                    →</div>
+                                                <div
+                                                    style="background: #e1f5fe; padding: 12px; border-radius: 6px; text-align: center; border: 2px solid #1976d2;">
+                                                    <div style="font-weight: bold; color: #1976d2; font-size: 1.1em;">
+                                                        Guangzhou</div>
+                                                    <div style="color: #666; font-size: 0.85em;">Jan 2-3</div>
+                                                    <div style="color: #999; font-size: 0.8em; margin-top: 3px;">Layover
+                                                    </div>
+                                                </div>
+                                                <div
+                                                    style="color: #999; display: flex; align-items: center; justify-content: center;">
+                                                    →</div>
+                                                <div
+                                                    style="background: #e3f2fd; padding: 12px; border-radius: 6px; text-align: center; border: 2px solid #667eea;">
+                                                    <div style="font-weight: bold; color: #667eea; font-size: 1.1em;">
+                                                        Bangkok</div>
+                                                    <div style="color: #666; font-size: 0.85em;">Jan 4</div>
+                                                    <div style="color: #999; font-size: 0.8em; margin-top: 3px;">Return
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Critical Alerts -->
+                                            <div
+                                                style="background: #fff9c4; padding: 15px; border-radius: 6px; border-left: 4px solid #fbc02d; margin-bottom: 15px;">
+                                                <strong style="color: #f57f17;">⚠️ Critical: Guangzhou 23.5-Hour
+                                                    Layover</strong>
+                                                <p
+                                                    style="margin: 8px 0 0 0; color: #666; font-size: 0.9em; line-height: 1.6;">
+                                                    Return flight arrives Guangzhou (CAN) Jan 2 at 11:30 PM,
+                                                    departs Jan 3 at 11:00 PM. <strong>Stay booked at Baiyun Coco
+                                                        Hotel</strong>- conveniently located at airport with late
+                                                    checkout available. </p>
+                                            </div>
+                                            <div
+                                                style="background: #e8f5e9; padding: 15px; border-radius: 6px; border-left: 4px solid #4CAF50; margin-bottom: 15px;">
+                                                <strong style="color: #2e7d32;">✓ Special Highlights</strong>
+                                                <p
+                                                    style="margin: 8px 0 0 0; color: #666; font-size: 0.9em; line-height: 1.6;">
+                                                    🎉 <strong>New Year's Eve in Shanghai</strong> (Dec 31 - Jan 2) •
+                                                    📸 <strong>Photography packages</strong> at Huangling &amp;
+                                                    Wangxiangu • 🏔️ <strong>Mountain hiking</strong> with optional
+                                                    weather-flexible timing </p>
+                                            </div>
+                                            <div style="display: flex; gap: 10px; flex-wrap: wrap;"><a
+                                                    href="bookings.html"
+                                                    style="flex: 1; min-width: 150px; background: #667eea; color: white; padding: 12px; border-radius: 6px; text-align: center; text-decoration: none; font-weight: 500; transition: 0.3s;">📸
+                                                    View All Bookings </a><a href="itinerary.html"
+                                                    style="flex: 1; min-width: 150px; background: #ff9800; color: white; padding: 12px; border-radius: 6px; text-align: center; text-decoration: none; font-weight: 500; transition: 0.3s;">📅
+                                                    Day-by-Day Timeline </a><a href="accommodation.html"
+                                                    style="flex: 1; min-width: 150px; background: #4CAF50; color: white; padding: 12px; border-radius: 6px; text-align: center; text-decoration: none; font-weight: 500; transition: 0.3s;">🏨
+                                                    Hotel Details </a></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Flights Summary -->
+                    <div class="grid">
+                        <div class="card">
+                            <h2>✈️ Flights <span class="status-badge">Complete</span></h2>
+                            <div class="card-content">
+                                <div class="info-item"><span class="label">Outbound • December 25,
+                                        2025</span>
+                                    <div class="value" style="margin-top: 10px; font-size: 0.9em;">BKK 02:10 → HGH 11:20
+                                        (8h 10m total)<br /><span style="color: #666; font-size: 0.85em;">2 legs • China
+                                            Southern • Economy</span></div>
+                                </div>
+                                <div class="info-item"><span class="label">Return • January 2-4,
+                                        2026</span>
+                                    <div class="value" style="margin-top: 10px; font-size: 0.9em;">SHA 20:50 → BKK 01:05
+                                        (29h 15m total)<br /><span style="color: #d32f2f; font-weight: 500;">⚠️ 23.5h
+                                            Guangzhou overnight</span></div>
+                                </div>
+                                <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #eee;"><a
+                                        href="flights.html"
+                                        style="color: #667eea; text-decoration: none; font-weight: 500;">📄 View Full
+                                        Flight Details →</a></div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <h2>🏔️ Highlights</h2>
+                            <div class="card-content">
+                                <ul style="margin-left: 20px; color: #333; line-height: 1.8;">
+                                    <li><strong>Nature:</strong> Huangling & Wangxiangu mountain hiking</li>
+                                    <li><strong>Culture:</strong> Suzhou classical gardens & Grand Canal</li>
+                                    <li><strong>Modern:</strong> Shanghai Bund & Pudong skyline</li>
+                                    <li><strong>Celebration:</strong> Ring in 2026 in Shanghai</li>
+                                    <li><strong>HSR:</strong> ~635 km via high-speed trains</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Infographic Timeline Section -->
+                        <div style="margin-top: 50px;">
+                            <h2
+                                style="color: white; font-size: 2.2em; margin-bottom: 10px; text-align: center; text-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                                📅 Your 10-Day Journey</h2>
+                            <p
+                                style="text-align: center; color: rgba(255,255,255,0.9); margin-bottom: 40px; font-size: 1.1em;">
+                                A visual guide to your China adventure</p>
+
+                            <!-- Infographic Images Gallery -->
+                            <div
+                                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-bottom: 50px;">
+                                <div style="text-align: center;">
+                                    <img src="images/infographic.png" alt="China Trip Infographic"
+                                        style="width: 100%; height: auto; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
+                                    <p style="margin-top: 15px; color: rgba(255,255,255,0.8); font-size: 0.9em;">🎨
+                                        Journey Map</p>
+                                </div>
+                                <div style="text-align: center;">
+                                    <img src="images/3d_map.png" alt="3D Isometric Trip Map"
+                                        style="width: 100%; height: auto; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
+                                    <p style="margin-top: 15px; color: rgba(255,255,255,0.8); font-size: 0.9em;">🏔️ 3D
+                                        Route View</p>
+                                </div>
+                                <div style="text-align: center;">
+                                    <img src="images/popmart_map_v3.png" alt="Pop Mart Style Infographic"
+                                        style="width: 100%; height: auto; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
+                                    <p style="margin-top: 15px; color: rgba(255,255,255,0.8); font-size: 0.9em;">🧸 Pop
+                                        Mart Details</p>
+                                </div>
+                            </div>
+
+                            <div class="timeline-container">
+                                <!-- Day 1: Hangzhou Arrival -->
+                                <div class="timeline-row timeline-left">
+                                    <div class="timeline-content">
+                                        <span class="timeline-date">Dec 25</span>
+                                        <h3 class="timeline-title">🏙️ Hangzhou: Arrival</h3>
+                                        <p class="timeline-body">
+                                            • Arrive HGH (11:20 AM)<br>
+                                            • Airport transfer & check-in<br>
+                                            • Dinner at Grandma's Home
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <!-- Day 2: West Lake -->
+                                <div class="timeline-row timeline-right">
+                                    <div class="timeline-content">
+                                        <span class="timeline-date">Dec 26</span>
+                                        <h3 class="timeline-title">🚤 West Lake Wonders</h3>
+                                        <p class="timeline-body">
+                                            • Cycling Su & Bai Causeways<br>
+                                            • Boat tour: 3 Pools Mirroring Moon<br>
+                                            • 'Enduring Memories' light show<br>
+                                            • Hefang Street historic walk
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <!-- Day 3: Huangling -->
+                                <div class="timeline-row timeline-left">
+                                    <div class="timeline-content">
+                                        <span class="timeline-date">Dec 27</span>
+                                        <h3 class="timeline-title">🏔️ Huangling Heritage</h3>
+                                        <p class="timeline-body">
+                                            • 🚆 HSR to Wuyuan<br>
+                                            • UNESCO Village exploration<br>
+                                            • Stay at Guling Sky Street Hotel
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <!-- Day 4: Wangxiangu -->
+                                <div class="timeline-row timeline-right">
+                                    <div class="timeline-content">
+                                        <span class="timeline-date">Dec 28</span>
+                                        <h3 class="timeline-title">🪄 Wangxiangu Valley</h3>
+                                        <p class="timeline-body">
+                                            • 🚆 HSR to Shangrao<br>
+                                            • Hike to waterfalls & peaks<br>
+                                            • ✨ Glowing cliff houses at night
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <!-- Day 5: Suzhou -->
+                                <div class="timeline-row timeline-left">
+                                    <div class="timeline-content">
+                                        <span class="timeline-date">Dec 29</span>
+                                        <h3 class="timeline-title">🏯 Suzhou Gardens</h3>
+                                        <p class="timeline-body">
+                                            • 🚆 HSR Connection via Shanghai<br>
+                                            • Humble Administrator's Garden<br>
+                                            • Evening Grand Canal boat tour
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <!-- Day 6: Suzhou/Shanghai -->
+                                <div class="timeline-row timeline-right">
+                                    <div class="timeline-content">
+                                        <span class="timeline-date">Dec 30</span>
+                                        <h3 class="timeline-title">🏛️ Suzhou Art & Bund</h3>
+                                        <p class="timeline-body">
+                                            • 🏛️ Suzhou Museum (I.M. Pei)<br>
+                                            • 🚆 HSR to Shanghai<br>
+                                            • Night walk at The Bund
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <!-- Day 7: Shanghai NYE -->
+                                <div class="timeline-row timeline-left">
+                                    <div class="timeline-content">
+                                        <span class="timeline-date">Dec 31</span>
+                                        <h3 class="timeline-title">🎆 Shanghai NYE</h3>
+                                        <p class="timeline-body">
+                                            • Yu Garden & Old Town bazaar<br>
+                                            • Pudong skyline views<br>
+                                            • 🎆 NYE Countdown at The Bund
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <!-- Day 8: New Year's Day -->
+                                <div class="timeline-row timeline-right">
+                                    <div class="timeline-content">
+                                        <span class="timeline-date">Jan 1</span>
+                                        <h3 class="timeline-title">🎊 Shanghai Immersion</h3>
+                                        <p class="timeline-body">
+                                            • Starbucks Reserve Roastery<br>
+                                            • Jing'an Golden Temple<br>
+                                            • French Concession walk
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <!-- Day 9: To Guangzhou -->
+                                <div class="timeline-row timeline-left">
+                                    <div class="timeline-content">
+                                        <span class="timeline-date">Jan 2</span>
+                                        <h3 class="timeline-title">✈️ To Guangzhou</h3>
+                                        <p class="timeline-body">
+                                            • Final Nanjing Road shopping<br>
+                                            • Flight to Guangzhou (8:50 PM)<br>
+                                            • Check-in at airport hotel
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <!-- Day 10: Dim Sum & Home -->
+                                <div class="timeline-row timeline-right">
+                                    <div class="timeline-content">
+                                        <span class="timeline-date">Jan 3-4</span>
+                                        <h3 class="timeline-title">🥟 Food & Farewell</h3>
+                                        <p class="timeline-body">
+                                            • 🥟 Authentic Dim Sum (Dian Dou De)<br>
+                                            • 🌆 Canton Tower view<br>
+                                            • ✈️ BKK Arrival (Jan 4)
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+        </div>
+        <!-- Quick Links Section -->
+            <div style="margin-top: 40px;">
+                <h2 style="color: white; font-size: 2em; margin-bottom: 30px; text-align: center;">📚
+                    Planning Sections</h2>
+                <div class="grid-section"> <a href="itinerary.html" class="quick-link">
+                        <h3>📅 Day-by-Day Itinerary</h3>
+                        <p>Complete timeline with activities, transportation, timings, and HSR schedules
+                        </p>
+                    </a> <a href="accommodation.html" class="quick-link">
+                        <h3>🏨 Accommodation</h3>
+                        <p>Hotels, check-in dates, booking confirmations, and contact info</p>
+                    </a> <a href="transportation.html" class="quick-link">
+                        <h3>🚆 Transportation</h3>
+                        <p>Flights, HSR routes, local transport, airport transfers</p>
+                    </a> <a href="dining.html" class="quick-link">
+                        <h3>🍜 Food & Dining</h3>
+                        <p>Restaurants, local specialties, dim sum, budget breakdown</p>
+                    </a> <a href="budget.html" class="quick-link">
+                        <h3>💰 Budget & Costs</h3>
+                        <p>Expense tracking, accommodation, activities, daily rates</p>
+                    </a> <a href="practical.html" class="quick-link">
+                        <h3>ℹ️ Practical Info</h3>
+                        <p>Visa, insurance, weather, currency, emergency contacts</p>
+                    </a> <a href="packing.html" class="quick-link">
+                        <h3>🧳 Packing Checklist</h3>
+                        <p>Documents, clothing, electronics, health items, essentials</p>
+                    </a> <a href="bookings.html" class="quick-link">
+                        <h3>📸 Booking Confirmations</h3>
+                        <p>Flight booking images and confirmation details</p>
+                    </a> <a href="ai-reviews.html" class="quick-link">
+                        <h3>🤖 AI Expert Reviews</h3>
+                        <p>Perspectives from Gemini, GPT-5, Grok, and Sonnet on your trip</p>
+                    </a> </div>
+            </div>
+            <!-- Statistics Section -->
+                <div
+                    style="background: rgba(255,255,255,0.1); padding: 30px; border-radius: 10px; margin: 40px 0; color: white; text-align: center;">
+                    <h2 style="color: white; margin-bottom: 25px;">Trip Statistics</h2>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 20px;">
+                        <div>
+                            <div style="font-size: 2.5em; font-weight: bold; margin-bottom: 5px;">10
+                            </div>
+                            <div style="opacity: 0.9;">Days Total</div>
+                        </div>
+                        <div>
+                            <div style="font-size: 2.5em; font-weight: bold; margin-bottom: 5px;">5
+                            </div>
+                            <div style="opacity: 0.9;">Cities Visited</div>
+                        </div>
+                        <div>
+                            <div style="font-size: 2.5em; font-weight: bold; margin-bottom: 5px;">~635
+                            </div>
+                            <div style="opacity: 0.9;">km via HSR</div>
+                        </div>
+                        <div>
+                            <div style="font-size: 2.5em; font-weight: bold; margin-bottom: 5px;">~10
+                            </div>
+                            <div style="opacity: 0.9;">Hours of Trains</div>
+                        </div>
+                    </div>
+                </div>
+                <footer>
+                    <p>📍 China New Year 2026 Adventure • Happy travels !</p>
+                    <p style="font-size: 0.9em; margin-top: 10px;">Last updated: December 19, 2025</p>
+                </footer>
+                </div>
+                <script> // Mobile menu toggle
+
+                    function toggleMobileMenu() {
+                        const menu = document.getElementById('navMenu');
+                        menu.classList.toggle('mobile-open');
+                    }
+
+                    // Close mobile menu when a link is clicked
+                    document.addEventListener('DOMContentLoaded', function () {
+                        const navItems = document.querySelectorAll('.navbar-item');
+
+                        navItems.forEach(item => {
+                            item.addEventListener('click', function () {
+                                const menu = document.getElementById('navMenu');
+                                menu.classList.remove('mobile-open');
+                            });
+                        });
+
+                        // Set active menu item based on current page
+                        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+
+                        navItems.forEach(item => {
+                            const href = item.getAttribute('href');
+
+                            if (href === currentPage || (currentPage === '' && href === 'index.html')) {
+                                item.classList.add('active');
+                            }
+
+                            else {
+                                item.classList.remove('active');
+                            }
+                        });
+                    });
+
+                    // Close menu when clicking outside
+                    document.addEventListener('click', function (event) {
+                        const navbar = document.querySelector('.navbar');
+                        const menu = document.getElementById('navMenu');
+                        const toggle = document.querySelector('.menu-toggle');
+
+                        if (!navbar.contains(event.target) && menu.classList.contains('mobile-open')) {
+                            menu.classList.remove('mobile-open');
+                        }
+                    });
+                </script>
 </body>
+
 </html>
