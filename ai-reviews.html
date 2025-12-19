@@ -4,19 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI Trip Reviews - China New Year 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
+        :root { --primary-red: #C41E3A; --accent-gold: #D4AF37; --deep-navy: #1a1a2e; --warm-cream: #FFF8F0; --ai-purple: #9B87FF; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; padding: 0; }
-        .navbar { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 15px 20px; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); }
+        body { font-family: 'Noto Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, var(--deep-navy) 0%, #16213e 50%, var(--ai-purple) 100%); min-height: 100vh; padding: 0; }
+        .navbar { background: linear-gradient(135deg, var(--deep-navy) 0%, #16213e 100%); padding: 15px 20px; position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); border-bottom: 2px solid var(--accent-gold); }
         .navbar-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; position: relative; }
-        .navbar-brand { color: white; font-size: 1.2em; font-weight: bold; text-decoration: none; display: flex; align-items: center; gap: 8px; }
+        .navbar-brand { color: var(--accent-gold); font-family: 'Noto Serif SC', serif; font-size: 1.3em; font-weight: 700; text-decoration: none; display: flex; align-items: center; gap: 8px; text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); }
         .navbar-menu { display: flex; gap: 3px; flex-wrap: wrap; justify-content: flex-end; }
         .navbar-item { color: white; text-decoration: none; padding: 8px 12px; border-radius: 4px; transition: 0.3s; font-size: 0.85em; white-space: nowrap; }
-        .navbar-item:hover { background: rgba(255, 255, 255, 0.2); }
-        .navbar-item.active { background: rgba(255, 255, 255, 0.3); font-weight: bold; }
+        .navbar-item:hover { background: rgba(212, 175, 55, 0.2); color: var(--accent-gold); }
+        .navbar-item.active { background: rgba(212, 175, 55, 0.3); color: var(--accent-gold); font-weight: bold; }
         .menu-toggle { display: none; background: none; border: none; color: white; font-size: 1.5em; cursor: pointer; padding: 5px; }
         @media (max-width: 900px) { .navbar-item { font-size: 0.8em; padding: 6px 10px; } }
-        @media (max-width: 768px) { .navbar-menu { display: none; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; gap: 0; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 10px 0; border-top: 2px solid rgba(255, 255, 255, 0.2); max-height: calc(100vh - 60px); overflow-y: auto; } .navbar-menu.mobile-open { display: flex; } .navbar-item { padding: 12px 20px; border-radius: 0; border-bottom: 1px solid rgba(255, 255, 255, 0.1); font-size: 0.95em; } .menu-toggle { display: block; } }
+        @media (max-width: 768px) { .navbar-menu { display: none; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; gap: 0; background: linear-gradient(135deg, var(--deep-navy) 0%, #16213e 100%); padding: 10px 0; border-top: 2px solid var(--accent-gold); max-height: calc(100vh - 60px); overflow-y: auto; } .navbar-menu.mobile-open { display: flex; } .navbar-item { padding: 12px 20px; border-radius: 0; border-bottom: 1px solid rgba(255, 255, 255, 0.1); font-size: 0.95em; } .menu-toggle { display: block; } }
         .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
         header { text-align: center; color: white; margin-bottom: 40px; padding: 40px 20px; }
         h1 { font-size: 2.5em; margin-bottom: 10px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); }
@@ -24,20 +26,20 @@
         .breadcrumb a { color: white; text-decoration: none; border-bottom: 1px solid rgba(255, 255, 255, 0.5); }
         .breadcrumb a:hover { border-bottom: 1px solid white; }
         .intro-card { background: white; border-radius: 10px; padding: 30px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); margin-bottom: 30px; }
-        .intro-card h2 { color: #667eea; margin-bottom: 15px; font-size: 1.5em; }
+        .intro-card h2 { color: var(--ai-purple); font-family: 'Noto Serif SC', serif; margin-bottom: 15px; font-size: 1.5em; }
         .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 25px; margin: 30px 0; }
         .ai-review { background: white; border-radius: 12px; padding: 30px; box-shadow: 0 8px 25px rgba(0,0,0,0.12); border-top: 5px solid; transition: transform 0.3s, box-shadow 0.3s; }
         .ai-review:hover { transform: translateY(-8px); box-shadow: 0 15px 35px rgba(0,0,0,0.2); }
         .ai-review.gemini { border-top-color: #ea4335; }
         .ai-review.gpt5 { border-top-color: #00a99d; }
         .ai-review.grok { border-top-color: #000; }
-        .ai-review.sonnet { border-top-color: #667eea; }
+        .ai-review.sonnet { border-top-color: var(--ai-purple); }
         .ai-header { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 2px solid #f5f5f5; }
         .ai-logo { font-size: 2em; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; border-radius: 50%; }
         .ai-review.gemini .ai-logo { background: #FFF3E0; color: #ea4335; }
         .ai-review.gpt5 .ai-logo { background: #E0F7F6; color: #00a99d; }
         .ai-review.grok .ai-logo { background: #F5F5F5; color: #000; }
-        .ai-review.sonnet .ai-logo { background: #F3E5F5; color: #667eea; }
+        .ai-review.sonnet .ai-logo { background: #F3E5F5; color: var(--ai-purple); }
         .ai-name { font-size: 1.3em; font-weight: bold; color: #333; }
         .ai-title { font-size: 0.9em; color: #999; }
         .review-content { color: #555; line-height: 1.8; font-size: 0.95em; }
@@ -45,16 +47,16 @@
         .review-content ul { margin-left: 20px; margin-top: 10px; }
         .review-content li { margin: 8px 0; }
         .review-content strong { color: #333; }
-        .highlight-box { background: #f9f9f9; border-left: 4px solid #667eea; padding: 15px; margin: 15px 0; border-radius: 4px; }
+        .highlight-box { background: var(--warm-cream); border-left: 4px solid var(--accent-gold); padding: 15px; margin: 15px 0; border-radius: 4px; }
         .nav-buttons { display: flex; justify-content: space-between; margin-top: 40px; gap: 10px; flex-wrap: wrap; }
-        .nav-btn { flex: 1; min-width: 120px; padding: 12px 20px; background: white; color: #667eea; border: 2px solid #667eea; border-radius: 4px; text-decoration: none; text-align: center; font-weight: bold; transition: 0.3s; }
-        .nav-btn:hover { background: #667eea; color: white; }
-        .nav-btn.home { background: #667eea; color: white; }
+        .nav-btn { flex: 1; min-width: 120px; padding: 12px 20px; background: white; color: var(--ai-purple); border: 2px solid var(--ai-purple); border-radius: 4px; text-decoration: none; text-align: center; font-weight: bold; transition: 0.3s; }
+        .nav-btn:hover { background: var(--ai-purple); color: white; }
+        .nav-btn.home { background: var(--deep-navy); border-color: var(--accent-gold); color: var(--accent-gold); }
         footer { text-align: center; color: white; padding: 30px 20px; opacity: 0.8; margin-top: 40px; }
     </style>
 </head>
 <body>
-    <nav class="navbar"><div class="navbar-container"><a href="index.html" class="navbar-brand">🌍 China 2026</a><button class="menu-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu">☰</button><div class="navbar-menu" id="navMenu"><a href="index.html" class="navbar-item">Home</a><a href="flights.html" class="navbar-item">Flights</a><a href="accommodation.html" class="navbar-item">Hotels</a><a href="itinerary.html" class="navbar-item">Itinerary</a><a href="attractions.html" class="navbar-item">Attractions</a><a href="dining.html" class="navbar-item">Food</a><a href="budget.html" class="navbar-item">Budget</a><a href="practical.html" class="navbar-item">Practical</a><a href="transportation.html" class="navbar-item">Transport</a><a href="packing.html" class="navbar-item">Packing</a><a href="bookings.html" class="navbar-item">Bookings</a><a href="ai-reviews.html" class="navbar-item active">AI Reviews</a></div></div></nav>
+    <nav class="navbar"><div class="navbar-container"><a href="index.html" class="navbar-brand">🏮 春节 2026</a><button class="menu-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu">☰</button><div class="navbar-menu" id="navMenu"><a href="index.html" class="navbar-item">Home</a><a href="flights.html" class="navbar-item">Flights</a><a href="accommodation.html" class="navbar-item">Hotels</a><a href="itinerary.html" class="navbar-item">Itinerary</a><a href="attractions.html" class="navbar-item">Attractions</a><a href="dining.html" class="navbar-item">Food</a><a href="budget.html" class="navbar-item">Budget</a><a href="practical.html" class="navbar-item">Practical</a><a href="transportation.html" class="navbar-item">Transport</a><a href="packing.html" class="navbar-item">Packing</a><a href="bookings.html" class="navbar-item">Bookings</a><a href="ai-reviews.html" class="navbar-item active">AI Reviews</a></div></div></nav>
     <div class="container">
         <header>
             <h1>🤖 AI Expert Reviews</h1>
