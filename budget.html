@@ -1,82 +1,454 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Budget - China New Year 2026 Trip</title>
+    <title>Budget - China New Year 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@400;500;600&display=swap"
+        rel="stylesheet">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; padding: 0; }
-        .navbar { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 15px 20px; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); }
-        .navbar-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; position: relative; }
-        .navbar-brand { color: white; font-size: 1.2em; font-weight: bold; text-decoration: none; display: flex; align-items: center; gap: 8px; }
-        .navbar-menu { display: flex; gap: 3px; flex-wrap: wrap; justify-content: flex-end; }
-        .navbar-item { color: white; text-decoration: none; padding: 8px 12px; border-radius: 4px; transition: 0.3s; font-size: 0.85em; white-space: nowrap; }
-        .navbar-item:hover { background: rgba(255, 255, 255, 0.2); }
-        .navbar-item.active { background: rgba(255, 255, 255, 0.3); font-weight: bold; }
-        .menu-toggle { display: none; background: none; border: none; color: white; font-size: 1.5em; cursor: pointer; padding: 5px; }
-        @media (max-width: 900px) { .navbar-item { font-size: 0.8em; padding: 6px 10px; } }
-        @media (max-width: 768px) { .navbar-menu { display: none; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; gap: 0; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 10px 0; border-top: 2px solid rgba(255, 255, 255, 0.2); max-height: calc(100vh - 60px); overflow-y: auto; } .navbar-menu.mobile-open { display: flex; } .navbar-item { padding: 12px 20px; border-radius: 0; border-bottom: 1px solid rgba(255, 255, 255, 0.1); font-size: 0.95em; } .menu-toggle { display: block; } }
-        .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
-        header { text-align: center; color: white; margin-bottom: 40px; padding: 40px 20px; }
-        h1 { font-size: 2.5em; margin-bottom: 10px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); }
-        .breadcrumb { font-size: 0.95em; opacity: 0.9; }
-        .breadcrumb a { color: white; text-decoration: none; border-bottom: 1px solid rgba(255, 255, 255, 0.5); }
-        .breadcrumb a:hover { border-bottom: 1px solid white; }
-        .card { background: white; border-radius: 10px; padding: 30px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); margin-bottom: 25px; }
-        .card h2 { color: #667eea; margin-bottom: 20px; font-size: 1.8em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
-        .budget-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; margin: 25px 0; }
-        .budget-card { background: white; border-radius: 10px; padding: 25px; border-left: 5px solid #667eea; box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: all 0.3s ease; }
-        .budget-card:hover { transform: translateY(-4px); box-shadow: 0 8px 20px rgba(0,0,0,0.12); }
-        .budget-card h3 { color: #667eea; margin-bottom: 15px; font-size: 1.15em; display: flex; align-items: center; gap: 8px; }
-        .budget-card p { color: #666; font-size: 0.95em; line-height: 1.7; margin: 8px 0; }
-        .budget-card ul { margin-left: 20px; margin-top: 10px; }
-        .budget-card li { margin: 8px 0; color: #555; }
-        .estimate-card { background: linear-gradient(135deg, #E8EAFF 0%, #F3F1FF 100%); border-left-color: #667eea; }
-        .budget-tier { background: linear-gradient(135deg, #F0F9FF 0%, #E0F2FE 100%); border-left-color: #0284c7; }
-        .budget-tier.mid { background: linear-gradient(135deg, #F0FDF4 0%, #DCFCE7 100%); border-left-color: #22c55e; }
-        .budget-tier.premium { background: linear-gradient(135deg, #FEF3C7 0%, #FDE68a 100%); border-left-color: #eab308; }
-        .budget-card.budget-tier h3 { color: #0284c7; }
-        .budget-card.budget-tier.mid h3 { color: #22c55e; }
-        .budget-card.budget-tier.premium h3 { color: #b45309; }
-        .price-highlight { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 15px; border-radius: 8px; text-align: center; font-weight: bold; font-size: 1.1em; margin: 15px 0; }
-        .nav-buttons { display: flex; justify-content: space-between; margin-top: 30px; gap: 10px; }
-        .nav-btn { flex: 1; padding: 12px 20px; background: white; color: #667eea; border: 2px solid #667eea; border-radius: 4px; text-decoration: none; text-align: center; font-weight: bold; transition: 0.3s; }
-        .nav-btn:hover { background: #667eea; color: white; }
-        .nav-btn.home { background: #667eea; color: white; }
-        footer { text-align: center; color: white; padding: 30px 20px; opacity: 0.8; margin-top: 40px; }
+        :root {
+            --primary-red: #C41E3A;
+            --accent-gold: #D4AF37;
+            --deep-navy: #1a1a2e;
+            --warm-cream: #FFF8F0;
+            --soft-white: #FFFFFF;
+            --text-dark: #2D2D2D;
+            --text-medium: #5A5A5A;
+            --budget-blue: #0284C7;
+            --budget-green: #22C55E;
+            --budget-amber: #F59E0B;
+            --success-green: #10B981;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans', sans-serif;
+            background: linear-gradient(135deg, #FFF8F0 0%, #F0FDF4 50%, #ECFDF5 100%);
+            min-height: 100vh;
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            background: linear-gradient(135deg, var(--deep-navy) 0%, #16213e 100%);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+        }
+
+        .nav-brand-icon {
+            font-size: 1.5rem;
+        }
+
+        .nav-brand-text {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--accent-gold);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .nav-link {
+            color: rgba(255, 255, 255, 0.85);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .nav-link:hover {
+            background: rgba(212, 175, 55, 0.2);
+            color: var(--accent-gold);
+        }
+
+        .nav-link.active {
+            background: linear-gradient(135deg, var(--primary-red), #E85A4F);
+            color: white;
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, var(--deep-navy) 0%, #16213e 50%, var(--budget-green) 100%);
+            padding: 3rem 2rem;
+            text-align: center;
+            color: white;
+        }
+
+        .page-title {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .page-subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Section Card */
+        .section-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px dashed rgba(0, 0, 0, 0.1);
+        }
+
+        .section-icon {
+            font-size: 2rem;
+        }
+
+        .section-header h2 {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 1.5rem;
+            color: var(--text-dark);
+        }
+
+        .section-subtitle {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 1.25rem;
+            color: var(--budget-green);
+            margin: 2rem 0 1rem;
+        }
+
+        /* Budget Grid */
+        .budget-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .budget-card {
+            background: white;
+            border-radius: 16px;
+            padding: 1.5rem;
+            border-left: 5px solid var(--budget-blue);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+            transition: all 0.3s ease;
+        }
+
+        .budget-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .budget-card h3 {
+            font-family: 'Noto Serif SC', serif;
+            color: var(--budget-blue);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .budget-card p {
+            color: var(--text-medium);
+            font-size: 0.95rem;
+            margin: 0.5rem 0;
+        }
+
+        .budget-card p strong {
+            color: var(--text-dark);
+        }
+
+        .budget-card ul {
+            margin-left: 1.25rem;
+            margin-top: 0.75rem;
+            color: var(--text-medium);
+        }
+
+        .budget-card li {
+            margin: 0.5rem 0;
+        }
+
+        /* Budget Tiers */
+        .budget-card.tier-budget {
+            background: linear-gradient(135deg, #F0F9FF 0%, #E0F2FE 100%);
+            border-left-color: var(--budget-blue);
+        }
+
+        .budget-card.tier-budget h3 {
+            color: var(--budget-blue);
+        }
+
+        .budget-card.tier-mid {
+            background: linear-gradient(135deg, #F0FDF4 0%, #DCFCE7 100%);
+            border-left-color: var(--budget-green);
+        }
+
+        .budget-card.tier-mid h3 {
+            color: var(--budget-green);
+        }
+
+        .budget-card.tier-premium {
+            background: linear-gradient(135deg, #FFFBEB 0%, #FEF3C7 100%);
+            border-left-color: var(--budget-amber);
+        }
+
+        .budget-card.tier-premium h3 {
+            color: #B45309;
+        }
+
+        .budget-card.confirmed {
+            border-left-color: var(--success-green);
+        }
+
+        .budget-card.confirmed h3 {
+            color: #059669;
+        }
+
+        /* Price Highlight */
+        .price-highlight {
+            background: linear-gradient(135deg, var(--deep-navy) 0%, #16213e 100%);
+            color: white;
+            padding: 1rem;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin: 1rem 0;
+        }
+
+        /* Confirmed Bookings Table */
+        .bookings-table {
+            background: linear-gradient(135deg, #ECFDF5 0%, #D1FAE5 100%);
+            padding: 1.5rem;
+            border-radius: 16px;
+            margin: 1.5rem 0;
+        }
+
+        .bookings-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .bookings-table th {
+            text-align: left;
+            padding: 0.75rem;
+            color: #059669;
+            border-bottom: 2px solid #10B981;
+        }
+
+        .bookings-table td {
+            padding: 0.75rem;
+            border-bottom: 1px solid #A7F3D0;
+            color: var(--text-medium);
+        }
+
+        .bookings-table tr:last-child td {
+            border-bottom: none;
+            font-weight: 700;
+            color: #059669;
+        }
+
+        .bookings-table .orders {
+            font-size: 0.85rem;
+            color: #059669;
+            margin-top: 1rem;
+        }
+
+        /* Tip Box */
+        .tip-box {
+            background: linear-gradient(135deg, #FFF9E6 0%, #FFFBF0 100%);
+            border-left: 4px solid var(--accent-gold);
+            padding: 1.25rem;
+            margin-top: 1.5rem;
+            border-radius: 0 12px 12px 0;
+        }
+
+        .tip-box h4 {
+            color: #B45309;
+            margin-bottom: 0.75rem;
+        }
+
+        .tip-box ul {
+            margin-left: 1.25rem;
+            color: var(--text-medium);
+        }
+
+        .tip-box li {
+            margin: 0.5rem 0;
+        }
+
+        /* Warning Box */
+        .warning-box {
+            background: linear-gradient(135deg, #FEF2F2 0%, #FEE2E2 100%);
+            padding: 1rem;
+            border-radius: 10px;
+            margin-top: 1rem;
+            color: #DC2626;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 0.75rem 1rem;
+            }
+
+            .nav-links {
+                gap: 0.25rem;
+            }
+
+            .nav-link {
+                padding: 0.4rem 0.75rem;
+                font-size: 0.8rem;
+            }
+
+            .page-title {
+                font-size: 1.75rem;
+            }
+
+            .main-content {
+                padding: 1rem;
+            }
+
+            .section-card {
+                padding: 1.25rem;
+            }
+
+            .budget-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .bookings-table {
+                overflow-x: auto;
+            }
+        }
+
+        /* Footer */
+        footer {
+            background: var(--deep-navy);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        footer p {
+            opacity: 0.8;
+        }
+
+        footer .sub {
+            font-size: 0.85rem;
+            opacity: 0.6;
+            margin-top: 0.5rem;
+        }
     </style>
 </head>
+
 <body>
-    <nav class="navbar"><div class="navbar-container"><a href="index.html" class="navbar-brand">🌍 China 2026</a><button class="menu-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu">☰</button><div class="navbar-menu" id="navMenu"><a href="index.html" class="navbar-item">Home</a><a href="flights.html" class="navbar-item">Flights</a><a href="accommodation.html" class="navbar-item">Hotels</a><a href="itinerary.html" class="navbar-item">Itinerary</a><a href="attractions.html" class="navbar-item">Attractions</a><a href="dining.html" class="navbar-item">Food</a><a href="budget.html" class="navbar-item active">Budget</a><a href="practical.html" class="navbar-item">Practical</a><a href="transportation.html" class="navbar-item">Transport</a><a href="packing.html" class="navbar-item">Packing</a><a href="bookings.html" class="navbar-item">Bookings</a><a href="ai-reviews.html" class="navbar-item">AI Reviews</a></div></div></nav>
-    <div class="container">
-        <header>
-            <h1>💰 Budget</h1>
-            <p class="breadcrumb"><a href="index.html">Home</a> > Budget</p>
-        </header>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand">
+                <span class="nav-brand-icon">🏮</span>
+                <span class="nav-brand-text">春节 2026</span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="flights.html" class="nav-link">Flights</a>
+                <a href="accommodation.html" class="nav-link">Hotels</a>
+                <a href="itinerary.html" class="nav-link">Itinerary</a>
+                <a href="attractions.html" class="nav-link">Attractions</a>
+                <a href="transportation.html" class="nav-link">Transport</a>
+                <a href="dining.html" class="nav-link">Dining</a>
+                <a href="budget.html" class="nav-link active">Budget</a>
+                <a href="practical.html" class="nav-link">Practical</a>
+                <a href="packing.html" class="nav-link">Packing</a>
+                <a href="bookings.html" class="nav-link">Bookings</a>
+            </div>
+        </div>
+    </nav>
 
-        <div class="card">
-            <h2>Trip Expenses & Cost Tracking</h2>
-            <p style="color: #666; margin-bottom: 20px;">Track and manage your trip budget by expense category. Choose your travel style and budget accordingly.</p>
+    <!-- Page Header -->
+    <header class="page-header">
+        <h1 class="page-title">💰 Budget</h1>
+        <p class="page-subtitle">Track and manage your trip expenses by category</p>
+    </header>
 
-            <h3 style="color: #667eea; margin: 30px 0 20px 0; font-size: 1.3em;">📊 Daily Budget by Travel Style</h3>
+    <!-- Main Content -->
+    <main class="main-content">
+
+        <section class="section-card">
+            <div class="section-header">
+                <span class="section-icon">📊</span>
+                <h2>Daily Budget by Travel Style</h2>
+            </div>
+
             <div class="budget-grid">
-                <div class="budget-card budget-tier">
+                <div class="budget-card tier-budget">
                     <h3>🥘 Budget Travel</h3>
                     <p><strong>$50-80 USD per day</strong></p>
-                    <p style="font-size: 0.9em; color: #999;">≈ 350-560 CNY</p>
+                    <p style="font-size: 0.85rem; color: #999;">≈ 350-560 CNY</p>
                     <ul>
-                        <li>Food: 50-80 CNY (local eateries, street food)</li>
+                        <li>Food: 50-80 CNY (local eateries)</li>
                         <li>Hotels: 150-250 CNY (budget/hostels)</li>
                         <li>Activities: 30-80 CNY (free walks)</li>
                         <li>Transport: 20-40 CNY (metro, bikes)</li>
                     </ul>
                 </div>
 
-                <div class="budget-card budget-tier mid">
+                <div class="budget-card tier-mid">
                     <h3>🌟 Mid-Range (Recommended)</h3>
                     <p><strong>$80-150 USD per day</strong></p>
-                    <p style="font-size: 0.9em; color: #999;">≈ 560-1,050 CNY</p>
+                    <p style="font-size: 0.85rem; color: #999;">≈ 560-1,050 CNY</p>
                     <ul>
                         <li>Food: 100-150 CNY (mix of restaurants)</li>
                         <li>Hotels: 250-500 CNY (3-4 star)</li>
@@ -85,10 +457,10 @@
                     </ul>
                 </div>
 
-                <div class="budget-card budget-tier premium">
+                <div class="budget-card tier-premium">
                     <h3>✨ Premium/Luxury</h3>
                     <p><strong>$150+ USD per day</strong></p>
-                    <p style="font-size: 0.9em; color: #999;">≈ 1,050+ CNY</p>
+                    <p style="font-size: 0.85rem; color: #999;">≈ 1,050+ CNY</p>
                     <ul>
                         <li>Food: 200-400 CNY (fine dining)</li>
                         <li>Hotels: 500+ CNY (luxury 4-5 star)</li>
@@ -97,16 +469,22 @@
                     </ul>
                 </div>
             </div>
+        </section>
 
-            <h3 style="color: #667eea; margin: 30px 0 20px 0; font-size: 1.3em;">📋 Detailed Expense Categories</h3>
+        <section class="section-card">
+            <div class="section-header">
+                <span class="section-icon">📋</span>
+                <h2>Detailed Expense Categories</h2>
+            </div>
+
             <div class="budget-grid">
-                <div class="budget-card estimate-card">
+                <div class="budget-card">
                     <h3>✈️ Flights</h3>
                     <p><strong>Already Booked</strong></p>
                     <ul>
                         <li>BKK → CAN → HGH (Dec 25)</li>
                         <li>SHA → CAN → BKK (Jan 2-4)</li>
-                        <li>⚠️ Note: 23h+ overnight transfer in Guangzhou on return</li>
+                        <li>⚠️ 23h+ overnight transfer in Guangzhou</li>
                     </ul>
                 </div>
 
@@ -114,10 +492,10 @@
                     <h3>🏨 Accommodation (9 nights)</h3>
                     <p><strong>$800-1,400 USD</strong></p>
                     <ul>
-                        <li>Hangzhou (7 nights): $560-840</li>
-                        <li>Mountain (1 night): $30-50</li>
-                        <li>Suzhou (1 night): $60-100</li>
-                        <li>Guangzhou transfer: $50-80</li>
+                        <li>Hangzhou (2 nights): Sofitel (FREE + paid)</li>
+                        <li>Mountain (2 nights): Wangxiangu & Huangling</li>
+                        <li>Suzhou (1 night): Novotel</li>
+                        <li>Shanghai (3 nights): Tianhua Hotel</li>
                     </ul>
                 </div>
 
@@ -127,8 +505,7 @@
                     <ul>
                         <li>Budget: 50 CNY/day = $70 total</li>
                         <li>Mid-range: 100 CNY/day = $140 total</li>
-                        <li>Premium meals (3-4 nights): $100-230</li>
-                        <li>💡 Tip: Eat where locals eat</li>
+                        <li>Premium meals: $100-230</li>
                     </ul>
                 </div>
 
@@ -136,25 +513,21 @@
                     <h3>🎫 Activities & Attractions</h3>
                     <p><strong>$70-115 USD</strong></p>
                     <ul>
-                        <li>West Lake: FREE (public scenic area)</li>
+                        <li>West Lake: FREE</li>
                         <li>Lingyin Temple: 30-40 CNY</li>
-                        <li>Suzhou Gardens: 70-90 CNY each (UNESCO)</li>
-                        <li>Optional tours/guides: 200-500 CNY</li>
+                        <li>Suzhou Gardens: 70-90 CNY each</li>
+                        <li>Optional tours: 200-500 CNY</li>
                     </ul>
                 </div>
 
-                <div class="budget-card" style="border-left-color: #4CAF50;">
-                    <h3>🚆 Transportation ✅ TRAINS BOOKED</h3>
+                <div class="budget-card confirmed">
+                    <h3>🚆 Transportation ✅ BOOKED</h3>
                     <p><strong>~$330-380 USD</strong></p>
                     <ul>
                         <li>Airport transfers: $30-60</li>
-                        <li style="color: #2E7D32; font-weight: bold;">✅ Trains: ¥2,000 (~$285 USD) - BOOKED</li>
-                        <li>Local transport: $43 (metro/taxis)</li>
+                        <li style="color: #059669; font-weight: bold;">✅ Trains: ¥2,000 (~$285) - BOOKED</li>
+                        <li>Local transport: $43</li>
                     </ul>
-                    <div style="background: #E8F5E9; padding: 10px; border-radius: 5px; margin-top: 10px; font-size: 0.85em;">
-                        <strong>4 Trains Confirmed:</strong><br/>
-                        G1509 (Dec 27) • G1669 (Dec 28) • G412 + D3006 (Dec 29)
-                    </div>
                 </div>
 
                 <div class="budget-card">
@@ -164,80 +537,61 @@
                         <li>Longjing tea: 30-200 CNY</li>
                         <li>Souvenirs & gifts: 200-500 CNY</li>
                         <li>Personal items: 100-300 CNY</li>
-                        <li>💡 Avoid tourist shops (3-5x markup)</li>
-                    </ul>
-                </div>
-
-                <div class="budget-card estimate-card">
-                    <h3>🛡️ Travel Insurance</h3>
-                    <p><strong>$80-150 USD</strong></p>
-                    <p>Comprehensive 10-day policy including:</p>
-                    <ul>
-                        <li>Medical emergencies</li>
-                        <li>Trip cancellation</li>
-                        <li>Emergency evacuation</li>
-                        <li>Highly recommended!</li>
-                    </ul>
-                </div>
-
-                <div class="budget-card">
-                    <h3>💰 Miscellaneous</h3>
-                    <p><strong>$100-200 USD</strong></p>
-                    <ul>
-                        <li>Tips: 50 CNY (not customary but appreciated)</li>
-                        <li>SIM card/data: 50-100 CNY</li>
-                        <li>Emergency buffer: 10% of total budget</li>
-                        <li>Visa fees (if applicable)</li>
                     </ul>
                 </div>
             </div>
 
-            <h3 style="color: #667eea; margin: 30px 0 20px 0; font-size: 1.3em;">✅ Confirmed Bookings (Already Paid)</h3>
-            <div style="background: linear-gradient(135deg, #E8F5E9 0%, #C8E6C9 100%); padding: 25px; border-radius: 10px; margin-bottom: 30px;">
-                <table style="width: 100%; border-collapse: collapse;">
-                    <tr style="border-bottom: 2px solid #4CAF50;">
-                        <th style="text-align: left; padding: 10px; color: #2E7D32;">Category</th>
-                        <th style="text-align: left; padding: 10px; color: #2E7D32;">Details</th>
-                        <th style="text-align: right; padding: 10px; color: #2E7D32;">Cost</th>
+            <h3 class="section-subtitle">✅ Confirmed Bookings (Already Paid)</h3>
+
+            <div class="bookings-table">
+                <table>
+                    <tr>
+                        <th>Category</th>
+                        <th>Details</th>
+                        <th style="text-align: right;">Cost</th>
                     </tr>
-                    <tr style="border-bottom: 1px solid #A5D6A7;">
-                        <td style="padding: 10px;">✈️ Flights</td>
-                        <td style="padding: 10px;">BKK↔HGH (via CAN) - Round trip</td>
-                        <td style="padding: 10px; text-align: right; font-weight: bold;">Booked ✓</td>
+                    <tr>
+                        <td>✈️ Flights</td>
+                        <td>BKK↔HGH (via CAN) - Round trip</td>
+                        <td style="text-align: right; font-weight: bold;">Booked ✓</td>
                     </tr>
-                    <tr style="border-bottom: 1px solid #A5D6A7;">
-                        <td style="padding: 10px;">🏨 Hotels</td>
-                        <td style="padding: 10px;">8 hotels (9 nights) - All confirmed</td>
-                        <td style="padding: 10px; text-align: right; font-weight: bold;">Booked ✓</td>
+                    <tr>
+                        <td>🏨 Hotels</td>
+                        <td>8 hotels (9 nights) - All confirmed</td>
+                        <td style="text-align: right; font-weight: bold;">Booked ✓</td>
                     </tr>
-                    <tr style="border-bottom: 1px solid #A5D6A7;">
-                        <td style="padding: 10px;">🚄 Trains</td>
-                        <td style="padding: 10px;">4 trains (16 tickets) via 12306.cn</td>
-                        <td style="padding: 10px; text-align: right; font-weight: bold;">¥2,000 (~$285)</td>
+                    <tr>
+                        <td>🚄 Trains</td>
+                        <td>4 trains (16 tickets) via 12306.cn</td>
+                        <td style="text-align: right; font-weight: bold;">¥2,000 (~$285)</td>
                     </tr>
-                    <tr style="background: #C8E6C9;">
-                        <td style="padding: 10px; font-weight: bold;" colspan="2">Total Confirmed Transport</td>
-                        <td style="padding: 10px; text-align: right; font-weight: bold; font-size: 1.1em;">¥2,000 RMB</td>
+                    <tr>
+                        <td colspan="2"><strong>Total Confirmed Transport</strong></td>
+                        <td style="text-align: right;"><strong>¥2,000 RMB</strong></td>
                     </tr>
                 </table>
-                <p style="margin-top: 15px; color: #2E7D32; font-size: 0.9em;">
-                    <strong>Train Orders:</strong> E903575237 • E908947845 • E904086447 • E947844235
-                </p>
+                <p class="orders"><strong>Train Orders:</strong> E903575237 | E908947845 | E904086447 | E947844235</p>
+            </div>
+        </section>
+
+        <section class="section-card">
+            <div class="section-header">
+                <span class="section-icon">💵</span>
+                <h2>Total Trip Cost Estimates</h2>
             </div>
 
-            <h3 style="color: #667eea; margin: 30px 0 20px 0; font-size: 1.3em;">💰 Total Trip Cost Estimates</h3>
             <div class="budget-grid">
-                <div class="budget-card budget-tier">
+                <div class="budget-card tier-budget">
                     <h3>Economy Package</h3>
                     <div class="price-highlight">$2,200-3,000 USD</div>
                     <ul>
                         <li>Lower accommodation rates</li>
-                        <li>Local food & cheap attractions</li>
+                        <li>Local food & free attractions</li>
                         <li>Limited activities</li>
                     </ul>
                 </div>
 
-                <div class="budget-card budget-tier mid">
+                <div class="budget-card tier-mid">
                     <h3>Mid-Range Package ⭐</h3>
                     <div class="price-highlight">$3,000-4,500 USD</div>
                     <ul>
@@ -247,7 +601,7 @@
                     </ul>
                 </div>
 
-                <div class="budget-card budget-tier premium">
+                <div class="budget-card tier-premium">
                     <h3>Premium/Luxury</h3>
                     <div class="price-highlight">$4,500-7,000+ USD</div>
                     <ul>
@@ -258,18 +612,19 @@
                 </div>
             </div>
 
-            <h3 style="color: #667eea; margin: 30px 0 20px 0; font-size: 1.3em;">💳 Payment & Currency</h3>
+            <h3 class="section-subtitle">💳 Payment & Currency</h3>
+
             <div class="budget-grid">
                 <div class="budget-card">
                     <h3>📱 Payment Methods</h3>
-                    <p><strong>Priority Order (Most to Least):</strong></p>
-                    <ol style="margin-left: 20px;">
+                    <p><strong>Priority Order:</strong></p>
+                    <ul>
                         <li><strong>WeChat Pay & Alipay</strong> - Accepted 99% of places</li>
-                        <li><strong>ATM Withdrawals</strong> - UnionPay compatible ATMs (best rates)</li>
+                        <li><strong>ATM Withdrawals</strong> - UnionPay ATMs (best rates)</li>
                         <li><strong>Cash</strong> - 500-1,000 CNY as backup</li>
-                        <li><strong>Credit Cards</strong> - Rarely accepted in mainland China</li>
-                    </ol>
-                    <p style="margin-top: 15px; background: #FFE5E5; padding: 10px; border-radius: 5px; color: #d32f2f;">⚠️ China is increasingly cashless - MUST setup WeChat/Alipay before arrival!</p>
+                        <li><strong>Credit Cards</strong> - Rarely accepted</li>
+                    </ul>
+                    <div class="warning-box">⚠️ China is increasingly cashless - MUST setup WeChat/Alipay before arrival!</div>
                 </div>
 
                 <div class="budget-card">
@@ -280,34 +635,32 @@
                         <li>1 USD ≈ 7 CNY</li>
                         <li>1 THB ≈ 0.23 CNY</li>
                     </ul>
-                    <p><strong>🚫 DO NOT:</strong> Exchange at Bangkok airport (poor rates)</p>
-                    <p><strong>✅ DO:</strong> Use ATMs at Hangzhou airport (best rates)</p>
+                    <p><strong style="color: #DC2626;">🚫 DO NOT:</strong> Exchange at Bangkok airport</p>
+                    <p><strong style="color: #059669;">✅ DO:</strong> Use ATMs at Hangzhou airport</p>
                 </div>
 
                 <div class="budget-card">
                     <h3>🎯 Budget Optimization Tips</h3>
                     <ul>
                         <li><strong>Book early:</strong> Hotels 2+ weeks in advance</li>
-                        <li><strong>Price not inflated:</strong> Dec 25 is before Chinese New Year</li>
-                        <li><strong>Mountain guesthouses:</strong> Cheapest at 50-100 CNY/night</li>
-                        <li><strong>Free activities:</strong> West Lake park, walking trails</li>
+                        <li><strong>Good timing:</strong> Dec 25 is before CNY rush</li>
+                        <li><strong>Mountain stays:</strong> 50-100 CNY/night</li>
+                        <li><strong>Free activities:</strong> West Lake park, trails</li>
                         <li><strong>Night markets:</strong> Better deals than day shops</li>
                         <li><strong>Emergency fund:</strong> Reserve 10-15% of budget</li>
                     </ul>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <div class="nav-buttons">
-            <a href="dining.html" class="nav-btn">← Dining</a>
-            <a href="index.html" class="nav-btn home">Home</a>
-            <a href="practical.html" class="nav-btn">Practical Info →</a>
-        </div>
+    </main>
 
-        <footer>
-            <p>📍 China New Year 2026 Adventure • Happy travels!</p>
-        </footer>
-    </div>
-    <script>function toggleMobileMenu(){document.getElementById('navMenu').classList.toggle('mobile-open');}document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('.navbar-item').forEach(item=>{item.addEventListener('click',function(){document.getElementById('navMenu').classList.remove('mobile-open');});});});document.addEventListener('click',function(event){const navbar=document.querySelector('.navbar');const menu=document.getElementById('navMenu');if(!navbar.contains(event.target)&&menu.classList.contains('mobile-open')){menu.classList.remove('mobile-open');}});</script>
+    <!-- Footer -->
+    <footer>
+        <p>China New Year Trip 2026 • Dec 25, 2025 - Jan 4, 2026</p>
+        <p class="sub">🏮 春节快乐 • Happy Chinese New Year! 🏮</p>
+    </footer>
+
 </body>
+
 </html>

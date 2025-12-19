@@ -1,10 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accommodation - China New Year 2026 Trip</title>
+    <title>Accommodation - China New Year 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@400;500;600&display=swap"
+        rel="stylesheet">
     <style>
+        :root {
+            --primary-red: #C41E3A;
+            --accent-gold: #D4AF37;
+            --deep-navy: #1a1a2e;
+            --warm-cream: #FFF8F0;
+            --soft-white: #FFFFFF;
+            --text-dark: #2D2D2D;
+            --text-medium: #5A5A5A;
+            --hangzhou-color: #FF6B6B;
+            --suzhou-color: #4ECDC4;
+            --shanghai-color: #FFE66D;
+            --guangzhou-color: #95E1D3;
+            --mountain-color: #9B87FF;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -12,487 +33,581 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Noto Sans', sans-serif;
+            background: linear-gradient(135deg, #FFF8F0 0%, #FFF5EB 50%, #FFFAF5 100%);
             min-height: 100vh;
-            padding: 0;
+            color: var(--text-dark);
+            line-height: 1.6;
         }
 
         /* Navigation Bar */
-        .navbar { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 15px 20px; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); }
-        .navbar-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; position: relative; }
-        .navbar-brand { color: white; font-size: 1.2em; font-weight: bold; text-decoration: none; display: flex; align-items: center; gap: 8px; }
-        .navbar-menu { display: flex; gap: 3px; flex-wrap: wrap; justify-content: flex-end; }
-        .navbar-item { color: white; text-decoration: none; padding: 8px 12px; border-radius: 4px; transition: 0.3s; font-size: 0.85em; white-space: nowrap; }
-        .navbar-item:hover { background: rgba(255, 255, 255, 0.2); }
-        .navbar-item.active { background: rgba(255, 255, 255, 0.3); font-weight: bold; }
-        .menu-toggle { display: none; background: none; border: none; color: white; font-size: 1.5em; cursor: pointer; padding: 5px; }
-        @media (max-width: 900px) { .navbar-item { font-size: 0.8em; padding: 6px 10px; } }
-        @media (max-width: 768px) { .navbar-menu { display: none; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; gap: 0; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 10px 0; border-top: 2px solid rgba(255, 255, 255, 0.2); max-height: calc(100vh - 60px); overflow-y: auto; } .navbar-menu.mobile-open { display: flex; } .navbar-item { padding: 12px 20px; border-radius: 0; border-bottom: 1px solid rgba(255, 255, 255, 0.1); font-size: 0.95em; } .menu-toggle { display: block; } }
-
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 20px;
+        .navbar {
+            background: linear-gradient(135deg, var(--deep-navy) 0%, #16213e 100%);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
         }
 
-        header {
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+        }
+
+        .nav-brand-icon {
+            font-size: 1.5rem;
+        }
+
+        .nav-brand-text {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--accent-gold);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .nav-link {
+            color: rgba(255, 255, 255, 0.85);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .nav-link:hover {
+            background: rgba(212, 175, 55, 0.2);
+            color: var(--accent-gold);
+        }
+
+        .nav-link.active {
+            background: linear-gradient(135deg, var(--primary-red), #E85A4F);
+            color: white;
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, var(--deep-navy) 0%, #16213e 50%, var(--hangzhou-color) 100%);
+            padding: 3rem 2rem;
             text-align: center;
             color: white;
-            margin-bottom: 40px;
-            padding: 40px 20px;
         }
 
-        h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        .page-title {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
         }
 
-        .breadcrumb {
-            font-size: 0.95em;
+        .page-subtitle {
+            font-size: 1.1rem;
             opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
         }
 
-        .breadcrumb a {
-            color: white;
-            text-decoration: none;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+        /* Main Content */
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
         }
 
-        .breadcrumb a:hover {
-            border-bottom: 1px solid white;
-        }
-
-        .card {
-            background: white;
-            border-radius: 10px;
-            padding: 30px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            margin-bottom: 25px;
-        }
-
-        .card h2 {
-            color: #667eea;
-            margin-bottom: 30px;
-            font-size: 1.8em;
-            border-bottom: 3px solid #667eea;
-            padding-bottom: 10px;
-        }
-
+        /* Location Sections */
         .location-section {
-            margin-bottom: 35px;
-            border-radius: 10px;
-            overflow: hidden;
             background: white;
+            border-radius: 20px;
+            padding: 0;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            border-left: 5px solid;
+        }
+
+        .location-section.hangzhou {
+            border-left-color: var(--hangzhou-color);
+        }
+
+        .location-section.mountain {
+            border-left-color: var(--mountain-color);
+        }
+
+        .location-section.suzhou {
+            border-left-color: var(--suzhou-color);
+        }
+
+        .location-section.shanghai {
+            border-left-color: var(--shanghai-color);
+        }
+
+        .location-section.guangzhou {
+            border-left-color: var(--guangzhou-color);
         }
 
         .location-header {
-            padding: 20px;
+            padding: 1.5rem 2rem;
             color: white;
-            font-size: 1.3em;
-            font-weight: bold;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 1rem;
         }
 
-        .location-section.hangzhou .location-header { background: linear-gradient(135deg, #FF6B6B 0%, #FF8E8E 100%); }
-        .location-section.suzhou .location-header { background: linear-gradient(135deg, #4ECDC4 0%, #45B8AC 100%); }
-        .location-section.shanghai .location-header { background: linear-gradient(135deg, #FFE66D 0%, #FFD43B 100%); color: #333; }
-        .location-section.guangzhou .location-header { background: linear-gradient(135deg, #95E1D3 0%, #7AD4C1 100%); color: #333; }
-        .location-section.mountain .location-header { background: linear-gradient(135deg, #9B87FF 0%, #7B68EE 100%); }
+        .location-header h3 {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 1.3rem;
+        }
 
+        .location-section.hangzhou .location-header {
+            background: linear-gradient(135deg, var(--hangzhou-color) 0%, #FF8E8E 100%);
+        }
+
+        .location-section.mountain .location-header {
+            background: linear-gradient(135deg, var(--mountain-color) 0%, #7B68EE 100%);
+        }
+
+        .location-section.suzhou .location-header {
+            background: linear-gradient(135deg, var(--suzhou-color) 0%, #45B8AC 100%);
+        }
+
+        .location-section.shanghai .location-header {
+            background: linear-gradient(135deg, var(--shanghai-color) 0%, #FFD43B 100%);
+            color: var(--text-dark);
+        }
+
+        .location-section.guangzhou .location-header {
+            background: linear-gradient(135deg, var(--guangzhou-color) 0%, #7AD4C1 100%);
+            color: var(--text-dark);
+        }
+
+        /* Hotel Grid */
         .hotel-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 15px;
-            padding: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.25rem;
+            padding: 1.5rem;
         }
 
         .hotel-card {
             background: white;
-            border-radius: 8px;
-            padding: 18px;
-            border: 1px solid #e0e0e0;
+            border-radius: 16px;
+            padding: 1.5rem;
+            border: 2px solid #E5E7EB;
             transition: all 0.3s ease;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
         }
 
         .hotel-card:hover {
             transform: translateY(-4px);
-            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
-            border-color: #667eea;
+            border-color: var(--accent-gold);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
         }
 
         .hotel-card h4 {
-            color: #333;
-            margin-bottom: 8px;
-            font-size: 1.05em;
-        }
-
-        .hotel-card p {
-            color: #666;
-            font-size: 0.9em;
-            line-height: 1.6;
-            margin: 8px 0;
+            font-family: 'Noto Serif SC', serif;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+            font-size: 1.05rem;
         }
 
         .hotel-card .stars {
             color: #FFB800;
-            font-size: 0.95em;
+            font-size: 0.9rem;
+            margin-bottom: 0.75rem;
+            display: block;
+        }
+
+        .hotel-card p {
+            color: var(--text-medium);
+            font-size: 0.9rem;
+            line-height: 1.7;
+            margin: 0.5rem 0;
+        }
+
+        .hotel-card a {
+            color: var(--primary-red);
+            text-decoration: underline;
         }
 
         .hotel-card .price {
-            color: #667eea;
-            font-weight: bold;
-            font-size: 0.95em;
-            margin-top: 10px;
+            background: linear-gradient(135deg, var(--deep-navy) 0%, #16213e 100%);
+            color: white;
+            padding: 0.75rem;
+            border-radius: 10px;
+            font-weight: 600;
+            text-align: center;
+            margin-top: 1rem;
+            font-size: 0.95rem;
         }
 
-        .urgent-box {
-            background: linear-gradient(135deg, #FFE5E5 0%, #FFD4D4 100%);
-            border-left: 5px solid #FF6B6B;
-            padding: 18px;
-            margin: 20px;
-            border-radius: 6px;
-            color: #333;
+        .hotel-card .price.free {
+            background: linear-gradient(135deg, #10B981 0%, #059669 100%);
         }
 
-        .urgent-box h3 {
-            color: #FF6B6B;
-            margin-bottom: 10px;
-            font-weight: bold;
-        }
-
+        /* Info Boxes */
         .tips-box {
-            background: linear-gradient(135deg, #E8F5E9 0%, #D4EDDA 100%);
-            border-left: 5px solid #4CAF50;
-            padding: 18px;
-            margin: 20px;
-            border-radius: 6px;
-            color: #333;
+            background: linear-gradient(135deg, #ECFDF5 0%, #D1FAE5 100%);
+            padding: 1.25rem 1.5rem;
+            margin: 0 1.5rem 1.5rem;
+            border-radius: 12px;
+            border-left: 4px solid #10B981;
         }
 
-        .tips-box h3 {
-            color: #2E7D32;
-            margin-bottom: 10px;
-            font-weight: bold;
+        .tips-box h4 {
+            color: #059669;
+            margin-bottom: 0.75rem;
+            font-family: 'Noto Serif SC', serif;
         }
 
         .tips-box ul {
-            margin-left: 20px;
+            margin-left: 1.25rem;
+            color: var(--text-medium);
         }
 
         .tips-box li {
-            margin: 6px 0;
-            color: #333;
+            margin: 0.5rem 0;
         }
 
-        .nav-buttons {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 30px;
-            gap: 10px;
+        .tips-box p {
+            color: var(--text-medium);
+            font-size: 0.95rem;
         }
 
-        .nav-btn {
-            flex: 1;
-            padding: 12px 20px;
-            background: white;
-            color: #667eea;
-            border: 2px solid #667eea;
-            border-radius: 4px;
-            text-decoration: none;
-            text-align: center;
-            font-weight: bold;
-            transition: 0.3s;
+        .urgent-box {
+            background: linear-gradient(135deg, #FEF2F2 0%, #FEE2E2 100%);
+            padding: 1.25rem 1.5rem;
+            margin: 0 1.5rem 1rem;
+            border-radius: 12px;
+            border-left: 4px solid #EF4444;
         }
 
-        .nav-btn:hover {
-            background: #667eea;
-            color: white;
+        .urgent-box h4 {
+            color: #DC2626;
+            margin-bottom: 0.5rem;
+            font-family: 'Noto Serif SC', serif;
         }
 
-        .nav-btn.home {
-            background: #667eea;
-            color: white;
+        .urgent-box p {
+            color: var(--text-medium);
+            font-size: 0.95rem;
         }
 
-        footer {
-            text-align: center;
-            color: white;
-            padding: 30px 20px;
-            opacity: 0.8;
-            margin-top: 40px;
+        /* Special Tip Box */
+        .special-tips {
+            background: linear-gradient(135deg, #FFF9E6 0%, #FFFBF0 100%);
+            border-left: 4px solid var(--accent-gold);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border-radius: 0 16px 16px 0;
         }
 
+        .special-tips h4 {
+            color: #B45309;
+            margin-bottom: 1rem;
+            font-family: 'Noto Serif SC', serif;
+        }
+
+        .special-tips ul {
+            margin-left: 1.25rem;
+            color: var(--text-medium);
+        }
+
+        .special-tips li {
+            margin: 0.5rem 0;
+        }
+
+        /* Responsive */
         @media (max-width: 768px) {
-            h1 {
-                font-size: 1.8em;
+            .navbar {
+                padding: 0.75rem 1rem;
             }
 
-            .card {
-                padding: 20px;
+            .nav-links {
+                gap: 0.25rem;
             }
 
-            .nav-buttons {
-                flex-direction: column;
+            .nav-link {
+                padding: 0.4rem 0.75rem;
+                font-size: 0.8rem;
             }
+
+            .page-title {
+                font-size: 1.75rem;
+            }
+
+            .main-content {
+                padding: 1rem;
+            }
+
+            .hotel-grid {
+                grid-template-columns: 1fr;
+                padding: 1rem;
+            }
+
+            .tips-box,
+            .urgent-box {
+                margin: 0 1rem 1rem;
+            }
+        }
+
+        /* Footer */
+        footer {
+            background: var(--deep-navy);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        footer p {
+            opacity: 0.8;
+        }
+
+        footer .sub {
+            font-size: 0.85rem;
+            opacity: 0.6;
+            margin-top: 0.5rem;
         }
     </style>
 </head>
+
 <body>
+    <!-- Navigation Bar -->
     <nav class="navbar">
-        <div class="navbar-container">
-            <a href="index.html" class="navbar-brand">🌍 China 2026</a>
-            <button class="menu-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu">☰</button>
-            <div class="navbar-menu" id="navMenu">
-                <a href="index.html" class="navbar-item">Home</a>
-                <a href="flights.html" class="navbar-item">Flights</a>
-                <a href="accommodation.html" class="navbar-item active">Hotels</a>
-                <a href="itinerary.html" class="navbar-item">Itinerary</a>
-                <a href="attractions.html" class="navbar-item">Attractions</a>
-                <a href="dining.html" class="navbar-item">Food</a>
-                <a href="budget.html" class="navbar-item">Budget</a>
-                <a href="practical.html" class="navbar-item">Practical</a>
-                <a href="transportation.html" class="navbar-item">Transport</a>
-                <a href="packing.html" class="navbar-item">Packing</a>
-                <a href="bookings.html" class="navbar-item">Bookings</a>
-                <a href="ai-reviews.html" class="navbar-item">AI Reviews</a>
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand">
+                <span class="nav-brand-icon">🏮</span>
+                <span class="nav-brand-text">春节 2026</span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="flights.html" class="nav-link">Flights</a>
+                <a href="accommodation.html" class="nav-link active">Hotels</a>
+                <a href="itinerary.html" class="nav-link">Itinerary</a>
+                <a href="attractions.html" class="nav-link">Attractions</a>
+                <a href="transportation.html" class="nav-link">Transport</a>
+                <a href="dining.html" class="nav-link">Dining</a>
+                <a href="budget.html" class="nav-link">Budget</a>
+                <a href="practical.html" class="nav-link">Practical</a>
+                <a href="packing.html" class="nav-link">Packing</a>
+                <a href="bookings.html" class="nav-link">Bookings</a>
             </div>
         </div>
     </nav>
 
-    <div class="container">
-        <header>
-            <h1>🏨 Accommodation</h1>
-            <p class="breadcrumb"><a href="index.html">Home</a> > Accommodation</p>
-        </header>
+    <!-- Page Header -->
+    <header class="page-header">
+        <h1 class="page-title">🏨 Accommodation</h1>
+        <p class="page-subtitle">All 8 hotels booked and confirmed across 6 locations</p>
+    </header>
 
-        <div class="card">
-            <h2>🏨 Hotel & Lodging Details</h2>
+    <!-- Main Content -->
+    <main class="main-content">
 
-            <!-- Hangzhou Section -->
-            <div class="location-section hangzhou">
-                <div class="location-header">🏨 Hangzhou (Dec 25 - 27) - West Lake Area</div>
-                <div class="hotel-grid">
-                    <div class="hotel-card">
-                        <h4>✅ Sofitel Hangzhou West Lake (Arpaporn)</h4>
-                        <span class="stars">★★★★ BOOKED</span>
-                        <p><strong>Dec 25-27</strong> | Xinfeng Smart Double Bed Room (1 room) | ฿ 2,249.23/night<br/>Luxury West Lake location at Yongjin Plaza. Breakfast included for 2 guests (Dec 26 & 27). Free cancellation before Dec 25 @ 18:00.</p>
-                        <p>📍 1st Floor, Yongjin Plaza, No. 135 Yan'an Road, Hangzhou | ☎ +86-571-86807899</p>
-                        <p><strong>Booking Ref:</strong> 25111141359655861 | PIN: 7348 | <a href="Hotel/Hotel_Hangzhou_Sofitel_Arpaporn_booking.md" style="color: #667eea; text-decoration: underline;">View Details</a></p>
-                        <div class="price">฿ 2,249.23/night (Paid)</div>
-                    </div>
-                    <div class="hotel-card">
-                        <h4>✅ Sofitel Hangzhou West Lake (Thanakorn - Paid)</h4>
-                        <span class="stars">★★★★ BOOKED</span>
-                        <p><strong>Dec 26-27</strong> | Smart Room Double Bed (1 room) | ฿ 1,210.06<br/>Special promotion pricing on luxury West Lake location. Breakfast included. Non-refundable after Dec 26 @ 18:00.</p>
-                        <p>📍 1st Floor, Yongjin Plaza, No. 135 Yan'an Road, Hangzhou | ☎ +86-571-86807899</p>
-                        <p><strong>Booking Ref:</strong> 25111180283861110 | PIN: 1402 | <a href="Hotel/Hotel_Hangzhou_Sofitel_Thanakorn_booking.md" style="color: #667eea; text-decoration: underline;">View Details</a></p>
-                        <div class="price">฿ 1,210.06 (Paid)</div>
-                    </div>
-                    <div class="hotel-card">
-                        <h4>✅ Sofitel Hangzhou West Lake (Thanakorn - Complimentary)</h4>
-                        <span class="stars">★★★★ BOOKED - FREE</span>
-                        <p><strong>Dec 25-26</strong> | Premium Room Deluxe with MyBed™ Upgrade (1 room) | CNY 0.00<br/>Complimentary through ALL.com/Sofitel Loyalty Program! Premium upgrade with Sofitel L'Occitane toiletries. Flexible cancellation.</p>
-                        <p>📍 West Lake Taidao 333 (West Lake Area), Hangzhou | ☎ +86 571 / 87075858</p>
-                        <p><strong>Booking Ref:</strong> PTQSFQSS | <a href="Hotel/Hotel_Hangzhou_Sofitel_Complimentary_booking.md" style="color: #667eea; text-decoration: underline;">View Details</a></p>
-                        <div class="price">CNY 0.00 (COMPLIMENTARY)</div>
-                    </div>
+        <!-- Hangzhou Section -->
+        <section class="location-section hangzhou">
+            <div class="location-header">
+                <h3>🏨 Hangzhou (Dec 25-27) - West Lake Area</h3>
+            </div>
+            <div class="hotel-grid">
+                <div class="hotel-card">
+                    <h4>✅ Sofitel Hangzhou West Lake (Arpaporn)</h4>
+                    <span class="stars">★★★★★ BOOKED</span>
+                    <p><strong>Dec 25-27</strong> | Xinfeng Smart Double Bed Room (1 room)</p>
+                    <p>Luxury West Lake location at Yongjin Plaza. Breakfast included for 2 guests (Dec 26 & 27). Free cancellation before Dec 25 @ 18:00.</p>
+                    <p>📍 1st Floor, Yongjin Plaza, No. 135 Yan'an Road</p>
+                    <p>☎ +86-571-86807899</p>
+                    <p><strong>Ref:</strong> 25111141359655861 | PIN: 7348</p>
+                    <div class="price">฿ 2,249.23/night (Paid)</div>
                 </div>
-                <div class="tips-box">
-                    <h3>✅ Hangzhou Accommodations CONFIRMED - 3 Bookings</h3>
-                    <ul>
-                        <li><strong>Arpaporn:</strong> 2 nights (Dec 25-27) at Sofitel - ฿2,249.23/night</li>
-                        <li><strong>Thanakorn (Paid):</strong> 1 night (Dec 26-27) at Sofitel - ฿1,210.06 special promotion</li>
-                        <li><strong>Thanakorn (Complimentary):</strong> 2 nights (Dec 25-26) at Sofitel - FREE via loyalty program!</li>
-                        <li><strong>Luxury 5-star service:</strong> All at prestigious Sofitel, perfect West Lake location for exploration</li>
-                    </ul>
+                <div class="hotel-card">
+                    <h4>✅ Sofitel Hangzhou West Lake (Thanakorn - Paid)</h4>
+                    <span class="stars">★★★★★ BOOKED</span>
+                    <p><strong>Dec 26-27</strong> | Smart Room Double Bed (1 room)</p>
+                    <p>Special promotion pricing on luxury West Lake location. Breakfast included. Non-refundable after Dec 26 @ 18:00.</p>
+                    <p>📍 1st Floor, Yongjin Plaza, No. 135 Yan'an Road</p>
+                    <p><strong>Ref:</strong> 25111180283861110 | PIN: 1402</p>
+                    <div class="price">฿ 1,210.06 (Paid)</div>
+                </div>
+                <div class="hotel-card">
+                    <h4>✅ Sofitel Hangzhou (Thanakorn - FREE)</h4>
+                    <span class="stars">★★★★★ BOOKED - COMPLIMENTARY</span>
+                    <p><strong>Dec 25-26</strong> | Premium Room Deluxe with MyBed™ Upgrade</p>
+                    <p>Complimentary through ALL.com/Sofitel Loyalty Program! Premium upgrade with Sofitel L'Occitane toiletries.</p>
+                    <p>📍 West Lake Taidao 333 | ☎ +86 571 / 87075858</p>
+                    <p><strong>Ref:</strong> PTQSFQSS</p>
+                    <div class="price free">CNY 0.00 (COMPLIMENTARY)</div>
                 </div>
             </div>
-
-            <!-- Mountain Section -->
-            <div class="location-section mountain">
-                <div class="location-header">⛰️ Huangling & Wangxiangu (Dec 27-29) - Mountain Villages</div>
-                <div class="hotel-grid">
-                    <div class="hotel-card">
-                        <h4>✅ Guling sky Street Hotel (Huangling)</h4>
-                        <span class="stars">★★★★ BOOKED</span>
-                        <p><strong>Dec 27-28</strong> | Terraced Field Balcony Room | ฿ 4,188.38<br/>UNESCO heritage site with stunning mountain views. Breakfast included. Located next to Shenming Pavilion in scenic area.</p>
-                        <p>📍 Huangling Scenic Area, Wuyuan, Jiangxi | ☎ +86-793-7392666</p>
-                        <p><strong>PIN:</strong> 1781 | <a href="Hotel/Hotel_Huangling_Guling_Sky_Street_booking.md" style="color: #667eea; text-decoration: underline;">View Details</a></p>
-                        <div class="price">฿ 4,188.38 (Paid)</div>
-                    </div>
-                    <div class="hotel-card">
-                        <h4>✅ Xiansu Hotel (Wangxiangu)</h4>
-                        <span class="stars">★★★★ BOOKED</span>
-                        <p><strong>Dec 28-29</strong> | Family Double Bed Room | ฿ 7,282.22<br/>Scenic area access + Professional travel photography included! Breakfast for 2 guests included.</p>
-                        <p>📍 Wangxian Valley, Wangxian Township, Shangrao, Jiangxi | ☎ +86-793-8488977</p>
-                        <p><strong>PIN:</strong> 4421 | <a href="Hotel/Hotel_Wangxian_Xiansu_booking.md" style="color: #667eea; text-decoration: underline;">View Details</a></p>
-                        <div class="price">฿ 7,282.22 (Paid)</div>
-                    </div>
-                </div>
-                <div class="tips-box">
-                    <h3>✅ Confirmed Mountain Stays</h3>
-                    <p>Both hotels are booked and paid in full! Includes breakfast, scenic area access, and professional photography session. Peak UNESCO heritage experience in Huangling and Wangxian Valley scenic areas.</p>
-                </div>
-            </div>
-
-            <!-- Suzhou Section -->
-            <div class="location-section suzhou">
-                <div class="location-header">🏯 Suzhou (Dec 29-30) - Historic District</div>
-                <div class="hotel-grid">
-                    <div class="hotel-card">
-                        <h4>✅ Novotel Suzhou SIP</h4>
-                        <span class="stars">★★★★ BOOKED</span>
-                        <p><strong>Dec 29-30</strong> | 2 Twin/Double Rooms | ฿ 3,179.58<br/>4-star Accor hotel with excellent amenities. Free breakfast included. <strong>FREE CANCELLATION until evening of arrival!</strong></p>
-                        <p>📍 688 Suzhou Avenue East, Suzhou | ☎ +86-512-62882800</p>
-                        <p><a href="Hotel/Hotel_Suzhou_Novotel_booking.md" style="color: #667eea; text-decoration: underline;">View Details</a></p>
-                        <div class="price">฿ 3,179.58 (Paid - FREE CANCEL)</div>
-                    </div>
-                    <div class="hotel-card">
-                        <h4>📋 Alternative Suzhou Hotels</h4>
-                        <span class="stars">★★★★ Reference</span>
-                        <p><strong>Sheraton Suzhou:</strong> Luxury option with lake views and garden access<br/><strong>Hilton Suzhou:</strong> Quality international chain<br/><strong>Garden View Hotel:</strong> Boutique near UNESCO gardens</p>
-                        <div class="price">$90-150/night</div>
-                    </div>
-                </div>
-                <div class="tips-box">
-                    <h3>✅ Suzhou Booking Confirmed</h3>
-                    <p>Novotel Suzhou booked and paid. Flexible cancellation available! Located conveniently for exploring classical gardens and historic old town area.</p>
-                </div>
-            </div>
-
-            <!-- Shanghai Section -->
-            <div class="location-section shanghai">
-                <div class="location-header">🌆 Shanghai (Dec 30 - Jan 2) - City Center & Water Towns</div>
-                <div class="hotel-grid">
-                    <div class="hotel-card">
-                        <h4>✅ Tianhua Hotel (Primary)</h4>
-                        <span class="stars">★★★★ BOOKED</span>
-                        <p><strong>Dec 30 - Jan 2</strong> | Exquisite Double Bed Room A (2 rooms) | ฿ 10,994.46<br/>4K HD TV, Projection, Smart Toilet, Zero Pressure Mattress. Located at People's Plaza area. Centrally located for NYE celebration! <strong style="color: #d32f2f;">⚠️ Breakfast NOT included</strong></p>
-                        <p>📍 159 Huanghe Road, Huangpu District, Shanghai | ☎ +86-21-63273204</p>
-                        <p><strong>PIN:</strong> 2546 | <a href="Hotel/Hotel_Shanghai_Tianhua_booking.md" style="color: #667eea; text-decoration: underline;">View Details</a></p>
-                        <div class="price">฿ 10,994.46 (Paid)</div>
-                    </div>
-                    <div class="hotel-card">
-                        <h4>💧 Zhujiajiao Water Town Option</h4>
-                        <span class="stars">★★★★ Alternative</span>
-                        <p><strong>Ancient Water Town Experience:</strong> 30km west of Shanghai center in Qingpu District<br/>Ming & Qing dynasty architecture, 36 stone bridges, river-side alleys with local restaurants<br/>Perfect for one night of immersive water town experience with traditional ambiance</p>
-                        <p>📍 Zhujiajiao Ancient Town | 1.5-2 hour journey from Shanghai center by metro/taxi</p>
-                        <p><strong>Day trip option:</strong> Explore during daytime, return to Tianhua Hotel for nights</p>
-                        <div class="price">$60-150/night (guesthouses)</div>
-                    </div>
-                    <div class="hotel-card">
-                        <h4>💧 Wuzhen Water Town Option</h4>
-                        <span class="stars">★★★★ Alternative</span>
-                        <p><strong>Most Famous Water Town:</strong> Larger than Zhujiajiao with more commercialized attractions<br/>1,600+ years of history, traditional river villages, canal boat rides, family-friendly<br/>More organized tours and activities available</p>
-                        <p>📍 Wuzhen Ancient Town, Jiaxing | 1.5-2 hour journey from Shanghai by bus/car</p>
-                        <p><strong>Day trip or overnight:</strong> Can visit as day trip or stay overnight for immersion</p>
-                        <div class="price">$70-180/night (hotels)</div>
-                    </div>
-                    <div class="hotel-card">
-                        <h4>📋 Alternative Shanghai City Hotels</h4>
-                        <span class="stars">★★★★★ Reference</span>
-                        <p><strong>The Bund Luxury:</strong> Peninsula, Waldorf Astoria, Fairmont Peace Hotel - waterfront luxury<br/><strong>Jing'an District:</strong> Shangri-La, Marriott in trendy district<br/><strong>Old Town (City Center):</strong> Near Yu Garden with canals & rivers</p>
-                        <div class="price">$80-400/night</div>
-                    </div>
-                </div>
-                <div class="tips-box">
-                    <h3>✅ Shanghai Base Confirmed + Water Town Options</h3>
-                    <ul>
-                        <li><strong>Primary:</strong> Tianhua Hotel booked for 3 nights (Dec 30 - Jan 2) at People's Plaza - Perfect for NYE celebration</li>
-                        <li><strong>Day Trip Option 1:</strong> Visit Zhujiajiao water town during daytime, return to Tianhua for nights</li>
-                        <li><strong>Day Trip Option 2:</strong> Visit Wuzhen water town (larger, more attractions), return to Tianhua for nights</li>
-                        <li><strong>Immersion Option:</strong> If member wants full water town experience, can spend 1 night in Zhujiajiao/Wuzhen, 2 nights in Tianhua</li>
-                        <li><strong>Transportation:</strong> Metro Line 1 to Zhujiajiao, or bus service to Wuzhen directly from Shanghai</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Guangzhou Section - CRITICAL -->
-            <div class="location-section guangzhou">
-                <div class="location-header">🚨 Guangzhou (Jan 2-3) - CRITICAL OVERNIGHT TRANSFER</div>
-                <div class="urgent-box">
-                    <h3>✅ SECURED: Overnight Transfer Accommodation Booked!</h3>
-                    <p><strong>Flight Timeline:</strong> Shanghai departs Jan 2 @ 8:50 PM → Arrives Guangzhou 11:30 PM | Guangzhou departs Jan 3 @ 11:00 PM (23.5 hour layover)</p>
-                </div>
-                <div class="hotel-grid">
-                    <div class="hotel-card">
-                        <h4>✅ Baiyun Airport Coco Hotel</h4>
-                        <span class="stars">★★★ BOOKED</span>
-                        <p><strong>Jan 2-3</strong> | 2 Superior King Rooms | Prepaid<br/>Perfect for overnight transfer! Free Wi-Fi, coffee/tea, fitness center. 20-30 min from airport. Convenient rest before return flight.</p>
-                        <p>📍 Block B4, 9 Airport Avenue, Huadu District, Guangzhou | ☎ +86-188-2001-0948</p>
-                        <p><strong>Booking ID:</strong> 1932695602 | <a href="Hotel/Hotel_Guangzhou_Baiyun_Coco_booking.md" style="color: #667eea; text-decoration: underline;">View Details</a></p>
-                        <div class="price">Booked & Paid</div>
-                    </div>
-                    <div class="hotel-card">
-                        <h4>📋 Alternative Guangzhou Options</h4>
-                        <span class="stars">★★★★ Reference</span>
-                        <p><strong>White Swan Hotel:</strong> Pearl River luxury views<br/><strong>Dong Fang Hotel:</strong> Central location with Cantonese dining<br/><strong>Liuhua Hotel:</strong> Metro access for city exploration</p>
-                        <div class="price">$50-130/night</div>
-                    </div>
-                </div>
-                <div class="tips-box">
-                    <h3>⭐ Pro Tips for Guangzhou Overnight Stay</h3>
-                    <ul>
-                        <li>✅ Hotel booked and paid - no worries about accommodation!</li>
-                        <li>Late arrival: 11:30+ PM. Ask for late check-in when booking with airline info</li>
-                        <li>Shower, sleep, and refresh before evening departure</li>
-                        <li>Option: Leave luggage and explore city for few hours during day</li>
-                        <li>Don't miss Tao Tao Ju dim sum for breakfast if exploring</li>
-                        <li>Use WeChat/Alipay for all payments in the city</li>
-                        <li>Hotel accepts day storage if needed for early checkout</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Special Considerations -->
-            <div class="tips-box" style="margin: 30px 20px;">
-                <h3>✅ Special Considerations Before Booking</h3>
+            <div class="tips-box">
+                <h4>✅ Hangzhou Accommodations - 3 Bookings Confirmed</h4>
                 <ul>
-                    <li><strong>Chinese New Year:</strong> Hotel availability may be limited - book early!</li>
-                    <li><strong>Winter Weather:</strong> Hangzhou in December/January is cold (5-10°C) - ensure heating available</li>
-                    <li><strong>New Year's Eve (Dec 31):</strong> If in Shanghai, book restaurant reservations and hotel rooms early - high demand period</li>
-                    <li><strong>Attractions Nearby:</strong> Check hotel location relative to West Lake, temples, and local transport hubs</li>
+                    <li><strong>Arpaporn:</strong> 2 nights (Dec 25-27) at Sofitel - ฿2,249.23/night</li>
+                    <li><strong>Thanakorn (Paid):</strong> 1 night (Dec 26-27) at Sofitel - ฿1,210.06</li>
+                    <li><strong>Thanakorn (Free):</strong> 2 nights (Dec 25-26) - FREE via loyalty!</li>
                 </ul>
             </div>
+        </section>
+
+        <!-- Mountain Section -->
+        <section class="location-section mountain">
+            <div class="location-header">
+                <h3>⛰️ Huangling & Wangxiangu (Dec 27-29) - Mountain Villages</h3>
+            </div>
+            <div class="hotel-grid">
+                <div class="hotel-card">
+                    <h4>✅ Guling Sky Street Hotel (Huangling)</h4>
+                    <span class="stars">★★★★ BOOKED</span>
+                    <p><strong>Dec 27-28</strong> | Terraced Field Balcony Room</p>
+                    <p>UNESCO heritage site with stunning mountain views. Breakfast included. Located next to Shenming Pavilion in scenic area.</p>
+                    <p>📍 Huangling Scenic Area, Wuyuan, Jiangxi</p>
+                    <p>☎ +86-793-7392666 | PIN: 1781</p>
+                    <div class="price">฿ 4,188.38 (Paid)</div>
+                </div>
+                <div class="hotel-card">
+                    <h4>✅ Xiansu Hotel (Wangxiangu)</h4>
+                    <span class="stars">★★★★ BOOKED</span>
+                    <p><strong>Dec 28-29</strong> | Family Double Bed Room</p>
+                    <p>Scenic area access + Professional travel photography included! Breakfast for 2 guests included.</p>
+                    <p>📍 Wangxian Valley, Wangxian Township, Shangrao</p>
+                    <p>☎ +86-793-8488977 | PIN: 4421</p>
+                    <div class="price">฿ 7,282.22 (Paid)</div>
+                </div>
+            </div>
+            <div class="tips-box">
+                <h4>✅ Mountain Stays Confirmed</h4>
+                <p>Both hotels booked and paid! Includes breakfast, scenic area access, and professional photography session at Wangxiangu.</p>
+            </div>
+        </section>
+
+        <!-- Suzhou Section -->
+        <section class="location-section suzhou">
+            <div class="location-header">
+                <h3>🏯 Suzhou (Dec 29-30) - Historic Gardens District</h3>
+            </div>
+            <div class="hotel-grid">
+                <div class="hotel-card">
+                    <h4>✅ Novotel Suzhou SIP</h4>
+                    <span class="stars">★★★★ BOOKED</span>
+                    <p><strong>Dec 29-30</strong> | 2 Twin/Double Rooms</p>
+                    <p>4-star Accor hotel with excellent amenities. Free breakfast included. <strong>FREE CANCELLATION until evening of arrival!</strong></p>
+                    <p>📍 688 Suzhou Avenue East, Suzhou</p>
+                    <p>☎ +86-512-62882800</p>
+                    <div class="price">฿ 3,179.58 (Paid - FREE CANCEL)</div>
+                </div>
+            </div>
+            <div class="tips-box">
+                <h4>✅ Suzhou Booking Confirmed</h4>
+                <p>Novotel Suzhou booked and paid. Flexible cancellation available! Located conveniently for exploring classical gardens.</p>
+            </div>
+        </section>
+
+        <!-- Shanghai Section -->
+        <section class="location-section shanghai">
+            <div class="location-header">
+                <h3>🌆 Shanghai (Dec 30 - Jan 2) - City Center</h3>
+            </div>
+            <div class="hotel-grid">
+                <div class="hotel-card">
+                    <h4>✅ Tianhua Hotel (Primary)</h4>
+                    <span class="stars">★★★★ BOOKED</span>
+                    <p><strong>Dec 30 - Jan 2</strong> | Exquisite Double Bed Room A (2 rooms)</p>
+                    <p>4K HD TV, Projection, Smart Toilet, Zero Pressure Mattress. Located at People's Plaza. Perfect for NYE celebration!</p>
+                    <p style="color: #DC2626; font-weight: bold;">⚠️ Breakfast NOT included</p>
+                    <p>📍 159 Huanghe Road, Huangpu District</p>
+                    <p>☎ +86-21-63273204 | PIN: 2546</p>
+                    <div class="price">฿ 10,994.46 (Paid)</div>
+                </div>
+                <div class="hotel-card">
+                    <h4>💧 Water Town Day Trip Options</h4>
+                    <span class="stars">Alternative Experiences</span>
+                    <p><strong>Zhujiajiao:</strong> 30km west, Ming & Qing dynasty architecture, 36 stone bridges</p>
+                    <p><strong>Wuzhen:</strong> 1,600+ years of history, canal boat rides, more attractions</p>
+                    <p>Both accessible as day trips from Shanghai - return to Tianhua Hotel for nights</p>
+                    <div class="price">Day trip from Shanghai</div>
+                </div>
+            </div>
+            <div class="tips-box">
+                <h4>✅ Shanghai Base Confirmed</h4>
+                <ul>
+                    <li><strong>Tianhua Hotel:</strong> 3 nights (Dec 30 - Jan 2) at People's Plaza - Perfect NYE location</li>
+                    <li><strong>Day Trip Options:</strong> Zhujiajiao or Wuzhen water towns</li>
+                    <li><strong>Note:</strong> Breakfast NOT included - plan for nearby restaurants</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Guangzhou Section -->
+        <section class="location-section guangzhou">
+            <div class="location-header">
+                <h3>🚨 Guangzhou (Jan 2-3) - Overnight Transfer</h3>
+            </div>
+            <div class="urgent-box">
+                <h4>✅ SECURED: Overnight Accommodation Booked!</h4>
+                <p><strong>Flight Timeline:</strong> Shanghai departs Jan 2 @ 8:50 PM → Arrives Guangzhou 11:30 PM | Guangzhou departs Jan 3 @ 11:00 PM (23.5 hour layover)</p>
+            </div>
+            <div class="hotel-grid">
+                <div class="hotel-card">
+                    <h4>✅ Baiyun Airport Coco Hotel</h4>
+                    <span class="stars">★★★ BOOKED</span>
+                    <p><strong>Jan 2-3</strong> | 2 Superior King Rooms</p>
+                    <p>Perfect for overnight transfer! Free Wi-Fi, coffee/tea, fitness center. 20-30 min from airport. Convenient rest before return flight.</p>
+                    <p>📍 Block B4, 9 Airport Avenue, Huadu District</p>
+                    <p>☎ +86-188-2001-0948</p>
+                    <p><strong>Booking ID:</strong> 1932695602</p>
+                    <div class="price">Booked & Paid</div>
+                </div>
+            </div>
+            <div class="tips-box">
+                <h4>⭐ Pro Tips for Guangzhou Overnight</h4>
+                <ul>
+                    <li>✅ Hotel booked and paid - no worries!</li>
+                    <li>Late arrival: 11:30+ PM - request late check-in</li>
+                    <li>Option: Explore city during day, return for evening flight</li>
+                    <li>Don't miss dim sum at Tao Tao Ju for breakfast!</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Special Considerations -->
+        <div class="special-tips">
+            <h4>✅ Special Considerations</h4>
+            <ul>
+                <li><strong>Chinese New Year:</strong> All hotels booked early to avoid availability issues</li>
+                <li><strong>Winter Weather:</strong> December/January is cold (5-10°C) - all hotels have heating</li>
+                <li><strong>New Year's Eve (Dec 31):</strong> Shanghai location perfect for celebration</li>
+                <li><strong>All Bookings Confirmed:</strong> 8 hotels across 6 locations - fully prepared!</li>
+            </ul>
         </div>
 
-        <div class="nav-buttons">
-            <a href="flights.html" class="nav-btn">← Flights</a>
-            <a href="index.html" class="nav-btn home">Home</a>
-            <a href="itinerary.html" class="nav-btn">Itinerary →</a>
-        </div>
+    </main>
 
-        <footer>
-            <p>📍 China New Year 2026 Adventure • Happy travels!</p>
-        </footer>
-    </div>
+    <!-- Footer -->
+    <footer>
+        <p>China New Year Trip 2026 • Dec 25, 2025 - Jan 4, 2026</p>
+        <p class="sub">🏮 春节快乐 • Happy Chinese New Year! 🏮</p>
+    </footer>
 
-    <script>
-        function toggleMobileMenu() {
-            const menu = document.getElementById('navMenu');
-            menu.classList.toggle('mobile-open');
-        }
-        document.addEventListener('DOMContentLoaded', function() {
-            const navItems = document.querySelectorAll('.navbar-item');
-            navItems.forEach(item => {
-                item.addEventListener('click', function() {
-                    const menu = document.getElementById('navMenu');
-                    menu.classList.remove('mobile-open');
-                });
-            });
-        });
-        document.addEventListener('click', function(event) {
-            const navbar = document.querySelector('.navbar');
-            const menu = document.getElementById('navMenu');
-            if (!navbar.contains(event.target) && menu.classList.contains('mobile-open')) {
-                menu.classList.remove('mobile-open');
-            }
-        });
-    </script>
 </body>
+
 </html>
