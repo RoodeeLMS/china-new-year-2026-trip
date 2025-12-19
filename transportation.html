@@ -1,59 +1,346 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Transportation - China New Year 2026 Trip</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; padding: 0; }
-        .navbar { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 15px 20px; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); }
-        .navbar-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; position: relative; }
-        .navbar-brand { color: white; font-size: 1.2em; font-weight: bold; text-decoration: none; display: flex; align-items: center; gap: 8px; }
-        .navbar-menu { display: flex; gap: 3px; flex-wrap: wrap; justify-content: flex-end; }
-        .navbar-item { color: white; text-decoration: none; padding: 8px 12px; border-radius: 4px; transition: 0.3s; font-size: 0.85em; white-space: nowrap; }
-        .navbar-item:hover { background: rgba(255, 255, 255, 0.2); }
-        .navbar-item.active { background: rgba(255, 255, 255, 0.3); font-weight: bold; }
-        .menu-toggle { display: none; background: none; border: none; color: white; font-size: 1.5em; cursor: pointer; padding: 5px; }
-        @media (max-width: 900px) { .navbar-item { font-size: 0.8em; padding: 6px 10px; } }
-        @media (max-width: 768px) { .navbar-menu { display: none; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; gap: 0; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 10px 0; border-top: 2px solid rgba(255, 255, 255, 0.2); max-height: calc(100vh - 60px); overflow-y: auto; } .navbar-menu.mobile-open { display: flex; } .navbar-item { padding: 12px 20px; border-radius: 0; border-bottom: 1px solid rgba(255, 255, 255, 0.1); font-size: 0.95em; } .menu-toggle { display: block; } }
-        .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
-        header { text-align: center; color: white; margin-bottom: 40px; padding: 40px 20px; }
-        h1 { font-size: 2.5em; margin-bottom: 10px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); }
-        .breadcrumb { font-size: 0.95em; opacity: 0.9; }
-        .breadcrumb a { color: white; text-decoration: none; border-bottom: 1px solid rgba(255, 255, 255, 0.5); }
-        .breadcrumb a:hover { border-bottom: 1px solid white; }
-        .card { background: white; border-radius: 10px; padding: 30px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); margin-bottom: 25px; }
-        .card h2 { color: #667eea; margin-bottom: 20px; font-size: 1.8em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
-        .transport-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; margin: 30px 0; }
-        .transport-card { background: white; border-radius: 10px; padding: 25px; border: 2px solid #e0e0e0; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
-        .transport-card:hover { transform: translateY(-6px); border-color: #667eea; box-shadow: 0 10px 25px rgba(102,126,234,0.15); }
-        .transport-card h3 { color: #333; margin-bottom: 15px; font-size: 1.15em; display: flex; align-items: center; gap: 8px; }
-        .transport-card p { color: #666; font-size: 0.95em; line-height: 1.7; margin: 8px 0; }
-        .transport-card .highlight { color: #667eea; font-weight: bold; }
-        .transport-card .price { background: linear-gradient(135deg, #E8EAFF 0%, #F3F1FF 100%); color: #667eea; padding: 10px; border-radius: 6px; margin-top: 12px; font-weight: bold; text-align: center; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-        .info-box { background: linear-gradient(135deg, #F5F7FF 0%, #EEF0FF 100%); border-left: 5px solid #667eea; padding: 20px; margin: 25px 0; border-radius: 6px; color: #333; }
-        .info-box h3 { color: #667eea; margin-bottom: 12px; }
-        .info-box ul { margin-left: 20px; }
-        .info-box li { margin: 8px 0; color: #555; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 0;
+        }
 
-        .warning-box { background: linear-gradient(135deg, #FFF3E0 0%, #FFE0B2 100%); border-left: 5px solid #FF9800; padding: 20px; margin: 25px 0; border-radius: 6px; color: #333; }
-        .warning-box h3 { color: #E65100; margin-bottom: 12px; }
+        .navbar {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 15px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
 
-        .tips-box { background: linear-gradient(135deg, #E8F5E9 0%, #D4EDDA 100%); border-left: 5px solid #4CAF50; padding: 20px; margin: 25px 0; border-radius: 6px; color: #333; }
-        .tips-box h3 { color: #2E7D32; margin-bottom: 12px; }
-        .tips-box ul { margin-left: 20px; }
-        .tips-box li { margin: 8px 0; color: #333; }
-        .nav-buttons { display: flex; justify-content: space-between; margin-top: 30px; gap: 10px; }
-        .nav-btn { flex: 1; padding: 12px 20px; background: white; color: #667eea; border: 2px solid #667eea; border-radius: 4px; text-decoration: none; text-align: center; font-weight: bold; transition: 0.3s; }
-        .nav-btn:hover { background: #667eea; color: white; }
-        .nav-btn.home { background: #667eea; color: white; }
-        footer { text-align: center; color: white; padding: 30px 20px; opacity: 0.8; margin-top: 40px; }
+        .navbar-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            position: relative;
+        }
+
+        .navbar-brand {
+            color: white;
+            font-size: 1.2em;
+            font-weight: bold;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .navbar-menu {
+            display: flex;
+            gap: 3px;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+
+        .navbar-item {
+            color: white;
+            text-decoration: none;
+            padding: 8px 12px;
+            border-radius: 4px;
+            transition: 0.3s;
+            font-size: 0.85em;
+            white-space: nowrap;
+        }
+
+        .navbar-item:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .navbar-item.active {
+            background: rgba(255, 255, 255, 0.3);
+            font-weight: bold;
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5em;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        @media (max-width: 900px) {
+            .navbar-item {
+                font-size: 0.8em;
+                padding: 6px 10px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                flex-direction: column;
+                gap: 0;
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                padding: 10px 0;
+                border-top: 2px solid rgba(255, 255, 255, 0.2);
+                max-height: calc(100vh - 60px);
+                overflow-y: auto;
+            }
+
+            .navbar-menu.mobile-open {
+                display: flex;
+            }
+
+            .navbar-item {
+                padding: 12px 20px;
+                border-radius: 0;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                font-size: 0.95em;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+            padding: 40px 20px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .breadcrumb {
+            font-size: 0.95em;
+            opacity: 0.9;
+        }
+
+        .breadcrumb a {
+            color: white;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .breadcrumb a:hover {
+            border-bottom: 1px solid white;
+        }
+
+        .card {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            margin-bottom: 25px;
+        }
+
+        .card h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        .transport-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .transport-card {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            border: 2px solid #e0e0e0;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .transport-card:hover {
+            transform: translateY(-6px);
+            border-color: #667eea;
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.15);
+        }
+
+        .transport-card h3 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.15em;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .transport-card p {
+            color: #666;
+            font-size: 0.95em;
+            line-height: 1.7;
+            margin: 8px 0;
+        }
+
+        .transport-card .highlight {
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .transport-card .price {
+            background: linear-gradient(135deg, #E8EAFF 0%, #F3F1FF 100%);
+            color: #667eea;
+            padding: 10px;
+            border-radius: 6px;
+            margin-top: 12px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .info-box {
+            background: linear-gradient(135deg, #F5F7FF 0%, #EEF0FF 100%);
+            border-left: 5px solid #667eea;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 6px;
+            color: #333;
+        }
+
+        .info-box h3 {
+            color: #667eea;
+            margin-bottom: 12px;
+        }
+
+        .info-box ul {
+            margin-left: 20px;
+        }
+
+        .info-box li {
+            margin: 8px 0;
+            color: #555;
+        }
+
+        .warning-box {
+            background: linear-gradient(135deg, #FFF3E0 0%, #FFE0B2 100%);
+            border-left: 5px solid #FF9800;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 6px;
+            color: #333;
+        }
+
+        .warning-box h3 {
+            color: #E65100;
+            margin-bottom: 12px;
+        }
+
+        .tips-box {
+            background: linear-gradient(135deg, #E8F5E9 0%, #D4EDDA 100%);
+            border-left: 5px solid #4CAF50;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 6px;
+            color: #333;
+        }
+
+        .tips-box h3 {
+            color: #2E7D32;
+            margin-bottom: 12px;
+        }
+
+        .tips-box ul {
+            margin-left: 20px;
+        }
+
+        .tips-box li {
+            margin: 8px 0;
+            color: #333;
+        }
+
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+            gap: 10px;
+        }
+
+        .nav-btn {
+            flex: 1;
+            padding: 12px 20px;
+            background: white;
+            color: #667eea;
+            border: 2px solid #667eea;
+            border-radius: 4px;
+            text-decoration: none;
+            text-align: center;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .nav-btn:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        .nav-btn.home {
+            background: #667eea;
+            color: white;
+        }
+
+        footer {
+            text-align: center;
+            color: white;
+            padding: 30px 20px;
+            opacity: 0.8;
+            margin-top: 40px;
+        }
     </style>
 </head>
+
 <body>
-    <nav class="navbar"><div class="navbar-container"><a href="index.html" class="navbar-brand">🌍 China 2026</a><button class="menu-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu">☰</button><div class="navbar-menu" id="navMenu"><a href="index.html" class="navbar-item">Home</a><a href="flights.html" class="navbar-item">Flights</a><a href="accommodation.html" class="navbar-item">Hotels</a><a href="itinerary.html" class="navbar-item">Itinerary</a><a href="attractions.html" class="navbar-item">Attractions</a><a href="dining.html" class="navbar-item">Food</a><a href="budget.html" class="navbar-item">Budget</a><a href="practical.html" class="navbar-item">Practical</a><a href="transportation.html" class="navbar-item active">Transport</a><a href="packing.html" class="navbar-item">Packing</a><a href="bookings.html" class="navbar-item">Bookings</a><a href="ai-reviews.html" class="navbar-item">AI Reviews</a></div></div></nav>
+    <nav class="navbar">
+        <div class="navbar-container"><a href="index.html" class="navbar-brand">🌍 China 2026</a><button
+                class="menu-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu">☰</button>
+            <div class="navbar-menu" id="navMenu"><a href="index.html" class="navbar-item">Home</a><a
+                    href="flights.html" class="navbar-item">Flights</a><a href="accommodation.html"
+                    class="navbar-item">Hotels</a><a href="itinerary.html" class="navbar-item">Itinerary</a><a
+                    href="attractions.html" class="navbar-item">Attractions</a><a href="dining.html"
+                    class="navbar-item">Food</a><a href="budget.html" class="navbar-item">Budget</a><a
+                    href="practical.html" class="navbar-item">Practical</a><a href="transportation.html"
+                    class="navbar-item active">Transport</a><a href="packing.html" class="navbar-item">Packing</a><a
+                    href="bookings.html" class="navbar-item">Bookings</a><a href="ai-reviews.html"
+                    class="navbar-item">AI Reviews</a></div>
+        </div>
+    </nav>
     <div class="container">
         <header>
             <h1>🚆 Transportation</h1>
@@ -62,6 +349,14 @@
 
         <div class="card">
             <h2>🚆 Getting Around in China</h2>
+
+            <!-- HSR Route Map Infographic -->
+            <div style="margin: 20px 0; text-align: center;">
+                <img src="images/hsr_route_map.png" alt="China 2026 High-Speed Rail Network Map"
+                    style="width: 100%; max-width: 800px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                <p style="color: #666; font-size: 0.9em; margin-top: 10px;">Visualizing your high-speed rail route
+                    across Eastern China</p>
+            </div>
 
             <!-- Airport Transportation Section -->
             <div class="info-box">
@@ -128,7 +423,8 @@
             </div>
 
             <!-- Mountain Route Section -->
-            <h3 style="color: #667eea; margin-top: 35px; margin-bottom: 20px;">⛰️ Mountain Route: Huangling & Wangxiangu via Shangrao</h3>
+            <h3 style="color: #667eea; margin-top: 35px; margin-bottom: 20px;">⛰️ Mountain Route: Huangling & Wangxiangu
+                via Shangrao</h3>
             <div class="transport-grid">
                 <div class="transport-card">
                     <h3>🚂 Shangrao HSR Station (Mountain Hub)</h3>
@@ -137,7 +433,8 @@
                     <p><strong>From Shangrao to Scenic Areas:</strong></p>
                     <ul style="margin: 8px 0; margin-left: 15px; font-size: 0.9em;">
                         <li><strong>Wangxiangu:</strong> 1 hour by direct bus (30 CNY, direct from station)</li>
-                        <li><strong>Huangling (Wuyuan):</strong> ~2 hours total via Wuyuan Station (35-50min train + 50min scenic bus, 20 CNY bus)</li>
+                        <li><strong>Huangling (Wuyuan):</strong> ~2 hours total via Wuyuan Station (35-50min train +
+                            50min scenic bus, 20 CNY bus)</li>
                         <li><strong>Alternative Huangling:</strong> Direct taxi ~2-2.5 hours (80-100 CNY)</li>
                     </ul>
                     <div class="price">Primary mountain rail hub</div>
@@ -161,11 +458,14 @@
             </div>
 
             <!-- Confirmed Train Bookings Section -->
-            <h3 style="color: #667eea; margin-top: 35px; margin-bottom: 20px;">🚄 Confirmed Train Bookings (All Booked!)</h3>
-            <div class="info-box" style="background: linear-gradient(135deg, #E8F5E9 0%, #C8E6C9 100%); border-left: 5px solid #4CAF50;">
+            <h3 style="color: #667eea; margin-top: 35px; margin-bottom: 20px;">🚄 Confirmed Train Bookings (All Booked!)
+            </h3>
+            <div class="info-box"
+                style="background: linear-gradient(135deg, #E8F5E9 0%, #C8E6C9 100%); border-left: 5px solid #4CAF50;">
                 <h3 style="color: #2E7D32;">✅ All 4 Trains Booked via 12306.cn</h3>
                 <p><strong>Total Cost:</strong> ¥2,000 RMB for 16 tickets (4 passengers)</p>
-                <p><strong>Passengers:</strong> CHAMNONG NICK, ATHITHANATHAWORN THANAKORN, CHAMNONG ARPAPORN, SONTHILUG AEKKALAG</p>
+                <p><strong>Passengers:</strong> CHAMNONG NICK, ATHITHANATHAWORN THANAKORN, CHAMNONG ARPAPORN, SONTHILUG
+                    AEKKALAG</p>
             </div>
             <div class="transport-grid">
                 <div class="transport-card" style="border-color: #4CAF50;">
@@ -174,7 +474,9 @@
                     <p><span class="highlight">Train:</span> G1509 @ 09:33</p>
                     <p><span class="highlight">Seats:</span> Coach 08, 007A-D</p>
                     <p><span class="highlight">Checkpoint:</span> 23B</p>
-                    <div class="price" style="background: linear-gradient(135deg, #C8E6C9 0%, #E8F5E9 100%); color: #2E7D32;">¥618.00 ✅ BOOKED</div>
+                    <div class="price"
+                        style="background: linear-gradient(135deg, #C8E6C9 0%, #E8F5E9 100%); color: #2E7D32;">¥618.00 ✅
+                        BOOKED</div>
                     <p style="font-size: 0.85em;">Order: E903575237</p>
                 </div>
                 <div class="transport-card" style="border-color: #4CAF50;">
@@ -182,7 +484,9 @@
                     <p><span class="highlight">Date:</span> December 28, 2025</p>
                     <p><span class="highlight">Train:</span> G1669 @ 10:54</p>
                     <p><span class="highlight">Seats:</span> Coach 04 (001A-C) & Coach 07 (006F)</p>
-                    <div class="price" style="background: linear-gradient(135deg, #C8E6C9 0%, #E8F5E9 100%); color: #2E7D32;">¥158.00 ✅ BOOKED</div>
+                    <div class="price"
+                        style="background: linear-gradient(135deg, #C8E6C9 0%, #E8F5E9 100%); color: #2E7D32;">¥158.00 ✅
+                        BOOKED</div>
                     <p style="font-size: 0.85em;">Order: E908947845</p>
                 </div>
                 <div class="transport-card" style="border-color: #4CAF50;">
@@ -191,7 +495,9 @@
                     <p><span class="highlight">Train:</span> G412 @ 11:02</p>
                     <p><span class="highlight">Seats:</span> Coach 04, 007A-D</p>
                     <p><span class="highlight">Arrival:</span> Shanghai Hongqiao</p>
-                    <div class="price" style="background: linear-gradient(135deg, #C8E6C9 0%, #E8F5E9 100%); color: #2E7D32;">¥1,100.00 ✅ BOOKED</div>
+                    <div class="price"
+                        style="background: linear-gradient(135deg, #C8E6C9 0%, #E8F5E9 100%); color: #2E7D32;">¥1,100.00
+                        ✅ BOOKED</div>
                     <p style="font-size: 0.85em;">Order: E904086447</p>
                 </div>
                 <div class="transport-card" style="border-color: #4CAF50;">
@@ -200,7 +506,9 @@
                     <p><span class="highlight">Train:</span> D3006 @ 13:53</p>
                     <p><span class="highlight">Seats:</span> Coach 04, 009B-F</p>
                     <p><span class="highlight">Checkpoint:</span> 28A28B</p>
-                    <div class="price" style="background: linear-gradient(135deg, #C8E6C9 0%, #E8F5E9 100%); color: #2E7D32;">¥124.00 ✅ BOOKED</div>
+                    <div class="price"
+                        style="background: linear-gradient(135deg, #C8E6C9 0%, #E8F5E9 100%); color: #2E7D32;">¥124.00 ✅
+                        BOOKED</div>
                     <p style="font-size: 0.85em;">Order: E947844235</p>
                 </div>
             </div>
@@ -211,24 +519,28 @@
                 <p><strong>Connection time:</strong> ~50 minutes - comfortable but don't linger!</p>
             </div>
 
-            <div class="info-box" style="background: linear-gradient(135deg, #FFF3E0 0%, #FFE0B2 100%); border-left: 5px solid #FF9800;">
+            <div class="info-box"
+                style="background: linear-gradient(135deg, #FFF3E0 0%, #FFE0B2 100%); border-left: 5px solid #FF9800;">
                 <h3 style="color: #E65100;">⏳ Train 5: Suzhou → Shanghai (Dec 30) - Book on Day</h3>
                 <p><strong>Route:</strong> Suzhou → Shanghai Hongqiao</p>
                 <p><strong>Duration:</strong> ~30 minutes | <strong>Cost:</strong> ~¥30-40/person</p>
                 <p><strong>Frequency:</strong> Trains every 10-20 minutes - very easy to book at station</p>
-                <p style="color: #E65100; margin-top: 10px;"><strong>Tip:</strong> Arrive 30 min early for security. No advance booking needed.</p>
+                <p style="color: #E65100; margin-top: 10px;"><strong>Tip:</strong> Arrive 30 min early for security. No
+                    advance booking needed.</p>
             </div>
 
             <div class="warning-box">
                 <h3>📍 High-Speed Railway Station Locations</h3>
                 <p><strong>Hangzhou:</strong> Hangzhou High-Speed Railway Station (杭州高铁站) - 15 km from city center</p>
                 <p><strong>Suzhou:</strong> Suzhou High-Speed Railway Station - Near city center with metro access</p>
-                <p><strong>Shanghai:</strong> Shanghai Hongqiao Station (虹桥) or Jing'an Station - City center locations</p>
+                <p><strong>Shanghai:</strong> Shanghai Hongqiao Station (虹桥) or Jing'an Station - City center locations
+                </p>
                 <p><strong>Guangzhou:</strong> Guangzhou South Station (广州南站) - Metro line access</p>
             </div>
 
             <!-- Journey Options -->
-            <h3 style="color: #667eea; margin-top: 35px; margin-bottom: 20px;">🗺️ Journey Options: Hangzhou to Guangzhou</h3>
+            <h3 style="color: #667eea; margin-top: 35px; margin-bottom: 20px;">🗺️ Journey Options: Hangzhou to
+                Guangzhou</h3>
             <div class="transport-grid">
                 <div class="transport-card">
                     <h3>Option 1: Rail (Recommended)</h3>
@@ -313,7 +625,8 @@
                     <li><strong>Small Bills:</strong> Keep small bills for buses and tips</li>
                     <li><strong>Offline Maps:</strong> Download offline maps before arrival</li>
                     <li><strong>Peak Hours:</strong> Avoid 7-9 AM and 5-7 PM on weekdays (very crowded)</li>
-                    <li><strong>Advance Booking:</strong> Book high-speed rail 10-14 days in advance (especially around Chinese New Year)</li>
+                    <li><strong>Advance Booking:</strong> Book high-speed rail 10-14 days in advance (especially around
+                        Chinese New Year)</li>
                     <li><strong>Metro Card Refund:</strong> Unused balance can be refunded at metro stations</li>
                 </ul>
             </div>
@@ -329,6 +642,7 @@
             <p>📍 China New Year 2026 Adventure • Happy travels!</p>
         </footer>
     </div>
-    <script>function toggleMobileMenu(){document.getElementById('navMenu').classList.toggle('mobile-open');}document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('.navbar-item').forEach(item=>{item.addEventListener('click',function(){document.getElementById('navMenu').classList.remove('mobile-open');});});});document.addEventListener('click',function(event){const navbar=document.querySelector('.navbar');const menu=document.getElementById('navMenu');if(!navbar.contains(event.target)&&menu.classList.contains('mobile-open')){menu.classList.remove('mobile-open');}});</script>
+    <script>function toggleMobileMenu() { document.getElementById('navMenu').classList.toggle('mobile-open'); } document.addEventListener('DOMContentLoaded', function () { document.querySelectorAll('.navbar-item').forEach(item => { item.addEventListener('click', function () { document.getElementById('navMenu').classList.remove('mobile-open'); }); }); }); document.addEventListener('click', function (event) { const navbar = document.querySelector('.navbar'); const menu = document.getElementById('navMenu'); if (!navbar.contains(event.target) && menu.classList.contains('mobile-open')) { menu.classList.remove('mobile-open'); } });</script>
 </body>
+
 </html>

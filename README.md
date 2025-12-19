@@ -134,6 +134,11 @@ The following sections need to be filled in. Use the website (`index.html`) as r
 - Use clear, descriptive filenames
 - Maintain markdown files for easy reading and version control
 
+#### Image Asset Protocol
+- **Always Save**: Generated images MUST be saved to the `images/` directory immediately.
+- **Versioning**: NEVER overwrite an existing image. Always append a version number (e.g., `map_v2.png`) or timestamp.
+- **Verification**: Verify the file exists in the directory after saving.
+
 #### Important Context
 - **Flights are already booked** - Don't suggest rebooking or changes
 - **Long return journey:** 29h 15m with 23h overnight transfer in Guangzhou

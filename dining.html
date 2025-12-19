@@ -1,58 +1,349 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dining - China New Year 2026 Trip</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; padding: 0; }
-        .navbar { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 15px 20px; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); }
-        .navbar-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; position: relative; }
-        .navbar-brand { color: white; font-size: 1.2em; font-weight: bold; text-decoration: none; display: flex; align-items: center; gap: 8px; }
-        .navbar-menu { display: flex; gap: 3px; flex-wrap: wrap; justify-content: flex-end; }
-        .navbar-item { color: white; text-decoration: none; padding: 8px 12px; border-radius: 4px; transition: 0.3s; font-size: 0.85em; white-space: nowrap; }
-        .navbar-item:hover { background: rgba(255, 255, 255, 0.2); }
-        .navbar-item.active { background: rgba(255, 255, 255, 0.3); font-weight: bold; }
-        .menu-toggle { display: none; background: none; border: none; color: white; font-size: 1.5em; cursor: pointer; padding: 5px; }
-        @media (max-width: 900px) { .navbar-item { font-size: 0.8em; padding: 6px 10px; } }
-        @media (max-width: 768px) { .navbar-menu { display: none; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; gap: 0; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 10px 0; border-top: 2px solid rgba(255, 255, 255, 0.2); max-height: calc(100vh - 60px); overflow-y: auto; } .navbar-menu.mobile-open { display: flex; } .navbar-item { padding: 12px 20px; border-radius: 0; border-bottom: 1px solid rgba(255, 255, 255, 0.1); font-size: 0.95em; } .menu-toggle { display: block; } }
-        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
-        header { text-align: center; color: white; margin-bottom: 40px; padding: 40px 20px; }
-        h1 { font-size: 2.5em; margin-bottom: 10px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); }
-        .breadcrumb { font-size: 0.95em; opacity: 0.9; }
-        .breadcrumb a { color: white; text-decoration: none; border-bottom: 1px solid rgba(255, 255, 255, 0.5); }
-        .breadcrumb a:hover { border-bottom: 1px solid white; }
-        .card { background: white; border-radius: 10px; padding: 30px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); margin-bottom: 25px; }
-        .card h2 { color: #667eea; margin-bottom: 20px; font-size: 1.8em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
-        .specialties-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; margin: 25px 0; }
-        .specialty-card { background: linear-gradient(135deg, #fff5e6 0%, #fffaf0 100%); border-left: 4px solid #f57c00; border-radius: 8px; padding: 15px; transition: transform 0.3s, box-shadow 0.3s; }
-        .specialty-card:hover { transform: translateY(-3px); box-shadow: 0 8px 16px rgba(0,0,0,0.12); }
-        .specialty-card strong { color: #d84315; }
-        .location-section { background: linear-gradient(135deg, #f5f5f5 0%, #ffffff 100%); border-radius: 8px; padding: 25px; margin: 25px 0; border-left: 5px solid; }
-        .location-section.hangzhou { border-left-color: #FF6B6B; background: linear-gradient(135deg, #FFE5E5 0%, #FFFBFB 100%); }
-        .location-section.suzhou { border-left-color: #4ECDC4; background: linear-gradient(135deg, #E5F9F7 0%, #FFFBFC 100%); }
-        .location-section.shanghai { border-left-color: #FFE66D; background: linear-gradient(135deg, #FFFAED 0%, #FFFDF9 100%); }
-        .location-section.guangzhou { border-left-color: #95E1D3; background: linear-gradient(135deg, #F0FDF7 0%, #FFFBFD 100%); }
-        .location-section h3 { color: #333; margin-bottom: 15px; font-size: 1.3em; }
-        .restaurant-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 15px; margin: 15px 0; }
-        .restaurant-card { background: white; border-radius: 8px; padding: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border-top: 3px solid #667eea; transition: transform 0.3s, box-shadow 0.3s; }
-        .restaurant-card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.15); }
-        .restaurant-card h4 { color: #d84315; margin-bottom: 8px; font-size: 1.05em; }
-        .restaurant-card .details { color: #666; font-size: 0.9em; line-height: 1.6; }
-        .tips-box { background: linear-gradient(135deg, #e8f5e9 0%, #f1f8e9 100%); border-left: 4px solid #4caf50; border-radius: 8px; padding: 20px; margin: 20px 0; }
-        .tips-box ul { margin-left: 20px; margin-top: 10px; color: #333; }
-        .tips-box li { margin: 8px 0; }
-        .nav-buttons { display: flex; justify-content: space-between; margin-top: 30px; gap: 10px; }
-        .nav-btn { flex: 1; padding: 12px 20px; background: white; color: #667eea; border: 2px solid #667eea; border-radius: 4px; text-decoration: none; text-align: center; font-weight: bold; transition: 0.3s; }
-        .nav-btn:hover { background: #667eea; color: white; }
-        .nav-btn.home { background: #667eea; color: white; }
-        footer { text-align: center; color: white; padding: 30px 20px; opacity: 0.8; margin-top: 40px; }
-        .highlight { background: #fff9c4; padding: 2px 6px; border-radius: 3px; font-weight: 500; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 0;
+        }
+
+        .navbar {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 15px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .navbar-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            position: relative;
+        }
+
+        .navbar-brand {
+            color: white;
+            font-size: 1.2em;
+            font-weight: bold;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .navbar-menu {
+            display: flex;
+            gap: 3px;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+
+        .navbar-item {
+            color: white;
+            text-decoration: none;
+            padding: 8px 12px;
+            border-radius: 4px;
+            transition: 0.3s;
+            font-size: 0.85em;
+            white-space: nowrap;
+        }
+
+        .navbar-item:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .navbar-item.active {
+            background: rgba(255, 255, 255, 0.3);
+            font-weight: bold;
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5em;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        @media (max-width: 900px) {
+            .navbar-item {
+                font-size: 0.8em;
+                padding: 6px 10px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                flex-direction: column;
+                gap: 0;
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                padding: 10px 0;
+                border-top: 2px solid rgba(255, 255, 255, 0.2);
+                max-height: calc(100vh - 60px);
+                overflow-y: auto;
+            }
+
+            .navbar-menu.mobile-open {
+                display: flex;
+            }
+
+            .navbar-item {
+                padding: 12px 20px;
+                border-radius: 0;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                font-size: 0.95em;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+            padding: 40px 20px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .breadcrumb {
+            font-size: 0.95em;
+            opacity: 0.9;
+        }
+
+        .breadcrumb a {
+            color: white;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .breadcrumb a:hover {
+            border-bottom: 1px solid white;
+        }
+
+        .card {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            margin-bottom: 25px;
+        }
+
+        .card h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        .specialties-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+            margin: 25px 0;
+        }
+
+        .specialty-card {
+            background: linear-gradient(135deg, #fff5e6 0%, #fffaf0 100%);
+            border-left: 4px solid #f57c00;
+            border-radius: 8px;
+            padding: 15px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .specialty-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+        }
+
+        .specialty-card strong {
+            color: #d84315;
+        }
+
+        .location-section {
+            background: linear-gradient(135deg, #f5f5f5 0%, #ffffff 100%);
+            border-radius: 8px;
+            padding: 25px;
+            margin: 25px 0;
+            border-left: 5px solid;
+        }
+
+        .location-section.hangzhou {
+            border-left-color: #FF6B6B;
+            background: linear-gradient(135deg, #FFE5E5 0%, #FFFBFB 100%);
+        }
+
+        .location-section.suzhou {
+            border-left-color: #4ECDC4;
+            background: linear-gradient(135deg, #E5F9F7 0%, #FFFBFC 100%);
+        }
+
+        .location-section.shanghai {
+            border-left-color: #FFE66D;
+            background: linear-gradient(135deg, #FFFAED 0%, #FFFDF9 100%);
+        }
+
+        .location-section.guangzhou {
+            border-left-color: #95E1D3;
+            background: linear-gradient(135deg, #F0FDF7 0%, #FFFBFD 100%);
+        }
+
+        .location-section h3 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .restaurant-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 15px;
+            margin: 15px 0;
+        }
+
+        .restaurant-card {
+            background: white;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-top: 3px solid #667eea;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .restaurant-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .restaurant-card h4 {
+            color: #d84315;
+            margin-bottom: 8px;
+            font-size: 1.05em;
+        }
+
+        .restaurant-card .details {
+            color: #666;
+            font-size: 0.9em;
+            line-height: 1.6;
+        }
+
+        .tips-box {
+            background: linear-gradient(135deg, #e8f5e9 0%, #f1f8e9 100%);
+            border-left: 4px solid #4caf50;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .tips-box ul {
+            margin-left: 20px;
+            margin-top: 10px;
+            color: #333;
+        }
+
+        .tips-box li {
+            margin: 8px 0;
+        }
+
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+            gap: 10px;
+        }
+
+        .nav-btn {
+            flex: 1;
+            padding: 12px 20px;
+            background: white;
+            color: #667eea;
+            border: 2px solid #667eea;
+            border-radius: 4px;
+            text-decoration: none;
+            text-align: center;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .nav-btn:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        .nav-btn.home {
+            background: #667eea;
+            color: white;
+        }
+
+        footer {
+            text-align: center;
+            color: white;
+            padding: 30px 20px;
+            opacity: 0.8;
+            margin-top: 40px;
+        }
+
+        .highlight {
+            background: #fff9c4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: 500;
+        }
     </style>
 </head>
+
 <body>
-    <nav class="navbar"><div class="navbar-container"><a href="index.html" class="navbar-brand">🌍 China 2026</a><button class="menu-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu">☰</button><div class="navbar-menu" id="navMenu"><a href="index.html" class="navbar-item">Home</a><a href="flights.html" class="navbar-item">Flights</a><a href="accommodation.html" class="navbar-item">Hotels</a><a href="itinerary.html" class="navbar-item">Itinerary</a><a href="attractions.html" class="navbar-item">Attractions</a><a href="dining.html" class="navbar-item active">Food</a><a href="budget.html" class="navbar-item">Budget</a><a href="practical.html" class="navbar-item">Practical</a><a href="transportation.html" class="navbar-item">Transport</a><a href="packing.html" class="navbar-item">Packing</a><a href="bookings.html" class="navbar-item">Bookings</a><a href="ai-reviews.html" class="navbar-item">AI Reviews</a></div></div></nav>
+    <nav class="navbar">
+        <div class="navbar-container"><a href="index.html" class="navbar-brand">🌍 China 2026</a><button
+                class="menu-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu">☰</button>
+            <div class="navbar-menu" id="navMenu"><a href="index.html" class="navbar-item">Home</a><a
+                    href="flights.html" class="navbar-item">Flights</a><a href="accommodation.html"
+                    class="navbar-item">Hotels</a><a href="itinerary.html" class="navbar-item">Itinerary</a><a
+                    href="attractions.html" class="navbar-item">Attractions</a><a href="dining.html"
+                    class="navbar-item active">Food</a><a href="budget.html" class="navbar-item">Budget</a><a
+                    href="practical.html" class="navbar-item">Practical</a><a href="transportation.html"
+                    class="navbar-item">Transport</a><a href="packing.html" class="navbar-item">Packing</a><a
+                    href="bookings.html" class="navbar-item">Bookings</a><a href="ai-reviews.html"
+                    class="navbar-item">AI Reviews</a></div>
+        </div>
+    </nav>
     <div class="container">
         <header>
             <h1>🍜 Dining Guide</h1>
@@ -61,26 +352,36 @@
 
         <div class="card">
             <h2>🥢 Hangzhou Local Specialties</h2>
+
+            <!-- Cuisine Map Infographic -->
+            <div style="margin: 20px 0; text-align: center;">
+                <img src="images/cuisine_map.png" alt="Flavors of Jiangnan Cuisine Map"
+                    style="width: 100%; max-width: 700px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                <p style="color: #666; font-size: 0.9em; margin-top: 10px;">Signature dishes of the region</p>
+            </div>
+
             <p style="color: #666; margin-bottom: 20px;">Must-try dishes unique to the region:</p>
             <div class="specialties-grid">
                 <div class="specialty-card">
-                    <strong>West Lake Fish</strong><br/>
-                    西湖醋鱼<br/>
-                    <span style="color: #999; font-size: 0.9em;">Hangzhou's signature dish - fish in tangy vinegar sauce</span>
+                    <strong>West Lake Fish</strong><br />
+                    西湖醋鱼<br />
+                    <span style="color: #999; font-size: 0.9em;">Hangzhou's signature dish - fish in tangy vinegar
+                        sauce</span>
                 </div>
                 <div class="specialty-card">
-                    <strong>Dragon Well Tea</strong><br/>
-                    龙井茶<br/>
+                    <strong>Dragon Well Tea</strong><br />
+                    龙井茶<br />
                     <span style="color: #999; font-size: 0.9em;">Premium green tea from the region</span>
                 </div>
                 <div class="specialty-card">
-                    <strong>Shrimp with Tea</strong><br/>
-                    龙井虾仁<br/>
-                    <span style="color: #999; font-size: 0.9em;">Delicate shrimp infused with Longjing tea essence</span>
+                    <strong>Shrimp with Tea</strong><br />
+                    龙井虾仁<br />
+                    <span style="color: #999; font-size: 0.9em;">Delicate shrimp infused with Longjing tea
+                        essence</span>
                 </div>
                 <div class="specialty-card">
-                    <strong>Roasted Duck</strong><br/>
-                    Hangzhou Style<br/>
+                    <strong>Roasted Duck</strong><br />
+                    Hangzhou Style<br />
                     <span style="color: #999; font-size: 0.9em;">Local variation of Peking duck</span>
                 </div>
             </div>
@@ -92,29 +393,29 @@
                 <div class="restaurant-card">
                     <h4>🏛️ Louwailou (楼外楼)</h4>
                     <div class="details">
-                        <strong>Since 1848</strong> | Lakeside location<br/>
-                        Specializes in West Lake fish and traditional Hangzhou cuisine. Stunning lake views.<br/>
+                        <strong>Since 1848</strong> | Lakeside location<br />
+                        Specializes in West Lake fish and traditional Hangzhou cuisine. Stunning lake views.<br />
                         <span class="highlight">Famous for 西湖醋鱼</span>
                     </div>
                 </div>
                 <div class="restaurant-card">
                     <h4>👴 Zhi Wei Guan (知味观)</h4>
                     <div class="details">
-                        <strong>Since 1913</strong> | Classic casual<br/>
+                        <strong>Since 1913</strong> | Classic casual<br />
                         Authentic local dishes and dim sum. Best for breakfast and casual dining.
                     </div>
                 </div>
                 <div class="restaurant-card">
                     <h4>✨ 28 HuBin Restaurant</h4>
                     <div class="details">
-                        <strong>Grand Hyatt</strong> | Fine dining<br/>
+                        <strong>Grand Hyatt</strong> | Fine dining<br />
                         Modern Chinese cuisine with panoramic West Lake views. Impeccable service.
                     </div>
                 </div>
                 <div class="restaurant-card">
                     <h4>⭐ Jin Sha Restaurant</h4>
                     <div class="details">
-                        <strong>Four Seasons</strong> | Upscale<br/>
+                        <strong>Four Seasons</strong> | Upscale<br />
                         Signature restaurant with traditional Hangzhou dishes prepared by master chefs.
                     </div>
                 </div>
@@ -133,7 +434,8 @@
                 <div class="restaurant-card">
                     <h4>🏮 Pingjiangsong (平江宋)</h4>
                     <div class="details">
-                        Historic district location | Traditional Suzhou dishes in charming old-town setting near gardens.
+                        Historic district location | Traditional Suzhou dishes in charming old-town setting near
+                        gardens.
                     </div>
                 </div>
                 <div class="restaurant-card">
@@ -157,14 +459,14 @@
                 <div class="restaurant-card">
                     <h4>🥂 Grand Kempinski NYE</h4>
                     <div class="details">
-                        <strong>New Year's Eve Special</strong><br/>
+                        <strong>New Year's Eve Special</strong><br />
                         Luxury packages: CNY 288-1,888+ per person. Premium multi-course dinners with champagne service.
                     </div>
                 </div>
                 <div class="restaurant-card">
                     <h4>✨ Peninsula Shanghai</h4>
                     <div class="details">
-                        <strong>NYE Celebration</strong><br/>
+                        <strong>NYE Celebration</strong><br />
                         Upscale restaurants with special NYE menus and countdown experiences.
                     </div>
                 </div>
@@ -189,28 +491,28 @@
                 <div class="restaurant-card">
                     <h4>⭐ Hongtu Hall (鸿图楼)</h4>
                     <div class="details">
-                        <strong>Michelin-recommended</strong><br/>
+                        <strong>Michelin-recommended</strong><br />
                         Famous for traditional Cantonese dim sum (点心). Excellence in every bite.
                     </div>
                 </div>
                 <div class="restaurant-card">
                     <h4>👑 Tao Tao Ju (陶陶居)</h4>
                     <div class="details">
-                        <strong>Since 1880</strong> | Institution<br/>
+                        <strong>Since 1880</strong> | Institution<br />
                         Legendary for dim sum and roasted meats. A Guangzhou landmark.
                     </div>
                 </div>
                 <div class="restaurant-card">
                     <h4>🏪 Guangzhou Restaurant (广州酒家)</h4>
                     <div class="details">
-                        <strong>Since 1935</strong><br/>
+                        <strong>Since 1935</strong><br />
                         Famous for roasted duck (烧鸭), soy sauce chicken (豉油鸡), and dim sum.
                     </div>
                 </div>
                 <div class="restaurant-card">
                     <h4>☕ Morning Dim Sum (早茶)</h4>
                     <div class="details">
-                        <strong>10am-3pm</strong> | Don't miss<br/>
+                        <strong>10am-3pm</strong> | Don't miss<br />
                         Traditional Cantonese breakfast with tea and delicate small bites.
                     </div>
                 </div>
@@ -239,6 +541,7 @@
             <p>📍 China New Year 2026 Adventure • Happy travels!</p>
         </footer>
     </div>
-    <script>function toggleMobileMenu(){document.getElementById('navMenu').classList.toggle('mobile-open');}document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('.navbar-item').forEach(item=>{item.addEventListener('click',function(){document.getElementById('navMenu').classList.remove('mobile-open');});});});document.addEventListener('click',function(event){const navbar=document.querySelector('.navbar');const menu=document.getElementById('navMenu');if(!navbar.contains(event.target)&&menu.classList.contains('mobile-open')){menu.classList.remove('mobile-open');}});</script>
+    <script>function toggleMobileMenu() { document.getElementById('navMenu').classList.toggle('mobile-open'); } document.addEventListener('DOMContentLoaded', function () { document.querySelectorAll('.navbar-item').forEach(item => { item.addEventListener('click', function () { document.getElementById('navMenu').classList.remove('mobile-open'); }); }); }); document.addEventListener('click', function (event) { const navbar = document.querySelector('.navbar'); const menu = document.getElementById('navMenu'); if (!navbar.contains(event.target) && menu.classList.contains('mobile-open')) { menu.classList.remove('mobile-open'); } });</script>
 </body>
+
 </html>

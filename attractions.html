@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>City Guide & Attractions - China New Year 2026</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@400;500;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@400;500;600&display=swap"
+        rel="stylesheet">
     <style>
         :root {
             --primary-red: #C41E3A;
@@ -45,7 +48,7 @@
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
         }
 
         .nav-container {
@@ -84,7 +87,7 @@
         }
 
         .nav-link {
-            color: rgba(255,255,255,0.85);
+            color: rgba(255, 255, 255, 0.85);
             text-decoration: none;
             padding: 0.5rem 1rem;
             border-radius: 25px;
@@ -142,7 +145,7 @@
             padding: 1.5rem;
             background: white;
             border-radius: 16px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
         }
 
         .city-nav-btn {
@@ -156,16 +159,45 @@
             font-size: 0.95rem;
         }
 
-        .city-nav-btn.hangzhou { background: #FFE5E5; color: #C41E3A; border-color: var(--hangzhou-color); }
-        .city-nav-btn.huangling { background: #F3E8FF; color: #7C3AED; border-color: var(--huangling-color); }
-        .city-nav-btn.wangxiangu { background: #DCFCE7; color: #15803D; border-color: var(--wangxiangu-color); }
-        .city-nav-btn.suzhou { background: #E5F9F7; color: #0D9488; border-color: var(--suzhou-color); }
-        .city-nav-btn.shanghai { background: #FFFAED; color: #B45309; border-color: var(--shanghai-color); }
-        .city-nav-btn.guangzhou { background: #F0FDF7; color: #047857; border-color: var(--guangzhou-color); }
+        .city-nav-btn.hangzhou {
+            background: #FFE5E5;
+            color: #C41E3A;
+            border-color: var(--hangzhou-color);
+        }
+
+        .city-nav-btn.huangling {
+            background: #F3E8FF;
+            color: #7C3AED;
+            border-color: var(--huangling-color);
+        }
+
+        .city-nav-btn.wangxiangu {
+            background: #DCFCE7;
+            color: #15803D;
+            border-color: var(--wangxiangu-color);
+        }
+
+        .city-nav-btn.suzhou {
+            background: #E5F9F7;
+            color: #0D9488;
+            border-color: var(--suzhou-color);
+        }
+
+        .city-nav-btn.shanghai {
+            background: #FFFAED;
+            color: #B45309;
+            border-color: var(--shanghai-color);
+        }
+
+        .city-nav-btn.guangzhou {
+            background: #F0FDF7;
+            color: #047857;
+            border-color: var(--guangzhou-color);
+        }
 
         .city-nav-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
         }
 
         /* Location Sections */
@@ -174,16 +206,39 @@
             border-radius: 20px;
             padding: 2rem;
             margin-bottom: 2rem;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
             border-left: 5px solid;
         }
 
-        .location-section.hangzhou { border-left-color: var(--hangzhou-color); background: linear-gradient(135deg, #FFE5E5 0%, #FFFBFB 100%); }
-        .location-section.huangling { border-left-color: var(--huangling-color); background: linear-gradient(135deg, #F3E8FF 0%, #FEFBFF 100%); }
-        .location-section.wangxiangu { border-left-color: var(--wangxiangu-color); background: linear-gradient(135deg, #DCFCE7 0%, #FEFFFE 100%); }
-        .location-section.suzhou { border-left-color: var(--suzhou-color); background: linear-gradient(135deg, #E5F9F7 0%, #FFFBFC 100%); }
-        .location-section.shanghai { border-left-color: var(--shanghai-color); background: linear-gradient(135deg, #FFFAED 0%, #FFFDF9 100%); }
-        .location-section.guangzhou { border-left-color: var(--guangzhou-color); background: linear-gradient(135deg, #F0FDF7 0%, #FFFBFD 100%); }
+        .location-section.hangzhou {
+            border-left-color: var(--hangzhou-color);
+            background: linear-gradient(135deg, #FFE5E5 0%, #FFFBFB 100%);
+        }
+
+        .location-section.huangling {
+            border-left-color: var(--huangling-color);
+            background: linear-gradient(135deg, #F3E8FF 0%, #FEFBFF 100%);
+        }
+
+        .location-section.wangxiangu {
+            border-left-color: var(--wangxiangu-color);
+            background: linear-gradient(135deg, #DCFCE7 0%, #FEFFFE 100%);
+        }
+
+        .location-section.suzhou {
+            border-left-color: var(--suzhou-color);
+            background: linear-gradient(135deg, #E5F9F7 0%, #FFFBFC 100%);
+        }
+
+        .location-section.shanghai {
+            border-left-color: var(--shanghai-color);
+            background: linear-gradient(135deg, #FFFAED 0%, #FFFDF9 100%);
+        }
+
+        .location-section.guangzhou {
+            border-left-color: var(--guangzhou-color);
+            background: linear-gradient(135deg, #F0FDF7 0%, #FFFBFD 100%);
+        }
 
         .location-header {
             display: flex;
@@ -191,7 +246,7 @@
             gap: 1rem;
             margin-bottom: 1.5rem;
             padding-bottom: 1rem;
-            border-bottom: 2px dashed rgba(0,0,0,0.1);
+            border-bottom: 2px dashed rgba(0, 0, 0, 0.1);
         }
 
         .location-icon {
@@ -215,7 +270,7 @@
             color: var(--text-medium);
             margin-bottom: 1.5rem;
             padding: 1rem;
-            background: rgba(255,255,255,0.7);
+            background: rgba(255, 255, 255, 0.7);
             border-radius: 12px;
             line-height: 1.7;
         }
@@ -231,19 +286,19 @@
             background: white;
             border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
             transition: all 0.3s ease;
         }
 
         .attraction-card:hover {
             transform: translateY(-4px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
         }
 
         .attraction-header {
             padding: 1.25rem;
-            background: linear-gradient(135deg, rgba(0,0,0,0.03) 0%, rgba(0,0,0,0.01) 100%);
-            border-bottom: 1px solid rgba(0,0,0,0.05);
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.03) 0%, rgba(0, 0, 0, 0.01) 100%);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
         }
 
         .attraction-name {
@@ -394,9 +449,9 @@
         .getting-there {
             margin-top: 1rem;
             padding: 1rem;
-            background: rgba(255,255,255,0.8);
+            background: rgba(255, 255, 255, 0.8);
             border-radius: 10px;
-            border: 1px dashed rgba(0,0,0,0.15);
+            border: 1px dashed rgba(0, 0, 0, 0.15);
         }
 
         .getting-there h4 {
@@ -429,6 +484,7 @@
         }
     </style>
 </head>
+
 <body>
     <!-- Navigation Bar -->
     <nav class="navbar">
@@ -481,9 +537,16 @@
                 </div>
             </div>
 
+            <div style="margin-bottom: 2rem; text-align: center;">
+                <img src="images/hangzhou_poster.png" alt="Hangzhou West Lake Travel Poster"
+                    style="width: 100%; max-width: 600px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+            </div>
+
             <div class="location-intro">
-                <strong>"Above there is Heaven, below there are Suzhou and Hangzhou"</strong> - An ancient Chinese saying that still rings true.
-                Hangzhou is famous for its scenic West Lake, ancient temples, and world-renowned Longjing tea. As the capital of Zhejiang province,
+                <strong>"Above there is Heaven, below there are Suzhou and Hangzhou"</strong> - An ancient Chinese
+                saying that still rings true.
+                Hangzhou is famous for its scenic West Lake, ancient temples, and world-renowned Longjing tea. As the
+                capital of Zhejiang province,
                 it blends natural beauty with rich history and modern Chinese culture.
             </div>
 
@@ -497,7 +560,8 @@
                     </div>
                     <div class="attraction-body">
                         <p class="attraction-description">
-                            UNESCO World Heritage site and the heart of Hangzhou. A scenic freshwater lake surrounded by temples, pagodas,
+                            UNESCO World Heritage site and the heart of Hangzhou. A scenic freshwater lake surrounded by
+                            temples, pagodas,
                             gardens, and islands. Walk the famous Su Causeway and Bai Causeway.
                         </p>
                         <div class="attraction-details">
@@ -519,11 +583,13 @@
                         </div>
                         <div class="getting-there">
                             <h4>🚇 How to Get There</h4>
-                            <p>Metro Line 1 to Longxiangqiao Station or Fengqi Road Station. Walking distance from Sofitel.</p>
+                            <p>Metro Line 1 to Longxiangqiao Station or Fengqi Road Station. Walking distance from
+                                Sofitel.</p>
                         </div>
                         <div class="tip-box">
                             <h4>💡 Pro Tips</h4>
-                            <p>Rent a bike to circle the lake (~11km). Try the famous West Lake Fish in Vinegar Sauce nearby. Winter mornings can be misty - great for atmospheric photos!</p>
+                            <p>Rent a bike to circle the lake (~11km). Try the famous West Lake Fish in Vinegar Sauce
+                                nearby. Winter mornings can be misty - great for atmospheric photos!</p>
                         </div>
                         <span class="photo-spot">📸 Best Photos: Broken Bridge, Three Pools Mirroring the Moon</span>
                         <span class="time-needed">⏱️ 3-4 hours</span>
@@ -539,7 +605,8 @@
                     </div>
                     <div class="attraction-body">
                         <p class="attraction-description">
-                            One of China's largest and most famous Buddhist temples, founded in 326 AD. Set against forested hills with
+                            One of China's largest and most famous Buddhist temples, founded in 326 AD. Set against
+                            forested hills with
                             stunning cliff-carved Buddha statues at Feilai Feng (Peak Flying From Afar).
                         </p>
                         <div class="attraction-details">
@@ -565,7 +632,8 @@
                         </div>
                         <div class="tip-box">
                             <h4>💡 Pro Tips</h4>
-                            <p>Visit Feilai Feng first before the temple. The 470+ Buddhist rock carvings date back 1,000+ years. Dress respectfully (shoulders covered).</p>
+                            <p>Visit Feilai Feng first before the temple. The 470+ Buddhist rock carvings date back
+                                1,000+ years. Dress respectfully (shoulders covered).</p>
                         </div>
                         <span class="photo-spot">📸 Best Photos: Hall of the Heavenly Kings, Feilai Feng carvings</span>
                         <span class="time-needed">⏱️ 2-3 hours</span>
@@ -580,7 +648,8 @@
                     </div>
                     <div class="attraction-body">
                         <p class="attraction-description">
-                            Iconic five-story tower on the south shore of West Lake. The original was built in 977 AD; rebuilt in 2002.
+                            Iconic five-story tower on the south shore of West Lake. The original was built in 977 AD;
+                            rebuilt in 2002.
                             Famous from the Legend of the White Snake. Offers panoramic lake views.
                         </p>
                         <div class="attraction-details">
@@ -606,9 +675,11 @@
                         </div>
                         <div class="tip-box">
                             <h4>💡 Pro Tips</h4>
-                            <p>Take the escalator up (included). The basement displays the original pagoda ruins. Night lighting makes it magical after dark.</p>
+                            <p>Take the escalator up (included). The basement displays the original pagoda ruins. Night
+                                lighting makes it magical after dark.</p>
                         </div>
-                        <span class="photo-spot">📸 Best Photos: From Broken Bridge looking south, sunset silhouette</span>
+                        <span class="photo-spot">📸 Best Photos: From Broken Bridge looking south, sunset
+                            silhouette</span>
                         <span class="time-needed">⏱️ 1-1.5 hours</span>
                     </div>
                 </div>
@@ -621,7 +692,8 @@
                     </div>
                     <div class="attraction-body">
                         <p class="attraction-description">
-                            Historic pedestrian street dating back to the Southern Song Dynasty. Traditional architecture, local snacks,
+                            Historic pedestrian street dating back to the Southern Song Dynasty. Traditional
+                            architecture, local snacks,
                             tea shops, silk stores, and the famous Huqingyu Tang Traditional Chinese Medicine Museum.
                         </p>
                         <div class="attraction-details">
@@ -647,7 +719,8 @@
                         </div>
                         <div class="tip-box">
                             <h4>💡 Pro Tips</h4>
-                            <p>Try local snacks: Dingsheng Gao (sticky rice cake), dragon beard candy, and osmanthus-flavored treats. Good for souvenir shopping.</p>
+                            <p>Try local snacks: Dingsheng Gao (sticky rice cake), dragon beard candy, and
+                                osmanthus-flavored treats. Good for souvenir shopping.</p>
                         </div>
                         <span class="photo-spot">📸 Best Photos: Lantern-lit street scenes at night</span>
                         <span class="time-needed">⏱️ 1.5-2 hours</span>
@@ -662,7 +735,8 @@
                     </div>
                     <div class="attraction-body">
                         <p class="attraction-description">
-                            Birthplace of China's most famous green tea. Rolling hillside tea plantations, traditional tea houses,
+                            Birthplace of China's most famous green tea. Rolling hillside tea plantations, traditional
+                            tea houses,
                             and the China National Tea Museum. Learn about tea culture and sample fresh Longjing.
                         </p>
                         <div class="attraction-details">
@@ -688,7 +762,8 @@
                         </div>
                         <div class="tip-box">
                             <h4>💡 Pro Tips</h4>
-                            <p>Winter is off-season for tea picking, but you can still buy and taste tea. Negotiate prices - locals often start high for tourists.</p>
+                            <p>Winter is off-season for tea picking, but you can still buy and taste tea. Negotiate
+                                prices - locals often start high for tourists.</p>
                         </div>
                         <span class="photo-spot">📸 Best Photos: Terraced tea fields, tea processing</span>
                         <span class="time-needed">⏱️ 2-3 hours</span>
@@ -703,8 +778,10 @@
                     </div>
                     <div class="attraction-body">
                         <p class="attraction-description">
-                            China's first national wetland park - a tranquil escape from the city. Winding waterways, traditional villages,
-                            bird watching, and boat rides through peaceful marshlands. Featured in the film "If You Are the One."
+                            China's first national wetland park - a tranquil escape from the city. Winding waterways,
+                            traditional villages,
+                            bird watching, and boat rides through peaceful marshlands. Featured in the film "If You Are
+                            the One."
                         </p>
                         <div class="attraction-details">
                             <div class="detail-row">
@@ -729,7 +806,8 @@
                         </div>
                         <div class="tip-box">
                             <h4>💡 Pro Tips</h4>
-                            <p>The park is huge - take the boat to cover more ground. Less crowded in winter but still beautiful. Bring binoculars for birds!</p>
+                            <p>The park is huge - take the boat to cover more ground. Less crowded in winter but still
+                                beautiful. Bring binoculars for birds!</p>
                         </div>
                         <span class="photo-spot">📸 Best Photos: Boat on misty waterways, persimmon trees</span>
                         <span class="time-needed">⏱️ 3-4 hours</span>
@@ -748,10 +826,17 @@
                 </div>
             </div>
 
+            <div style="margin-bottom: 2rem; text-align: center;">
+                <img src="images/huangling_poster.png" alt="Huangling Shaiqiu Travel Poster"
+                    style="width: 100%; max-width: 600px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+            </div>
+
             <div class="location-intro">
                 Huangling is a stunning ancient mountain village perched on a cliff in Wuyuan County, Jiangxi Province.
-                Famous for the spectacular "Shaiqiu" (晒秋) - the tradition of sun-drying crops on bamboo racks that creates
-                a kaleidoscope of colors against the white-walled Huizhou architecture. Even in winter, the village offers
+                Famous for the spectacular "Shaiqiu" (晒秋) - the tradition of sun-drying crops on bamboo racks that
+                creates
+                a kaleidoscope of colors against the white-walled Huizhou architecture. Even in winter, the village
+                offers
                 breathtaking views and authentic rural Chinese life.
             </div>
 
@@ -765,8 +850,10 @@
                     </div>
                     <div class="attraction-body">
                         <p class="attraction-description">
-                            A 500-year-old cliff-side village with well-preserved Huizhou architecture. White walls, black tiles,
-                            and wooden galleries built into the mountainside. The iconic sun-drying displays continue year-round.
+                            A 500-year-old cliff-side village with well-preserved Huizhou architecture. White walls,
+                            black tiles,
+                            and wooden galleries built into the mountainside. The iconic sun-drying displays continue
+                            year-round.
                         </p>
                         <div class="attraction-details">
                             <div class="detail-row">
@@ -787,13 +874,16 @@
                         </div>
                         <div class="getting-there">
                             <h4>🚌 How to Get There</h4>
-                            <p>From Shangrao: Train to Wuyuan Station (~35-50 mins), then scenic bus to Huangling (~50 mins, ¥20). Or direct taxi ~2 hours.</p>
+                            <p>From Shangrao: Train to Wuyuan Station (~35-50 mins), then scenic bus to Huangling (~50
+                                mins, ¥20). Or direct taxi ~2 hours.</p>
                         </div>
                         <div class="tip-box">
                             <h4>💡 Pro Tips</h4>
-                            <p>Stay overnight in the village for sunset and sunrise photos. Winter means fewer tourists - enjoy peaceful walks. The cable car ride itself offers great views!</p>
+                            <p>Stay overnight in the village for sunset and sunrise photos. Winter means fewer tourists
+                                - enjoy peaceful walks. The cable car ride itself offers great views!</p>
                         </div>
-                        <span class="photo-spot">📸 Best Photos: Overhead village view, sun-drying displays, misty mornings</span>
+                        <span class="photo-spot">📸 Best Photos: Overhead village view, sun-drying displays, misty
+                            mornings</span>
                         <span class="time-needed">⏱️ 4-6 hours (or overnight)</span>
                     </div>
                 </div>
@@ -806,8 +896,10 @@
                     </div>
                     <div class="attraction-body">
                         <p class="attraction-description">
-                            The main pedestrian street running through Huangling village at 500m elevation. Lined with traditional shops,
-                            tea houses, and local crafts. Glass-floored sections offer thrilling views down the cliff face.
+                            The main pedestrian street running through Huangling village at 500m elevation. Lined with
+                            traditional shops,
+                            tea houses, and local crafts. Glass-floored sections offer thrilling views down the cliff
+                            face.
                         </p>
                         <div class="attraction-details">
                             <div class="detail-row">
@@ -828,9 +920,11 @@
                         </div>
                         <div class="tip-box">
                             <h4>💡 Pro Tips</h4>
-                            <p>Try the local osmanthus cake and wild honey. The glass-bottom viewpoint can be slippery - wear good shoes. Great spot for sunset photos!</p>
+                            <p>Try the local osmanthus cake and wild honey. The glass-bottom viewpoint can be slippery -
+                                wear good shoes. Great spot for sunset photos!</p>
                         </div>
-                        <span class="photo-spot">📸 Best Photos: Glass walkway selfie, mountain backdrop at sunset</span>
+                        <span class="photo-spot">📸 Best Photos: Glass walkway selfie, mountain backdrop at
+                            sunset</span>
                         <span class="time-needed">⏱️ 1-2 hours</span>
                     </div>
                 </div>
@@ -843,7 +937,8 @@
                     </div>
                     <div class="attraction-body">
                         <p class="attraction-description">
-                            Multiple viewing platforms scattered around the village offer stunning panoramic views of terraced fields,
+                            Multiple viewing platforms scattered around the village offer stunning panoramic views of
+                            terraced fields,
                             surrounding mountains, and the village architecture from different angles.
                         </p>
                         <div class="attraction-details">
@@ -865,7 +960,8 @@
                         </div>
                         <div class="tip-box">
                             <h4>💡 Pro Tips</h4>
-                            <p>The east-facing platform is best for sunrise. Bring a tripod for long exposures of misty mountains. Winter mornings can be cold - layer up!</p>
+                            <p>The east-facing platform is best for sunrise. Bring a tripod for long exposures of misty
+                                mountains. Winter mornings can be cold - layer up!</p>
                         </div>
                         <span class="photo-spot">📸 Best Photos: Sea of clouds, sunrise silhouettes</span>
                         <span class="time-needed">⏱️ 1-2 hours</span>
@@ -881,7 +977,8 @@
                     <div class="attraction-body">
                         <p class="attraction-description">
                             While famous for spring rapeseed flowers, the terraced fields remain photogenic year-round.
-                            In winter, the geometric patterns of the terraces contrast beautifully against bare trees and village rooftops.
+                            In winter, the geometric patterns of the terraces contrast beautifully against bare trees
+                            and village rooftops.
                         </p>
                         <div class="attraction-details">
                             <div class="detail-row">
@@ -902,9 +999,11 @@
                         </div>
                         <div class="tip-box">
                             <h4>💡 Pro Tips</h4>
-                            <p>December won't have the famous yellow rapeseed flowers, but winter landscapes can be equally stunning, especially with morning frost or mist.</p>
+                            <p>December won't have the famous yellow rapeseed flowers, but winter landscapes can be
+                                equally stunning, especially with morning frost or mist.</p>
                         </div>
-                        <span class="photo-spot">📸 Best Photos: Terraced patterns from above, frost-covered fields</span>
+                        <span class="photo-spot">📸 Best Photos: Terraced patterns from above, frost-covered
+                            fields</span>
                         <span class="time-needed">⏱️ 1-2 hours</span>
                     </div>
                 </div>
@@ -921,9 +1020,16 @@
                 </div>
             </div>
 
+            <div style="margin-bottom: 2rem; text-align: center;">
+                <img src="images/wangxiangu_poster.png" alt="Wangxiangu Cliff Village Travel Poster"
+                    style="width: 100%; max-width: 600px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+            </div>
+
             <div class="location-intro">
-                Wangxiangu (Fairy Valley) is a dramatic gorge in Shangrao's Guangfeng District. Known for its towering cliff faces,
-                crystal-clear streams, and traditional cliff-side dwellings carved into the rock. A perfect destination for nature lovers
+                Wangxiangu (Fairy Valley) is a dramatic gorge in Shangrao's Guangfeng District. Known for its towering
+                cliff faces,
+                crystal-clear streams, and traditional cliff-side dwellings carved into the rock. A perfect destination
+                for nature lovers
                 seeking adventure and authentic mountain scenery away from typical tourist routes.
             </div>
 
@@ -937,8 +1043,10 @@
                     </div>
                     <div class="attraction-body">
                         <p class="attraction-description">
-                            A spectacular valley with towering cliffs, waterfalls, and traditional cliff-carved dwellings.
-                            The main attraction features wooden walkways along cliff faces and through caves, offering thrilling views.
+                            A spectacular valley with towering cliffs, waterfalls, and traditional cliff-carved
+                            dwellings.
+                            The main attraction features wooden walkways along cliff faces and through caves, offering
+                            thrilling views.
                         </p>
                         <div class="attraction-details">
                             <div class="detail-row">
@@ -959,11 +1067,13 @@
                         </div>
                         <div class="getting-there">
                             <h4>🚌 How to Get There</h4>
-                            <p>From Shangrao: Direct bus ~1 hour (¥30). Or taxi/car share. Located in Guangfeng District.</p>
+                            <p>From Shangrao: Direct bus ~1 hour (¥30). Or taxi/car share. Located in Guangfeng
+                                District.</p>
                         </div>
                         <div class="tip-box">
                             <h4>💡 Pro Tips</h4>
-                            <p>Wear sturdy hiking shoes - trails can be steep and uneven. The cliff walkways require some fitness. Bring snacks as dining options are limited.</p>
+                            <p>Wear sturdy hiking shoes - trails can be steep and uneven. The cliff walkways require
+                                some fitness. Bring snacks as dining options are limited.</p>
                         </div>
                         <span class="photo-spot">📸 Best Photos: Cliff walkways, valley panoramas, waterfall</span>
                         <span class="time-needed">⏱️ 4-5 hours</span>
@@ -978,8 +1088,10 @@
                     </div>
                     <div class="attraction-body">
                         <p class="attraction-description">
-                            Unique dwellings built into the cliff face, showcasing traditional Chinese mountain architecture.
-                            Some have been converted to simple guesthouses where visitors can experience authentic cliff living.
+                            Unique dwellings built into the cliff face, showcasing traditional Chinese mountain
+                            architecture.
+                            Some have been converted to simple guesthouses where visitors can experience authentic cliff
+                            living.
                         </p>
                         <div class="attraction-details">
                             <div class="detail-row">
@@ -995,7 +1107,8 @@
                         </div>
                         <div class="tip-box">
                             <h4>💡 Pro Tips</h4>
-                            <p>If staying overnight, try to book a cliff-side room for a unique experience. Basic amenities but incredible atmosphere.</p>
+                            <p>If staying overnight, try to book a cliff-side room for a unique experience. Basic
+                                amenities but incredible atmosphere.</p>
                         </div>
                         <span class="photo-spot">📸 Best Photos: Houses against cliff backdrop</span>
                         <span class="time-needed">⏱️ 1 hour</span>
@@ -1010,7 +1123,8 @@
                     </div>
                     <div class="attraction-body">
                         <p class="attraction-description">
-                            Multiple waterfalls cascade through the valley, with the main waterfall being particularly impressive after rain.
+                            Multiple waterfalls cascade through the valley, with the main waterfall being particularly
+                            impressive after rain.
                             Crystal-clear pools at the base are perfect for photos.
                         </p>
                         <div class="attraction-details">
@@ -1027,7 +1141,8 @@
                         </div>
                         <div class="tip-box">
                             <h4>💡 Pro Tips</h4>
-                            <p>Winter flow may be reduced, but pools remain scenic. Waterproof jacket useful for spray near falls.</p>
+                            <p>Winter flow may be reduced, but pools remain scenic. Waterproof jacket useful for spray
+                                near falls.</p>
                         </div>
                         <span class="photo-spot">📸 Best Photos: Long exposure waterfall shots</span>
                         <span class="time-needed">⏱️ 30-60 mins</span>
@@ -1046,9 +1161,16 @@
                 </div>
             </div>
 
+            <div style="margin-bottom: 2rem; text-align: center;">
+                <img src="images/suzhou_poster.png" alt="Suzhou Gardens Travel Poster"
+                    style="width: 100%; max-width: 600px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+            </div>
+
             <div class="location-intro">
-                "Venice of the East" - Suzhou is famous for its exquisite classical gardens (UNESCO World Heritage), ancient water towns,
-                and silk heritage dating back 5,000 years. Located in Jiangsu Province, it perfectly balances ancient charm with modern prosperity.
+                "Venice of the East" - Suzhou is famous for its exquisite classical gardens (UNESCO World Heritage),
+                ancient water towns,
+                and silk heritage dating back 5,000 years. Located in Jiangsu Province, it perfectly balances ancient
+                charm with modern prosperity.
             </div>
 
             <div class="attractions-grid">
@@ -1061,8 +1183,10 @@
                     </div>
                     <div class="attraction-body">
                         <p class="attraction-description">
-                            China's most famous classical garden and UNESCO World Heritage Site. Built in 1509, spanning 5.2 hectares
-                            with interconnected pools, pavilions, and rockeries. A masterpiece of Ming Dynasty landscape design.
+                            China's most famous classical garden and UNESCO World Heritage Site. Built in 1509, spanning
+                            5.2 hectares
+                            with interconnected pools, pavilions, and rockeries. A masterpiece of Ming Dynasty landscape
+                            design.
                         </p>
                         <div class="attraction-details">
                             <div class="detail-row">
@@ -1087,9 +1211,11 @@
                         </div>
                         <div class="tip-box">
                             <h4>💡 Pro Tips</h4>
-                            <p>Arrive at opening to enjoy peaceful gardens before tour groups. Get an audio guide (¥20) to understand the design philosophy. Allow 2+ hours to explore properly.</p>
+                            <p>Arrive at opening to enjoy peaceful gardens before tour groups. Get an audio guide (¥20)
+                                to understand the design philosophy. Allow 2+ hours to explore properly.</p>
                         </div>
-                        <span class="photo-spot">📸 Best Photos: Reflection in central pool, moon gates, covered bridges</span>
+                        <span class="photo-spot">📸 Best Photos: Reflection in central pool, moon gates, covered
+                            bridges</span>
                         <span class="time-needed">⏱️ 2-3 hours</span>
                     </div>
                 </div>
@@ -1102,7 +1228,8 @@
                     </div>
                     <div class="attraction-body">
                         <p class="attraction-description">
-                            Famous for its extraordinary labyrinth of Taihu rockeries shaped like playful lions. Built in 1342 as a Zen Buddhist garden.
+                            Famous for its extraordinary labyrinth of Taihu rockeries shaped like playful lions. Built
+                            in 1342 as a Zen Buddhist garden.
                             The most fun and interactive of Suzhou's gardens.
                         </p>
                         <div class="attraction-details">
@@ -1128,7 +1255,8 @@
                         </div>
                         <div class="tip-box">
                             <h4>💡 Pro Tips</h4>
-                            <p>Explore the rock maze - it's surprisingly challenging! Try to find all 9 lion-shaped rocks. Emperor Qianlong visited 6 times and loved it.</p>
+                            <p>Explore the rock maze - it's surprisingly challenging! Try to find all 9 lion-shaped
+                                rocks. Emperor Qianlong visited 6 times and loved it.</p>
                         </div>
                         <span class="photo-spot">📸 Best Photos: Rock formations, maze pathways</span>
                         <span class="time-needed">⏱️ 1-1.5 hours</span>
@@ -1143,7 +1271,8 @@
                     </div>
                     <div class="attraction-body">
                         <p class="attraction-description">
-                            Designed by world-famous architect I.M. Pei (his final major project). A stunning fusion of traditional Suzhou architecture
+                            Designed by world-famous architect I.M. Pei (his final major project). A stunning fusion of
+                            traditional Suzhou architecture
                             with modern design. Houses beautiful collections of paintings, calligraphy, and artifacts.
                         </p>
                         <div class="attraction-details">
@@ -1169,7 +1298,8 @@
                         </div>
                         <div class="tip-box">
                             <h4>💡 Pro Tips</h4>
-                            <p>⚠️ Book free tickets on WeChat mini-program "苏州博物馆" at least a week ahead - very popular! The building itself is the highlight. Don't miss the rock garden.</p>
+                            <p>⚠️ Book free tickets on WeChat mini-program "苏州博物馆" at least a week ahead - very popular!
+                                The building itself is the highlight. Don't miss the rock garden.</p>
                         </div>
                         <span class="photo-spot">📸 Best Photos: Interior architecture, rock garden reflection</span>
                         <span class="time-needed">⏱️ 1.5-2 hours</span>
@@ -1184,7 +1314,8 @@
                     </div>
                     <div class="attraction-body">
                         <p class="attraction-description">
-                            An 800-year-old canal-side street that preserves the authentic atmosphere of old Suzhou. White-washed walls,
+                            An 800-year-old canal-side street that preserves the authentic atmosphere of old Suzhou.
+                            White-washed walls,
                             arched bridges, tea houses, and boutique shops line the ancient waterway.
                         </p>
                         <div class="attraction-details">
@@ -1210,7 +1341,8 @@
                         </div>
                         <div class="tip-box">
                             <h4>💡 Pro Tips</h4>
-                            <p>Try the famous Suzhou snacks: pine nut candy, pickled ginger, and osmanthus-flavored treats. Boat rides available ~¥30. Perfect for a relaxed evening stroll.</p>
+                            <p>Try the famous Suzhou snacks: pine nut candy, pickled ginger, and osmanthus-flavored
+                                treats. Boat rides available ~¥30. Perfect for a relaxed evening stroll.</p>
                         </div>
                         <span class="photo-spot">📸 Best Photos: Canals with arched bridges, night lanterns</span>
                         <span class="time-needed">⏱️ 1.5-2 hours</span>
@@ -1225,7 +1357,8 @@
                     </div>
                     <div class="attraction-body">
                         <p class="attraction-description">
-                            A historic site with 2,500 years of history, featuring the iconic leaning Yunyan Pagoda (China's "Leaning Tower").
+                            A historic site with 2,500 years of history, featuring the iconic leaning Yunyan Pagoda
+                            (China's "Leaning Tower").
                             Legends say a white tiger guarded the tomb of King He Lu here.
                         </p>
                         <div class="attraction-details">
@@ -1251,7 +1384,8 @@
                         </div>
                         <div class="tip-box">
                             <h4>💡 Pro Tips</h4>
-                            <p>The pagoda leans 3.5° - more than the Tower of Pisa! Su Dongpo said "Coming to Suzhou without seeing Tiger Hill is a lifelong regret."</p>
+                            <p>The pagoda leans 3.5° - more than the Tower of Pisa! Su Dongpo said "Coming to Suzhou
+                                without seeing Tiger Hill is a lifelong regret."</p>
                         </div>
                         <span class="photo-spot">📸 Best Photos: Leaning pagoda, Sword Pool</span>
                         <span class="time-needed">⏱️ 2-3 hours</span>
@@ -1270,9 +1404,16 @@
                 </div>
             </div>
 
+            <div style="margin-bottom: 2rem; text-align: center;">
+                <img src="images/shanghai_poster.png" alt="Shanghai Skyline Travel Poster"
+                    style="width: 100%; max-width: 600px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+            </div>
+
             <div class="location-intro">
-                China's largest city and global financial hub. Shanghai dazzles with its colonial architecture on the Bund, futuristic Pudong skyline,
-                historic lane houses, and world-class dining. Ring in the New Year 2026 in this dynamic metropolis where East meets West!
+                China's largest city and global financial hub. Shanghai dazzles with its colonial architecture on the
+                Bund, futuristic Pudong skyline,
+                historic lane houses, and world-class dining. Ring in the New Year 2026 in this dynamic metropolis where
+                East meets West!
             </div>
 
             <div class="attractions-grid">
@@ -1285,7 +1426,8 @@
                     </div>
                     <div class="attraction-body">
                         <p class="attraction-description">
-                            Shanghai's most iconic waterfront promenade along the Huangpu River. Features 52 historic colonial-era buildings
+                            Shanghai's most iconic waterfront promenade along the Huangpu River. Features 52 historic
+                            colonial-era buildings
                             on the west side and spectacular views of the Pudong skyline across the river.
                         </p>
                         <div class="attraction-details">
@@ -1307,11 +1449,13 @@
                         </div>
                         <div class="getting-there">
                             <h4>🚇 How to Get There</h4>
-                            <p>Metro Line 2/10 to Nanjing Road East Station, walk east. Or Line 2 to Lujiazui for Pudong side view.</p>
+                            <p>Metro Line 2/10 to Nanjing Road East Station, walk east. Or Line 2 to Lujiazui for Pudong
+                                side view.</p>
                         </div>
                         <div class="tip-box">
                             <h4>💡 Pro Tips</h4>
-                            <p>🎆 **NYE Special**: Major crowds but worth it for New Year's countdown! Arrive early (5 PM) to secure a spot. The skyline light show is spectacular.</p>
+                            <p>🎆 **NYE Special**: Major crowds but worth it for New Year's countdown! Arrive early (5
+                                PM) to secure a spot. The skyline light show is spectacular.</p>
                         </div>
                         <span class="photo-spot">📸 Best Photos: Night skyline, historic buildings, rooftop bars</span>
                         <span class="time-needed">⏱️ 1-2 hours</span>
@@ -1327,7 +1471,8 @@
                     </div>
                     <div class="attraction-body">
                         <p class="attraction-description">
-                            A 400-year-old Ming Dynasty garden in the heart of Shanghai's old town. Classic Jiangnan-style architecture
+                            A 400-year-old Ming Dynasty garden in the heart of Shanghai's old town. Classic
+                            Jiangnan-style architecture
                             with the surrounding bazaar perfect for souvenirs, snacks, and experiencing old Shanghai.
                         </p>
                         <div class="attraction-details">
@@ -1353,7 +1498,8 @@
                         </div>
                         <div class="tip-box">
                             <h4>💡 Pro Tips</h4>
-                            <p>Try Nanxiang xiaolongbao (soup dumplings) at the original shop in the bazaar. The garden is small but exquisite. Evening lanterns make the bazaar magical!</p>
+                            <p>Try Nanxiang xiaolongbao (soup dumplings) at the original shop in the bazaar. The garden
+                                is small but exquisite. Evening lanterns make the bazaar magical!</p>
                         </div>
                         <span class="photo-spot">📸 Best Photos: Dragon wall, Huxinting Tea House, night bazaar</span>
                         <span class="time-needed">⏱️ 2-3 hours (garden + bazaar)</span>
@@ -1368,7 +1514,8 @@
                     </div>
                     <div class="attraction-body">
                         <p class="attraction-description">
-                            The world's longest shopping district at 5.5km. The pedestrian section (East Nanjing Road) is a dazzling stretch
+                            The world's longest shopping district at 5.5km. The pedestrian section (East Nanjing Road)
+                            is a dazzling stretch
                             of neon lights, department stores, and street performers leading to the Bund.
                         </p>
                         <div class="attraction-details">
@@ -1394,7 +1541,8 @@
                         </div>
                         <div class="tip-box">
                             <h4>💡 Pro Tips</h4>
-                            <p>Walk the ~1km pedestrian stretch from People's Square to the Bund. Watch out for tourist traps. The "train" tram is fun for kids/photos.</p>
+                            <p>Walk the ~1km pedestrian stretch from People's Square to the Bund. Watch out for tourist
+                                traps. The "train" tram is fun for kids/photos.</p>
                         </div>
                         <span class="photo-spot">📸 Best Photos: Neon signs at night, historic buildings</span>
                         <span class="time-needed">⏱️ 1-2 hours</span>
@@ -1409,7 +1557,8 @@
                     </div>
                     <div class="attraction-body">
                         <p class="attraction-description">
-                            Shanghai's most charming neighborhood with tree-lined avenues, colonial-era villas, trendy cafes,
+                            Shanghai's most charming neighborhood with tree-lined avenues, colonial-era villas, trendy
+                            cafes,
                             boutique shops, and excellent restaurants. Perfect for a leisurely stroll.
                         </p>
                         <div class="attraction-details">
@@ -1435,7 +1584,8 @@
                         </div>
                         <div class="tip-box">
                             <h4>💡 Pro Tips</h4>
-                            <p>Walk along Wukang Road, Anfu Road, or Yongkang Road for the best vibes. Stop at Fuxing Park for people-watching. Great area for brunch!</p>
+                            <p>Walk along Wukang Road, Anfu Road, or Yongkang Road for the best vibes. Stop at Fuxing
+                                Park for people-watching. Great area for brunch!</p>
                         </div>
                         <span class="photo-spot">📸 Best Photos: Wukang Mansion, plane tree-lined streets</span>
                         <span class="time-needed">⏱️ 2-4 hours</span>
@@ -1450,8 +1600,10 @@
                     </div>
                     <div class="attraction-body">
                         <p class="attraction-description">
-                            The tallest building in China (632m) and second tallest in the world. The observation deck on the 118th floor
-                            (546m) offers unparalleled views of Shanghai. The world's fastest elevators zoom up in 55 seconds.
+                            The tallest building in China (632m) and second tallest in the world. The observation deck
+                            on the 118th floor
+                            (546m) offers unparalleled views of Shanghai. The world's fastest elevators zoom up in 55
+                            seconds.
                         </p>
                         <div class="attraction-details">
                             <div class="detail-row">
@@ -1476,7 +1628,8 @@
                         </div>
                         <div class="tip-box">
                             <h4>💡 Pro Tips</h4>
-                            <p>Book tickets online in advance! Clear weather is essential for views - check forecast. The interactive exhibits inside are also excellent.</p>
+                            <p>Book tickets online in advance! Clear weather is essential for views - check forecast.
+                                The interactive exhibits inside are also excellent.</p>
                         </div>
                         <span class="photo-spot">📸 Best Photos: Bund from above, three towers together</span>
                         <span class="time-needed">⏱️ 1.5-2 hours</span>
@@ -1491,7 +1644,8 @@
                     </div>
                     <div class="attraction-body">
                         <p class="attraction-description">
-                            A maze of narrow alleyways in the former French Concession filled with art studios, craft shops, cafes, and bars.
+                            A maze of narrow alleyways in the former French Concession filled with art studios, craft
+                            shops, cafes, and bars.
                             Traditional shikumen (stone gate) houses converted into a bohemian enclave.
                         </p>
                         <div class="attraction-details">
@@ -1517,7 +1671,8 @@
                         </div>
                         <div class="tip-box">
                             <h4>💡 Pro Tips</h4>
-                            <p>Get lost on purpose - the best finds are down random alleys! Good for unique souvenirs. Can get very crowded on weekends.</p>
+                            <p>Get lost on purpose - the best finds are down random alleys! Good for unique souvenirs.
+                                Can get very crowded on weekends.</p>
                         </div>
                         <span class="photo-spot">📸 Best Photos: Narrow lanes, quirky shops, local life</span>
                         <span class="time-needed">⏱️ 1.5-2 hours</span>
@@ -1536,10 +1691,18 @@
                 </div>
             </div>
 
+            <div style="margin-bottom: 2rem; text-align: center;">
+                <img src="images/guangzhou_poster.png" alt="Guangzhou Canton Tower Travel Poster"
+                    style="width: 100%; max-width: 600px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+            </div>
+
             <div class="location-intro">
-                ⚠️ <strong>Long layover alert!</strong> With a 23.5-hour overnight transfer in Guangzhou, you have time to explore!
-                Guangzhou (Canton) is the birthplace of Cantonese cuisine and dim sum. As the largest city in South China,
-                it offers colonial history on Shamian Island, the iconic Canton Tower, and incredible food at every corner.
+                ⚠️ <strong>Long layover alert!</strong> With a 23.5-hour overnight transfer in Guangzhou, you have time
+                to explore!
+                Guangzhou (Canton) is the birthplace of Cantonese cuisine and dim sum. As the largest city in South
+                China,
+                it offers colonial history on Shamian Island, the iconic Canton Tower, and incredible food at every
+                corner.
             </div>
 
             <div class="attractions-grid">
@@ -1552,8 +1715,10 @@
                     </div>
                     <div class="attraction-body">
                         <p class="attraction-description">
-                            A tranquil sandbank island with well-preserved European colonial architecture from the 19th century.
-                            Tree-lined boulevards, French and British buildings, and a peaceful escape from the bustling city.
+                            A tranquil sandbank island with well-preserved European colonial architecture from the 19th
+                            century.
+                            Tree-lined boulevards, French and British buildings, and a peaceful escape from the bustling
+                            city.
                         </p>
                         <div class="attraction-details">
                             <div class="detail-row">
@@ -1578,7 +1743,8 @@
                         </div>
                         <div class="tip-box">
                             <h4>💡 Pro Tips</h4>
-                            <p>Perfect for a morning stroll before your flight. The White Swan Hotel has a nice lobby cafe. Great for colonial architecture photography.</p>
+                            <p>Perfect for a morning stroll before your flight. The White Swan Hotel has a nice lobby
+                                cafe. Great for colonial architecture photography.</p>
                         </div>
                         <span class="photo-spot">📸 Best Photos: Colonial buildings, banyan tree-lined paths</span>
                         <span class="time-needed">⏱️ 1-2 hours</span>
@@ -1619,7 +1785,8 @@
                         </div>
                         <div class="tip-box">
                             <h4>💡 Pro Tips</h4>
-                            <p>Book tickets online for discount. The bubble tram Ferris wheel is unique! Night views of the Pearl River are stunning.</p>
+                            <p>Book tickets online for discount. The bubble tram Ferris wheel is unique! Night views of
+                                the Pearl River are stunning.</p>
                         </div>
                         <span class="photo-spot">📸 Best Photos: Night lighting, from Huacheng Square</span>
                         <span class="time-needed">⏱️ 2-3 hours</span>
@@ -1634,7 +1801,8 @@
                     </div>
                     <div class="attraction-body">
                         <p class="attraction-description">
-                            Guangzhou is THE birthplace of dim sum culture. Experience authentic "yum cha" (drinking tea) with endless
+                            Guangzhou is THE birthplace of dim sum culture. Experience authentic "yum cha" (drinking
+                            tea) with endless
                             varieties of dumplings, buns, and small dishes. A must-do in the city!
                         </p>
                         <div class="attraction-details">
@@ -1656,7 +1824,8 @@
                         </div>
                         <div class="tip-box">
                             <h4>💡 Pro Tips</h4>
-                            <p>Famous spots: Lian Xiang Lou (莲香楼), Guangzhou Restaurant (广州酒家), Diandude (点都德). Go early - locals queue before 7 AM! Must-try: har gow, siu mai, char siu bao.</p>
+                            <p>Famous spots: Lian Xiang Lou (莲香楼), Guangzhou Restaurant (广州酒家), Diandude (点都德). Go early
+                                - locals queue before 7 AM! Must-try: har gow, siu mai, char siu bao.</p>
                         </div>
                         <span class="photo-spot">📸 Best Photos: Bamboo steamer towers, tea service</span>
                         <span class="time-needed">⏱️ 1.5-2 hours</span>
@@ -1671,7 +1840,8 @@
                     </div>
                     <div class="attraction-body">
                         <p class="attraction-description">
-                            A stunning example of traditional Lingnan architecture built in 1894. The complex features intricate
+                            A stunning example of traditional Lingnan architecture built in 1894. The complex features
+                            intricate
                             carvings, ceramics, and houses the Guangdong Folk Art Museum.
                         </p>
                         <div class="attraction-details">
@@ -1697,7 +1867,8 @@
                         </div>
                         <div class="tip-box">
                             <h4>💡 Pro Tips</h4>
-                            <p>Look up at the incredible roof decorations! The woodcarvings and Shiwan pottery are museum quality. Budget 1 hour for detailed exploration.</p>
+                            <p>Look up at the incredible roof decorations! The woodcarvings and Shiwan pottery are
+                                museum quality. Budget 1 hour for detailed exploration.</p>
                         </div>
                         <span class="photo-spot">📸 Best Photos: Roof sculptures, interior courtyard</span>
                         <span class="time-needed">⏱️ 1-1.5 hours</span>
@@ -1715,4 +1886,5 @@
     </footer>
 
 </body>
+
 </html>
