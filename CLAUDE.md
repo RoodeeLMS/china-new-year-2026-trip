@@ -32,12 +32,21 @@
 
 ```
 ├── index.html                    # Main trip website (9 sections)
-├── README.md                     # AI agent instructions (THIS)
+├── README.md                     # AI agent instructions
 ├── CLAUDE.md                     # Project memory (THIS)
-└── Flight/
-    ├── Flight_1_Outbound.md      # Dec 25, 2025 details
-    ├── Flight_2_Return.md        # Jan 2-4, 2026 details
-    └── Screenshot_*.jpg          # Booking confirmations
+├── Flight/
+│   ├── Flight_1_Outbound.md      # Dec 25 outbound details
+│   ├── Flight_2_Return.md        # Jan 2-4 return details
+│   └── Screenshot_*.jpg          # Flight booking confirmations
+├── Hotel/
+│   ├── Hotel_*_booking.md        # Hotel booking details
+│   └── Hotel_*_booking.pdf       # Hotel booking confirmations
+└── Train/
+    ├── Train_1_Hangzhou_to_Wuyuan.md    # Dec 27 train
+    ├── Train_2_Wuyuan_to_Shangrao.md    # Dec 28 train
+    ├── Train_3_Shangrao_to_Shanghai.md  # Dec 29 AM train
+    ├── Train_4_Shanghai_to_Suzhou.md    # Dec 29 PM train
+    └── Train_*_booking.jpg              # Train booking confirmations
 ```
 
 ---
@@ -51,10 +60,10 @@
 4. ✅ **Transportation** - COMPLETE (verified routing, Shangrao→Huangling 2h via Wuyuan)
 5. ✅ **Bookings Page** - COMPLETE (5 flights + 8 hotels with contact info)
 6. ✅ **Home Page** - REDESIGNED (Trip Overview with stats, hotel grid, city route timeline, daily cards)
-7. ⏳ **Dining** - TODO (restaurants to add)
-8. ⏳ **Budget** - TODO (cost tracking)
-9. ⏳ **Practical Info** - TODO (visa, weather, insurance)
-10. ⏳ **Packing List** - TODO (pre-trip checklist)
+7. ✅ **Dining** - COMPLETE (Recommendations & specialties drafted)
+8. ✅ **Budget** - COMPLETE (Cost breakdown & estimates drafted)
+9. ✅ **Practical Info** - COMPLETE (Visa, apps, weather drafted)
+10. ✅ **Packing List** - COMPLETE (Winter checklist drafted)
 
 ---
 
@@ -98,6 +107,34 @@ This ensures bookings are searchable and documented, not just stored as images.
 | **Suzhou** | Novotel Suzhou SIP | Dec 29 | 1 | ✅ Booked | Free cancellation until Dec 29 |
 | **Shanghai** | Tianhua Hotel (People's Plaza) | Dec 30 | 3 | ✅ Booked | ฿10,994.46 (2 rooms), **NO breakfast** ⚠️ |
 | **Guangzhou** | TBD | Jan 3 | 1 | ⏳ Needed | 23.5h overnight layover return flight |
+
+---
+
+## 🚄 Train Bookings Summary
+
+**4/5 Trains Booked (16 tickets total for 4 passengers) + 1 Pending:**
+
+| # | Date | Route | Train | Depart | Order # | Total | Status |
+|---|------|-------|-------|--------|---------|-------|--------|
+| 1 | Dec 27 | Hangzhou East → Wuyuan | G1509 | 09:33 | E903575237 | ¥618 | ✅ Booked |
+| 2 | Dec 28 | Wuyuan → Shangrao | G1669 | 10:54 | E908947845 | ¥158 | ✅ Booked |
+| 3 | Dec 29 | Shangrao → Shanghai Hongqiao | G412 | 11:02 | E904086447 | ¥1,100 | ✅ Booked |
+| 4 | Dec 29 | Shanghai Hongqiao → Suzhou | D3006 | 13:53 | E947844235 | ¥124 | ✅ Booked |
+| 5 | Dec 30 | Suzhou → Shanghai Hongqiao | TBD | Morning | - | ~¥120-160 | ⏳ Book on day |
+
+**Passengers:** CHAMNONG NICK, ATHITHANATHAWORN THANAKORN, CHAMNONG ARPAPORN, SONTHILUG AEKKALAG
+**Confirmed Train Cost:** ¥2,000 (RMB)
+**Est. Train 5 Cost:** ~¥30-40/person × 4 = ~¥120-160
+**Booking Source:** 12306.cn
+
+**Note:** Train 5 (Suzhou → Shanghai) will be booked on the day - trains run every 10-20 minutes, ~30 min journey
+
+**Files:**
+- `Train/Train_1_Hangzhou_to_Wuyuan.md` - Dec 27 details
+- `Train/Train_2_Wuyuan_to_Shangrao.md` - Dec 28 details
+- `Train/Train_3_Shangrao_to_Shanghai.md` - Dec 29 AM details
+- `Train/Train_4_Shanghai_to_Suzhou.md` - Dec 29 PM details
+- `Train/Train_*_booking.jpg` - Original booking confirmations
 
 ---
 
@@ -147,5 +184,5 @@ This ensures bookings are searchable and documented, not just stored as images.
 
 ---
 
-**Last Updated:** November 12, 2025
+**Last Updated:** December 19, 2025
 **Created by:** Claude Code AI
