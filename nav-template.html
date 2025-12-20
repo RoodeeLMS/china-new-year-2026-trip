@@ -7,19 +7,21 @@
 <!-- Navigation Bar -->
 <nav class="navbar">
     <div class="navbar-container">
-        <a href="index.html" class="navbar-brand">🌍 China 2026</a>
+        <a href="index.html" class="navbar-brand">🏮 春节 2026</a>
         <button class="menu-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu">☰</button>
         <div class="navbar-menu" id="navMenu">
             <a href="index.html" class="navbar-item">Home</a>
-            <a href="flights.html" class="navbar-item active">Flights</a>
+            <a href="flights.html" class="navbar-item">Flights</a>
             <a href="accommodation.html" class="navbar-item">Hotels</a>
-            <a href="itinerary.html" class="navbar-item">Activities</a>
+            <a href="itinerary.html" class="navbar-item">Itinerary</a>
+            <a href="attractions.html" class="navbar-item">Attractions</a>
             <a href="dining.html" class="navbar-item">Food</a>
             <a href="budget.html" class="navbar-item">Budget</a>
             <a href="practical.html" class="navbar-item">Practical</a>
             <a href="transportation.html" class="navbar-item">Transport</a>
             <a href="packing.html" class="navbar-item">Packing</a>
             <a href="bookings.html" class="navbar-item">Bookings</a>
+            <a href="ai-reviews.html" class="navbar-item">AI Reviews</a>
         </div>
     </div>
 </nav>
@@ -149,10 +151,10 @@
     }
 
     // Close mobile menu when a link is clicked
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
         const navItems = document.querySelectorAll('.navbar-item');
         navItems.forEach(item => {
-            item.addEventListener('click', function() {
+            item.addEventListener('click', function () {
                 const menu = document.getElementById('navMenu');
                 menu.classList.remove('mobile-open');
             });
@@ -160,7 +162,7 @@
     });
 
     // Close menu when clicking outside
-    document.addEventListener('click', function(event) {
+    document.addEventListener('click', function (event) {
         const navbar = document.querySelector('.navbar');
         const menu = document.getElementById('navMenu');
         const toggle = document.querySelector('.menu-toggle');
