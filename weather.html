@@ -695,7 +695,7 @@
         };
 
         // Fetch weather from QWeather API (using personalized subdomain for 30-day forecast)
-        async function fetchQWeather(locationId, date) {
+        async function fetchQWeather(locationId, date, city) {
             const endpoints = [
                 { url: 'https://nv7aaqbdwy.re.qweatherapi.com/v7/weather/30d', name: 'QWeather 30d' },
                 { url: 'https://devapi.qweather.com/v7/weather/7d', name: 'QWeather 7d' }
@@ -715,7 +715,7 @@
                             console.log(`✅ ${endpoint.name} success for ${date}`);
                             // Add metadata about the source
                             forecast._source = endpoint.name;
-                            forecast._locationQuery = locationId;
+                            forecast._locationQuery = `${city} (${locationId})`;
                             forecast._dateQuery = date;
                             return forecast;
                         }
@@ -765,7 +765,7 @@
                             uvIndex: Math.round(data.daily.uv_index_max[dateIndex]),
                             // Add metadata about the source
                             _source: 'Open-Meteo',
-                            _locationQuery: `${coords.lat}, ${coords.lon}`,
+                            _locationQuery: `${city} (${coords.lat}, ${coords.lon})`,
                             _dateQuery: date
                         };
                     }
@@ -779,7 +779,7 @@
         // Main fetch function - tries QWeather first, falls back to Open-Meteo
         async function fetchDailyWeather(locationId, date, city) {
             // Try QWeather first
-            let weather = await fetchQWeather(locationId, date);
+            let weather = await fetchQWeather(locationId, date, city);
             if (weather) return weather;
 
             // Fallback to Open-Meteo
