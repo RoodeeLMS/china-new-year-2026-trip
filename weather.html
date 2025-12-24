@@ -182,12 +182,15 @@
             border-left: 5px solid var(--weather-blue);
             position: relative;
             overflow: hidden;
-            cursor: pointer;
         }
 
         .weather-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .weather-card > div:first-child {
+            cursor: pointer;
         }
 
         .weather-card::before {
@@ -441,6 +444,142 @@
             color: var(--weather-blue);
         }
 
+        /* Hourly Forecast Styles */
+        .hourly-forecast {
+            margin-top: 15px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid #e9ecef;
+        }
+
+        .hourly-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 15px;
+            background: linear-gradient(135deg, var(--weather-blue) 0%, #2196F3 100%);
+            color: white;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .hourly-header:hover {
+            background: linear-gradient(135deg, #3a80c9 0%, #1976D2 100%);
+        }
+
+        .hourly-toggle {
+            transition: transform 0.3s ease;
+        }
+
+        .hourly-forecast.expanded .hourly-toggle {
+            transform: rotate(180deg);
+        }
+
+        .hourly-content {
+            display: none;
+            padding: 15px;
+        }
+
+        .hourly-forecast.expanded .hourly-content {
+            display: block;
+        }
+
+        .hourly-timeline {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            padding: 10px 0;
+            scrollbar-width: thin;
+            scrollbar-color: var(--weather-blue) #e9ecef;
+        }
+
+        .hourly-timeline::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        .hourly-timeline::-webkit-scrollbar-track {
+            background: #e9ecef;
+            border-radius: 3px;
+        }
+
+        .hourly-timeline::-webkit-scrollbar-thumb {
+            background: var(--weather-blue);
+            border-radius: 3px;
+        }
+
+        .hour-item {
+            flex-shrink: 0;
+            text-align: center;
+            padding: 10px 12px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+            min-width: 70px;
+            transition: transform 0.2s ease;
+        }
+
+        .hour-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+        }
+
+        .hour-time {
+            font-size: 0.75rem;
+            color: #666;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .hour-icon {
+            font-size: 1.5rem;
+            margin: 5px 0;
+        }
+
+        .hour-temp {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #333;
+        }
+
+        .hour-precip {
+            font-size: 0.7rem;
+            color: #4A90D9;
+            margin-top: 3px;
+        }
+
+        .hour-wind {
+            font-size: 0.65rem;
+            color: #888;
+        }
+
+        .hourly-note {
+            margin-top: 10px;
+            font-size: 0.75rem;
+            color: #888;
+            text-align: center;
+        }
+
+        .hourly-warning {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 10px 12px;
+            margin-bottom: 12px;
+            color: #856404;
+            font-size: 0.8rem;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .hourly-unavailable {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            border-radius: 8px;
+            padding: 12px;
+            margin-top: 12px;
+            color: #856404;
+            font-size: 0.85rem;
+        }
+
         @media (max-width: 600px) {
             .weather-grid {
                 grid-template-columns: 1fr;
@@ -453,6 +592,15 @@
 
             .weather-stats {
                 justify-content: center;
+            }
+
+            .hour-item {
+                min-width: 60px;
+                padding: 8px 10px;
+            }
+
+            .hour-icon {
+                font-size: 1.2rem;
             }
         }
     </style>
@@ -526,8 +674,9 @@
 
         <div class="data-source">
             Weather data provided by <a href="https://www.qweather.com/" target="_blank">QWeather</a> API
+            with <a href="https://open-meteo.com/" target="_blank">Open-Meteo</a> fallback
             <br>
-            <small>Forecast updates automatically • Last updated: <span id="lastUpdate">Loading...</span></small>
+            <small>Daily + 24-hour hourly forecasts • Last updated: <span id="lastUpdate">Loading...</span></small>
         </div>
     </div>
 
@@ -776,6 +925,158 @@
             return null;
         }
 
+        // ========== HOURLY FORECAST FUNCTIONS ==========
+
+        // Format time from ISO string to "2:00 PM"
+        function formatHourTime(fxTime) {
+            const date = new Date(fxTime);
+            return date.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true });
+        }
+
+        // Fetch hourly weather from QWeather API
+        async function fetchQWeatherHourly(locationId, city) {
+            const endpoints = [
+                { url: 'https://nv7aaqbdwy.re.qweatherapi.com/v7/weather/24h', name: 'QWeather 24h' },
+                { url: 'https://api.qweather.com/v7/weather/24h', name: 'QWeather API 24h' }
+            ];
+
+            for (const endpoint of endpoints) {
+                const url = `${endpoint.url}?location=${locationId}&key=${QWEATHER_CONFIG.apiKey}&lang=${QWEATHER_CONFIG.lang}&unit=${QWEATHER_CONFIG.unit}`;
+
+                try {
+                    console.log(`Trying ${endpoint.name} hourly for ${city}`);
+                    const response = await fetch(url);
+                    const data = await response.json();
+
+                    if (data.code === '200' && data.hourly) {
+                        console.log(`✅ ${endpoint.name} hourly success for ${city}`);
+                        return {
+                            hourly: data.hourly,
+                            _source: endpoint.name,
+                            _locationQuery: `${city} (${locationId})`
+                        };
+                    }
+                } catch (error) {
+                    console.warn(`${endpoint.name} hourly error:`, error.message);
+                }
+            }
+            return null;
+        }
+
+        // Fetch hourly weather from Open-Meteo (fallback)
+        async function fetchOpenMeteoHourly(city) {
+            const coords = CITY_LAT_LON[city];
+            if (!coords) return null;
+
+            try {
+                const url = `https://api.open-meteo.com/v1/forecast?latitude=${coords.lat}&longitude=${coords.lon}&hourly=temperature_2m,precipitation_probability,weather_code,wind_speed_10m&timezone=Asia/Shanghai&forecast_days=2`;
+
+                console.log(`Trying Open-Meteo hourly for ${city}`);
+                const response = await fetch(url);
+                const data = await response.json();
+
+                if (data.hourly) {
+                    // Convert Open-Meteo hourly to QWeather-like format
+                    const weatherCodes = {
+                        0: 'Clear', 1: 'Mainly clear', 2: 'Partly cloudy', 3: 'Overcast',
+                        45: 'Foggy', 48: 'Foggy', 51: 'Light drizzle', 53: 'Drizzle', 55: 'Dense drizzle',
+                        61: 'Slight rain', 63: 'Rain', 65: 'Heavy rain',
+                        71: 'Light snow', 73: 'Snow', 75: 'Heavy snow',
+                        80: 'Rain showers', 81: 'Rain showers', 82: 'Heavy showers',
+                        95: 'Thunderstorm', 96: 'Thunderstorm', 99: 'Thunderstorm'
+                    };
+
+                    const hourlyData = data.hourly.time.slice(0, 24).map((time, i) => ({
+                        fxTime: time,
+                        temp: Math.round(data.hourly.temperature_2m[i]),
+                        text: weatherCodes[data.hourly.weather_code[i]] || 'Partly cloudy',
+                        pop: data.hourly.precipitation_probability[i] || 0,
+                        windSpeed: Math.round(data.hourly.wind_speed_10m[i])
+                    }));
+
+                    console.log(`✅ Open-Meteo hourly success for ${city}`);
+                    return {
+                        hourly: hourlyData,
+                        _source: 'Open-Meteo Hourly',
+                        _locationQuery: `${city} (${coords.lat}, ${coords.lon})`
+                    };
+                }
+            } catch (error) {
+                console.warn(`Open-Meteo hourly error:`, error.message);
+            }
+            return null;
+        }
+
+        // Main hourly fetch - tries QWeather first, falls back to Open-Meteo
+        async function fetchHourlyWeather(locationId, city) {
+            // Try QWeather first
+            let hourlyData = await fetchQWeatherHourly(locationId, city);
+            if (hourlyData) return hourlyData;
+
+            // Fallback to Open-Meteo
+            hourlyData = await fetchOpenMeteoHourly(city);
+            return hourlyData;
+        }
+
+        // Create hourly timeline HTML
+        function createHourlyTimeline(hourlyResult, dayDate) {
+            if (!hourlyResult || !hourlyResult.hourly || hourlyResult.hourly.length === 0) {
+                return `
+                    <div class="hourly-unavailable">
+                        <strong>ℹ️ 24-Hour Forecast Unavailable</strong><br>
+                        <small>Hourly forecasts require connection to weather API. Daily forecast above is still accurate.</small>
+                    </div>
+                `;
+            }
+
+            const hourlyData = hourlyResult.hourly;
+            const displayHours = hourlyData.slice(0, 24);
+
+            // Check if this is current conditions (future date vs today)
+            const today = new Date().toISOString().split('T')[0];
+            const isCurrentConditions = dayDate !== today;
+
+            let timelineHTML = `
+                <div class="hourly-forecast">
+                    <div class="hourly-header" onclick="this.parentElement.classList.toggle('expanded')">
+                        <strong>📊 24-Hour Forecast${isCurrentConditions ? ' (Current Conditions)' : ''}</strong>
+                        <span class="hourly-toggle">▼</span>
+                    </div>
+                    <div class="hourly-content">
+                        ${isCurrentConditions ? '<div class="hourly-warning"><strong>⚠️ Note:</strong> Hourly data shows current weather conditions (next 24 hours from now), not the forecast for this specific date. Daily forecast above is accurate for this date.</div>' : ''}
+                        <div class="hourly-timeline">
+            `;
+
+            displayHours.forEach(hour => {
+                const icon = getWeatherIcon(hour.text);
+                const time = formatHourTime(hour.fxTime);
+                const temp = hour.temp;
+                const precipProb = hour.pop;
+                const wind = hour.windSpeed;
+
+                timelineHTML += `
+                    <div class="hour-item">
+                        <div class="hour-time">${time}</div>
+                        <div class="hour-icon">${icon}</div>
+                        <div class="hour-temp">${temp}°C</div>
+                        <div class="hour-precip">${precipProb}% 💧</div>
+                        <div class="hour-wind">${wind}km/h</div>
+                    </div>
+                `;
+            });
+
+            timelineHTML += `
+                        </div>
+                        <div class="hourly-note">
+                            <em>📡 ${hourlyResult._source} | 📍 ${hourlyResult._locationQuery} | Scroll to see all 24 hours →</em>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            return timelineHTML;
+        }
+
         // Main fetch function - tries QWeather first, falls back to Open-Meteo
         async function fetchDailyWeather(locationId, date, city) {
             // Try QWeather first
@@ -788,7 +1089,7 @@
         }
 
         // Create weather card HTML
-        function createDayCard(dayInfo, weatherData) {
+        function createDayCard(dayInfo, weatherData, hourlyHtml = '') {
             const temp = weatherData
                 ? `${weatherData.tempMin}°C - ${weatherData.tempMax}°C`
                 : '--°C';
@@ -807,37 +1108,40 @@
             const uvIndex = weatherData ? weatherData.uvIndex : '--';
 
             return `
-                <div class="weather-card" onclick="window.location.href='itinerary.html#day-${dayInfo.day}'">
-                    <div class="day-header">
-                        <div class="day-info">
-                            <div class="day-number">Day ${dayInfo.day}</div>
-                            <div class="day-date">${dayInfo.dateDisplay}</div>
-                            <div class="day-location">${dayInfo.location} ${dayInfo.locationChinese}</div>
+                <div class="weather-card">
+                    <div onclick="window.location.href='itinerary.html#day-${dayInfo.day}'">
+                        <div class="day-header">
+                            <div class="day-info">
+                                <div class="day-number">Day ${dayInfo.day}</div>
+                                <div class="day-date">${dayInfo.dateDisplay}</div>
+                                <div class="day-location">${dayInfo.location} ${dayInfo.locationChinese}</div>
+                            </div>
+                            <div class="weather-icon">${weatherIcon}</div>
                         </div>
-                        <div class="weather-icon">${weatherIcon}</div>
-                    </div>
-                    <div class="weather-main">
-                        <div class="temperature">
-                            <div class="temp-range">${temp}</div>
-                        </div>
-                        <div class="weather-details">
-                            <div class="weather-condition">${condition}</div>
-                            <div class="weather-stats">
-                                <span class="weather-stat">💧 ${precip}</span>
-                                <span class="weather-stat">💨 ${wind}</span>
-                                <span class="weather-stat">☀️ UV ${uvIndex}</span>
+                        <div class="weather-main">
+                            <div class="temperature">
+                                <div class="temp-range">${temp}</div>
+                            </div>
+                            <div class="weather-details">
+                                <div class="weather-condition">${condition}</div>
+                                <div class="weather-stats">
+                                    <span class="weather-stat">💧 ${precip}</span>
+                                    <span class="weather-stat">💨 ${wind}</span>
+                                    <span class="weather-stat">☀️ UV ${uvIndex}</span>
+                                </div>
                             </div>
                         </div>
+                        <div class="day-summary">${dayInfo.summary}</div>
+                        <div class="day-weather-extra">
+                            <span title="Humidity">💦 Humidity: ${humidity}</span>
+                        </div>
+                        <div class="weather-source">
+                            ${weatherData && weatherData._source
+                                ? `📡 <strong>${weatherData._source}</strong> | 📍 ${weatherData._locationQuery} | 📅 ${weatherData._dateQuery}`
+                                : '⚠️ No data available'}
+                        </div>
                     </div>
-                    <div class="day-summary">${dayInfo.summary}</div>
-                    <div class="day-weather-extra">
-                        <span title="Humidity">💦 Humidity: ${humidity}</span>
-                    </div>
-                    <div class="weather-source">
-                        ${weatherData && weatherData._source
-                            ? `📡 <strong>${weatherData._source}</strong> | 📍 ${weatherData._locationQuery} | 📅 ${weatherData._dateQuery}`
-                            : '⚠️ No data available'}
-                    </div>
+                    ${hourlyHtml}
                 </div>
             `;
         }
@@ -853,16 +1157,22 @@
                     const locationId = CITY_COORDS[dayInfo.city] || CITY_LOCATIONS[dayInfo.city];
 
                     if (!locationId) {
-                        cards.push(createDayCard(dayInfo, null));
+                        cards.push(createDayCard(dayInfo, null, ''));
                         continue;
                     }
 
+                    // Fetch daily weather
                     const weatherData = await fetchDailyWeather(locationId, dayInfo.date, dayInfo.city);
-                    cards.push(createDayCard(dayInfo, weatherData));
+
+                    // Fetch hourly weather
+                    const hourlyData = await fetchHourlyWeather(locationId, dayInfo.city);
+                    const hourlyHtml = createHourlyTimeline(hourlyData, dayInfo.date);
+
+                    cards.push(createDayCard(dayInfo, weatherData, hourlyHtml));
 
                 } catch (error) {
                     console.error(`Error fetching weather for Day ${dayInfo.day}:`, error);
-                    cards.push(createDayCard(dayInfo, null));
+                    cards.push(createDayCard(dayInfo, null, ''));
                 }
             }
 
