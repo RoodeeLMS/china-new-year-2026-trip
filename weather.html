@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Forecast - China New Year 2026 Trip</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --primary-red: #C41E3A;
+            --accent-gold: #D4AF37;
+            --deep-navy: #1a1a2e;
+            --warm-cream: #FFF8F0;
+            --weather-blue: #4A90D9;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #E3F2FD 0%, #BBDEFB 50%, #E1F5FE 100%);
+            min-height: 100vh;
+            padding: 0;
+            color: #2D2D2D;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            background: linear-gradient(135deg, var(--deep-navy) 0%, #16213e 100%);
+            padding: 15px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .navbar-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            position: relative;
+        }
+
+        .navbar-brand {
+            color: var(--accent-gold);
+            font-family: 'Noto Serif SC', serif;
+            font-size: 1.3em;
+            font-weight: 700;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .navbar-menu {
+            display: flex;
+            gap: 3px;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+
+        .navbar-item {
+            color: white;
+            text-decoration: none;
+            padding: 8px 12px;
+            border-radius: 4px;
+            transition: 0.3s;
+            font-size: 0.85em;
+            white-space: nowrap;
+        }
+
+        .navbar-item:hover {
+            background: rgba(212, 175, 55, 0.2);
+            color: var(--accent-gold);
+        }
+
+        .navbar-item.active {
+            background: linear-gradient(135deg, var(--weather-blue), #2196F3);
+            color: white;
+            font-weight: bold;
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5em;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        @media (max-width: 900px) {
+            .navbar-item {
+                font-size: 0.8em;
+                padding: 6px 10px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                flex-direction: column;
+                gap: 0;
+                background: linear-gradient(135deg, var(--deep-navy) 0%, #16213e 100%);
+                padding: 10px 0;
+                max-height: calc(100vh - 60px);
+                overflow-y: auto;
+            }
+
+            .navbar-menu.mobile-open {
+                display: flex;
+            }
+
+            .navbar-item {
+                padding: 12px 20px;
+                border-radius: 0;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                font-size: 0.95em;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+        }
+
+        .page-header {
+            background: linear-gradient(135deg, var(--weather-blue) 0%, #2196F3 50%, #1976D2 100%);
+            padding: 3rem 2rem;
+            text-align: center;
+            color: white;
+        }
+
+        .page-header h1 {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .page-header p {
+            font-size: 1.1em;
+            opacity: 0.95;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 30px 20px;
+        }
+
+        .weather-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .weather-card {
+            background: white;
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border-left: 5px solid var(--weather-blue);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .weather-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .weather-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, rgba(74, 144, 217, 0.1), transparent);
+            border-radius: 0 16px 0 100px;
+        }
+
+        .day-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+
+        .day-info {
+            flex: 1;
+        }
+
+        .day-number {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--weather-blue);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+
+        .day-date {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 8px;
+        }
+
+        .day-location {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .weather-icon {
+            font-size: 3rem;
+            opacity: 0.9;
+        }
+
+        .weather-main {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin: 20px 0;
+            padding: 15px;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-radius: 12px;
+        }
+
+        .temperature {
+            text-align: center;
+        }
+
+        .temp-range {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #333;
+            line-height: 1;
+        }
+
+        .weather-details {
+            flex: 1;
+        }
+
+        .weather-condition {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .weather-stats {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .weather-stat {
+            font-size: 0.85rem;
+            color: #666;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .day-summary {
+            font-size: 0.9rem;
+            color: #555;
+            line-height: 1.6;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #666;
+            grid-column: 1 / -1;
+        }
+
+        .loading-spinner {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid var(--weather-blue);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 15px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .weather-legend {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+        }
+
+        .weather-legend h3 {
+            color: var(--weather-blue);
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+
+        .legend-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+        }
+
+        .legend-icon {
+            font-size: 1.5rem;
+        }
+
+        .packing-tips {
+            background: linear-gradient(135deg, #FFF3E0, #FFE0B2);
+            border-radius: 12px;
+            padding: 25px;
+            margin-top: 30px;
+        }
+
+        .packing-tips h3 {
+            color: #E65100;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .packing-tips ul {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 10px;
+        }
+
+        .packing-tips li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .packing-tips li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #E65100;
+            font-weight: bold;
+        }
+
+        .data-source {
+            text-align: center;
+            margin-top: 30px;
+            padding: 15px;
+            background: rgba(255,255,255,0.7);
+            border-radius: 8px;
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        .data-source a {
+            color: var(--weather-blue);
+            text-decoration: none;
+        }
+
+        .data-source a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--deep-navy) 0%, #16213e 100%);
+            color: white;
+            text-align: center;
+            padding: 25px 20px;
+            margin-top: 40px;
+        }
+
+        footer p {
+            margin-bottom: 8px;
+            font-size: 1em;
+        }
+
+        footer .sub {
+            font-size: 0.9em;
+            opacity: 0.8;
+        }
+
+        .day-weather-extra {
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        @media (max-width: 600px) {
+            .weather-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .weather-main {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .weather-stats {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="index.html" class="navbar-brand">🏮 春节 2026</a>
+            <button class="menu-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu">☰</button>
+            <div class="navbar-menu" id="navMenu">
+                <a href="index.html" class="navbar-item">Home</a>
+                <a href="flights.html" class="navbar-item">Flights</a>
+                <a href="accommodation.html" class="navbar-item">Hotels</a>
+                <a href="itinerary.html" class="navbar-item">Itinerary</a>
+                <a href="attractions.html" class="navbar-item">Attractions</a>
+                <a href="dining.html" class="navbar-item">Dining</a>
+                <a href="transportation.html" class="navbar-item">Transport</a>
+                <a href="weather.html" class="navbar-item active">Weather</a>
+                <a href="budget.html" class="navbar-item">Budget</a>
+                <a href="packing.html" class="navbar-item">Packing</a>
+                <a href="practical.html" class="navbar-item">Practical</a>
+                <a href="bookings.html" class="navbar-item">Bookings</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <h1>🌤️ Weather Forecast</h1>
+        <p>Daily weather conditions for each destination • Dec 25, 2025 - Jan 4, 2026</p>
+    </header>
+
+    <div class="container">
+        <!-- Weather Legend -->
+        <div class="weather-legend">
+            <h3>Weather Icons Guide</h3>
+            <div class="legend-items">
+                <div class="legend-item"><span class="legend-icon">☀️</span> Clear/Sunny</div>
+                <div class="legend-item"><span class="legend-icon">⛅</span> Partly Cloudy</div>
+                <div class="legend-item"><span class="legend-icon">☁️</span> Cloudy</div>
+                <div class="legend-item"><span class="legend-icon">🌧️</span> Rain</div>
+                <div class="legend-item"><span class="legend-icon">❄️</span> Snow</div>
+                <div class="legend-item"><span class="legend-icon">🌫️</span> Fog/Mist</div>
+            </div>
+        </div>
+
+        <!-- Weather Cards Grid -->
+        <div class="weather-grid" id="weatherGrid">
+            <div class="loading">
+                <div class="loading-spinner"></div>
+                <p>Loading weather data from QWeather...</p>
+            </div>
+        </div>
+
+        <!-- Packing Tips based on Weather -->
+        <div class="packing-tips">
+            <h3>🧥 Weather-Based Packing Essentials</h3>
+            <ul>
+                <li><strong>Layered clothing:</strong> Temperatures range 3-15°C</li>
+                <li><strong>Warm jacket:</strong> Essential for mountain areas</li>
+                <li><strong>Waterproof layer:</strong> Light rain possible</li>
+                <li><strong>Warm hat & gloves:</strong> For cold mornings</li>
+                <li><strong>Comfortable walking shoes:</strong> Waterproof preferred</li>
+                <li><strong>Scarf:</strong> Wind protection in open areas</li>
+                <li><strong>Thermal underwear:</strong> For Huangling mountain village</li>
+                <li><strong>Umbrella:</strong> Compact travel umbrella</li>
+            </ul>
+        </div>
+
+        <div class="data-source">
+            Weather data provided by <a href="https://www.qweather.com/" target="_blank">QWeather</a> API
+            <br>
+            <small>Forecast updates automatically • Last updated: <span id="lastUpdate">Loading...</span></small>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>China New Year Trip 2026 • Dec 25, 2025 - Jan 4, 2026</p>
+        <p class="sub">🏮 春节快乐 • Happy Chinese New Year! 🏮</p>
+    </footer>
+
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('navMenu');
+            menu.classList.toggle('mobile-open');
+        }
+
+        // QWeather API Configuration
+        const QWEATHER_CONFIG = {
+            apiKey: 'e575336e2b114523acfd1f3c8c2f362a',
+            lang: 'en',
+            unit: 'm'
+        };
+
+        // City location IDs for QWeather
+        const CITY_LOCATIONS = {
+            'hangzhou': '101210101',
+            'wuyuan': '101240405',
+            'huangling': '101240405', // Same as Wuyuan area
+            'wangxiangu': '101240301', // Shangrao area
+            'suzhou': '101190401',
+            'shanghai': '101020100',
+            'guangzhou': '101280101'
+        };
+
+        // Coordinate overrides for precise locations
+        const CITY_COORDS = {
+            'hangzhou': '120.155,30.274',
+            'huangling': '117.945,29.352',
+            'wangxiangu': '117.689,28.455',
+            'suzhou': '120.585,31.299',
+            'shanghai': '121.474,31.230',
+            'guangzhou': '113.264,23.129'
+        };
+
+        // Trip days with locations
+        const DAILY_ITINERARY = [
+            {
+                day: 1,
+                date: '2025-12-25',
+                dateDisplay: 'Thu, Dec 25',
+                city: 'hangzhou',
+                location: 'Hangzhou',
+                locationChinese: '杭州',
+                summary: 'Arrival day via Guangzhou. Check into Sofitel West Lake and explore the area.'
+            },
+            {
+                day: 2,
+                date: '2025-12-26',
+                dateDisplay: 'Fri, Dec 26',
+                city: 'hangzhou',
+                location: 'Hangzhou',
+                locationChinese: '杭州',
+                summary: 'Full day exploring West Lake, Lingyin Temple, and Longjing Tea Village.'
+            },
+            {
+                day: 3,
+                date: '2025-12-27',
+                dateDisplay: 'Sat, Dec 27',
+                city: 'huangling',
+                location: 'Huangling',
+                locationChinese: '篁岭',
+                summary: 'Train to Wuyuan, then scenic bus to Huangling mountain village. Sunset photography.'
+            },
+            {
+                day: 4,
+                date: '2025-12-28',
+                dateDisplay: 'Sun, Dec 28',
+                city: 'wangxiangu',
+                location: 'Wangxiangu',
+                locationChinese: '望仙谷',
+                summary: 'Explore Wangxiangu Valley with glass bridges and cliff-side walks.'
+            },
+            {
+                day: 5,
+                date: '2025-12-29',
+                dateDisplay: 'Mon, Dec 29',
+                city: 'suzhou',
+                location: 'Suzhou',
+                locationChinese: '苏州',
+                summary: 'Train via Shanghai to Suzhou. Visit classical gardens and old town.'
+            },
+            {
+                day: 6,
+                date: '2025-12-30',
+                dateDisplay: 'Tue, Dec 30',
+                city: 'shanghai',
+                location: 'Shanghai',
+                locationChinese: '上海',
+                summary: 'Morning in Suzhou, then train to Shanghai. Evening at The Bund.'
+            },
+            {
+                day: 7,
+                date: '2025-12-31',
+                dateDisplay: 'Wed, Dec 31',
+                city: 'shanghai',
+                location: 'Shanghai',
+                locationChinese: '上海',
+                summary: 'New Year\'s Eve! Yu Garden, Nanjing Road, NYE countdown at The Bund.'
+            },
+            {
+                day: 8,
+                date: '2026-01-01',
+                dateDisplay: 'Thu, Jan 1',
+                city: 'shanghai',
+                location: 'Shanghai',
+                locationChinese: '上海',
+                summary: 'New Year\'s Day. French Concession, Tianzifang, evening at Lujiazui.'
+            },
+            {
+                day: 9,
+                date: '2026-01-02',
+                dateDisplay: 'Fri, Jan 2',
+                city: 'shanghai',
+                location: 'Shanghai',
+                locationChinese: '上海',
+                summary: 'Last morning in Shanghai. Evening flight to Guangzhou for overnight layover.'
+            },
+            {
+                day: 10,
+                date: '2026-01-03',
+                dateDisplay: 'Sat, Jan 3',
+                city: 'guangzhou',
+                location: 'Guangzhou',
+                locationChinese: '广州',
+                summary: 'Explore Guangzhou during 23.5h layover. Evening flight back to Bangkok.'
+            }
+        ];
+
+        // Get weather icon from condition text
+        function getWeatherIcon(condition) {
+            const iconMap = {
+                'sunny': '☀️',
+                'clear': '🌙',
+                'partly cloudy': '⛅',
+                'cloudy': '☁️',
+                'overcast': '☁️',
+                'shower': '🌧️',
+                'rain': '🌧️',
+                'thunderstorm': '⛈️',
+                'snow': '❄️',
+                'fog': '🌫️',
+                'haze': '😶‍🌫️'
+            };
+            const key = Object.keys(iconMap).find(k => condition.toLowerCase().includes(k));
+            return iconMap[key] || '🌤️';
+        }
+
+        // Fetch weather from QWeather API
+        async function fetchDailyWeather(locationId, date) {
+            const baseUrl = 'https://devapi.qweather.com/v7/weather/7d';
+            const url = `${baseUrl}?location=${locationId}&key=${QWEATHER_CONFIG.apiKey}&lang=${QWEATHER_CONFIG.lang}&unit=${QWEATHER_CONFIG.unit}`;
+
+            try {
+                const response = await fetch(url);
+                const data = await response.json();
+
+                if (data.code === '200') {
+                    const forecast = data.daily.find(day => day.fxDate === date);
+                    return forecast;
+                } else {
+                    console.warn('QWeather API returned:', data.code);
+                    return null;
+                }
+            } catch (error) {
+                console.error('Fetch error:', error);
+                return null;
+            }
+        }
+
+        // Create weather card HTML
+        function createDayCard(dayInfo, weatherData) {
+            const temp = weatherData
+                ? `${weatherData.tempMin}°C - ${weatherData.tempMax}°C`
+                : '--°C';
+
+            const weatherIcon = weatherData && weatherData.textDay
+                ? getWeatherIcon(weatherData.textDay)
+                : '🌤️';
+
+            const condition = weatherData && weatherData.textDay
+                ? `☀️ ${weatherData.textDay} / 🌙 ${weatherData.textNight}`
+                : 'Loading forecast...';
+
+            const precip = weatherData ? `${weatherData.precip || 0}mm` : '--';
+            const humidity = weatherData ? `${weatherData.humidity}%` : '--';
+            const wind = weatherData ? `${weatherData.windSpeedDay}km/h ${weatherData.windDirDay}` : '--';
+            const uvIndex = weatherData ? weatherData.uvIndex : '--';
+
+            return `
+                <div class="weather-card" onclick="window.location.href='itinerary.html#day-${dayInfo.day}'">
+                    <div class="day-header">
+                        <div class="day-info">
+                            <div class="day-number">Day ${dayInfo.day}</div>
+                            <div class="day-date">${dayInfo.dateDisplay}</div>
+                            <div class="day-location">${dayInfo.location} ${dayInfo.locationChinese}</div>
+                        </div>
+                        <div class="weather-icon">${weatherIcon}</div>
+                    </div>
+                    <div class="weather-main">
+                        <div class="temperature">
+                            <div class="temp-range">${temp}</div>
+                        </div>
+                        <div class="weather-details">
+                            <div class="weather-condition">${condition}</div>
+                            <div class="weather-stats">
+                                <span class="weather-stat">💧 ${precip}</span>
+                                <span class="weather-stat">💨 ${wind}</span>
+                                <span class="weather-stat">☀️ UV ${uvIndex}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="day-summary">${dayInfo.summary}</div>
+                    <div class="day-weather-extra">
+                        <span title="Humidity">💦 Humidity: ${humidity}</span>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Generate all weather cards
+        async function generateWeatherCards() {
+            const container = document.getElementById('weatherGrid');
+
+            const cards = [];
+
+            for (const dayInfo of DAILY_ITINERARY) {
+                try {
+                    const locationId = CITY_COORDS[dayInfo.city] || CITY_LOCATIONS[dayInfo.city];
+
+                    if (!locationId) {
+                        cards.push(createDayCard(dayInfo, null));
+                        continue;
+                    }
+
+                    const weatherData = await fetchDailyWeather(locationId, dayInfo.date);
+                    cards.push(createDayCard(dayInfo, weatherData));
+
+                } catch (error) {
+                    console.error(`Error fetching weather for Day ${dayInfo.day}:`, error);
+                    cards.push(createDayCard(dayInfo, null));
+                }
+            }
+
+            container.innerHTML = cards.join('');
+            document.getElementById('lastUpdate').textContent = new Date().toLocaleString();
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', generateWeatherCards);
+    </script>
+</body>
+
+</html>
