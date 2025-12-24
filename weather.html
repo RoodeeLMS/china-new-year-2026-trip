@@ -428,6 +428,19 @@
             color: #666;
         }
 
+        .weather-source {
+            margin-top: 12px;
+            padding-top: 10px;
+            border-top: 1px dashed #ddd;
+            font-size: 0.75rem;
+            color: #888;
+            line-height: 1.4;
+        }
+
+        .weather-source strong {
+            color: var(--weather-blue);
+        }
+
         @media (max-width: 600px) {
             .weather-grid {
                 grid-template-columns: 1fr;
@@ -684,27 +697,31 @@
         // Fetch weather from QWeather API (using personalized subdomain for 30-day forecast)
         async function fetchQWeather(locationId, date) {
             const endpoints = [
-                'https://nv7aaqbdwy.re.qweatherapi.com/v7/weather/30d',
-                'https://devapi.qweather.com/v7/weather/7d'
+                { url: 'https://nv7aaqbdwy.re.qweatherapi.com/v7/weather/30d', name: 'QWeather 30d' },
+                { url: 'https://devapi.qweather.com/v7/weather/7d', name: 'QWeather 7d' }
             ];
 
-            for (const baseUrl of endpoints) {
-                const url = `${baseUrl}?location=${locationId}&key=${QWEATHER_CONFIG.apiKey}&lang=${QWEATHER_CONFIG.lang}&unit=${QWEATHER_CONFIG.unit}`;
+            for (const endpoint of endpoints) {
+                const url = `${endpoint.url}?location=${locationId}&key=${QWEATHER_CONFIG.apiKey}&lang=${QWEATHER_CONFIG.lang}&unit=${QWEATHER_CONFIG.unit}`;
 
                 try {
-                    console.log(`Trying QWeather: ${baseUrl}`);
+                    console.log(`Trying ${endpoint.name}: ${endpoint.url}`);
                     const response = await fetch(url);
                     const data = await response.json();
 
                     if (data.code === '200' && data.daily) {
                         const forecast = data.daily.find(day => day.fxDate === date);
                         if (forecast) {
-                            console.log(`✅ QWeather success for ${date}`);
+                            console.log(`✅ ${endpoint.name} success for ${date}`);
+                            // Add metadata about the source
+                            forecast._source = endpoint.name;
+                            forecast._locationQuery = locationId;
+                            forecast._dateQuery = date;
                             return forecast;
                         }
                     }
                 } catch (error) {
-                    console.warn(`QWeather error:`, error.message);
+                    console.warn(`${endpoint.name} error:`, error.message);
                 }
             }
             return null;
@@ -745,7 +762,11 @@
                             humidity: data.daily.precipitation_probability_max[dateIndex] || 0,
                             windSpeedDay: Math.round(data.daily.wind_speed_10m_max[dateIndex]),
                             windDirDay: '',
-                            uvIndex: Math.round(data.daily.uv_index_max[dateIndex])
+                            uvIndex: Math.round(data.daily.uv_index_max[dateIndex]),
+                            // Add metadata about the source
+                            _source: 'Open-Meteo',
+                            _locationQuery: `${coords.lat}, ${coords.lon}`,
+                            _dateQuery: date
                         };
                     }
                 }
@@ -811,6 +832,11 @@
                     <div class="day-summary">${dayInfo.summary}</div>
                     <div class="day-weather-extra">
                         <span title="Humidity">💦 Humidity: ${humidity}</span>
+                    </div>
+                    <div class="weather-source">
+                        ${weatherData && weatherData._source
+                            ? `📡 <strong>${weatherData._source}</strong> | 📍 ${weatherData._locationQuery} | 📅 ${weatherData._dateQuery}`
+                            : '⚠️ No data available'}
                     </div>
                 </div>
             `;
