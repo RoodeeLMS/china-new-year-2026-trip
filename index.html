@@ -1323,15 +1323,28 @@
         // ========== COUNTDOWN TIMER ==========
         const tripEvents = [
             {
-                id: 'flight-out',
+                id: 'flight-bkk-can',
                 type: 'flight',
                 icon: '✈️',
-                title: 'Outbound Flight Departs',
+                title: 'Flight: Bangkok → Guangzhou',
                 datetime: '2025-12-25T02:10:00+07:00', // Bangkok time
                 details: [
-                    { icon: '🛫', text: 'CZ3036: BKK → CAN (02:10 - 06:05)' },
-                    { icon: '🔄', text: '3h transfer at Guangzhou' },
-                    { icon: '🛬', text: 'CZ3803: CAN → HGH (09:10 - 11:20)' }
+                    { icon: '🛫', text: 'CZ3036: BKK → CAN' },
+                    { icon: '⏱️', text: 'Depart 02:10 → Arrive 06:05' },
+                    { icon: '⏳', text: 'Next: 3h transfer at Guangzhou' }
+                ],
+                link: 'flights.html'
+            },
+            {
+                id: 'flight-can-hgh',
+                type: 'flight',
+                icon: '✈️',
+                title: 'Flight: Guangzhou → Hangzhou',
+                datetime: '2025-12-25T09:10:00+08:00', // China time
+                details: [
+                    { icon: '🛫', text: 'CZ3803: CAN → HGH' },
+                    { icon: '⏱️', text: 'Depart 09:10 → Arrive 11:20' },
+                    { icon: '🏨', text: 'Check-in: Sofitel West Lake' }
                 ],
                 link: 'flights.html'
             },
