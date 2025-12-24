@@ -671,26 +671,99 @@
             return iconMap[key] || '🌤️';
         }
 
-        // Fetch weather from QWeather API
-        async function fetchDailyWeather(locationId, date) {
-            const baseUrl = 'https://devapi.qweather.com/v7/weather/7d';
-            const url = `${baseUrl}?location=${locationId}&key=${QWEATHER_CONFIG.apiKey}&lang=${QWEATHER_CONFIG.lang}&unit=${QWEATHER_CONFIG.unit}`;
+        // Latitude/Longitude for Open-Meteo fallback
+        const CITY_LAT_LON = {
+            'hangzhou': { lat: 30.274, lon: 120.155 },
+            'huangling': { lat: 29.352, lon: 117.945 },
+            'wangxiangu': { lat: 28.455, lon: 117.689 },
+            'suzhou': { lat: 31.299, lon: 120.585 },
+            'shanghai': { lat: 31.230, lon: 121.474 },
+            'guangzhou': { lat: 23.129, lon: 113.264 }
+        };
+
+        // Fetch weather from QWeather API (using personalized subdomain for 30-day forecast)
+        async function fetchQWeather(locationId, date) {
+            const endpoints = [
+                'https://nv7aaqbdwy.re.qweatherapi.com/v7/weather/30d',
+                'https://devapi.qweather.com/v7/weather/7d'
+            ];
+
+            for (const baseUrl of endpoints) {
+                const url = `${baseUrl}?location=${locationId}&key=${QWEATHER_CONFIG.apiKey}&lang=${QWEATHER_CONFIG.lang}&unit=${QWEATHER_CONFIG.unit}`;
+
+                try {
+                    console.log(`Trying QWeather: ${baseUrl}`);
+                    const response = await fetch(url);
+                    const data = await response.json();
+
+                    if (data.code === '200' && data.daily) {
+                        const forecast = data.daily.find(day => day.fxDate === date);
+                        if (forecast) {
+                            console.log(`✅ QWeather success for ${date}`);
+                            return forecast;
+                        }
+                    }
+                } catch (error) {
+                    console.warn(`QWeather error:`, error.message);
+                }
+            }
+            return null;
+        }
+
+        // Fallback to Open-Meteo API (free, no API key needed)
+        async function fetchOpenMeteo(city, date) {
+            const coords = CITY_LAT_LON[city];
+            if (!coords) return null;
 
             try {
+                const url = `https://api.open-meteo.com/v1/forecast?latitude=${coords.lat}&longitude=${coords.lon}&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max,wind_speed_10m_max,uv_index_max&timezone=Asia/Shanghai`;
+
+                console.log(`Trying Open-Meteo for ${city}`);
                 const response = await fetch(url);
                 const data = await response.json();
 
-                if (data.code === '200') {
-                    const forecast = data.daily.find(day => day.fxDate === date);
-                    return forecast;
-                } else {
-                    console.warn('QWeather API returned:', data.code);
-                    return null;
+                if (data.daily) {
+                    const dateIndex = data.daily.time.indexOf(date);
+                    if (dateIndex !== -1) {
+                        // Convert Open-Meteo format to QWeather-like format
+                        const weatherCodes = {
+                            0: 'Clear', 1: 'Mainly clear', 2: 'Partly cloudy', 3: 'Overcast',
+                            45: 'Foggy', 48: 'Foggy', 51: 'Light drizzle', 53: 'Drizzle', 55: 'Dense drizzle',
+                            61: 'Slight rain', 63: 'Rain', 65: 'Heavy rain',
+                            71: 'Light snow', 73: 'Snow', 75: 'Heavy snow',
+                            80: 'Rain showers', 81: 'Rain showers', 82: 'Heavy showers',
+                            95: 'Thunderstorm', 96: 'Thunderstorm', 99: 'Thunderstorm'
+                        };
+                        const code = data.daily.weather_code[dateIndex];
+                        console.log(`✅ Open-Meteo success for ${date}`);
+                        return {
+                            tempMax: Math.round(data.daily.temperature_2m_max[dateIndex]),
+                            tempMin: Math.round(data.daily.temperature_2m_min[dateIndex]),
+                            textDay: weatherCodes[code] || 'Partly cloudy',
+                            textNight: weatherCodes[code] || 'Partly cloudy',
+                            precip: 0,
+                            humidity: data.daily.precipitation_probability_max[dateIndex] || 0,
+                            windSpeedDay: Math.round(data.daily.wind_speed_10m_max[dateIndex]),
+                            windDirDay: '',
+                            uvIndex: Math.round(data.daily.uv_index_max[dateIndex])
+                        };
+                    }
                 }
             } catch (error) {
-                console.error('Fetch error:', error);
-                return null;
+                console.warn(`Open-Meteo error:`, error.message);
             }
+            return null;
+        }
+
+        // Main fetch function - tries QWeather first, falls back to Open-Meteo
+        async function fetchDailyWeather(locationId, date, city) {
+            // Try QWeather first
+            let weather = await fetchQWeather(locationId, date);
+            if (weather) return weather;
+
+            // Fallback to Open-Meteo
+            weather = await fetchOpenMeteo(city, date);
+            return weather;
         }
 
         // Create weather card HTML
@@ -758,7 +831,7 @@
                         continue;
                     }
 
-                    const weatherData = await fetchDailyWeather(locationId, dayInfo.date);
+                    const weatherData = await fetchDailyWeather(locationId, dayInfo.date, dayInfo.city);
                     cards.push(createDayCard(dayInfo, weatherData));
 
                 } catch (error) {
