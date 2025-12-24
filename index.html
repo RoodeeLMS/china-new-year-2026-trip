@@ -463,6 +463,13 @@
             color: rgba(255,255,255,0.5);
         }
 
+        .countdown-status.onboard {
+            background: linear-gradient(135deg, rgba(46, 204, 113, 0.3), rgba(39, 174, 96, 0.3));
+            color: #2ecc71;
+            animation: pulse 1.5s infinite;
+            font-weight: bold;
+        }
+
         @keyframes pulse {
             0%, 100% { opacity: 1; }
             50% { opacity: 0.6; }
@@ -1328,10 +1335,16 @@
                 icon: '✈️',
                 title: 'Flight: Bangkok → Guangzhou',
                 datetime: '2025-12-25T02:10:00+07:00', // Bangkok time
+                arrivalTime: '2025-12-25T06:05:00+08:00', // Guangzhou time
                 details: [
                     { icon: '🛫', text: 'CZ3036: BKK → CAN' },
                     { icon: '⏱️', text: 'Depart 02:10 → Arrive 06:05' },
                     { icon: '⏳', text: 'Next: 3h transfer at Guangzhou' }
+                ],
+                onboardDetails: [
+                    { icon: '✈️', text: 'Currently flying to Guangzhou' },
+                    { icon: '🛬', text: 'Landing at 06:05 (China time)' },
+                    { icon: '⏳', text: 'Next: 3h transfer, then HGH flight' }
                 ],
                 link: 'flights.html'
             },
@@ -1341,10 +1354,16 @@
                 icon: '✈️',
                 title: 'Flight: Guangzhou → Hangzhou',
                 datetime: '2025-12-25T09:10:00+08:00', // China time
+                arrivalTime: '2025-12-25T11:20:00+08:00',
                 details: [
                     { icon: '🛫', text: 'CZ3803: CAN → HGH' },
                     { icon: '⏱️', text: 'Depart 09:10 → Arrive 11:20' },
                     { icon: '🏨', text: 'Check-in: Sofitel West Lake' }
+                ],
+                onboardDetails: [
+                    { icon: '✈️', text: 'Currently flying to Hangzhou' },
+                    { icon: '🛬', text: 'Landing at 11:20' },
+                    { icon: '🏨', text: 'Next: Sofitel West Lake check-in' }
                 ],
                 link: 'flights.html'
             },
@@ -1353,11 +1372,17 @@
                 type: 'train',
                 icon: '🚄',
                 title: 'Train to Wuyuan',
-                datetime: '2025-12-27T09:33:00+08:00', // China time
+                datetime: '2025-12-27T09:33:00+08:00',
+                arrivalTime: '2025-12-27T11:08:00+08:00',
                 details: [
                     { icon: '🚉', text: 'G1509: Hangzhou East → Wuyuan' },
                     { icon: '⏱️', text: 'Duration: 1h 35m' },
                     { icon: '🎫', text: 'Order: E903575237' }
+                ],
+                onboardDetails: [
+                    { icon: '🚄', text: 'On board to Wuyuan' },
+                    { icon: '🛬', text: 'Arriving at 11:08' },
+                    { icon: '🚌', text: 'Next: Scenic bus to Huangling' }
                 ],
                 link: 'transportation.html'
             },
@@ -1367,10 +1392,16 @@
                 icon: '🚄',
                 title: 'Train to Shangrao',
                 datetime: '2025-12-28T10:54:00+08:00',
+                arrivalTime: '2025-12-28T11:17:00+08:00',
                 details: [
                     { icon: '🚉', text: 'G1669: Wuyuan → Shangrao' },
                     { icon: '⏱️', text: 'Duration: 23 min' },
                     { icon: '🎫', text: 'Order: E908947845' }
+                ],
+                onboardDetails: [
+                    { icon: '🚄', text: 'On board to Shangrao' },
+                    { icon: '🛬', text: 'Arriving at 11:17' },
+                    { icon: '🚕', text: 'Next: Transfer to Wangxiangu' }
                 ],
                 link: 'transportation.html'
             },
@@ -1380,10 +1411,16 @@
                 icon: '🚄',
                 title: 'Train to Shanghai',
                 datetime: '2025-12-29T11:02:00+08:00',
+                arrivalTime: '2025-12-29T13:13:00+08:00',
                 details: [
                     { icon: '🚉', text: 'G412: Shangrao → Shanghai Hongqiao' },
                     { icon: '⏱️', text: 'Duration: 2h 11m' },
                     { icon: '🎫', text: 'Order: E904086447' }
+                ],
+                onboardDetails: [
+                    { icon: '🚄', text: 'On board to Shanghai' },
+                    { icon: '🛬', text: 'Arriving at 13:13' },
+                    { icon: '🔄', text: 'Next: Transfer to Suzhou train' }
                 ],
                 link: 'transportation.html'
             },
@@ -1393,10 +1430,16 @@
                 icon: '🚄',
                 title: 'Train to Suzhou',
                 datetime: '2025-12-29T13:53:00+08:00',
+                arrivalTime: '2025-12-29T14:23:00+08:00',
                 details: [
                     { icon: '🚉', text: 'D3006: Shanghai Hongqiao → Suzhou' },
                     { icon: '⏱️', text: 'Duration: 30 min' },
                     { icon: '🎫', text: 'Order: E947844235' }
+                ],
+                onboardDetails: [
+                    { icon: '🚄', text: 'On board to Suzhou' },
+                    { icon: '🛬', text: 'Arriving at 14:23' },
+                    { icon: '🏨', text: 'Next: Novotel check-in' }
                 ],
                 link: 'transportation.html'
             },
@@ -1406,10 +1449,16 @@
                 icon: '🎆',
                 title: 'New Year\'s Eve Countdown!',
                 datetime: '2025-12-31T23:59:00+08:00',
+                arrivalTime: '2026-01-01T00:05:00+08:00', // Celebration ends
                 details: [
                     { icon: '📍', text: 'The Bund, Shanghai' },
                     { icon: '🎉', text: 'Ring in 2026 with fireworks!' },
                     { icon: '🏨', text: 'Stay: Tianhua Hotel' }
+                ],
+                onboardDetails: [
+                    { icon: '🎆', text: '🎉 HAPPY NEW YEAR 2026! 🎉' },
+                    { icon: '🎊', text: 'Celebrating at The Bund!' },
+                    { icon: '📸', text: 'Capture the moment!' }
                 ],
                 link: 'itinerary.html#day-7'
             },
@@ -1419,10 +1468,16 @@
                 icon: '✈️',
                 title: 'Flight to Guangzhou',
                 datetime: '2026-01-02T20:50:00+08:00',
+                arrivalTime: '2026-01-02T23:30:00+08:00',
                 details: [
                     { icon: '🛫', text: 'CZ3546: SHA → CAN (20:50 - 23:30)' },
                     { icon: '⏱️', text: 'Duration: 2h 40m' },
                     { icon: '⚠️', text: '23.5h layover ahead!' }
+                ],
+                onboardDetails: [
+                    { icon: '✈️', text: 'Flying to Guangzhou' },
+                    { icon: '🛬', text: 'Landing at 23:30' },
+                    { icon: '🏨', text: 'Next: Baiyun Coco Hotel (overnight)' }
                 ],
                 link: 'flights.html'
             },
@@ -1432,10 +1487,16 @@
                 icon: '✈️',
                 title: 'Return Flight to Bangkok',
                 datetime: '2026-01-03T23:00:00+08:00',
+                arrivalTime: '2026-01-04T01:05:00+07:00', // Bangkok time
                 details: [
                     { icon: '🛫', text: 'CZ3035: CAN → BKK (23:00 - 01:05+1)' },
                     { icon: '⏱️', text: 'Duration: 3h 5m' },
                     { icon: '🏠', text: 'Arrive Bangkok Jan 4' }
+                ],
+                onboardDetails: [
+                    { icon: '✈️', text: 'Flying home to Bangkok!' },
+                    { icon: '🛬', text: 'Landing at 01:05 (Bangkok time)' },
+                    { icon: '🏠', text: 'Welcome home! Trip complete!' }
                 ],
                 link: 'flights.html'
             }
@@ -1471,32 +1532,60 @@
             return { days, hours, minutes, seconds, isPast: false };
         }
 
-        function getStatusInfo(targetDate) {
+        function getStatusInfo(event) {
             const now = new Date();
-            const diff = targetDate - now;
+            const departureDate = new Date(event.datetime);
+            const arrivalDate = event.arrivalTime ? new Date(event.arrivalTime) : null;
+            const diff = departureDate - now;
             const hoursUntil = diff / (1000 * 60 * 60);
 
+            // Check if currently on board (after departure but before arrival)
+            if (arrivalDate && now >= departureDate && now < arrivalDate) {
+                const isFlightOrTrain = event.type === 'flight' || event.type === 'train';
+                return {
+                    class: 'onboard',
+                    text: isFlightOrTrain ? '🚀 On Board!' : '🎉 In Progress!',
+                    isOnboard: true,
+                    countdownTo: arrivalDate
+                };
+            }
+
+            // Check if completed (after arrival)
+            if (arrivalDate && now >= arrivalDate) {
+                return { class: 'past', text: 'Completed', isOnboard: false };
+            }
+
+            // Before departure
             if (diff <= 0) {
-                return { class: 'past', text: 'Completed' };
+                return { class: 'past', text: 'Completed', isOnboard: false };
             } else if (hoursUntil <= 1) {
-                return { class: 'now', text: '🔴 Starting Soon!' };
+                return { class: 'now', text: '🔴 Starting Soon!', isOnboard: false };
             } else if (hoursUntil <= 24) {
-                return { class: 'today', text: 'Today' };
+                return { class: 'today', text: 'Today', isOnboard: false };
             } else {
-                return { class: 'upcoming', text: 'Upcoming' };
+                return { class: 'upcoming', text: 'Upcoming', isOnboard: false };
             }
         }
 
         function renderCountdown() {
             const event = tripEvents[currentEventIndex];
-            const targetDate = new Date(event.datetime);
-            const countdown = getCountdown(targetDate);
-            const status = getStatusInfo(targetDate);
+            const departureDate = new Date(event.datetime);
+            const status = getStatusInfo(event);
+
+            // When on board, countdown to arrival; otherwise countdown to departure
+            const countdownTarget = status.countdownTo || departureDate;
+            const countdown = getCountdown(countdownTarget);
+
+            // Show onboard details when traveling, regular details otherwise
+            const displayDetails = status.isOnboard && event.onboardDetails ? event.onboardDetails : event.details;
 
             const card = document.getElementById('countdownCard');
-            const detailsHtml = event.details.map(d =>
+            const detailsHtml = displayDetails.map(d =>
                 `<div class="detail-row"><span>${d.icon}</span><span>${d.text}</span></div>`
             ).join('');
+
+            // Timer label changes when on board
+            const timerLabel = status.isOnboard ? 'Arriving in' : '';
 
             card.innerHTML = `
                 <div class="countdown-event">
@@ -1506,11 +1595,12 @@
                         ${detailsHtml}
                         <div class="detail-row" style="margin-top: 8px;">
                             <span>📅</span>
-                            <span>${targetDate.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' })}</span>
+                            <span>${status.isOnboard ? 'ETA: ' : ''}${countdownTarget.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' })}</span>
                         </div>
                     </div>
                 </div>
                 <div class="countdown-timer">
+                    ${timerLabel ? `<div style="color: rgba(255,255,255,0.7); font-size: 0.8em; margin-bottom: 8px;">${timerLabel}</div>` : ''}
                     <div class="timer-display">
                         <div class="timer-unit">
                             <div class="timer-value">${String(countdown.days).padStart(2, '0')}</div>

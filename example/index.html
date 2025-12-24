@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>China Trip 2025 - Overview</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+          crossorigin=""/>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            background: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            padding: 3rem 1rem;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-size: 1.3rem;
+            opacity: 0.95;
+        }
+
+
+        .hero {
+            position: relative;
+            height: 500px;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+                        url('https://images.unsplash.com/photo-1508804185872-d7badad00f7d?w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 2rem;
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: all 0.3s;
+            margin: 0.5rem;
+        }
+
+        .btn:hover {
+            background: #764ba2;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #667eea;
+        }
+
+        .btn-secondary:hover {
+            background: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-card .icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .stat-card h3 {
+            color: #667eea;
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-card p {
+            color: #666;
+        }
+
+        .section {
+            background: white;
+            margin: 2rem 0;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .section h2 {
+            color: #667eea;
+            margin-bottom: 1.5rem;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 0.5rem;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            aspect-ratio: 4/3;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.03);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: white;
+            padding: 1.5rem 1rem 1rem;
+            font-weight: 500;
+        }
+
+        .highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .highlight-card {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .highlight-card h3 {
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .highlight-card ul {
+            list-style: none;
+        }
+
+        .highlight-card li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .highlight-card li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        .map-container {
+            margin: 2rem 0;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            height: 600px;
+        }
+
+        #routeMap {
+            width: 100%;
+            height: 100%;
+        }
+
+        .daily-overview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .day-overview-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1.25rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+            border-left: 4px solid #667eea;
+            cursor: pointer;
+        }
+
+        .day-overview-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+        }
+
+        .day-overview-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 0.75rem;
+        }
+
+        .day-number {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #667eea;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .day-temp {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #333;
+        }
+
+        .day-location {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .day-date {
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 0.75rem;
+        }
+
+        .day-summary {
+            font-size: 0.9rem;
+            color: #555;
+            line-height: 1.5;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .day-weather-icon {
+            font-size: 2rem;
+            opacity: 0.8;
+        }
+
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+
+            .stat-card .icon {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🇨🇳 China Trip 2025</h1>
+        <p>An Epic 23-Day Journey Through China's Most Spectacular Destinations</p>
+    </header>
+
+    <nav>
+        <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰ Menu</button><div class="nav-container">
+            <a href="index.html" class="active">🏠 <span data-lang-en="Home" data-lang-th="หน้าแรก">Home</span></a>
+            <a href="itinerary.html">📅 <span data-lang-en="Itinerary" data-lang-th="กำหนดการ">Itinerary</span></a>
+            <a href="planning.html">✅ <span data-lang-en="Planning" data-lang-th="การวางแผน">Planning</span></a>
+            <a href="logistics.html">🚄 <span data-lang-en="Logistics" data-lang-th="ข้อมูลการเดินทาง">Logistics</span></a>
+            <a href="taxi-reference.html">🚕 <span data-lang-en="Taxi Reference" data-lang-th="คู่มือแท็กซี่">Taxi Reference</span></a>
+            <a href="useful-links.html">🔗 <span data-lang-en="Useful Links" data-lang-th="ลิงก์ที่เป็นประโยชน์">Useful Links</span></a>
+            <a href="analysis.html">📊 <span data-lang-en="Analysis" data-lang-th="การวิเคราะห์">Analysis</span></a>
+            <a href="cost-analysis.html">💰 <span data-lang-en="Costs" data-lang-th="ค่าใช้จ่าย">Costs</span></a>
+            <a href="gpt-comment.html">💬 <span data-lang-en="GPT Review" data-lang-th="รีวิว GPT">GPT Review</span></a>
+            <a href="grok-comment.html">💬 <span data-lang-en="Grok Review" data-lang-th="รีวิว Grok">Grok Review</span></a>
+            <a href="gemini-review.html">✨ <span data-lang-en="Gemini Review" data-lang-th="รีวิว Gemini">Gemini Review</span></a>
+            <button class="lang-toggle" onclick="toggleLanguage()">
+                <span class="lang-en">🇹🇭 TH</span>
+                <span class="lang-th">🇺🇸 EN</span>
+            </button>
+        </div>
+    </nav>
+
+    <div class="hero">
+        <div class="hero-content">
+            <h2>October 14 - November 5, 2025</h2>
+            <p>From the neon-lit streets of Chongqing to the snow-capped peaks of Western Sichuan</p>
+            <a href="itinerary.html" class="btn">View Full Itinerary</a>
+            <a href="planning.html" class="btn btn-secondary">Booking Checklist</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="stats">
+            <div class="stat-card">
+                <div class="icon">📅</div>
+                <h3>23 Days</h3>
+                <p>Three weeks of adventure</p>
+            </div>
+            <div class="stat-card">
+                <div class="icon">🏔️</div>
+                <h3>9 Destinations</h3>
+                <p>UNESCO sites & natural wonders</p>
+            </div>
+            <div class="stat-card">
+                <div class="icon">🚄</div>
+                <h3>8 HSR Journeys</h3>
+                <p>China's high-speed rail network</p>
+            </div>
+            <div class="stat-card">
+                <div class="icon">🏨</div>
+                <h3>13 Hotels</h3>
+                <p>Carefully selected accommodations</p>
+            </div>
+        </div>
+
+        <section class="section">
+            <h2><span data-lang-en="📅 Daily Overview" data-lang-th="📅 ภาพรวมรายวัน">📅 Daily Overview</span></h2>
+            <div class="daily-overview-grid" id="dailyOverviewGrid">
+                <!-- Daily overview cards will be generated by JavaScript -->
+            </div>
+        </section>
+
+        <section class="section">
+            <h2><span data-lang-en="🎯 Trip Highlights" data-lang-th="🎯 ไฮไลท์ทริป">🎯 Trip Highlights</span></h2>
+            <div class="highlights">
+                <div class="highlight-card">
+                    <h3>🏞️ Natural Wonders</h3>
+                    <ul>
+                        <li>Zhangjiajie Avatar Mountains</li>
+                        <li>Jiuzhaigou Autumn Colors</li>
+                        <li>Dagu Glacier (4860m)</li>
+                        <li>Huanglong Travertine Pools</li>
+                        <li>Wulong Karst Formations</li>
+                    </ul>
+                </div>
+                <div class="highlight-card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                    <h3>🏛️ Cultural Sites</h3>
+                    <ul>
+                        <li>Fenghuang Ancient Town</li>
+                        <li>Leshan Giant Buddha</li>
+                        <li>Mount Emei Sacred Summit</li>
+                        <li>Chengdu Panda Base</li>
+                        <li>Traditional Qiang Villages</li>
+                    </ul>
+                </div>
+                <div class="highlight-card" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
+                    <h3>🍜 Food & Experiences</h3>
+                    <ul>
+                        <li>Chongqing Hot Pot</li>
+                        <li>Sichuan Cuisine</li>
+                        <li>Ancient Town Atmospheres</li>
+                        <li>Mountain Village Stays</li>
+                        <li>Local Market Exploration</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2><span data-lang-en="🗺️ Your Route Through China" data-lang-th="🗺️ เส้นทางท่องเที่ยวจีน">🗺️ Your Route Through China</span></h2>
+            <div class="map-container">
+                <div id="routeMap"></div>
+            </div>
+        </section>
+
+        <section class="section" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+            <h2 style="color: white; border-color: rgba(255,255,255,0.3);"><span data-lang-en="🚀 Ready to Explore?" data-lang-th="🚀 พร้อมสำรวจหรือยัง?">🚀 Ready to Explore?</span></h2>
+            <p style="font-size: 1.2rem; margin-bottom: 2rem;">
+                Dive into the detailed day-by-day itinerary, check your booking status, and prepare for the adventure of a lifetime!
+            </p>
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                <a href="itinerary.html" class="btn" style="background: white; color: #667eea;">View Daily Itinerary</a>
+                <a href="planning.html" class="btn" style="background: rgba(255,255,255,0.2); color: white;">Booking Checklist</a>
+                <a href="logistics.html" class="btn" style="background: rgba(255,255,255,0.2); color: white;">Transport & Hotels</a>
+                <a href="taxi-reference.html" class="btn" style="background: rgba(255,255,255,0.2); color: white;">🚕 Taxi Reference</a>
+                <a href="analysis.html" class="btn" style="background: rgba(255,255,255,0.2); color: white;">Crowd & Weather Analysis</a>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 China Trip Planning | Generated with ❤️</p>
+        <p style="margin-top: 0.5rem; opacity: 0.8;">Oct 14 - Nov 5, 2025</p>
+    </footer>
+
+    <script>
+        function toggleMobileMenu() {
+            const navContainer = document.querySelector('.nav-container');
+            navContainer.classList.toggle('show');
+        }
+    </script>
+
+    <!-- Leaflet JavaScript -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+            crossorigin=""></script>
+
+    <!-- Route Map -->
+    <script>
+        // Initialize the map centered on China
+        const map = L.map('routeMap').setView([30.5, 105.0], 6);
+
+        // Use CartoDB Voyager tiles (English labels, clean design)
+        L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+            attribution: '© OpenStreetMap contributors © CARTO',
+            maxZoom: 19,
+            subdomains: 'abcd'
+        }).addTo(map);
+
+        // Define locations with coordinates (China only, no Bangkok)
+        const locations = [
+            { name: 'Chongqing', coords: [29.5630, 106.5516], type: 'start', days: 'Days 1-4' },
+            { name: 'Wulong Karst', coords: [29.3250, 107.7606], type: 'day-trip', days: 'Day 2' },
+            { name: 'Fenghuang', coords: [27.9479, 109.5987], type: 'main', days: 'Days 4-6' },
+            { name: 'Zhangjiajie', coords: [29.1274, 110.4788], type: 'main', days: 'Days 6-9' },
+            { name: 'Chengdu', coords: [30.5728, 104.0668], type: 'main', days: 'Days 9-11, 21-23' },
+            { name: 'Jiuzhaigou', coords: [33.2600, 103.9200], type: 'main', days: 'Days 11-13' },
+            { name: 'Huanglong', coords: [32.7536, 103.8228], type: 'main', days: 'Day 13' },
+            { name: 'Mount Siguniang', coords: [31.1031, 102.8850], type: 'main', days: 'Days 13-15' },
+            { name: 'Dagu Glacier', coords: [32.1170, 103.0550], type: 'main', days: 'Days 15-17' },
+            { name: 'Bipenggou', coords: [31.2950, 102.9220], type: 'main', days: 'Day 17' },
+            { name: 'Taoping', coords: [31.5900, 103.5450], type: 'main', days: 'Days 17-19' },
+            { name: 'Leshan', coords: [29.5820, 103.7610], type: 'main', days: 'Day 19' },
+            { name: 'Mount Emei', coords: [29.5920, 103.3370], type: 'main', days: 'Days 19-21' }
+        ];
+
+        // Custom marker icons
+        const startIcon = L.divIcon({
+            html: '<div style="background: #28a745; color: white; padding: 8px 12px; border-radius: 20px; font-weight: bold; box-shadow: 0 2px 8px rgba(0,0,0,0.3);">🏁 START</div>',
+            className: '',
+            iconSize: [80, 30],
+            iconAnchor: [40, 15]
+        });
+
+        const endIcon = L.divIcon({
+            html: '<div style="background: #dc3545; color: white; padding: 8px 12px; border-radius: 20px; font-weight: bold; box-shadow: 0 2px 8px rgba(0,0,0,0.3);">🏁 END</div>',
+            className: '',
+            iconSize: [80, 30],
+            iconAnchor: [40, 15]
+        });
+
+        const mainIcon = L.divIcon({
+            html: '<div style="background: #667eea; color: white; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; box-shadow: 0 2px 8px rgba(0,0,0,0.3); border: 3px solid white;">📍</div>',
+            className: '',
+            iconSize: [30, 30],
+            iconAnchor: [15, 15]
+        });
+
+        const dayTripIcon = L.divIcon({
+            html: '<div style="background: #ffc107; color: white; width: 20px; height: 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 6px rgba(0,0,0,0.3); border: 2px solid white;">🎯</div>',
+            className: '',
+            iconSize: [24, 24],
+            iconAnchor: [12, 12]
+        });
+
+        // Add markers for each location
+        locations.forEach((location, index) => {
+            let icon = mainIcon;
+            if (location.type === 'start') icon = startIcon;
+            else if (location.type === 'day-trip') icon = dayTripIcon;
+
+            // Mark last main location as END (Chengdu return)
+            if (location.name === 'Chengdu') {
+                icon = L.divIcon({
+                    html: '<div style="background: #667eea; color: white; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; box-shadow: 0 2px 8px rgba(0,0,0,0.3); border: 3px solid white;">🏠</div>',
+                    className: '',
+                    iconSize: [34, 34],
+                    iconAnchor: [17, 17]
+                });
+            }
+
+            const marker = L.marker(location.coords, { icon: icon }).addTo(map);
+            marker.bindPopup(`<b>${location.name}</b><br>${location.days}`);
+        });
+
+        // Draw route lines (main journey path through China only)
+        const routePath = [
+            [29.5630, 106.5516],  // Chongqing (START)
+            [27.9479, 109.5987],  // Fenghuang
+            [29.1274, 110.4788],  // Zhangjiajie
+            [30.5728, 104.0668],  // Chengdu
+            [33.2600, 103.9200],  // Jiuzhaigou
+            [32.7536, 103.8228],  // Huanglong
+            [31.1031, 102.8850],  // Mount Siguniang
+            [32.1170, 103.0550],  // Dagu Glacier
+            [31.2950, 102.9220],  // Bipenggou
+            [31.5900, 103.5450],  // Taoping
+            [29.5820, 103.7610],  // Leshan
+            [29.5920, 103.3370],  // Mount Emei
+            [30.5728, 104.0668]   // Back to Chengdu (END)
+        ];
+
+        // Main route line
+        const routeLine = L.polyline(routePath, {
+            color: '#667eea',
+            weight: 4,
+            opacity: 0.8,
+            smoothFactor: 1
+        }).addTo(map);
+
+        // Day trip from Chongqing to Wulong (dashed line)
+        const wulongDayTrip = L.polyline([
+            [29.5630, 106.5516],  // Chongqing
+            [29.3250, 107.7606]   // Wulong
+        ], {
+            color: '#ffc107',
+            weight: 3,
+            opacity: 0.7,
+            dashArray: '10, 10'
+        }).addTo(map);
+
+        // Fit map to show all markers with padding
+        const group = L.featureGroup(locations.map(loc => L.marker(loc.coords)));
+        map.fitBounds(group.getBounds().pad(0.15));
+    </script>
+
+    <!-- Daily Overview Generator -->
+    <script src="qweather-api.js"></script>
+    <script src="daily-overview.js"></script>
+
+    <!-- Language Switcher -->
+    <script src="language-switcher.js"></script>
+</body>
+</html>

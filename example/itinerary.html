@@ -1,0 +1,1259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Itinerary - China New Year 2026 Trip</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --primary-red: #C41E3A;
+            --accent-gold: #D4AF37;
+            --deep-navy: #1a1a2e;
+            --warm-cream: #FFF8F0;
+            --itinerary-orange: #F97316;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #FFF8F0 0%, #FFE4E1 50%, #FFF0F5 100%);
+            min-height: 100vh;
+            padding: 0;
+            color: #2D2D2D;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            background: linear-gradient(135deg, var(--deep-navy) 0%, #16213e 100%);
+            padding: 15px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .navbar-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            position: relative;
+        }
+
+        .navbar-brand {
+            color: var(--accent-gold);
+            font-family: 'Noto Serif SC', serif;
+            font-size: 1.3em;
+            font-weight: 700;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .navbar-menu {
+            display: flex;
+            gap: 3px;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+
+        .navbar-item {
+            color: white;
+            text-decoration: none;
+            padding: 8px 12px;
+            border-radius: 4px;
+            transition: 0.3s;
+            font-size: 0.85em;
+            white-space: nowrap;
+        }
+
+        .navbar-item:hover {
+            background: rgba(212, 175, 55, 0.2);
+            color: var(--accent-gold);
+        }
+
+        .navbar-item.active {
+            background: linear-gradient(135deg, var(--primary-red), #E85A4F);
+            color: white;
+            font-weight: bold;
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5em;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        @media (max-width: 900px) {
+            .navbar-item {
+                font-size: 0.8em;
+                padding: 6px 10px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                flex-direction: column;
+                gap: 0;
+                background: linear-gradient(135deg, var(--deep-navy) 0%, #16213e 100%);
+                padding: 10px 0;
+                max-height: calc(100vh - 60px);
+                overflow-y: auto;
+            }
+
+            .navbar-menu.mobile-open {
+                display: flex;
+            }
+
+            .navbar-item {
+                padding: 12px 20px;
+                border-radius: 0;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                font-size: 0.95em;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .page-header {
+            background: linear-gradient(135deg, var(--deep-navy) 0%, #16213e 50%, var(--primary-red) 100%);
+            padding: 3rem 2rem;
+            text-align: center;
+            color: white;
+        }
+
+        .page-header h1 {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .breadcrumb {
+            font-size: 0.95em;
+            opacity: 0.9;
+        }
+
+        .breadcrumb a {
+            color: white;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .breadcrumb a:hover {
+            border-bottom: 1px solid white;
+        }
+
+        .card {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            margin-bottom: 25px;
+        }
+
+        .card h2 {
+            color: var(--itinerary-orange);
+            font-family: 'Noto Serif SC', serif;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            border-bottom: 3px solid var(--accent-gold);
+            padding-bottom: 10px;
+        }
+
+        /* Timeline Styles */
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+
+        .timeline-item {
+            margin-bottom: 40px;
+            padding-left: 40px;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            background: var(--itinerary-orange);
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px var(--accent-gold);
+        }
+
+        .timeline-item:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            left: 8px;
+            top: 25px;
+            width: 4px;
+            height: calc(100% + 15px);
+            background: var(--accent-gold);
+        }
+
+        .day-header {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 1.3em;
+            font-weight: bold;
+            color: var(--itinerary-orange);
+            margin-bottom: 10px;
+        }
+
+        .date {
+            color: #666;
+            font-size: 0.95em;
+            margin-bottom: 8px;
+        }
+
+        .city {
+            display: inline-block;
+            background: var(--warm-cream);
+            color: var(--itinerary-orange);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-size: 0.9em;
+        }
+
+        .activities {
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 3px solid var(--accent-gold);
+            margin-top: 10px;
+        }
+
+        .activity {
+            margin: 10px 0;
+            padding: 8px 0;
+        }
+
+        .activity-time {
+            color: var(--itinerary-orange);
+            font-weight: bold;
+        }
+
+        .activity-desc {
+            color: #333;
+            margin-left: 10px;
+        }
+
+        .summary-box {
+            background: var(--warm-cream);
+            border-left: 4px solid var(--accent-gold);
+            padding: 15px;
+            border-radius: 4px;
+            margin: 15px 0;
+        }
+
+        .summary-box strong {
+            color: var(--itinerary-orange);
+        }
+
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+            gap: 10px;
+        }
+
+        .nav-btn {
+            flex: 1;
+            padding: 12px 20px;
+            background: white;
+            color: var(--itinerary-orange);
+            border: 2px solid var(--itinerary-orange);
+            border-radius: 4px;
+            text-decoration: none;
+            text-align: center;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .nav-btn:hover {
+            background: var(--itinerary-orange);
+            color: white;
+        }
+
+        .nav-btn.home {
+            background: var(--deep-navy);
+            border-color: var(--accent-gold);
+            color: var(--accent-gold);
+        }
+
+        footer {
+            text-align: center;
+            color: #5A5A5A;
+            padding: 30px 20px;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8em;
+            }
+
+            .card {
+                padding: 20px;
+            }
+
+            .nav-buttons {
+                flex-direction: column;
+            }
+
+            .timeline-item {
+                padding-left: 35px;
+            }
+
+            .day-header {
+                font-size: 1.1em;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="index.html" class="navbar-brand">🏮 春节 2026</a>
+            <button class="menu-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu">☰</button>
+            <div class="navbar-menu" id="navMenu">
+                <a href="index.html" class="navbar-item">Home</a>
+                <a href="flights.html" class="navbar-item">Flights</a>
+                <a href="accommodation.html" class="navbar-item">Hotels</a>
+                <a href="itinerary.html" class="navbar-item active">Itinerary</a>
+                <a href="attractions.html" class="navbar-item">Attractions</a>
+                <a href="dining.html" class="navbar-item">Food</a>
+                <a href="weather.html" class="navbar-item">Weather</a>
+                <a href="budget.html" class="navbar-item">Budget</a>
+                <a href="practical.html" class="navbar-item">Practical</a>
+                <a href="transportation.html" class="navbar-item">Transport</a>
+                <a href="packing.html" class="navbar-item">Packing</a>
+                <a href="bookings.html" class="navbar-item">Bookings</a>
+                <a href="ai-reviews.html" class="navbar-item">AI Reviews</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="page-header">
+        <h1>📅 Itinerary</h1>
+        <p class="breadcrumb"><a href="index.html">Home</a> › Itinerary</p>
+    </div>
+    <div class="container">
+        <div class="card">
+            <h2>10-Day China Adventure</h2>
+            <div class="summary-box">
+                <strong>Trip Duration:</strong> December 25, 2025 - January 4, 2026 (10 days)<br />
+                <strong>Cities:</strong> Hangzhou → Huangling → Wangxiangu → Suzhou → Shanghai → Guangzhou →
+                Bangkok<br />
+                <strong>Total Cities:</strong> 5 cities in China + return to Bangkok
+            </div>
+
+            <div class="summary-box" style="background: #e3f2fd; border-left-color: #2196f3; margin-top: 20px;">
+                <strong style="color: #1976d2;">🌡️ Weather Info:</strong> See <a href="practical.html"
+                    style="color: #1976d2; font-weight: bold;">Practical Info page</a> for detailed weather by location
+                and packing tips.
+            </div>
+
+            <div class="timeline">
+                <!-- Day 1 -->
+                <div class="timeline-item">
+                    <div class="day-header">Day 1: Arrival in Hangzhou</div>
+                    <div class="date">Thursday, December 25, 2025</div>
+                    <span class="city">🏙️ Hangzhou</span>
+                    <div style="margin: 10px 0; text-align: center;">
+                        <img src="images/popmart_itinerary_day1.png" alt="Hangzhou Arrival Pop Mart Scene"
+                            style="width: 100%; max-width: 500px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+                    </div>
+                    <div class="activities">
+                        <div class="activity">
+                            <span class="activity-time">11:20 AM</span>
+                            <span class="activity-desc">✈️ Arrive at Hangzhou Xiaoshan Airport (HGH)</span>
+                        </div>
+                        <div class="activity">
+                            <span class="activity-time">12:00 PM - 5:00 PM</span>
+                            <span class="activity-desc">🚕 Airport transfer to hotel, check-in, rest & refresh</span>
+                        </div>
+                        <div class="activity">
+                            <span class="activity-time">5:00 PM onwards</span>
+                            <span class="activity-desc">🍽️ Dinner, explore nearby area, early sleep (jet lag
+                                recovery)</span>
+                        </div>
+                    </div>
+                    <div
+                        style="background: #e8f5e9; padding: 15px; border-radius: 6px; margin-top: 15px; border-left: 4px solid #4CAF50;">
+                        <strong style="color: #2E7D32;">💡 Day 1 Tips & Essentials:</strong>
+                        <ul style="margin: 10px 0 0 20px; color: #333; line-height: 1.8;">
+                            <li><strong>SIM Card:</strong> Buy at airport (China Mobile/Unicom) - ~50-100 CNY for 7-day
+                                data plan. Passport required.</li>
+                            <li><strong>Currency:</strong> ATMs at airport accept foreign cards. Withdraw 1000-2000 CNY
+                                for initial cash needs.</li>
+                            <li><strong>WeChat/Alipay:</strong> Most shops prefer mobile payment - try to link card
+                                before trip.</li>
+                            <li><strong>Airport Transfer:</strong> Taxi ~150 CNY to city center (~1 hour), or Metro Line
+                                1 (cheaper, ~7 CNY).</li>
+                            <li><strong>Jet Lag:</strong> Rest well - you have 2 full days in Hangzhou before mountain
+                                adventure!</li>
+                            <li><strong>Dinner Options:</strong> Grandma's Home (外婆家) near West Lake - popular local
+                                chain, affordable.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Day 2 -->
+                <div class="timeline-item">
+                    <div class="day-header">Day 2: Hangzhou - West Lake Day</div>
+                    <div class="date">Friday, December 26, 2025</div>
+                    <span class="city">🏙️ Hangzhou</span>
+                    <div style="margin: 10px 0; text-align: center;">
+                        <img src="images/popmart_itinerary_day2.png" alt="Hangzhou Cycling Pop Mart Scene"
+                            style="width: 100%; max-width: 500px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+                    </div>
+                    <div class="activities">
+                        <div class="activity">
+                            <span class="activity-time">8:00 AM</span>
+                            <span class="activity-desc">🚴 Start West Lake (西湖) exploration - Rent bikes for scenic
+                                rides</span>
+                        </div>
+                        <div class="activity">
+                            <span class="activity-time">8:30 AM - 11:00 AM</span>
+                            <span class="activity-desc">🏞️ <strong>Cycle Hangzhou's West Lake Causeway:</strong> Su
+                                Causeway & Bai Causeway - Beautiful classical path with willow trees, stone bridges.
+                                Visit the famous "Three Pools Mirroring the Moon" (三潭印月) scenic spot</span>
+                        </div>
+                        <div class="activity">
+                            <span class="activity-time">11:00 AM - 12:30 PM</span>
+                            <span class="activity-desc">🚤 <strong>West Lake Boat Tour:</strong> Traditional boat tour
+                                for classic West Lake views, photo opportunities at iconic spots (Broken Bridge
+                                area)</span>
+                        </div>
+                        <div class="activity">
+                            <span class="activity-time">12:30 PM - 2:00 PM</span>
+                            <span class="activity-desc">🍽️ <strong>Lunch:</strong> Lou Wai Lou restaurant (famous for
+                                West Lake Fish in Vinegar Sauce 西湖醋鱼) - Overlooking the lake</span>
+                        </div>
+                        <div class="activity">
+                            <span class="activity-time">2:00 PM - 5:00 PM</span>
+                            <span class="activity-desc">🏯 Continue West Lake scenic area - Quyuan Park, Lingyin Temple
+                                area, walk nature paths</span>
+                        </div>
+                        <div class="activity">
+                            <span class="activity-time">Evening (5:00 PM - 6:30 PM)</span>
+                            <span class="activity-desc">🌅 <strong>West Lake Sunset:</strong> Watch sunset from lakeside
+                                promenade - Perfect photo opportunity</span>
+                        </div>
+                        <div class="activity">
+                            <span class="activity-time">Evening (7:30 PM)</span>
+                            <span class="activity-desc">🎭 <strong>Option: "Enduring Memories of Hangzhou"</strong>
+                                (Impression West Lake) - Spectacular outdoor light show on the lake. *Note: Open-air in
+                                winter - dress extremely warmly!*</span>
+                        </div>
+                        <div class="activity">
+                            <span class="activity-time">Late Evening</span>
+                            <span class="activity-desc">🏪 Hefang Street (河坊街) - Historic shopping street, local crafts,
+                                street food, traditional snacks</span>
+                        </div>
+                    </div>
+                    <div
+                        style="background: #fff3e0; padding: 15px; border-radius: 6px; margin-top: 15px; border-left: 4px solid #FF9800;">
+                        <strong style="color: #E65100;">💡 Day 2 Tips & Options:</strong>
+                        <ul style="margin: 10px 0 0 20px; color: #333; line-height: 1.8;">
+                            <li><strong>Bike Rental:</strong> Public bikes (Hellobike/Mobike) ~1-2 CNY/30min via app.
+                                Deposit bike at any station.</li>
+                            <li><strong>Boat Tour:</strong> ~45-80 CNY/person. Best from "Three Pools Mirroring the
+                                Moon" pier. 1-hour tour.</li>
+                            <li><strong>Lou Wai Lou Restaurant:</strong> Book ahead if possible - famous & busy! Average
+                                ~150-200 CNY/person.</li>
+                            <li><strong>Optional: Leifeng Pagoda:</strong> ~40 CNY. Worth adding if time permits - 30-45
+                                min climb with lake views.</li>
+                            <li><strong>Sunset Timing:</strong> Sunset ~5:15 PM in late December. Position at Bai
+                                Causeway for best photos.</li>
+                            <li><strong>Hefang Street:</strong> Try Longjing tea samples (free!) and Hangzhou
+                                Xiaolongbao (soup dumplings).</li>
+                            <li><strong>Weather Backup:</strong> If rainy, visit China Tea Museum (free) or Zhejiang
+                                Provincial Museum.</li>
+                        </ul>
+                    </div>
+                    <div
+                        style="background: #e3f2fd; padding: 15px; border-radius: 6px; margin-top: 10px; border-left: 4px solid #2196F3;">
+                        <strong style="color: #1565C0;">📸 Photography Spots:</strong>
+                        <ul style="margin: 10px 0 0 20px; color: #333; line-height: 1.6;">
+                            <li>🌅 <strong>Sunrise:</strong> Broken Bridge (断桥) - iconic misty morning shots</li>
+                            <li>🌳 <strong>Daytime:</strong> Su Causeway willows, Three Pools Mirroring Moon</li>
+                            <li>🌆 <strong>Sunset:</strong> Bai Causeway looking toward Leifeng Pagoda</li>
+                            <li>🌃 <strong>Night:</strong> West Lake Musical Fountain (8 PM, free) - spectacular!</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Day 3 -->
+                <div class="timeline-item">
+                    <div class="day-header">Day 3: Travel to Huangling</div>
+                    <div class="date">Saturday, December 27, 2025</div>
+                    <span class="city">🏔️ Huangling</span>
+                    <div style="margin: 10px 0; text-align: center;">
+                        <img src="images/popmart_itinerary_day3.png" alt="Huangling Cable Car Pop Mart Scene"
+                            style="width: 100%; max-width: 500px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+                    </div>
+                    <div class="activities">
+                        <div class="activity">
+                            <span class="activity-time">7:30 AM</span>
+                            <span class="activity-desc">🚕 Early breakfast & transfer from hotel to Hangzhou East
+                                Railway Station (Checkpoint 23B)</span>
+                        </div>
+                        <div class="activity">
+                            <span class="activity-time">09:33 AM</span>
+                            <span class="activity-desc">🚆 <strong>✅ BOOKED - Train G1509:</strong> Hangzhou East →
+                                Wuyuan | Coach 08, Seats 007A-D | Order: E903575237</span>
+                        </div>
+                        <div class="activity">
+                            <span class="activity-time">~11:30 AM</span>
+                            <span class="activity-desc">🚕 Arrive Wuyuan Station, transfer to Huangling (~50min scenic
+                                bus, 20 CNY)</span>
+                        </div>
+                        <div class="activity">
+                            <span class="activity-time">11:30 AM - 1:00 PM</span>
+                            <span class="activity-desc">🏔️ <strong>Check-in: Guling Sky Street Hotel
+                                    (Huangling)</strong><br />
+                                📍 UNESCO heritage site with terraced field views<br />
+                                ☎ +86-793-7392666 | Booking Ref: [View booking
+                                details](Hotel/Hotel_Huangling_Guling_Sky_Street_booking.md)<br />
+                                Terraced Field Balcony Room, breakfast included, light lunch at hotel</span>
+                        </div>
+                        <div class="activity">
+                            <span class="activity-time">Afternoon/Evening</span>
+                            <span class="activity-desc">🥾 Explore Huangling scenic area, mountain trails & waterfall
+                                viewing, sunset views</span>
+                        </div>
+                        <div class="activity">
+                            <span class="activity-time">Evening</span>
+                            <span class="activity-desc">🍽️ Dinner at local mountain restaurant, rest for next day's
+                                activities</span>
+                        </div>
+                    </div>
+                    <div
+                        style="background: #fce4ec; padding: 15px; border-radius: 6px; margin-top: 15px; border-left: 4px solid #E91E63;">
+                        <strong style="color: #C2185B;">🏔️ Huangling Mountain Tips:</strong>
+                        <ul style="margin: 10px 0 0 20px; color: #333; line-height: 1.8;">
+                            <li><strong>Scenic Area Ticket:</strong> ~100-120 CNY (may be included with hotel - check
+                                booking).</li>
+                            <li><strong>Best Photo Time:</strong> Late afternoon (3-5 PM) when mist rises from valleys.
+                            </li>
+                            <li><strong>Terraced Fields:</strong> Winter = bare fields but beautiful patterns. Less
+                                crowded than spring/autumn!</li>
+                            <li><strong>What to Pack:</strong> Warm layers (5-12°C), waterproof jacket, hiking boots,
+                                camera, snacks.</li>
+                            <li><strong>Cable Car:</strong> Available if legs are tired - ~50 CNY one-way.</li>
+                            <li><strong>Local Food:</strong> Try bamboo rice (竹筒饭) and local wild vegetables - very
+                                fresh!</li>
+                        </ul>
+                    </div>
+                    <div
+                        style="background: #e8eaf6; padding: 15px; border-radius: 6px; margin-top: 10px; border-left: 4px solid #3F51B5;">
+                        <strong style="color: #303F9F;">📍 Huangling UNESCO Heritage:</strong>
+                        <p style="margin: 10px 0 0 0; color: #333; line-height: 1.6;">
+                            Huangling is part of Wuyuan County, known as "China's Most Beautiful Countryside." The
+                            terraced fields and traditional Huizhou architecture have been preserved for centuries.
+                            Winter provides peaceful, crowd-free exploration!
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Day 4 -->
+                <div class="timeline-item">
+                    <div class="day-header">Day 4: Travel to Wangxiangu Valley</div>
+                    <div class="date">Sunday, December 28, 2025</div>
+                    <span class="city">🏔️ Wangxiangu Valley</span>
+                    <div style="margin: 10px 0; text-align: center;">
+                        <img src="images/popmart_itinerary_day4.png" alt="Wangxiangu Hiking Pop Mart Scene"
+                            style="width: 100%; max-width: 500px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+                    </div>
+                    <div class="activities">
+                        <div class="activity">
+                            <span class="activity-time">Early Morning</span>
+                            <span class="activity-desc">🌅 Hotel breakfast, morning exploration of Huangling scenic area
+                                (weather permitting)</span>
+                        </div>
+                        <div class="activity">
+                            <span class="activity-time">9:00 AM</span>
+                            <span class="activity-desc">🚕 Transfer from Huangling to Wuyuan Station (~50min) for train
+                                to Shangrao</span>
+                        </div>
+                        <div class="activity">
+                            <span class="activity-time">10:54 AM</span>
+                            <span class="activity-desc">🚆 <strong>✅ BOOKED - Train G1669:</strong> Wuyuan → Shangrao |
+                                Coach 04 (001A-C) & Coach 07 (006F) | Order: E908947845</span>
+                        </div>
+                        <div class="activity">
+                            <span class="activity-time">~11:30 AM</span>
+                            <span class="activity-desc">🚕 Arrive Shangrao, transfer to Wangxiangu Valley (~1 hour by
+                                road, 50-100 CNY)</span>
+                        </div>
+                        <div class="activity">
+                            <span class="activity-time">11:00 AM - 12:30 PM</span>
+                            <span class="activity-desc">🏔️ <strong>Check-in: Xiansu Hotel (Wangxian
+                                    Valley)</strong><br />
+                                📍 Mountain valley scenic area with professional photography included!<br />
+                                ☎ +86-793-8488977 | Booking Ref: [View booking
+                                details](Hotel/Hotel_Wangxian_Xiansu_booking.md)<br />
+                                Family Double Bed Room (2 rooms), breakfast included, lunch at hotel<br />
+                                ⭐ Includes: Scenic area tickets + professional travel photography session</span>
+                        </div>
+                        <div class="activity">
+                            <span class="activity-time">12:30 PM - 6:00 PM</span>
+                            <span class="activity-desc">🥾 <strong>Full Afternoon Exploration:</strong> Hiking, valley
+                                scenery, waterfall viewing, nature walks, scenic photography. More time for exploration
+                                & weather flexibility!</span>
+                        </div>
+                        <div class="activity">
+                            <span class="activity-time">Evening</span>
+                            <span class="activity-desc">🍽️ Dinner at local mountain restaurant, rest for next day's
+                                activities</span>
+                        </div>
+                    </div>
+                    <div
+                        style="background: #e0f7fa; padding: 15px; border-radius: 6px; margin-top: 15px; border-left: 4px solid #00BCD4;">
+                        <strong style="color: #00838F;">🏔️ Wangxiangu Valley Tips:</strong>
+                        <ul style="margin: 10px 0 0 20px; color: #333; line-height: 1.8;">
+                            <li><strong>Photography Session:</strong> INCLUDED with your hotel booking! Coordinate time
+                                with hotel staff.</li>
+                            <li><strong>Best Sunrise Spot:</strong> Wake early (6:30 AM) for valley mist - magical
+                                photos!</li>
+                            <li><strong>Trail Difficulty:</strong> Moderate - good paths but some steep sections. Hiking
+                                poles helpful.</li>
+                            <li><strong>Waterfalls:</strong> Multiple falls along main trail - allow 2-3 hours for full
+                                loop.</li>
+                            <li><strong>Temperature:</strong> Coldest location (4-11°C) - extra layers essential,
+                                especially morning.</li>
+                            <li><strong>Hot Spring Option:</strong> Some nearby hot springs if tired from hiking - ask
+                                hotel for recommendations.</li>
+                        </ul>
+                    </div>
+                    <div
+                        style="background: #fff8e1; padding: 15px; border-radius: 6px; margin-top: 10px; border-left: 4px solid #FFC107;">
+                        <strong style="color: #F57C00;">⚠️ Mountain Safety Reminders:</strong>
+                        <ul style="margin: 10px 0 0 20px; color: #333; line-height: 1.6;">
+                            <li>Download offline maps (Google Maps works, or use Baidu Maps)</li>
+                            <li>Tell hotel your hiking plans and expected return time</li>
+                            <li>Carry snacks, water, and fully charged phone</li>
+                            <li>Watch for slippery paths in winter - ice possible at elevation</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Day 5 -->
+                <div class="timeline-item">
+                    <div class="day-header">Day 5: Travel to Suzhou</div>
+                    <div class="date">Monday, December 29, 2025</div>
+                    <span class="city">🏙️ Wangxiangu → Suzhou</span>
+                    <div style="margin: 10px 0; text-align: center;">
+                        <img src="images/popmart_itinerary_day5.png" alt="Suzhou Night Boat Pop Mart Scene"
+                            style="width: 100%; max-width: 500px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+                    </div>
+                    <div class="activities">
+                        <div class="activity">
+                            <span class="activity-time">Early Morning</span>
+                            <span class="activity-desc">🌅 Hotel breakfast, morning exploration of Wangxiangu Valley
+                                (weather permitting) - sunrise/mist views ideal!</span>
+                        </div>
+                        <div class="activity">
+                            <span class="activity-time">9:00 AM - 10:30 AM</span>
+                            <span class="activity-desc">🚕 Transfer from Wangxiangu Valley back to Shangrao HSR Station
+                                (~1.5 hours)</span>
+                        </div>
+                        <div class="activity">
+                            <span class="activity-time">11:02 AM</span>
+                            <span class="activity-desc">🚆 <strong>✅ BOOKED - Train G412:</strong> Shangrao → Shanghai
+                                Hongqiao | Coach 04, Seats 007A-D | Order: E904086447 | Arrives ~13:00</span>
+                        </div>
+                        <div class="activity">
+                            <span class="activity-time">13:53 PM</span>
+                            <span class="activity-desc">🚆 <strong>✅ BOOKED - Train D3006:</strong> Shanghai Hongqiao →
+                                Suzhou | Coach 04, Seats 009B-F | Checkpoint 28A28B | Order: E947844235<br />
+                                <strong style="color: #4CAF50;">✓ Connection time:</strong> ~50 minutes at Shanghai
+                                Hongqiao - comfortable connection, same station!</span>
+                        </div>
+                        <div class="activity">
+                            <span class="activity-time">3:15 PM - 4:30 PM</span>
+                            <span class="activity-desc">🚕 <strong>Transfer to Hotel & Check-in: Novotel Suzhou
+                                    SIP</strong><br />
+                                📍 688 Suzhou Avenue East, near classical gardens<br />
+                                ☎ +86-512-62882800 | Booking Ref: [View booking
+                                details](Hotel/Hotel_Suzhou_Novotel_booking.md)<br />
+                                2 Twin/Double rooms (Superior), free breakfast included<br />
+                                ⭐ FREE CANCELLATION available until evening of arrival</span>
+                        </div>
+                        <div class="activity">
+                            <span class="activity-time">Late Afternoon/Evening</span>
+                            <span class="activity-desc">🏠 Explore Suzhou's famous classical gardens - Zhuozheng Garden
+                                (Humble Administrator's Garden)</span>
+                        </div>
+                        <div class="activity">
+                            <span class="activity-time">Evening</span>
+                            <span class="activity-desc">🚤 Boat tour on Grand Canal, dinner with local Suzhou
+                                cuisine</span>
+                        </div>
+                    </div>
+                    <div
+                        style="background: #f3e5f5; padding: 15px; border-radius: 6px; margin-top: 15px; border-left: 4px solid #9C27B0;">
+                        <strong style="color: #7B1FA2;">🏯 Suzhou Tips & Garden Guide:</strong>
+                        <ul style="margin: 10px 0 0 20px; color: #333; line-height: 1.8;">
+                            <li><strong>Shanghai Hongqiao Connection:</strong> 50 min between trains - comfortable but
+                                stay near platforms!</li>
+                            <li><strong>Humble Administrator's Garden:</strong> ~70 CNY, largest & most famous. Best in
+                                morning light.</li>
+                            <li><strong>Grand Canal Boat:</strong> Evening tours ~80-120 CNY - beautifully lit
+                                traditional buildings!</li>
+                            <li><strong>Dinner Recommendation:</strong> Songhelou (松鹤楼) - 200+ year old restaurant,
+                                famous for squirrel fish.</li>
+                            <li><strong>Silk Shopping:</strong> Suzhou famous for silk - try Silk Museum shop for
+                                quality souvenirs.</li>
+                            <li><strong>Transport:</strong> Suzhou has efficient metro - Line 1 connects station to
+                                garden district.</li>
+                        </ul>
+                    </div>
+                    <div
+                        style="background: #e8f5e9; padding: 15px; border-radius: 6px; margin-top: 10px; border-left: 4px solid #4CAF50;">
+                        <strong style="color: #2E7D32;">✅ Dec 29 Connection Checklist:</strong>
+                        <ul style="margin: 10px 0 0 20px; color: #333; line-height: 1.6;">
+                            <li>☐ Train G412 arrives Shanghai Hongqiao ~13:00</li>
+                            <li>☐ Same station - no exit needed, follow signs to Checkpoint 28A28B</li>
+                            <li>☐ Train D3006 departs 13:53 - 50 min connection time</li>
+                            <li>☐ Quick snack at station if hungry (many food options inside)</li>
+                            <li>☐ Arrive Suzhou ~14:23 - taxi to hotel ~20 min</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Day 6 -->
+                <div class="timeline-item">
+                    <div class="day-header">Day 6: Suzhou & Travel to Shanghai</div>
+                    <div class="date">Tuesday, December 30, 2025</div>
+                    <span class="city">🏙️ Suzhou → Shanghai</span>
+                    <div style="margin: 10px 0; text-align: center;">
+                        <img src="images/popmart_itinerary_day6.png" alt="High Speed Train Pop Mart Scene"
+                            style="width: 100%; max-width: 500px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+                    </div>
+                    <div class="activities">
+                        <div class="activity">
+                            <span class="activity-time">Morning (9:00 AM - 12:00 PM)</span>
+                            <span class="activity-desc">🏛️ <strong>Suzhou Museum:</strong> Masterpiece by I.M. Pei. ⚠️
+                                <strong>Must book 7 days in advance</strong> via WeChat miniapp (Free entry). Located
+                                next to Lion Grove Garden.</span>
+                        </div>
+                        <div class="activity">
+                            <span class="activity-time">Morning</span>
+                            <span class="activity-desc">🏯 Lion Grove Garden (Shizilin) - Famous for rock formations
+                                (right next to museum).</span>
+                        </div>
+                        <div class="activity">
+                            <span class="activity-time">1:00 PM</span>
+                            <span class="activity-desc">🚕 Transfer to Suzhou Railway Station</span>
+                        </div>
+                        <div class="activity">
+                            <span class="activity-time">~2:00 PM</span>
+                            <span class="activity-desc">🚆 <strong>⏳ BOOK ON DAY - Suzhou → Shanghai Hongqiao</strong> |
+                                ~30 min | ~¥30-40/person<br />
+                                <span style="color: #ff9800;">Frequent trains every 10-20 min - easy to book at
+                                    station</span></span>
+                        </div>
+                        <div class="activity">
+                            <span class="activity-time">3:00 PM - 5:00 PM</span>
+                            <span class="activity-desc">🚕 Transfer to hotel, check-in, rest & freshen up</span>
+                        </div>
+                        <div class="activity">
+                            <span class="activity-time">5:00 PM - 6:30 PM</span>
+                            <span class="activity-desc">🚕 Transfer from Suzhou Station to hotel in Shanghai<br />
+                                🏨 <strong>Check-in: Tianhua Hotel (Shanghai)</strong><br />
+                                📍 159 Huanghe Road, Huangpu District, People's Plaza area - perfect for NYE!<br />
+                                ☎ +86-21-63273204 | Booking Ref: [View booking
+                                details](Hotel/Hotel_Shanghai_Tianhua_booking.md)<br />
+                                2 Exquisite Double Bed Rooms (4K HD TV, Smart Toilet, Zero Pressure Mattress)<br />
+                                <strong style="color: #d32f2f;">⚠️ Breakfast NOT included</strong><br />
+                                ⭐ Central location for NYE celebration on The Bund</span>
+                        </div>
+                        <div class="activity">
+                            <span class="activity-time">Evening</span>
+                            <span class="activity-desc">🌃 Explore Shanghai's Puxi/Pudong area - The Bund, Lujiazui
+                                skyline, dinner by riverside</span>
+                        </div>
+                    </div>
+                    <div
+                        style="background: #fff3e0; padding: 15px; border-radius: 6px; margin-top: 15px; border-left: 4px solid #FF9800;">
+                        <strong style="color: #E65100;">💡 Day 6 Tips:</strong>
+                        <ul style="margin: 10px 0 0 20px; color: #333; line-height: 1.8;">
+                            <li><strong>Morning Gardens:</strong> Lion Grove Garden (~40 CNY) - famous for rock
+                                formations. Opens 7:30 AM.</li>
+                            <li><strong>Suzhou Station:</strong> Buy train ticket at station - bring passport! Ticket
+                                offices have English.</li>
+                            <li><strong>Luggage:</strong> Check out early, station has luggage storage if needed (~10-20
+                                CNY).</li>
+                            <li><strong>Shanghai Hotel:</strong> Tianhua Hotel is walking distance from People's Square
+                                - central location!</li>
+                            <li><strong>Pre-NYE Prep:</strong> Scout The Bund tonight to plan tomorrow's NYE celebration
+                                route.</li>
+                            <li><strong>Breakfast Note:</strong> Tianhua Hotel has NO breakfast - buy snacks for
+                                tomorrow morning.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Day 7 -->
+                <div class="timeline-item">
+                    <div class="day-header">Day 7: Shanghai - New Year's Eve 🎆</div>
+                    <div class="date">Wednesday, December 31, 2025</div>
+                    <span class="city">🏙️ Shanghai</span>
+                    <div style="margin: 10px 0; text-align: center;">
+                        <img src="images/popmart_itinerary_day7.png" alt="Shanghai NYE Fireworks Pop Mart Scene"
+                            style="width: 100%; max-width: 500px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+                    </div>
+                    <div class="activities">
+                        <div class="activity">
+                            <span class="activity-time">8:00 AM - 9:30 AM</span>
+                            <span class="activity-desc">🍳 <strong>Breakfast:</strong> Find local breakfast near hotel -
+                                try Shanghai fried dumplings (生煎包) or congee. Hotel has NO breakfast included!</span>
+                        </div>
+                        <div class="activity">
+                            <span class="activity-time">9:30 AM - 12:00 PM</span>
+                            <span class="activity-desc">🏙️ <strong>The Bund (外滩) Morning Walk:</strong> Walk along the
+                                famous waterfront promenade. View of Pudong skyline across Huangpu River. Less crowded
+                                in morning - great photos!</span>
+                        </div>
+                        <div class="activity">
+                            <span class="activity-time">12:00 PM - 2:00 PM</span>
+                            <span class="activity-desc">🏯 <strong>Yu Garden (豫园) & Old Town:</strong> Classical Chinese
+                                garden (~40 CNY). Explore surrounding bazaar for souvenirs, snacks, and lunch.</span>
+                        </div>
+                        <div class="activity">
+                            <span class="activity-time">2:00 PM - 4:00 PM</span>
+                            <span class="activity-desc">🏙️ <strong>Option A: Oriental Pearl Tower</strong> (~220 CNY) -
+                                Iconic TV tower with glass floor observation deck<br />
+                                <strong>Option B: Shanghai Tower</strong> (~180 CNY) - World's 2nd tallest building,
+                                118th floor observation</span>
+                        </div>
+                        <div class="activity">
+                            <span class="activity-time">4:00 PM - 6:00 PM</span>
+                            <span class="activity-desc">🛍️ <strong>Nanjing Road:</strong> China's busiest shopping
+                                street. Walk from People's Square toward the Bund. Window shop, coffee break, soak in
+                                the NYE atmosphere!</span>
+                        </div>
+                        <div class="activity">
+                            <span class="activity-time">6:00 PM - 8:00 PM</span>
+                            <span class="activity-desc">🍽️ <strong>NYE Dinner:</strong> ⚠️ <strong>CRITICAL: Secure
+                                    reservation IMMEDIATELY.</strong> Options: Lost Heaven (Yunnan), Hakkasan (upscale),
+                                or Haidilao Hotpot. 200-500+ CNY/person.</span>
+                        </div>
+                        <div class="activity">
+                            <span class="activity-time">8:00 PM - 10:00 PM</span>
+                            <span class="activity-desc">🌃 <strong>Lujiazui Night Views:</strong> Cross to Pudong side
+                                via ferry (2 CNY) or metro. Watch the Bund light up from IFC Mall rooftop or Riverside
+                                Promenade.</span>
+                        </div>
+                        <div class="activity">
+                            <span class="activity-time">10:00 PM - 12:30 AM</span>
+                            <span class="activity-desc">🎆 <strong>NYE COUNTDOWN!</strong> Return to The Bund for
+                                midnight countdown. Arrive early (by 10 PM) for good spot. Massive crowds
+                                expected!</span>
+                        </div>
+                        <div class="activity">
+                            <span class="activity-time">12:30 AM onwards</span>
+                            <span class="activity-desc">🎉 <strong>Post-Midnight:</strong> Walk back to hotel (15-20 min
+                                from Bund) or find late-night bar/cafe. Metro closes ~10:30 PM on NYE!</span>
+                        </div>
+                    </div>
+                    <div
+                        style="background: linear-gradient(135deg, var(--deep-navy) 0%, var(--primary-red) 100%); padding: 20px; border-radius: 6px; margin-top: 15px; color: white;">
+                        <strong style="color: var(--accent-gold);">🎆 NYE Celebration Guide:</strong>
+                        <ul style="margin: 10px 0 0 20px; line-height: 1.8;">
+                            <li><strong>The Bund Countdown:</strong> FREE but very crowded. Arrive by 10 PM for good
+                                spot near Huangpu River.</li>
+                            <li><strong>Light Show:</strong> Buildings on both sides light up spectacularly at midnight!
+                            </li>
+                            <li><strong>Fireworks:</strong> No official fireworks (banned in city center), but light
+                                shows are incredible.</li>
+                            <li><strong>Rooftop Bars:</strong> Bar Rouge, Vue Bar - expensive but less crowded with
+                                great views.</li>
+                            <li><strong>Stay Warm:</strong> 5-8°C at midnight! Wear warm layers, bring hand warmers.
+                            </li>
+                            <li><strong>Metro Closure:</strong> Last train ~10:30 PM. Plan taxi/walk home after
+                                midnight.</li>
+                        </ul>
+                    </div>
+                    <div
+                        style="background: #ffebee; padding: 15px; border-radius: 6px; margin-top: 10px; border-left: 4px solid #f44336;">
+                        <strong style="color: #c62828;">⚠️ NYE Safety Tips:</strong>
+                        <ul style="margin: 10px 0 0 20px; color: #333; line-height: 1.6;">
+                            <li>Keep valuables secure - pickpockets active in large crowds</li>
+                            <li>Stay together as a group - designate meeting point if separated</li>
+                            <li>Fully charge phones before going out</li>
+                            <li>Download DiDi (Chinese Uber) - taxis hard to find after midnight</li>
+                            <li>Book dinner reservations in advance - popular spots fill up!</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Day 8 -->
+                <div class="timeline-item">
+                    <div class="day-header">Day 8: Shanghai - New Year's Day 🎊</div>
+                    <div class="date">Thursday, January 1, 2026</div>
+                    <span class="city">🏙️ Shanghai</span>
+                    <div style="margin: 10px 0; text-align: center;">
+                        <img src="images/popmart_itinerary_day8.png" alt="Shanghai Jing'an Temple Pop Mart Scene"
+                            style="width: 100%; max-width: 500px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+                    </div>
+                    <div class="activities">
+                        <div class="activity">
+                            <span class="activity-time">10:00 AM</span>
+                            <span class="activity-desc">🍳 <strong>Late Brunch:</strong> Sleep in after NYE! Find dim
+                                sum brunch nearby - try Din Tai Fung (鼎泰丰) at IFC or Xintiandi.</span>
+                        </div>
+                        <div class="activity">
+                            <span class="activity-time">12:00 PM - 2:00 PM</span>
+                            <span class="activity-desc">🏛️ <strong>Option A: Shanghai Museum</strong> (FREE, People's
+                                Square) - World-class Chinese art & artifacts<br />
+                                <strong>Option B: Xintiandi</strong> - Trendy dining/shopping district in restored
+                                shikumen houses</span>
+                        </div>
+                        <div class="activity">
+                            <span class="activity-time">2:00 PM - 4:00 PM</span>
+                            <span class="activity-desc">🛕 <strong>Jing'an Temple (静安寺):</strong> Beautiful golden
+                                Buddhist temple in the heart of modern Shanghai (~50 CNY).</span>
+                        </div>
+                        <div class="activity">
+                            <span class="activity-time">Afternoon Break</span>
+                            <span class="activity-desc">☕ <strong>Starbucks Reserve Roastery:</strong> massive immersive
+                                coffee theater nearby (Nanjing West Rd). Great for warming up!</span>
+                        </div>
+                        <div class="activity">
+                            <span class="activity-time">4:00 PM - 6:00 PM</span>
+                            <span class="activity-desc">🌳 <strong>French Concession Walk:</strong> Tree-lined streets,
+                                historic architecture, cute cafes. Start at Fuxing Park, walk along Huaihai Road. Great
+                                for photos!</span>
+                        </div>
+                        <div class="activity">
+                            <span class="activity-time">6:00 PM - 8:00 PM</span>
+                            <span class="activity-desc">🍽️ <strong>New Year's Dinner:</strong> Try Shanghainese cuisine
+                                - Xiao Nan Guo (小南国) or local xiaolongbao at Jia Jia Tang Bao.</span>
+                        </div>
+                        <div class="activity">
+                            <span class="activity-time">8:00 PM onwards</span>
+                            <span class="activity-desc">🌃 <strong>Evening Options:</strong> Relax at hotel, or revisit
+                                The Bund for quieter night views (much less crowded than NYE!).</span>
+                        </div>
+                    </div>
+                    <div
+                        style="background: #e8f5e9; padding: 15px; border-radius: 6px; margin-top: 15px; border-left: 4px solid #4CAF50;">
+                        <strong style="color: #2E7D32;">💡 January 1st Tips:</strong>
+                        <ul style="margin: 10px 0 0 20px; color: #333; line-height: 1.8;">
+                            <li><strong>Public Holiday:</strong> Many attractions open, but some shops may have reduced
+                                hours.</li>
+                            <li><strong>Weather:</strong> Expect 5-10°C, possibly sunny - good day for outdoor walking!
+                            </li>
+                            <li><strong>Less Crowded:</strong> Many tourists leave after NYE - enjoy calmer streets.
+                            </li>
+                            <li><strong>Spa/Massage:</strong> Good day for relaxation after busy NYE - try Dragonfly Spa
+                                chain.</li>
+                            <li><strong>Souvenir Shopping:</strong> Tianzifang (田子坊) - artsy alley with unique gifts &
+                                cafes.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Day 9 -->
+                <div class="timeline-item">
+                    <div class="day-header">Day 9: Shanghai - Last Day & Departure</div>
+                    <div class="date">Friday, January 2, 2026</div>
+                    <span class="city">🏙️ Shanghai → Guangzhou</span>
+                    <div style="margin: 10px 0; text-align: center;">
+                        <img src="images/popmart_itinerary_day9.png" alt="Shanghai Last Shopping Pop Mart Scene"
+                            style="width: 100%; max-width: 500px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+                    </div>
+                    <div class="activities">
+                        <div class="activity">
+                            <span class="activity-time">8:00 AM - 10:00 AM</span>
+                            <span class="activity-desc">🍳 <strong>Breakfast & Pack:</strong> Enjoy final Shanghai
+                                breakfast. Pack luggage, check nothing left behind!</span>
+                        </div>
+                        <div class="activity">
+                            <span class="activity-time">10:00 AM - 12:00 PM</span>
+                            <span class="activity-desc">🛍️ <strong>Last Shopping:</strong> Nanjing Road East or Yuyuan
+                                Bazaar for souvenirs. Tea, silk, snacks for home!</span>
+                        </div>
+                        <div class="activity">
+                            <span class="activity-time">12:00 PM - 2:00 PM</span>
+                            <span class="activity-desc">🍽️ <strong>Farewell Lunch:</strong> Final dim sum or
+                                Shanghainese meal. Crystal Jade, Din Tai Fung, or local favorites.</span>
+                        </div>
+                        <div class="activity">
+                            <span class="activity-time">2:00 PM - 4:00 PM</span>
+                            <span class="activity-desc">📷 <strong>Final Photos:</strong> Last chance at The Bund or
+                                People's Square. Check out from hotel by 3 PM.</span>
+                        </div>
+                        <div class="activity">
+                            <span class="activity-time">4:00 PM - 5:30 PM</span>
+                            <span class="activity-desc">🚕 <strong>Transfer to Airport:</strong> Shanghai Hongqiao
+                                Airport (SHA) - ~40 min by taxi or metro.</span>
+                        </div>
+                        <div class="activity">
+                            <span class="activity-time">8:50 PM</span>
+                            <span class="activity-desc">✈️ Depart SHA on China Southern CZ3546</span>
+                        </div>
+                        <div class="activity">
+                            <span class="activity-time">11:30 PM - 12:30 AM</span>
+                            <span class="activity-desc">✈️ Arrive Guangzhou (CAN) | 🏨 Transfer to overnight hotel<br />
+                                <strong>Check-in: Baiyun Airport Coco Hotel</strong><br />
+                                📍 Block B4, 9 Airport Avenue, Huadu District (20-30 min from airport)<br />
+                                ☎ +86-188-2001-0948 | Booking ID: [View booking
+                                details](Hotel/Hotel_Guangzhou_Baiyun_Coco_booking.md)<br />
+                                2 Superior King Rooms, prepaid, free WiFi & fitness center</span>
+                        </div>
+                    </div>
+                    <div
+                        style="background: #e8eaf6; padding: 15px; border-radius: 6px; margin-top: 15px; border-left: 4px solid #3F51B5;">
+                        <strong style="color: #303F9F;">💡 Day 9 Tips:</strong>
+                        <ul style="margin: 10px 0 0 20px; color: #333; line-height: 1.8;">
+                            <li><strong>Hotel Checkout:</strong> Most hotels 12 PM checkout - ask for late checkout or
+                                store luggage.</li>
+                            <li><strong>Shanghai Airport:</strong> Hongqiao has 2 terminals - check your terminal! China
+                                Southern usually T2.</li>
+                            <li><strong>Duty Free:</strong> Limited shopping at domestic terminal - buy souvenirs in
+                                city instead.</li>
+                            <li><strong>Guangzhou Transfer:</strong> Pre-book taxi or hotel shuttle for late-night
+                                arrival.</li>
+                            <li><strong>Pack Essentials:</strong> Keep phone charger, snacks, and travel docs in
+                                carry-on.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Day 10 -->
+                <div class="timeline-item">
+                    <div class="day-header">Day 10: Guangzhou & Return to Bangkok</div>
+                    <div class="date">Friday-Saturday, January 3-4, 2026</div>
+                    <span class="city">🏙️ Guangzhou → Bangkok</span>
+                    <div style="margin: 10px 0; text-align: center;">
+                        <img src="images/popmart_itinerary_day10.png" alt="Guangzhou Canton Tower Night Pop Mart Scene"
+                            style="width: 100%; max-width: 500px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+                    </div>
+                    <div class="activities">
+                        <div class="activity">
+                            <span class="activity-time">11:30 PM (Jan 2)</span>
+                            <span class="activity-desc">🏨 Arrive Guangzhou Baiyun Airport, luggage storage
+                                available</span>
+                        </div>
+                        <div class="activity">
+                            <span class="activity-time">12:30 AM - 7:00 AM (Jan 3)</span>
+                            <span class="activity-desc">🏨 Rest at airport hotel (shower, sleep) - Book in advance or
+                                use airport lounge</span>
+                        </div>
+                        <div class="activity">
+                            <span class="activity-time">7:00 AM</span>
+                            <span class="activity-desc">🚕 Checkout from hotel. 🧳 <strong>Store Luggage at
+                                    Airport:</strong> Departure Hall, Gate F area (~20-50 CNY/piece). Travel light to
+                                city!</span>
+                        </div>
+                        <div class="activity">
+                            <span class="activity-time">8:00 AM - 11:00 AM</span>
+                            <span class="activity-desc">🏙️ <strong>Guangzhou City Exploration:</strong> Metro Line 3 to
+                                city. Visit Shamian Island or Canton Tower area.</span>
+                        </div>
+                        <div class="activity">
+                            <span class="activity-time">11:00 AM - 1:00 PM</span>
+                            <span class="activity-desc">🥟 <strong>Authentic Dim Sum Lunch:</strong> Try <strong>Dian
+                                    Dou De (点都德)</strong> or <strong>Guangzhou Restaurant (广州酒家)</strong>. Must order:
+                                Shrimp Dumplings (Har Gow) & Red Rice Rolls.</span>
+                        </div>
+                        <div class="activity">
+                            <span class="activity-time">4:00 PM - 8:00 PM</span>
+                            <span class="activity-desc">🛍️ Shopping at Shangxiajiu Pedestrian Street or relax at Liwan
+                                Lake Park before heading back to airport</span>
+                        </div>
+                        <div class="activity">
+                            <span class="activity-time">8:00 PM</span>
+                            <span class="activity-desc">🚐 Transfer back to Guangzhou Baiyun Airport, check-in for
+                                return flight</span>
+                        </div>
+                        <div class="activity">
+                            <span class="activity-time">11:00 PM (Jan 3)</span>
+                            <span class="activity-desc">✈️ Depart Guangzhou (CAN) on China Southern CZ3035 to
+                                Bangkok</span>
+                        </div>
+                        <div class="activity">
+                            <span class="activity-time">1:05 AM (Jan 4)</span>
+                            <span class="activity-desc">✈️ Arrive Bangkok Suvarnabhumi (BKK) - Trip Complete! 🎉</span>
+                        </div>
+                    </div>
+                    <div
+                        style="background: #fff8e1; padding: 15px; border-radius: 6px; margin-top: 15px; border-left: 4px solid #FFC107;">
+                        <strong style="color: #F57C00;">💡 Guangzhou Layover Tips:</strong>
+                        <ul style="margin: 10px 0 0 20px; color: #333; line-height: 1.8;">
+                            <li><strong>Metro to City:</strong> Line 3 from airport to city center (~45 min, 7 CNY).
+                                Runs 6 AM - 11 PM.</li>
+                            <li><strong>Must-Try Dim Sum:</strong> Guangzhou is dim sum capital! Try Lian Xiang Lou
+                                (莲香楼) or Tao Tao Ju (陶陶居).</li>
+                            <li><strong>Canton Tower:</strong> 600m tall, iconic landmark. Evening views spectacular
+                                (~150 CNY).</li>
+                            <li><strong>Shamian Island:</strong> Colonial-era European architecture, peaceful gardens.
+                                FREE entry.</li>
+                            <li><strong>Weather:</strong> Warmer here (10-20°C) - lighter jacket than northern cities!
+                            </li>
+                            <li><strong>Return to Airport:</strong> Allow 1.5 hours before check-in closes. Traffic can
+                                be heavy.</li>
+                        </ul>
+                    </div>
+                    <div
+                        style="background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%); padding: 20px; border-radius: 6px; margin-top: 10px; color: white; text-align: center;">
+                        <strong style="font-size: 1.2em;">🎉 Trip Complete!</strong>
+                        <p style="margin-top: 10px;">10 amazing days across 5 Chinese cities. Safe travels home!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>🚆 Confirmed Train Bookings Summary</h2>
+            <div style="color: #333; line-height: 1.8;">
+                <p style="margin-bottom: 15px; font-weight: bold; color: #4CAF50;">✅ All 4 trains booked via 12306.cn |
+                    Total: ¥2,000 RMB for 16 tickets (4 passengers)</p>
+                <table style="width: 100%; border-collapse: collapse; margin-top: 15px;">
+                    <tr style="background: #e8f5e9; border-bottom: 2px solid #4CAF50;">
+                        <th style="padding: 10px; text-align: left; border: 1px solid #ddd;">Route</th>
+                        <th style="padding: 10px; text-align: center; border: 1px solid #ddd;">Train</th>
+                        <th style="padding: 10px; text-align: center; border: 1px solid #ddd;">Date & Time</th>
+                        <th style="padding: 10px; text-align: center; border: 1px solid #ddd;">Cost</th>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #ddd; background: #f9fff9;">
+                        <td style="padding: 10px; border: 1px solid #ddd;"><strong>Hangzhou East → Wuyuan</strong></td>
+                        <td style="padding: 10px; text-align: center; border: 1px solid #ddd;">G1509</td>
+                        <td style="padding: 10px; text-align: center; border: 1px solid #ddd;">Dec 27 @ 09:33</td>
+                        <td style="padding: 10px; text-align: center; border: 1px solid #ddd;">¥618</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #ddd; background: #f9fff9;">
+                        <td style="padding: 10px; border: 1px solid #ddd;"><strong>Wuyuan → Shangrao</strong></td>
+                        <td style="padding: 10px; text-align: center; border: 1px solid #ddd;">G1669</td>
+                        <td style="padding: 10px; text-align: center; border: 1px solid #ddd;">Dec 28 @ 10:54</td>
+                        <td style="padding: 10px; text-align: center; border: 1px solid #ddd;">¥158</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #ddd; background: #f9fff9;">
+                        <td style="padding: 10px; border: 1px solid #ddd;"><strong>Shangrao → Shanghai Hongqiao</strong>
+                        </td>
+                        <td style="padding: 10px; text-align: center; border: 1px solid #ddd;">G412</td>
+                        <td style="padding: 10px; text-align: center; border: 1px solid #ddd;">Dec 29 @ 11:02</td>
+                        <td style="padding: 10px; text-align: center; border: 1px solid #ddd;">¥1,100</td>
+                    </tr>
+                    <tr style="background: #e8f5e9;">
+                        <td style="padding: 10px; border: 1px solid #ddd;"><strong>Shanghai Hongqiao → Suzhou</strong>
+                        </td>
+                        <td style="padding: 10px; text-align: center; border: 1px solid #ddd;">D3006</td>
+                        <td style="padding: 10px; text-align: center; border: 1px solid #ddd;">Dec 29 @ 13:53</td>
+                        <td style="padding: 10px; text-align: center; border: 1px solid #ddd;">¥124</td>
+                    </tr>
+                </table>
+                <ul style="margin-left: 20px; margin-top: 20px;">
+                    <li><strong>Passengers:</strong> CHAMNONG NICK, ATHITHANATHAWORN THANAKORN, CHAMNONG ARPAPORN,
+                        SONTHILUG AEKKALAG</li>
+                    <li><strong>All 2nd Class:</strong> Comfortable reclining seats, clean facilities</li>
+                    <li><strong>Stations:</strong> Hangzhou East (23B), Wuyuan, Shangrao, Shanghai Hongqiao (28A28B)
+                    </li>
+                    <li><strong>Dec 29 Connection:</strong> ~50 minutes between trains at Shanghai Hongqiao</li>
+                    <li><strong>Booking Source:</strong> 12306.cn (China Railway official)</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>💡 Trip Highlights</h2>
+            <div style="color: #333; line-height: 1.8;">
+                <ul style="margin-left: 20px; margin-top: 15px;">
+                    <li><strong>Nature & Mountains:</strong> Huangling & Wangxiangu Valley hiking</li>
+                    <li><strong>Historic Water Cities:</strong> Suzhou's classical gardens & canal tours</li>
+                    <li><strong>Modern Metropolis:</strong> Shanghai Bund, Oriental Pearl Tower, Yu Garden</li>
+                    <li><strong>New Year Celebration:</strong> Ring in 2026 in Shanghai with Chinese New Year vibes</li>
+                    <li><strong>Cultural Experience:</strong> Traditional temples, markets, and local cuisine</li>
+                    <li><strong>Total Distance:</strong> ~635 km across 5 Chinese cities via HSR</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="nav-buttons">
+            <a href="accommodation.html" class="nav-btn">← Hotels</a>
+            <a href="index.html" class="nav-btn home">Home</a>
+            <a href="dining.html" class="nav-btn">Food →</a>
+        </div>
+
+        <footer>
+            <p>📍 China New Year 2026 Adventure • Happy travels!</p>
+        </footer>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('navMenu');
+            menu.classList.toggle('mobile-open');
+        }
+
+        // Close mobile menu when a link is clicked
+        document.addEventListener('DOMContentLoaded', function () {
+            const navItems = document.querySelectorAll('.navbar-item');
+            navItems.forEach(item => {
+                item.addEventListener('click', function () {
+                    const menu = document.getElementById('navMenu');
+                    menu.classList.remove('mobile-open');
+                });
+            });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function (event) {
+            const navbar = document.querySelector('.navbar');
+            const menu = document.getElementById('navMenu');
+            const toggle = document.querySelector('.menu-toggle');
+
+            if (!navbar.contains(event.target) && menu.classList.contains('mobile-open')) {
+                menu.classList.remove('mobile-open');
+            }
+        });
+    </script>
+</body>
+
+</html>
