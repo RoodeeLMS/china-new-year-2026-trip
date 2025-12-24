@@ -310,6 +310,234 @@
             }
         }
 
+        /* --- Countdown Section Styles --- */
+        .countdown-section {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            padding: 25px 20px;
+            margin-bottom: 0;
+        }
+
+        .countdown-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .countdown-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .countdown-header h2 {
+            color: var(--accent-gold);
+            font-family: 'Noto Serif SC', serif;
+            font-size: 1.5em;
+            margin-bottom: 5px;
+        }
+
+        .countdown-header .subtitle {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.9em;
+        }
+
+        .countdown-card {
+            background: rgba(255,255,255,0.1);
+            border-radius: 16px;
+            padding: 25px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.15);
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .countdown-event {
+            color: white;
+        }
+
+        .countdown-event .event-type {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75em;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .countdown-event .event-type.flight {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+        }
+
+        .countdown-event .event-type.train {
+            background: linear-gradient(135deg, #27ae60, #1e8449);
+        }
+
+        .countdown-event .event-type.hotel {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+        }
+
+        .countdown-event .event-type.event {
+            background: linear-gradient(135deg, #9b59b6, #8e44ad);
+        }
+
+        .countdown-event .event-title {
+            font-size: 1.4em;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .countdown-event .event-details {
+            color: rgba(255,255,255,0.85);
+            font-size: 0.95em;
+            line-height: 1.6;
+        }
+
+        .countdown-event .event-details .detail-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin: 4px 0;
+        }
+
+        .countdown-timer {
+            text-align: center;
+            min-width: 200px;
+        }
+
+        .timer-display {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+
+        .timer-unit {
+            background: rgba(255,255,255,0.15);
+            border-radius: 10px;
+            padding: 12px 8px;
+            min-width: 55px;
+        }
+
+        .timer-value {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: var(--accent-gold);
+            line-height: 1;
+        }
+
+        .timer-label {
+            font-size: 0.65em;
+            color: rgba(255,255,255,0.7);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 4px;
+        }
+
+        .countdown-status {
+            font-size: 0.85em;
+            padding: 6px 14px;
+            border-radius: 20px;
+            display: inline-block;
+        }
+
+        .countdown-status.upcoming {
+            background: rgba(46, 204, 113, 0.2);
+            color: #2ecc71;
+        }
+
+        .countdown-status.today {
+            background: rgba(241, 196, 15, 0.2);
+            color: #f1c40f;
+        }
+
+        .countdown-status.now {
+            background: rgba(231, 76, 60, 0.2);
+            color: #e74c3c;
+            animation: pulse 1.5s infinite;
+        }
+
+        .countdown-status.past {
+            background: rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.5);
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.6; }
+        }
+
+        .countdown-nav {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .countdown-nav button {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.85em;
+            transition: all 0.3s ease;
+        }
+
+        .countdown-nav button:hover {
+            background: rgba(255,255,255,0.2);
+        }
+
+        .countdown-nav button.active {
+            background: var(--accent-gold);
+            color: var(--deep-navy);
+            border-color: var(--accent-gold);
+        }
+
+        .countdown-dots {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        .countdown-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .countdown-dot.active {
+            background: var(--accent-gold);
+            width: 24px;
+            border-radius: 4px;
+        }
+
+        @media (max-width: 700px) {
+            .countdown-card {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .countdown-event .event-details .detail-row {
+                justify-content: center;
+            }
+
+            .timer-unit {
+                min-width: 48px;
+                padding: 10px 6px;
+            }
+
+            .timer-value {
+                font-size: 1.5em;
+            }
+        }
+
         /* --- Infographic Timeline Styles --- */
         .timeline-container {
             position: relative;
@@ -496,6 +724,23 @@
         <h1>🎉 China New Year 2026</h1>
         <p class="subtitle">Complete Trip Planning Hub • December 25, 2025 - January 4, 2026</p>
     </div>
+
+    <!-- Next Up Countdown Section -->
+    <section class="countdown-section">
+        <div class="countdown-container">
+            <div class="countdown-header">
+                <h2>⏰ Next Up</h2>
+                <p class="subtitle">Don't miss these important moments</p>
+            </div>
+            <div class="countdown-card" id="countdownCard">
+                <!-- Content will be populated by JavaScript -->
+            </div>
+            <div class="countdown-dots" id="countdownDots">
+                <!-- Dots will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
     <div class="container">
         <!-- Trip Overview Card -->
         <div class="grid">
@@ -1073,6 +1318,271 @@
             if (!navbar.contains(event.target) && menu.classList.contains('mobile-open')) {
                 menu.classList.remove('mobile-open');
             }
+        });
+
+        // ========== COUNTDOWN TIMER ==========
+        const tripEvents = [
+            {
+                id: 'flight-out',
+                type: 'flight',
+                icon: '✈️',
+                title: 'Outbound Flight Departs',
+                datetime: '2025-12-25T02:10:00+07:00', // Bangkok time
+                details: [
+                    { icon: '🛫', text: 'CZ3036: BKK → CAN (02:10 - 06:05)' },
+                    { icon: '🔄', text: '3h transfer at Guangzhou' },
+                    { icon: '🛬', text: 'CZ3803: CAN → HGH (09:10 - 11:20)' }
+                ],
+                link: 'flights.html'
+            },
+            {
+                id: 'train-1',
+                type: 'train',
+                icon: '🚄',
+                title: 'Train to Wuyuan',
+                datetime: '2025-12-27T09:33:00+08:00', // China time
+                details: [
+                    { icon: '🚉', text: 'G1509: Hangzhou East → Wuyuan' },
+                    { icon: '⏱️', text: 'Duration: 1h 35m' },
+                    { icon: '🎫', text: 'Order: E903575237' }
+                ],
+                link: 'transportation.html'
+            },
+            {
+                id: 'train-2',
+                type: 'train',
+                icon: '🚄',
+                title: 'Train to Shangrao',
+                datetime: '2025-12-28T10:54:00+08:00',
+                details: [
+                    { icon: '🚉', text: 'G1669: Wuyuan → Shangrao' },
+                    { icon: '⏱️', text: 'Duration: 23 min' },
+                    { icon: '🎫', text: 'Order: E908947845' }
+                ],
+                link: 'transportation.html'
+            },
+            {
+                id: 'train-3',
+                type: 'train',
+                icon: '🚄',
+                title: 'Train to Shanghai',
+                datetime: '2025-12-29T11:02:00+08:00',
+                details: [
+                    { icon: '🚉', text: 'G412: Shangrao → Shanghai Hongqiao' },
+                    { icon: '⏱️', text: 'Duration: 2h 11m' },
+                    { icon: '🎫', text: 'Order: E904086447' }
+                ],
+                link: 'transportation.html'
+            },
+            {
+                id: 'train-4',
+                type: 'train',
+                icon: '🚄',
+                title: 'Train to Suzhou',
+                datetime: '2025-12-29T13:53:00+08:00',
+                details: [
+                    { icon: '🚉', text: 'D3006: Shanghai Hongqiao → Suzhou' },
+                    { icon: '⏱️', text: 'Duration: 30 min' },
+                    { icon: '🎫', text: 'Order: E947844235' }
+                ],
+                link: 'transportation.html'
+            },
+            {
+                id: 'nye',
+                type: 'event',
+                icon: '🎆',
+                title: 'New Year\'s Eve Countdown!',
+                datetime: '2025-12-31T23:59:00+08:00',
+                details: [
+                    { icon: '📍', text: 'The Bund, Shanghai' },
+                    { icon: '🎉', text: 'Ring in 2026 with fireworks!' },
+                    { icon: '🏨', text: 'Stay: Tianhua Hotel' }
+                ],
+                link: 'itinerary.html#day-7'
+            },
+            {
+                id: 'flight-sha-can',
+                type: 'flight',
+                icon: '✈️',
+                title: 'Flight to Guangzhou',
+                datetime: '2026-01-02T20:50:00+08:00',
+                details: [
+                    { icon: '🛫', text: 'CZ3546: SHA → CAN (20:50 - 23:30)' },
+                    { icon: '⏱️', text: 'Duration: 2h 40m' },
+                    { icon: '⚠️', text: '23.5h layover ahead!' }
+                ],
+                link: 'flights.html'
+            },
+            {
+                id: 'flight-home',
+                type: 'flight',
+                icon: '✈️',
+                title: 'Return Flight to Bangkok',
+                datetime: '2026-01-03T23:00:00+08:00',
+                details: [
+                    { icon: '🛫', text: 'CZ3035: CAN → BKK (23:00 - 01:05+1)' },
+                    { icon: '⏱️', text: 'Duration: 3h 5m' },
+                    { icon: '🏠', text: 'Arrive Bangkok Jan 4' }
+                ],
+                link: 'flights.html'
+            }
+        ];
+
+        let currentEventIndex = 0;
+        let countdownInterval;
+
+        function getNextEventIndex() {
+            const now = new Date();
+            for (let i = 0; i < tripEvents.length; i++) {
+                const eventDate = new Date(tripEvents[i].datetime);
+                if (eventDate > now) {
+                    return i;
+                }
+            }
+            return tripEvents.length - 1; // Return last event if all passed
+        }
+
+        function getCountdown(targetDate) {
+            const now = new Date();
+            const diff = targetDate - now;
+
+            if (diff <= 0) {
+                return { days: 0, hours: 0, minutes: 0, seconds: 0, isPast: true };
+            }
+
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            return { days, hours, minutes, seconds, isPast: false };
+        }
+
+        function getStatusInfo(targetDate) {
+            const now = new Date();
+            const diff = targetDate - now;
+            const hoursUntil = diff / (1000 * 60 * 60);
+
+            if (diff <= 0) {
+                return { class: 'past', text: 'Completed' };
+            } else if (hoursUntil <= 1) {
+                return { class: 'now', text: '🔴 Starting Soon!' };
+            } else if (hoursUntil <= 24) {
+                return { class: 'today', text: 'Today' };
+            } else {
+                return { class: 'upcoming', text: 'Upcoming' };
+            }
+        }
+
+        function renderCountdown() {
+            const event = tripEvents[currentEventIndex];
+            const targetDate = new Date(event.datetime);
+            const countdown = getCountdown(targetDate);
+            const status = getStatusInfo(targetDate);
+
+            const card = document.getElementById('countdownCard');
+            const detailsHtml = event.details.map(d =>
+                `<div class="detail-row"><span>${d.icon}</span><span>${d.text}</span></div>`
+            ).join('');
+
+            card.innerHTML = `
+                <div class="countdown-event">
+                    <span class="event-type ${event.type}">${event.icon} ${event.type}</span>
+                    <div class="event-title">${event.title}</div>
+                    <div class="event-details">
+                        ${detailsHtml}
+                        <div class="detail-row" style="margin-top: 8px;">
+                            <span>📅</span>
+                            <span>${targetDate.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' })}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="countdown-timer">
+                    <div class="timer-display">
+                        <div class="timer-unit">
+                            <div class="timer-value">${String(countdown.days).padStart(2, '0')}</div>
+                            <div class="timer-label">Days</div>
+                        </div>
+                        <div class="timer-unit">
+                            <div class="timer-value">${String(countdown.hours).padStart(2, '0')}</div>
+                            <div class="timer-label">Hours</div>
+                        </div>
+                        <div class="timer-unit">
+                            <div class="timer-value">${String(countdown.minutes).padStart(2, '0')}</div>
+                            <div class="timer-label">Mins</div>
+                        </div>
+                        <div class="timer-unit">
+                            <div class="timer-value">${String(countdown.seconds).padStart(2, '0')}</div>
+                            <div class="timer-label">Secs</div>
+                        </div>
+                    </div>
+                    <span class="countdown-status ${status.class}">${status.text}</span>
+                </div>
+            `;
+
+            // Add click handler for navigation
+            card.style.cursor = 'pointer';
+            card.onclick = () => window.location.href = event.link;
+
+            // Render navigation dots
+            renderDots();
+        }
+
+        function renderDots() {
+            const dotsContainer = document.getElementById('countdownDots');
+            dotsContainer.innerHTML = tripEvents.map((event, i) =>
+                `<div class="countdown-dot ${i === currentEventIndex ? 'active' : ''}"
+                     onclick="goToEvent(${i})"
+                     title="${event.title}"></div>`
+            ).join('');
+        }
+
+        function goToEvent(index) {
+            currentEventIndex = index;
+            renderCountdown();
+        }
+
+        function nextEvent() {
+            currentEventIndex = (currentEventIndex + 1) % tripEvents.length;
+            renderCountdown();
+        }
+
+        function prevEvent() {
+            currentEventIndex = (currentEventIndex - 1 + tripEvents.length) % tripEvents.length;
+            renderCountdown();
+        }
+
+        // Initialize countdown
+        document.addEventListener('DOMContentLoaded', function() {
+            currentEventIndex = getNextEventIndex();
+            renderCountdown();
+
+            // Update every second
+            countdownInterval = setInterval(renderCountdown, 1000);
+
+            // Keyboard navigation
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'ArrowLeft') prevEvent();
+                if (e.key === 'ArrowRight') nextEvent();
+            });
+
+            // Swipe support for mobile
+            let touchStartX = 0;
+            const countdownCard = document.getElementById('countdownCard');
+
+            countdownCard.addEventListener('touchstart', (e) => {
+                touchStartX = e.touches[0].clientX;
+            }, { passive: true });
+
+            countdownCard.addEventListener('touchend', (e) => {
+                const touchEndX = e.changedTouches[0].clientX;
+                const diff = touchStartX - touchEndX;
+
+                if (Math.abs(diff) > 50) {
+                    if (diff > 0) nextEvent();
+                    else prevEvent();
+                }
+            }, { passive: true });
         });
     </script>
 </body>
