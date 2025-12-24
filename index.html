@@ -708,10 +708,96 @@
                 border-color: transparent white transparent transparent;
             }
         }
+
+        /* Lightbox Modal */
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+            cursor: zoom-out;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .lightbox.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox-content {
+            max-width: 95%;
+            max-height: 95%;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            animation: zoomIn 0.3s ease;
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.2s;
+            z-index: 10000;
+        }
+
+        .lightbox-close:hover {
+            color: #ff6b6b;
+            transform: scale(1.2);
+        }
+
+        .lightbox-caption {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 1.1em;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px 25px;
+            border-radius: 25px;
+        }
+
+        .clickable-image {
+            cursor: zoom-in;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .clickable-image:hover {
+            transform: scale(1.02);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3) !important;
+        }
     </style>
 </head>
 
 <body>
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+        <img id="lightbox-img" class="lightbox-content" src="" alt="">
+        <div id="lightbox-caption" class="lightbox-caption"></div>
+    </div>
+
     <!-- Navigation Bar -->
     <nav class="navbar">
         <div class="navbar-container"><a href="index.html" class="navbar-brand">🏮 春节 2026</a><button
@@ -1051,19 +1137,22 @@
             <div
                 style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-bottom: 50px;">
                 <div style="text-align: center;">
-                    <img src="images/infographic.png" alt="China Trip Infographic"
+                    <img src="images/infographic.png" alt="China Trip Infographic" class="clickable-image"
+                        onclick="openLightbox(this)" data-caption="🎨 Journey Map"
                         style="width: 100%; height: auto; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
                     <p style="margin-top: 15px; color: #666; font-size: 0.9em;">🎨
                         Journey Map</p>
                 </div>
                 <div style="text-align: center;">
-                    <img src="images/3d_map.png" alt="3D Isometric Trip Map"
+                    <img src="images/3d_map.png" alt="3D Isometric Trip Map" class="clickable-image"
+                        onclick="openLightbox(this)" data-caption="🏔️ 3D Route View"
                         style="width: 100%; height: auto; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
                     <p style="margin-top: 15px; color: #666; font-size: 0.9em;">🏔️ 3D
                         Route View</p>
                 </div>
                 <div style="text-align: center;">
-                    <img src="images/popmart_map_final_v10.png" alt="Pop Mart Ultimate Journey Map"
+                    <img src="images/popmart_map_final_v10.png" alt="Pop Mart Ultimate Journey Map" class="clickable-image"
+                        onclick="openLightbox(this)" data-caption="🧸 Ultimate Journey Map (Final)"
                         style="width: 100%; height: auto; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
                     <p style="margin-top: 15px; color: #666; font-size: 0.9em;">🧸 Ultimate
                         Journey Map (Final)</p>
@@ -1288,6 +1377,31 @@
             const menu = document.getElementById('navMenu');
             menu.classList.toggle('mobile-open');
         }
+
+        // ========== LIGHTBOX FUNCTIONS ==========
+        function openLightbox(img) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            const lightboxCaption = document.getElementById('lightbox-caption');
+
+            lightboxImg.src = img.src;
+            lightboxCaption.textContent = img.dataset.caption || img.alt;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent scrolling
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.remove('active');
+            document.body.style.overflow = ''; // Restore scrolling
+        }
+
+        // Close lightbox with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeLightbox();
+            }
+        });
 
         // Close mobile menu when a link is clicked
         document.addEventListener('DOMContentLoaded', function () {
