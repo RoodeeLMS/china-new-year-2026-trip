@@ -99,9 +99,9 @@ This ensures bookings are searchable and documented, not just stored as images.
 
 | City | Hotel | Check-in | Nights | Status | Notes |
 |------|-------|----------|--------|--------|-------|
-| **Hangzhou** | Sofitel Hangzhou West Lake (FREE - loyalty) | Dec 25 | 2 | ✅ Booked | Complimentary via ALL.com, Premium Room |
-| **Hangzhou** | Sofitel Hangzhou (Arpaporn) | Dec 25 | 2 | ✅ Booked | ฿2,249.23/night, breakfast included |
-| **Hangzhou** | Sofitel Hangzhou (Thanakorn) | Dec 26 | 1 | ✅ Booked | ฿1,210.06 promotion, non-refundable |
+| **Hangzhou** | Sofitel West Lake 索菲特西湖 (FREE - loyalty) | Dec 25 | 1 | ✅ Booked | Complimentary via ALL.com, 西湖大道333号 |
+| **Hangzhou** | 五星灣酒店 Bay Five Star (Arpaporn) | Dec 25 | 2 | ✅ Booked | ฿2,249.23/night, breakfast, Yongjin Plaza |
+| **Hangzhou** | 五星灣酒店 Bay Five Star (Thanakorn) | Dec 26 | 1 | ✅ Booked | ฿1,210.06 promotion, Yongjin Plaza |
 | **Wangxiangu** | Small guesthouse | Dec 27 | 1 | ✅ Booked | TBD - local arrangement |
 | **Huangling** | Guling Sky Street | Dec 28 | 1 | ✅ Booked | Mountain village accommodation |
 | **Suzhou** | Novotel Suzhou SIP | Dec 29 | 1 | ✅ Booked | Free cancellation until Dec 29 |

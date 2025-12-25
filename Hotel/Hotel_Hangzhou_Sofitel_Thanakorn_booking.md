@@ -1,9 +1,9 @@
-# Hangzhou Sofitel West Lake Hotel Booking - Thanakorn
+# Hangzhou Bay Five Star Hotel Booking - Thanakorn 五星灣酒店
 
 ## Hotel Information
-- **Hotel Name:** Sofitel Hangzhou West Lake (Yongjin Plaza)
-- **Location:** West Lake Area, Hangzhou
-- **Address:** 1st Floor, Yongjin Plaza, No. 135 Yan'an Road, Changcheng District, Hangzhou, Zhejiang, China
+- **Hotel Name:** 五星灣酒店 Bay Five Star Hotel (杭州西湖湖濱湧金廣場店)
+- **Location:** West Lake Area, Hangzhou (Yongjin Plaza)
+- **Address:** 延安路135号湧金廣場1樓, 上城區, 杭州 (1st Floor, Yongjin Plaza, No. 135 Yan'an Road)
 - **Phone:** +86-571-86807899, +86-17366633868
 
 ## Booking Details
@@ -81,6 +81,6 @@ Second night accommodation in Hangzhou. Continues West Lake location for Day 2 e
 
 ## Trip Notes
 - Special promotion rate provides excellent value
-- Same luxury Sofitel property for consistency
-- Allows mid-stay continuation in prime West Lake location
+- Same 五星灣酒店 as Arpaporn's booking (Yongjin Plaza)
+- NOT the Sofitel (different hotel at different address)
 - Last night in Hangzhou before heading to mountains

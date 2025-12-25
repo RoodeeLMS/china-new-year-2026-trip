@@ -1,9 +1,9 @@
 # Hangzhou Sofitel West Lake Hotel Booking - Complimentary (Thanakorn)
 
 ## Hotel Information
-- **Hotel Name:** Sofitel Hangzhou West Lake (西湖天道333号)
+- **Hotel Name:** Sofitel Hangzhou West Lake 杭州索菲特西湖大酒店
 - **Location:** West Lake Area, Hangzhou
-- **Address:** West Lake Taidao 333, Zhejiang Province, Hangzhou, Upper City District, Hangzhou 310002, China
+- **Address:** 西湖大道333号, 浙江省, 杭州上城区西湖大道333号 - 310002, China
 - **Phone:** +86 571 / 87075858
 
 ## Booking Details
@@ -22,10 +22,10 @@
 | **Check-in** | December 25, 2025 (Thursday) - After 2:00 PM (local time) |
 | **Check-out** | December 26, 2025 (Friday) - Before 12:00 PM (local time) |
 | **Room Quantity** | 1 room |
-| **Number of Nights** | 2 nights |
-| **Room Type** | Premium Room (Deluxe) - Sofitel All Loyalty Upgrade |
+| **Number of Nights** | 1 night |
+| **Room Type** | 高级房 Premium Room (30-38 sqm) |
 | **Occupancy** | 2 adults |
-| **Bedding** | 1 queen bed (Sofitel MyBed™) |
+| **Bedding** | 1 king bed (Sofitel MyBed™ 特大床) |
 
 ## Pricing
 
@@ -77,7 +77,7 @@
 
 ## Purpose
 
-Luxury complimentary accommodation in Hangzhou provided through loyalty program. Premium location on West Lake for arrival day and first full day of exploration.
+Luxury complimentary accommodation in Hangzhou provided through loyalty program. Premium location on West Lake for arrival night (Dec 25).
 
 ## Status
 ✅ Confirmed & Complimentary (No Payment Required)
@@ -85,10 +85,10 @@ Luxury complimentary accommodation in Hangzhou provided through loyalty program.
 ## Trip Notes
 - Excellent value through ALL.com loyalty membership
 - Premium room upgrade adds luxury experience
-- Perfect for arrival on Dec 25 and Day 1 (Dec 26) in Hangzhou
+- Perfect for arrival night (Dec 25) in Hangzhou - checkout Dec 26 morning
 - Sofitel is luxury 5-star international chain with impeccable service
 - Premium bedding and amenities enhance comfort after long flights
-- Strategic positioning on West Lake for optimal sightseeing
+- Strategic positioning on West Lake (西湖大道333号)
 
 ## Booking Summary
 This is a premium complimentary booking through the ALL.com Sofitel loyalty program. It provides excellent value and quality accommodation at no cost, making it an ideal start to the trip with premium comfort and service.

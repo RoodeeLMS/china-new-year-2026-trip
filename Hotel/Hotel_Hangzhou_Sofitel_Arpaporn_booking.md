@@ -1,9 +1,9 @@
-# Hangzhou Sofitel West Lake Hotel Booking - Arpaporn
+# Hangzhou Bay Five Star Hotel Booking - Arpaporn 五星灣酒店
 
 ## Hotel Information
-- **Hotel Name:** Sofitel Hangzhou West Lake (Yongjin Plaza)
-- **Location:** West Lake Area, Hangzhou
-- **Address:** 1st Floor, Yongjin Plaza, No. 135 Yan'an Road, Changcheng District, Hangzhou, Zhejiang, China
+- **Hotel Name:** 五星灣酒店 Bay Five Star Hotel (杭州西湖湖濱湧金廣場店)
+- **Location:** West Lake Area, Hangzhou (Yongjin Plaza)
+- **Address:** 延安路135号湧金廣場1樓, 上城區, 杭州 (1st Floor, Yongjin Plaza, No. 135 Yan'an Road)
 - **Phone:** +86-571-86807899, +86-17366633868
 
 ## Booking Details
@@ -80,7 +80,7 @@ Primary accommodation in Hangzhou for first 2 nights of trip. Excellent West Lak
 ✅ Confirmed & Paid (Non-refundable after Dec 25 @ 18:00)
 
 ## Trip Notes
-- Sofitel is a luxury 5-star chain with excellent service
-- Located directly at Yongjin Plaza on West Lake
+- 五星灣酒店 is a quality hotel at Yongjin Plaza near West Lake
+- NOT the same as Sofitel (different hotel, different address)
 - Ideal for Day 1-2 activities (West Lake, Leifeng Pagoda, local dining)
 - Free cancellation with 24-hour notice
