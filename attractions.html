@@ -524,10 +524,39 @@
             font-weight: 600;
             margin-left: 0.5rem;
         }
+
+        /* Language Toggle Button */
+        .lang-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, var(--primary-red), #E85A4F);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(196, 30, 58, 0.4);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            font-size: 0.9em;
+        }
+        .lang-toggle:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(196, 30, 58, 0.5);
+        }
+        /* Hide Thai by default, show when .show-thai is on body */
+        .thai { display: none; }
+        body.show-thai .thai { display: inline; }
+        body.show-thai .english { display: none; }
     </style>
 </head>
 
 <body>
+    <!-- Language Toggle Button -->
+    <button class="lang-toggle" onclick="toggleLanguage()">🇹🇭 ไทย</button>
+
     <!-- Navigation Bar -->
     <nav class="navbar">
         <div class="navbar-container">
@@ -553,20 +582,23 @@
 
     <!-- Page Header -->
     <header class="page-header">
-        <h1 class="page-title">🏛️ City Guide & Attractions</h1>
-        <p class="page-subtitle">Must-see sights, hidden gems, and local favorites across all cities on our route</p>
+        <h1 class="page-title">🏛️ <span class="english">City Guide & Attractions</span><span class="thai">คู่มือเมือง & สถานที่ท่องเที่ยว</span></h1>
+        <p class="page-subtitle">
+            <span class="english">Must-see sights, hidden gems, and local favorites across all cities on our route</span>
+            <span class="thai">สถานที่ต้องไป ที่ซ่อนเร้น และที่ชื่นชอบของคนท้องถิ่นตลอดเส้นทาง</span>
+        </p>
     </header>
 
     <!-- Main Content -->
     <main class="main-content">
         <!-- City Quick Navigation -->
         <div class="city-nav">
-            <a href="#hangzhou" class="city-nav-btn hangzhou">🏯 Hangzhou 杭州</a>
-            <a href="#huangling" class="city-nav-btn huangling">🏔️ Huangling 篁岭</a>
-            <a href="#wangxiangu" class="city-nav-btn wangxiangu">🌿 Wangxiangu 望仙谷</a>
-            <a href="#suzhou" class="city-nav-btn suzhou">🌸 Suzhou 苏州</a>
-            <a href="#shanghai" class="city-nav-btn shanghai">🌃 Shanghai 上海</a>
-            <a href="#guangzhou" class="city-nav-btn guangzhou">🌺 Guangzhou 广州</a>
+            <a href="#hangzhou" class="city-nav-btn hangzhou">🏯 <span class="english">Hangzhou</span><span class="thai">หางโจว</span> 杭州</a>
+            <a href="#huangling" class="city-nav-btn huangling">🏔️ <span class="english">Huangling</span><span class="thai">หวงหลิง</span> 篁岭</a>
+            <a href="#wangxiangu" class="city-nav-btn wangxiangu">🌿 <span class="english">Wangxiangu</span><span class="thai">ว่างเซียนกู่</span> 望仙谷</a>
+            <a href="#suzhou" class="city-nav-btn suzhou">🌸 <span class="english">Suzhou</span><span class="thai">ซูโจว</span> 苏州</a>
+            <a href="#shanghai" class="city-nav-btn shanghai">🌃 <span class="english">Shanghai</span><span class="thai">เซี่ยงไฮ้</span> 上海</a>
+            <a href="#guangzhou" class="city-nav-btn guangzhou">🌺 <span class="english">Guangzhou</span><span class="thai">กวางโจว</span> 广州</a>
         </div>
 
         <!-- HANGZHOU Section -->
@@ -574,8 +606,8 @@
             <div class="location-header">
                 <span class="location-icon">🏯</span>
                 <div class="location-info">
-                    <h2>Hangzhou 杭州</h2>
-                    <div class="location-dates">📅 Dec 25-27 • First stop • 2 nights</div>
+                    <h2><span class="english">Hangzhou</span><span class="thai">หางโจว</span> 杭州</h2>
+                    <div class="location-dates">📅 Dec 25-27 • <span class="english">First stop</span><span class="thai">จุดแรก</span> • 2 <span class="english">nights</span><span class="thai">คืน</span></div>
                 </div>
             </div>
 
@@ -2844,6 +2876,17 @@
         function toggleMobileMenu() {
             const menu = document.getElementById('navMenu');
             menu.classList.toggle('mobile-open');
+        }
+
+        function toggleLanguage() {
+            const body = document.body;
+            const btn = document.querySelector('.lang-toggle');
+            body.classList.toggle('show-thai');
+            if (body.classList.contains('show-thai')) {
+                btn.innerHTML = '🇬🇧 English';
+            } else {
+                btn.innerHTML = '🇹🇭 ไทย';
+            }
         }
     </script>
 </body>

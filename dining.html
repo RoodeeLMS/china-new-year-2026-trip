@@ -444,10 +444,38 @@
             opacity: 0.6;
             margin-top: 0.5rem;
         }
+        /* Language Toggle Button */
+        .lang-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, var(--primary-red), #E85A4F);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(196, 30, 58, 0.4);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            font-size: 0.9em;
+        }
+        .lang-toggle:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(196, 30, 58, 0.5);
+        }
+        /* Hide Thai by default, show when .show-thai is on body */
+        .thai { display: none; }
+        body.show-thai .thai { display: inline; }
+        body.show-thai .english { display: none; }
     </style>
 </head>
 
 <body>
+    <!-- Language Toggle Button -->
+    <button class="lang-toggle" onclick="toggleLanguage()">🇹🇭 ไทย</button>
+
     <!-- Navigation Bar -->
     <nav class="navbar">
         <div class="navbar-container">
@@ -473,8 +501,11 @@
 
     <!-- Page Header -->
     <header class="page-header">
-        <h1 class="page-title">🍜 Dining Guide</h1>
-        <p class="page-subtitle">Savor the authentic flavors of Eastern China's renowned culinary traditions</p>
+        <h1 class="page-title">🍜 <span class="english">Dining Guide</span><span class="thai">คู่มืออาหาร</span></h1>
+        <p class="page-subtitle">
+            <span class="english">Savor the authentic flavors of Eastern China's renowned culinary traditions</span>
+            <span class="thai">สัมผัสรสชาติแท้ๆ ของอาหารจีนตะวันออกที่ขึ้นชื่อ</span>
+        </p>
     </header>
 
     <!-- Main Content -->
@@ -484,7 +515,7 @@
         <section class="section-card">
             <div class="section-header">
                 <span class="section-icon">🥢</span>
-                <h2>Hangzhou Local Specialties</h2>
+                <h2><span class="english">Hangzhou Local Specialties</span><span class="thai">อาหารขึ้นชื่อหางโจว</span></h2>
             </div>
 
             <!-- Cuisine Map -->
@@ -493,28 +524,32 @@
                 <p class="map-caption">Signature dishes of the Jiangnan region</p>
             </div>
 
-            <p style="color: var(--text-medium); margin-bottom: 1.5rem;">Must-try dishes unique to the region:</p>
+            <p style="color: var(--text-medium); margin-bottom: 1.5rem;">Must-try dishes unique to the region: | อาหารที่ต้องลอง:</p>
 
             <div class="specialties-grid">
                 <div class="specialty-card">
-                    <h4>West Lake Fish</h4>
+                    <h4>West Lake Fish | ปลาทะเลสาบตะวันตก</h4>
                     <div class="chinese">西湖醋鱼</div>
-                    <p>Hangzhou's signature dish - grass carp in a sweet and tangy vinegar sauce</p>
+                    <p>Hangzhou's signature dish - grass carp in a sweet and tangy vinegar sauce<br>
+                    <span style="color: #888; font-size: 0.9em;">อาหารขึ้นชื่อหางโจว - ปลาในซอสน้ำส้มสายชูหวานอมเปรี้ยว</span></p>
                 </div>
                 <div class="specialty-card">
-                    <h4>Dragon Well Tea</h4>
+                    <h4>Dragon Well Tea | ชาหลงจิ่ง</h4>
                     <div class="chinese">龙井茶</div>
-                    <p>Premium green tea from the famous Longjing village</p>
+                    <p>Premium green tea from the famous Longjing village<br>
+                    <span style="color: #888; font-size: 0.9em;">ชาเขียวชั้นดีจากหมู่บ้านหลงจิ่ง</span></p>
                 </div>
                 <div class="specialty-card">
-                    <h4>Shrimp with Tea</h4>
+                    <h4>Shrimp with Tea | กุ้งผัดใบชา</h4>
                     <div class="chinese">龙井虾仁</div>
-                    <p>Delicate shrimp stir-fried with fragrant Longjing tea leaves</p>
+                    <p>Delicate shrimp stir-fried with fragrant Longjing tea leaves<br>
+                    <span style="color: #888; font-size: 0.9em;">กุ้งผัดกับใบชาหลงจิ่งหอมกรุ่น</span></p>
                 </div>
                 <div class="specialty-card">
-                    <h4>Dongpo Pork</h4>
+                    <h4>Dongpo Pork | หมูสามชั้นตงโพ</h4>
                     <div class="chinese">东坡肉</div>
-                    <p>Slow-braised pork belly named after poet Su Dongpo</p>
+                    <p>Slow-braised pork belly named after poet Su Dongpo<br>
+                    <span style="color: #888; font-size: 0.9em;">หมูสามชั้นตุ๋นนุ่ม ตั้งชื่อตามกวีซูตงโพ</span></p>
                 </div>
             </div>
         </section>
@@ -524,39 +559,43 @@
             <div class="location-header">
                 <span class="location-icon">🏯</span>
                 <div class="location-info">
-                    <h3>Hangzhou 杭州</h3>
-                    <div class="location-dates">📅 Dec 25-27 • 2 nights</div>
+                    <h3>Hangzhou 杭州 | หางโจว</h3>
+                    <div class="location-dates">📅 Dec 25-27 • 2 nights | 2 คืน</div>
                 </div>
             </div>
 
             <div class="restaurant-grid">
                 <div class="restaurant-card">
-                    <h4>🏛️ Louwailou (楼外楼)</h4>
+                    <h4>🏛️ Louwailou (楼外楼) | โหลวไวโหลว</h4>
                     <div class="details">
-                        <strong>Since 1848</strong> | Lakeside location<br />
+                        <strong>Since 1848 | เปิดมาตั้งแต่ปี 1848</strong> | Lakeside location<br />
                         Hangzhou's most famous restaurant for traditional cuisine. Stunning West Lake views.<br />
-                        <span class="highlight">Famous for 西湖醋鱼</span>
+                        <span style="color: #888; font-size: 0.9em;">ร้านอาหารชื่อดังที่สุดของหางโจว วิวทะเลสาบสวยงาม</span><br />
+                        <span class="highlight">Famous for 西湖醋鱼 | ขึ้นชื่อเรื่องปลาซีหู</span>
                     </div>
                 </div>
                 <div class="restaurant-card">
-                    <h4>👴 Zhi Wei Guan (知味观)</h4>
+                    <h4>👴 Zhi Wei Guan (知味观) | จือเหว่ยกวน</h4>
                     <div class="details">
-                        <strong>Since 1913</strong> | Classic casual<br />
-                        Authentic local dishes and dim sum. Best for breakfast and casual dining.
+                        <strong>Since 1913</strong> | Classic casual | ร้านสบายๆ<br />
+                        Authentic local dishes and dim sum. Best for breakfast and casual dining.<br />
+                        <span style="color: #888; font-size: 0.9em;">อาหารท้องถิ่นแท้ๆ และติ่มซำ เหมาะกับมื้อเช้า</span>
                     </div>
                 </div>
                 <div class="restaurant-card">
-                    <h4>✨ 28 HuBin Restaurant</h4>
+                    <h4>✨ 28 HuBin Restaurant | ร้าน 28 หูปิน</h4>
                     <div class="details">
-                        <strong>Grand Hyatt</strong> | Fine dining<br />
-                        Modern Chinese cuisine with panoramic West Lake views. Impeccable service.
+                        <strong>Grand Hyatt</strong> | Fine dining | อาหารชั้นเลิศ<br />
+                        Modern Chinese cuisine with panoramic West Lake views. Impeccable service.<br />
+                        <span style="color: #888; font-size: 0.9em;">อาหารจีนสมัยใหม่ วิวพาโนรามาทะเลสาบ บริการเยี่ยม</span>
                     </div>
                 </div>
                 <div class="restaurant-card">
-                    <h4>⭐ Jin Sha Restaurant</h4>
+                    <h4>⭐ Jin Sha Restaurant | ร้านจินชา</h4>
                     <div class="details">
-                        <strong>Four Seasons</strong> | Upscale<br />
-                        Signature restaurant with traditional Hangzhou dishes prepared by master chefs.
+                        <strong>Four Seasons</strong> | Upscale | หรูหรา<br />
+                        Signature restaurant with traditional Hangzhou dishes prepared by master chefs.<br />
+                        <span style="color: #888; font-size: 0.9em;">ร้านเซ็นเตอร์ อาหารหางโจวดั้งเดิมโดยเชฟระดับมาสเตอร์</span>
                     </div>
                 </div>
             </div>
@@ -567,38 +606,42 @@
             <div class="location-header">
                 <span class="location-icon">🌸</span>
                 <div class="location-info">
-                    <h3>Suzhou 苏州</h3>
-                    <div class="location-dates">📅 Dec 29 • 1 night</div>
+                    <h3>Suzhou 苏州 | ซูโจว</h3>
+                    <div class="location-dates">📅 Dec 29 • 1 night | 1 คืน</div>
                 </div>
             </div>
 
             <div class="restaurant-grid">
                 <div class="restaurant-card">
-                    <h4>🍜 Songhelou (松鹤楼)</h4>
+                    <h4>🍜 Songhelou (松鹤楼) | ซ่งเหอโหลว</h4>
                     <div class="details">
-                        <strong>Since 1757</strong> | Historic<br />
-                        Famous for squirrel fish (松鼠鳜鱼) and traditional Suzhou noodles.
+                        <strong>Since 1757 | เปิดมาตั้งแต่ปี 1757</strong> | Historic<br />
+                        Famous for squirrel fish (松鼠鳜鱼) and traditional Suzhou noodles.<br />
+                        <span style="color: #888; font-size: 0.9em;">ขึ้นชื่อเรื่องปลากระรอก และก๋วยเตี๋ยวซูโจว</span>
                     </div>
                 </div>
                 <div class="restaurant-card">
-                    <h4>🏮 Pingjiang Road Eateries</h4>
+                    <h4>🏮 Pingjiang Road Eateries | ร้านอาหารถนนผิงเจียง</h4>
                     <div class="details">
-                        <strong>Historic district</strong> | Various<br />
-                        Sample local snacks while strolling the ancient canal-side street.
+                        <strong>Historic district | ย่านประวัติศาสตร์</strong> | Various<br />
+                        Sample local snacks while strolling the ancient canal-side street.<br />
+                        <span style="color: #888; font-size: 0.9em;">ชิมของกินเล่นท้องถิ่น เดินเล่นริมคลอง</span>
                     </div>
                 </div>
                 <div class="restaurant-card">
-                    <h4>🍴 De Yue Lou (得月楼)</h4>
+                    <h4>🍴 De Yue Lou (得月楼) | เต๋อเยว่โหลว</h4>
                     <div class="details">
-                        <strong>Since 1688</strong> | Traditional<br />
-                        Authentic Suzhou flavors and seasonal specialties in elegant setting.
+                        <strong>Since 1688 | เปิดมาตั้งแต่ปี 1688</strong> | Traditional<br />
+                        Authentic Suzhou flavors and seasonal specialties in elegant setting.<br />
+                        <span style="color: #888; font-size: 0.9em;">รสชาติซูโจวแท้ๆ อาหารตามฤดูกาล บรรยากาศหรู</span>
                     </div>
                 </div>
                 <div class="restaurant-card">
-                    <h4>🥟 Local Noodle Shops</h4>
+                    <h4>🥟 Local Noodle Shops | ร้านก๋วยเตี๋ยวท้องถิ่น</h4>
                     <div class="details">
-                        <strong>苏式面</strong> | Casual<br />
-                        Try Suzhou-style noodles with various toppings - a local breakfast tradition.
+                        <strong>苏式面</strong> | Casual | ร้านสบายๆ<br />
+                        Try Suzhou-style noodles with various toppings - a local breakfast tradition.<br />
+                        <span style="color: #888; font-size: 0.9em;">ลองก๋วยเตี๋ยวสไตล์ซูโจว - อาหารเช้าคลาสสิก</span>
                     </div>
                 </div>
             </div>
@@ -609,39 +652,43 @@
             <div class="location-header">
                 <span class="location-icon">🌃</span>
                 <div class="location-info">
-                    <h3>Shanghai 上海</h3>
-                    <div class="location-dates">📅 Dec 30 - Jan 2 • 3 nights • NYE Celebration!</div>
+                    <h3>Shanghai 上海 | เซี่ยงไฮ้</h3>
+                    <div class="location-dates">📅 Dec 30 - Jan 2 • 3 nights | 3 คืน • NYE Celebration! | ฉลองปีใหม่!</div>
                 </div>
             </div>
 
             <div class="restaurant-grid">
                 <div class="restaurant-card">
-                    <h4>🥂 NYE Bund Dining</h4>
+                    <h4>🥂 NYE Bund Dining | อาหารริมเดอะบันด์คืนปีใหม่</h4>
                     <div class="details">
-                        <strong>New Year's Eve Special</strong><br />
-                        Premium restaurants along the Bund with spectacular skyline views for countdown.
-                        <span class="highlight">Book early for NYE!</span>
+                        <strong>New Year's Eve Special | พิเศษคืนส่งท้ายปี</strong><br />
+                        Premium restaurants along the Bund with spectacular skyline views for countdown.<br />
+                        <span style="color: #888; font-size: 0.9em;">ร้านหรูริมเดอะบันด์ วิวสกายไลน์สำหรับนับถอยหลัง</span>
+                        <span class="highlight">Book early for NYE! | จองล่วงหน้า!</span>
                     </div>
                 </div>
                 <div class="restaurant-card">
-                    <h4>🥟 Nanxiang Mantou</h4>
+                    <h4>🥟 Nanxiang Mantou | หนานเซียงหมั่นโถว</h4>
                     <div class="details">
-                        <strong>Yu Garden</strong> | Institution<br />
-                        The original xiaolongbao (soup dumplings) shop. Long queues but worth it!
+                        <strong>Yu Garden | สวนอวี้หยวน</strong> | Institution<br />
+                        The original xiaolongbao (soup dumplings) shop. Long queues but worth it!<br />
+                        <span style="color: #888; font-size: 0.9em;">ร้านเซี่ยวหลงเปาต้นตำรับ คิวยาวแต่คุ้มค่า!</span>
                     </div>
                 </div>
                 <div class="restaurant-card">
-                    <h4>🍃 French Concession Cafes</h4>
+                    <h4>🍃 French Concession Cafes | คาเฟ่เฟรนช์คอนเซสชัน</h4>
                     <div class="details">
-                        <strong>Trendy district</strong> | Modern<br />
-                        Trendy restaurants and cafes for modern Shanghai dining experience.
+                        <strong>Trendy district | ย่านทันสมัย</strong> | Modern<br />
+                        Trendy restaurants and cafes for modern Shanghai dining experience.<br />
+                        <span style="color: #888; font-size: 0.9em;">ร้านอาหารและคาเฟ่เก๋ๆ ประสบการณ์กินดื่มเซี่ยงไฮ้สมัยใหม่</span>
                     </div>
                 </div>
                 <div class="restaurant-card">
-                    <h4>🌆 Pudong Rooftops</h4>
+                    <h4>🌆 Pudong Rooftops | รูฟท็อปผู่ตง</h4>
                     <div class="details">
-                        <strong>Skyscraper views</strong> | Upscale<br />
-                        Dining with views from Shanghai's iconic towers. Perfect for NYE celebration.
+                        <strong>Skyscraper views | วิวตึกระฟ้า</strong> | Upscale<br />
+                        Dining with views from Shanghai's iconic towers. Perfect for NYE celebration.<br />
+                        <span style="color: #888; font-size: 0.9em;">ทานอาหารวิวจากตึกสูงเซี่ยงไฮ้ เหมาะสำหรับฉลองปีใหม่</span>
                     </div>
                 </div>
             </div>
@@ -652,39 +699,43 @@
             <div class="location-header">
                 <span class="location-icon">🌺</span>
                 <div class="location-info">
-                    <h3>Guangzhou 广州</h3>
-                    <div class="location-dates">📅 Jan 3 • Layover stop • Birthplace of Dim Sum!</div>
+                    <h3>Guangzhou 广州 | กวางโจว</h3>
+                    <div class="location-dates">📅 Jan 3 • Layover stop | แวะพัก • Birthplace of Dim Sum! | ต้นกำเนิดติ่มซำ!</div>
                 </div>
             </div>
 
             <div class="restaurant-grid">
                 <div class="restaurant-card">
-                    <h4>☕ Morning Dim Sum (早茶)</h4>
+                    <h4>☕ Morning Dim Sum (早茶) | ติ่มซำยามเช้า</h4>
                     <div class="details">
-                        <strong>Don't miss!</strong> | 6-10 AM<br />
-                        Traditional Cantonese breakfast - tea and dozens of small dishes.
-                        <span class="highlight">Best experience: 6-8 AM with locals</span>
+                        <strong>Don't miss! | ห้ามพลาด!</strong> | 6-10 AM<br />
+                        Traditional Cantonese breakfast - tea and dozens of small dishes.<br />
+                        <span style="color: #888; font-size: 0.9em;">อาหารเช้ากวางตุ้งแบบดั้งเดิม - ชากับอาหารจานเล็กมากมาย</span>
+                        <span class="highlight">Best experience: 6-8 AM with locals | ไปกับคนท้องถิ่น 6-8 โมง</span>
                     </div>
                 </div>
                 <div class="restaurant-card">
-                    <h4>👑 Tao Tao Ju (陶陶居)</h4>
+                    <h4>👑 Tao Tao Ju (陶陶居) | เถาเถาจู</h4>
                     <div class="details">
-                        <strong>Since 1880</strong> | Legendary<br />
-                        Famous for dim sum and roasted meats. A Guangzhou institution.
+                        <strong>Since 1880 | เปิดมาตั้งแต่ปี 1880</strong> | Legendary<br />
+                        Famous for dim sum and roasted meats. A Guangzhou institution.<br />
+                        <span style="color: #888; font-size: 0.9em;">ขึ้นชื่อเรื่องติ่มซำและเนื้อย่าง ร้านตำนานกวางโจว</span>
                     </div>
                 </div>
                 <div class="restaurant-card">
-                    <h4>🏪 Guangzhou Restaurant</h4>
+                    <h4>🏪 Guangzhou Restaurant | ร้านกวางโจวจิ่วเจีย</h4>
                     <div class="details">
-                        <strong>广州酒家</strong> | Since 1935<br />
-                        Famous for roasted duck, soy sauce chicken, and authentic dim sum.
+                        <strong>广州酒家</strong> | Since 1935 | เปิดมาตั้งแต่ปี 1935<br />
+                        Famous for roasted duck, soy sauce chicken, and authentic dim sum.<br />
+                        <span style="color: #888; font-size: 0.9em;">ขึ้นชื่อเรื่องเป็ดย่าง ไก่ซีอิ๊ว และติ่มซำแท้ๆ</span>
                     </div>
                 </div>
                 <div class="restaurant-card">
-                    <h4>⭐ Diandude (点都德)</h4>
+                    <h4>⭐ Diandude (点都德) | เตี่ยนโตวเต๋อ</h4>
                     <div class="details">
-                        <strong>Modern chain</strong> | Popular<br />
-                        Affordable, high-quality dim sum. Clean and efficient service.
+                        <strong>Modern chain | เชนสมัยใหม่</strong> | Popular<br />
+                        Affordable, high-quality dim sum. Clean and efficient service.<br />
+                        <span style="color: #888; font-size: 0.9em;">ติ่มซำคุณภาพดี ราคาไม่แพง บริการรวดเร็ว</span>
                     </div>
                 </div>
             </div>
@@ -694,20 +745,28 @@
         <section class="section-card">
             <div class="section-header">
                 <span class="section-icon">💡</span>
-                <h2>Dining Tips & Etiquette</h2>
+                <h2>Dining Tips & Etiquette | เคล็ดลับและมารยาทการกิน</h2>
             </div>
 
             <div class="tip-box">
-                <h4>✅ Essential Tips for Dining in China</h4>
+                <h4>✅ Essential Tips for Dining in China | เคล็ดลับการกินในจีน</h4>
                 <ul>
-                    <li><strong>Reservations:</strong> Book popular restaurants in advance, especially for NYE in Shanghai</li>
-                    <li><strong>Payment:</strong> WeChat Pay/Alipay accepted everywhere; cash at smaller establishments</li>
-                    <li><strong>Translation:</strong> Bring a translation app for menu reading (Google Translate camera mode)</li>
-                    <li><strong>Tipping:</strong> Not customary in mainland China - may even be refused</li>
-                    <li><strong>Hours:</strong> Lunch 11-2 PM, Dinner 5-9 PM. Dim sum starts as early as 6 AM!</li>
-                    <li><strong>Local crowds:</strong> Eat where locals eat for authentic, better-value meals</li>
-                    <li><strong>Tea culture:</strong> Hot water/tea is standard - request cold drinks if needed</li>
-                    <li><strong>Sharing:</strong> Chinese dining is communal - dishes are shared family-style</li>
+                    <li><strong>Reservations | จองโต๊ะ:</strong> Book popular restaurants in advance, especially for NYE in Shanghai<br>
+                    <span style="color: #888; font-size: 0.9em;">จองร้านดังล่วงหน้า โดยเฉพาะคืนปีใหม่ที่เซี่ยงไฮ้</span></li>
+                    <li><strong>Payment | การจ่ายเงิน:</strong> WeChat Pay/Alipay accepted everywhere; cash at smaller establishments<br>
+                    <span style="color: #888; font-size: 0.9em;">รับ WeChat Pay/Alipay ทุกที่ ร้านเล็กอาจใช้เงินสด</span></li>
+                    <li><strong>Translation | แปลภาษา:</strong> Bring a translation app for menu reading (Google Translate camera mode)<br>
+                    <span style="color: #888; font-size: 0.9em;">เตรียมแอปแปลภาษาไว้อ่านเมนู (โหมดกล้อง Google Translate)</span></li>
+                    <li><strong>Tipping | ทิป:</strong> Not customary in mainland China - may even be refused<br>
+                    <span style="color: #888; font-size: 0.9em;">ไม่นิยมให้ทิปในจีน อาจถูกปฏิเสธ</span></li>
+                    <li><strong>Hours | เวลาเปิด:</strong> Lunch 11-2 PM, Dinner 5-9 PM. Dim sum starts as early as 6 AM!<br>
+                    <span style="color: #888; font-size: 0.9em;">กลางวัน 11-14 น., เย็น 17-21 น. ติ่มซำเริ่ม 6 โมงเช้า!</span></li>
+                    <li><strong>Local crowds | ตามคนท้องถิ่น:</strong> Eat where locals eat for authentic, better-value meals<br>
+                    <span style="color: #888; font-size: 0.9em;">กินตามที่คนท้องถิ่นกิน อาหารแท้และคุ้มค่ากว่า</span></li>
+                    <li><strong>Tea culture | วัฒนธรรมชา:</strong> Hot water/tea is standard - request cold drinks if needed<br>
+                    <span style="color: #888; font-size: 0.9em;">น้ำร้อน/ชาร้อนเป็นมาตรฐาน ขอเครื่องดื่มเย็นได้</span></li>
+                    <li><strong>Sharing | แบ่งกันกิน:</strong> Chinese dining is communal - dishes are shared family-style<br>
+                    <span style="color: #888; font-size: 0.9em;">การกินแบบจีนคือแชร์กัน อาหารแบ่งกันทั้งโต๊ะ</span></li>
                 </ul>
             </div>
         </section>
@@ -724,6 +783,17 @@
         function toggleMobileMenu() {
             const menu = document.getElementById('navMenu');
             menu.classList.toggle('mobile-open');
+        }
+
+        function toggleLanguage() {
+            const body = document.body;
+            const btn = document.querySelector('.lang-toggle');
+            body.classList.toggle('show-thai');
+            if (body.classList.contains('show-thai')) {
+                btn.innerHTML = '🇬🇧 English';
+            } else {
+                btn.innerHTML = '🇹🇭 ไทย';
+            }
         }
     </script>
 

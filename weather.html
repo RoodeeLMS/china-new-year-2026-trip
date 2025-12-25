@@ -882,7 +882,7 @@
             if (!coords) return null;
 
             try {
-                const url = `https://api.open-meteo.com/v1/forecast?latitude=${coords.lat}&longitude=${coords.lon}&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max,wind_speed_10m_max,uv_index_max&timezone=Asia/Shanghai`;
+                const url = `https://api.open-meteo.com/v1/forecast?latitude=${coords.lat}&longitude=${coords.lon}&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max,wind_speed_10m_max,uv_index_max,sunrise,sunset&timezone=Asia/Shanghai`;
 
                 console.log(`Trying Open-Meteo for ${city}`);
                 const response = await fetch(url);
@@ -902,6 +902,14 @@
                         };
                         const code = data.daily.weather_code[dateIndex];
                         console.log(`✅ Open-Meteo success for ${date}`);
+                        // Format sunrise/sunset times
+                        const sunrise = data.daily.sunrise ? data.daily.sunrise[dateIndex] : null;
+                        const sunset = data.daily.sunset ? data.daily.sunset[dateIndex] : null;
+                        const formatTime = (isoTime) => {
+                            if (!isoTime) return '--';
+                            const d = new Date(isoTime);
+                            return d.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: false });
+                        };
                         return {
                             tempMax: Math.round(data.daily.temperature_2m_max[dateIndex]),
                             tempMin: Math.round(data.daily.temperature_2m_min[dateIndex]),
@@ -912,6 +920,8 @@
                             windSpeedDay: Math.round(data.daily.wind_speed_10m_max[dateIndex]),
                             windDirDay: '',
                             uvIndex: Math.round(data.daily.uv_index_max[dateIndex]),
+                            sunrise: formatTime(sunrise),
+                            sunset: formatTime(sunset),
                             // Add metadata about the source
                             _source: 'Open-Meteo',
                             _locationQuery: `${city} (${coords.lat}, ${coords.lon})`,
@@ -1134,6 +1144,8 @@
                         <div class="day-summary">${dayInfo.summary}</div>
                         <div class="day-weather-extra">
                             <span title="Humidity">💦 Humidity: ${humidity}</span>
+                            <span title="Sunrise">🌅 ${weatherData && weatherData.sunrise ? weatherData.sunrise : '--'}</span>
+                            <span title="Sunset">🌇 ${weatherData && weatherData.sunset ? weatherData.sunset : '--'}</span>
                         </div>
                         <div class="weather-source">
                             ${weatherData && weatherData._source
